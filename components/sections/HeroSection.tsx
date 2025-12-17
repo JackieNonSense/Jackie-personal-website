@@ -58,7 +58,7 @@ export default function HeroSection() {
       <div ref={contentRef} className="relative z-10 text-center select-none pointer-events-auto">
         <div className="h-[200px]" />
         <p className="mt-8 font-body font-normal text-metal-steel tracking-[0.3em] uppercase text-sm md:text-base">
-          Creative Developer & Designer
+          Making stuff that works
         </p>
       </div>
     </section>

@@ -43,11 +43,6 @@ export default function Header() {
           )}
         </div>
       </nav>
-
-      <div className="flex items-center gap-2 text-xs font-medium tracking-wider uppercase text-metal-chrome">
-        <span className="w-2 h-2 rounded-full bg-metal-chrome shadow-[0_0_10px_rgba(232,232,232,0.5)] animate-pulse" />
-        Available for Internship & Job · Sydney
-      </div>
     </header>
   );
 }
