@@ -11,6 +11,7 @@ export default function ThreeProvider({ children }: { children: React.ReactNode 
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
         camera={{ position: [0, 0, 5], fov: 75 }}
+        frameloop="always"
       >
         <Suspense fallback={null}>
           {children}
@@ -19,3 +20,4 @@ export default function ThreeProvider({ children }: { children: React.ReactNode 
     </div>
   );
 }
+
