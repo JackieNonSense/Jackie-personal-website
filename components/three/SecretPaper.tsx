@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useState, useMemo } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Mesh, CanvasTexture } from "three";
-import { animated, useSpring } from "@react-spring/three";
+import { Mesh, MeshStandardMaterial, CanvasTexture, DoubleSide } from "three";
+import { useSpring } from "@react-spring/three";
 
 interface SecretPaperProps {
   isOpen: boolean;
@@ -93,6 +93,7 @@ function createPaperTexture(): CanvasTexture {
 
 export default function SecretPaper({ isOpen, onClose, position = [0, 0, 0] }: SecretPaperProps) {
   const meshRef = useRef<Mesh>(null);
+  const materialRef = useRef<MeshStandardMaterial>(null);
   const [texture, setTexture] = useState<CanvasTexture | null>(null);
 
   // Create texture on mount (client-side only)
@@ -100,7 +101,7 @@ export default function SecretPaper({ isOpen, onClose, position = [0, 0, 0] }: S
     setTexture(createPaperTexture());
   }, []);
 
-  // Spring animation for scale and rotation
+  // Spring animation values
   const { scale, rotationZ, opacity } = useSpring({
     scale: isOpen ? 1 : 0,
     rotationZ: isOpen ? 0 : Math.PI * 2,
@@ -111,33 +112,48 @@ export default function SecretPaper({ isOpen, onClose, position = [0, 0, 0] }: S
     },
   });
 
-  // Subtle hover animation
+  // Apply spring values manually in useFrame
   useFrame((state) => {
-    if (meshRef.current && isOpen) {
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.05;
+    if (meshRef.current) {
+      // Apply scale
+      const s = scale.get();
+      meshRef.current.scale.set(s, s, s);
+
+      // Apply rotation
+      meshRef.current.rotation.z = rotationZ.get();
+
+      // Subtle hover animation when open
+      if (isOpen) {
+        meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.05;
+      }
+    }
+
+    // Apply opacity to material
+    if (materialRef.current) {
+      materialRef.current.opacity = opacity.get();
     }
   });
 
   if (!texture) return null;
 
   return (
-    <animated.mesh
+    <mesh
       ref={meshRef}
       position={position}
-      scale={scale}
-      rotation-z={rotationZ}
       onClick={(e) => {
         e.stopPropagation();
         onClose?.();
       }}
     >
       <planeGeometry args={[1.5, 1.5]} />
-      <animated.meshStandardMaterial
+      <meshStandardMaterial
+        ref={materialRef}
         map={texture}
         transparent
-        opacity={opacity}
-        side={2} // DoubleSide
+        opacity={0}
+        side={DoubleSide}
       />
-    </animated.mesh>
+    </mesh>
   );
 }
+
