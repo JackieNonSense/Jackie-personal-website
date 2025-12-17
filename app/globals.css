@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+
+:root {
+  /* Core Palette */
+  --bg-void: #000000;
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+
+  /* Metal Palette */
+  --metal-chrome: #e8e8e8;
+  --metal-silver: #c0c0c0;
+  --metal-steel: #71797E;
+
+  /* CRT Palette */
+  --crt-green: #33ff33;
+  --crt-amber: #ffb000;
+
+  /* Gradients */
+  --gradient-chrome: linear-gradient(135deg, #e8e8e8 0%, #a8a8a8 50%, #e8e8e8 100%);
+}
+
+@theme inline {
+  --color-void: var(--bg-void);
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-secondary);
+
+  --color-metal-chrome: var(--metal-chrome);
+  --color-metal-silver: var(--metal-silver);
+  --color-metal-steel: var(--metal-steel);
+
+  --color-crt-green: var(--crt-green);
+  --color-crt-amber: var(--crt-amber);
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-sora), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
+
+  --animate-glitch: glitch 4s infinite;
+}
+
+body {
+  background: var(--bg-void);
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+@keyframes glitch {
+  0%, 85%, 100% { transform: translate(0); }
+  86% { transform: translate(-4px, 1px); }
+  88% { transform: translate(4px, -1px); }
+  90% { transform: translate(-2px, 2px); }
+}
