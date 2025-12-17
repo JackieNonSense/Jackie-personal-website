@@ -77,7 +77,7 @@ export default function AboutSection() {
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div ref={textRef} className="space-y-8 font-body text-metal-silver text-lg md:text-xl leading-relaxed">
           <p>
-            A recent <span className="text-white font-medium">UNSW graduate</span> with an insatiable curiosity for <span className="text-white font-medium">technology</span> and all things interesting.
+            A  <span className="text-white font-medium">UNSW graduate</span> with an insatiable curiosity for technology and all things interesting.
           </p>
           <p>
             From crafting immersive web experiences to exploring the intersection of design and code, I'm driven by the joy of building things that feel alive and meaningful.
@@ -93,8 +93,8 @@ export default function AboutSection() {
         {/* 3D Floating Card */}
         <div ref={cardRef}>
           <FloatingCard
-            imageSrc="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop"
-            alt="Featured work"
+            imageSrc="/about-avatar.jpg"
+            alt="Jackie - Pixel Art Avatar"
           />
         </div>
       </div>

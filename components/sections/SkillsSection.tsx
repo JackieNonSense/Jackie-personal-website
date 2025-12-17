@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"],
+    skills: ["JavaScript", "TypeScript", "Python", "Java", "C", "SQL"],
     color: "from-blue-500/20 to-cyan-500/20",
   },
   {
@@ -31,7 +31,7 @@ const skillCategories = [
   },
   {
     title: "Creative & AI",
-    skills: ["Unreal Engine 5", "Figma", "AI Workflows", "MCP", "Photoshop"],
+    skills: ["Unreal Engine 5", "Figma", "AI Workflows", "MCP", "Computer Vision", "LLM Training"],
     color: "from-green-500/20 to-emerald-500/20",
   },
 ];
