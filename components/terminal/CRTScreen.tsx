@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 // ==================== TYPES ====================
-type BootPhase = 'logo' | 'pressEnter' | 'password' | 'verifying' | 'loading' | 'welcome' | 'ready';
+type BootPhase = 'logo' | 'pressEnter' | 'password' | 'verifying' | 'loading' | 'welcome' | 'ready' | 'locked';
 type ViewType = 'menu' | 'mail-list' | 'mail-read' | 'files' | 'file-view' | 'logs' | 'system' | 'game';
 
 interface Mail {
@@ -360,7 +360,13 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
         if (inputBuffer.toLowerCase() === CORRECT_PASSWORD) {
           setState(p => ({ ...p, bootPhase: 'verifying', loadingProgress: 0 }));
         } else {
-          setState(p => ({ ...p, passwordAttempts: p.passwordAttempts + 1, inputBuffer: "" }));
+          const newAttempts = stateRef.current.passwordAttempts + 1;
+          if (newAttempts >= 3) {
+            // Lock after 3 failed attempts
+            setState(p => ({ ...p, bootPhase: 'locked', passwordAttempts: newAttempts, inputBuffer: "" }));
+          } else {
+            setState(p => ({ ...p, passwordAttempts: newAttempts, inputBuffer: "" }));
+          }
         }
       } else if (e.key === 'Backspace') {
         setState(p => ({ ...p, inputBuffer: p.inputBuffer.slice(0, -1) }));
@@ -596,6 +602,41 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
       }
       y += 30;
       ctx.fillText("> " + "*".repeat(inputBuffer.length) + (cursorVisible ? "_" : " "), 40, y);
+    }
+    // LOCKED state - retro alarm animation
+    else if (bootPhase === 'locked') {
+      ctx.textAlign = 'center';
+      y = 120;
+
+      // Alternating red/dark red for retro flicker
+      const isFlash = cursorVisible;
+
+      ctx.fillStyle = isFlash ? '#ff0000' : '#880000';
+      ctx.shadowColor = isFlash ? '#ff0000' : '#880000';
+      ctx.shadowBlur = isFlash ? 15 : 5;
+
+      ctx.font = 'bold 14px monospace';
+      ctx.fillText("*** SECURITY ALERT ***", 256, y);
+      y += 50;
+
+      ctx.font = 'bold 22px monospace';
+      ctx.fillText("ACCESS DENIED", 256, y);
+      y += 50;
+
+      ctx.font = '12px monospace';
+      ctx.fillStyle = isFlash ? '#ff4444' : '#660000';
+      ctx.fillText("TERMINAL LOCKED", 256, y);
+      y += 50;
+
+      // Blinking INTRUDER ALERT with ASCII style
+      if (isFlash) {
+        ctx.fillStyle = '#ff0000';
+        ctx.font = 'bold 14px monospace';
+        ctx.fillText(">>> INTRUDER ALERT <<<", 256, y);
+      }
+
+      ctx.shadowBlur = 3;
+      ctx.textAlign = 'left';
     }
     // Verifying password phase - scrolling terminal effect
     else if (bootPhase === 'verifying') {
