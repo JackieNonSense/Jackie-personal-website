@@ -28,6 +28,5 @@ export function useGsap(
     if (!scope.current) return;
     const ctx = gsap.context((self) => fnRef.current(self), scope);
     return () => ctx.revert();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope]);
 }

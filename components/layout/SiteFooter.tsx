@@ -9,9 +9,11 @@ export default function SiteFooter() {
   const [stamp, setStamp] = useState("--------");
 
   useEffect(() => {
-    setVisitor(String(Math.floor(Math.random() * 9000) + 1000));
-    const d = new Date();
-    setStamp(d.toISOString().replace("T", " ").slice(0, 19));
+    const t = setTimeout(() => {
+      setVisitor(String(Math.floor(Math.random() * 9000) + 1000));
+      setStamp(new Date().toISOString().replace("T", " ").slice(0, 19));
+    }, 0);
+    return () => clearTimeout(t);
   }, []);
 
   return (

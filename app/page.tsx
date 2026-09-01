@@ -12,6 +12,8 @@ import UplinkSection from "@/components/sections/UplinkSection";
 import SiteFooter from "@/components/layout/SiteFooter";
 import CrtOverlay from "@/components/fx/CrtOverlay";
 import Ticker from "@/components/fx/Ticker";
+import BootSequence from "@/components/fx/BootSequence";
+import Cursor from "@/components/fx/Cursor";
 
 const HeroScene = dynamic(() => import("@/components/three/HeroScene"), {
   ssr: false,
@@ -51,6 +53,8 @@ export default function Home() {
         <SiteFooter />
       </div>
 
+      <BootSequence />
+      <Cursor />
       <CrtOverlay />
     </main>
   );

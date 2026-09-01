@@ -15,7 +15,8 @@ export default function HeroScene({ scrollRef }: HeroSceneProps) {
 
   useEffect(() => {
     // Static black ground for reduced-motion users; the DOM carries the design.
-    setEnabled(!prefersReducedMotion());
+    const t = setTimeout(() => setEnabled(!prefersReducedMotion()), 0);
+    return () => clearTimeout(t);
   }, []);
 
   if (!enabled) return null;

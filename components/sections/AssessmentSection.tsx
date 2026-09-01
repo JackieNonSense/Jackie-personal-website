@@ -103,7 +103,7 @@ export default function AssessmentSection() {
       {/* Decorative element with hidden easter egg */}
       <div className="relative z-10 mt-16 flex items-center justify-center gap-4">
         <p className="font-mono text-xs text-phos-dim/70">
-          // always learning, always building
+          {"// always learning, always building"}
         </p>
         {/* Secret Key Easter Egg */}
         <div className="relative w-12 h-12">

@@ -35,13 +35,12 @@ export default function DitherImage({
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    let cancelled = false;
     const ctx = canvas.getContext("2d");
     if (!ctx) {
-      setFailed(true);
-      return;
+      const t = setTimeout(() => setFailed(true), 0);
+      return () => clearTimeout(t);
     }
-
-    let cancelled = false;
     const img = new Image();
     img.src = src;
 

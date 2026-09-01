@@ -39,7 +39,6 @@ export default function Scramble({
       return;
     }
 
-    let raf = 0;
     let interval: ReturnType<typeof setInterval> | null = null;
 
     const run = () => {
@@ -78,7 +77,6 @@ export default function Scramble({
     return () => {
       io.disconnect();
       if (interval) clearInterval(interval);
-      cancelAnimationFrame(raf);
     };
   }, [text, speed]);
 

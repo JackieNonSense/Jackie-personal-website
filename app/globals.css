@@ -69,6 +69,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide native cursor when the crosshair is active (main page, desktop) */
+.custom-cursor,
+.custom-cursor a,
+.custom-cursor button {
+  cursor: none;
+}
+
 /* ── Texture layers ───────────────────────────────── */
 
 .scanlines {
