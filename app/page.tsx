@@ -6,7 +6,7 @@ import { useGsap, ScrollTrigger } from "@/lib/motion";
 import TabBar from "@/components/layout/TabBar";
 import HeroSection from "@/components/sections/HeroSection";
 import SubjectSection from "@/components/sections/SubjectSection";
-import SkillsSection from "@/components/sections/SkillsSection";
+import AssessmentSection from "@/components/sections/AssessmentSection";
 import ContactSection from "@/components/sections/ContactSection";
 import CrtOverlay from "@/components/fx/CrtOverlay";
 
@@ -40,7 +40,7 @@ export default function Home() {
         <TabBar />
         <HeroSection />
         <SubjectSection />
-        <SkillsSection />
+        <AssessmentSection />
         <ContactSection />
       </div>
 
