@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useGsap, gsap, prefersReducedMotion } from "@/lib/motion";
 import Panel from "@/components/ui/Panel";
+import SafeMount from "@/components/fx/SafeMount";
 import Scramble from "@/components/fx/Scramble";
 import { skillCategories } from "@/lib/dossier";
 
@@ -107,7 +108,9 @@ export default function AssessmentSection() {
         </p>
         {/* Secret Key Easter Egg */}
         <div className="relative w-12 h-12">
-          <SecretKeyScene />
+          <SafeMount>
+            <SecretKeyScene />
+          </SafeMount>
         </div>
       </div>
     </section>

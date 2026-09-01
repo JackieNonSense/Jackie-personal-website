@@ -21,6 +21,7 @@ const fragmentShader = /* glsl */ `
   uniform vec3 uColorB;
   uniform float uScroll;
   uniform float uAspect;
+  uniform float uIntensity;
 
   float hash(float n) { return fract(sin(n) * 43758.5453123); }
 
@@ -80,7 +81,7 @@ const fragmentShader = /* glsl */ `
     float glow = exp(-d * 4.0) * 0.35;
     float bright = field * (dotMask * 0.95 + glow);
 
-    vec3 col = mix(uColorA, uColorB, smoothstep(0.55, 1.0, field)) * bright;
+    vec3 col = mix(uColorA, uColorB, smoothstep(0.55, 1.0, field)) * bright * uIntensity;
     // Subtle global CRT flicker
     col *= 0.96 + 0.04 * hash(floor(uTime * 24.0));
 
@@ -112,6 +113,7 @@ export default function DotMatrixField({ scrollRef }: DotMatrixFieldProps) {
       uColorB: { value: new THREE.Color("#b8ff2e") },
       uScroll: { value: 0 },
       uAspect: { value: size.width / size.height },
+      uIntensity: { value: isMobile ? 0.45 : 0.85 },
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
