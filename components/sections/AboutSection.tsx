@@ -3,7 +3,6 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import FloatingCard from "@/components/ui/FloatingCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -92,10 +91,8 @@ export default function AboutSection() {
 
         {/* 3D Floating Card */}
         <div ref={cardRef}>
-          <FloatingCard
-            imageSrc="/about-avatar.jpg"
-            alt="Jackie - Pixel Art Avatar"
-          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/about-avatar.jpg" alt="Jackie - Pixel Art Avatar" className="rounded-2xl" />
         </div>
       </div>
     </section>
