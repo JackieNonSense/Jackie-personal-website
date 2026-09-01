@@ -7,8 +7,11 @@ import TabBar from "@/components/layout/TabBar";
 import HeroSection from "@/components/sections/HeroSection";
 import SubjectSection from "@/components/sections/SubjectSection";
 import AssessmentSection from "@/components/sections/AssessmentSection";
-import ContactSection from "@/components/sections/ContactSection";
+import CaseFilesSection from "@/components/sections/CaseFilesSection";
+import UplinkSection from "@/components/sections/UplinkSection";
+import SiteFooter from "@/components/layout/SiteFooter";
 import CrtOverlay from "@/components/fx/CrtOverlay";
+import Ticker from "@/components/fx/Ticker";
 
 const HeroScene = dynamic(() => import("@/components/three/HeroScene"), {
   ssr: false,
@@ -39,9 +42,13 @@ export default function Home() {
       <div className="relative z-10">
         <TabBar />
         <HeroSection />
+        <Ticker />
         <SubjectSection />
         <AssessmentSection />
-        <ContactSection />
+        <Ticker reverse />
+        <CaseFilesSection />
+        <UplinkSection />
+        <SiteFooter />
       </div>
 
       <CrtOverlay />
