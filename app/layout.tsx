@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Sora, IBM_Plex_Mono } from "next/font/google";
+import { VT323, Chakra_Petch, IBM_Plex_Mono, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const vt323 = VT323({
+  variable: "--font-vt323",
+  weight: "400",
   subsets: ["latin"],
 });
 
-const sora = Sora({
-  variable: "--font-sora",
+const chakraPetch = Chakra_Petch({
+  variable: "--font-chakra",
+  weight: ["300", "700"],
   subsets: ["latin"],
 });
 
@@ -18,9 +20,16 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
 });
 
+const notoSansSC = Noto_Sans_SC({
+  variable: "--font-noto-sc",
+  weight: "400",
+  subsets: ["latin"],
+  preload: false,
+});
+
 export const metadata: Metadata = {
-  title: "Jackie's Portfolio",
-  description: "A dark, cyberpunk 3D journey.",
+  title: "YUCHAO WANG — SUBJECT FILE",
+  description: "Recovered dossier A-34. JR Industries archive. Access restricted.",
 };
 
 export default function RootLayout({
@@ -31,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${sora.variable} ${ibmPlexMono.variable} antialiased`}
+        className={`${vt323.variable} ${chakraPetch.variable} ${ibmPlexMono.variable} ${notoSansSC.variable} antialiased`}
       >
         {children}
       </body>
