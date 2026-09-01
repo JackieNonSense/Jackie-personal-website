@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import dynamic from "next/dynamic";
 import { useGsap, ScrollTrigger } from "@/lib/motion";
-import Header from "@/components/layout/Header";
+import TabBar from "@/components/layout/TabBar";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import SkillsSection from "@/components/sections/SkillsSection";
@@ -37,7 +37,7 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        <Header />
+        <TabBar />
         <HeroSection />
         <AboutSection />
         <SkillsSection />
