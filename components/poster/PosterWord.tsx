@@ -32,7 +32,7 @@ export default function PosterWord({ word, artId, bleed, size = 25 }: PosterWord
         className="xerox-grain select-none whitespace-nowrap"
         style={{
           fontFamily: "var(--font-anton), 'Arial Black', sans-serif",
-          fontSize: `${size}vw`,
+          fontSize: `max(${size}vw, ${Math.round(size * 1.05)}vh)`,
           lineHeight: 0.82,
           letterSpacing: "0.01em",
           transform: "scaleY(1.22)",
