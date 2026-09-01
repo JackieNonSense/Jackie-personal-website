@@ -97,6 +97,40 @@ function noise(
   src.start(t);
 }
 
+// ── continuous scrub bed (radio-static noise, velocity-driven) ──
+let scrubNodes: {
+  gain: GainNode;
+  filter: BiquadFilterNode;
+  rumble: OscillatorNode;
+  rumbleGain: GainNode;
+} | null = null;
+
+function ensureScrubBed() {
+  const c = ensureCtx();
+  if (!c || !master) return null;
+  if (scrubNodes) return scrubNodes;
+  const src = c.createBufferSource();
+  src.buffer = noiseBuf(c, 2);
+  src.loop = true;
+  const filter = c.createBiquadFilter();
+  filter.type = "bandpass";
+  filter.Q.value = 1.2;
+  filter.frequency.value = 800;
+  const gain = c.createGain();
+  gain.gain.value = 0;
+  src.connect(filter).connect(gain).connect(master);
+  src.start();
+  const rumble = c.createOscillator();
+  rumble.type = "sine";
+  rumble.frequency.value = 55;
+  const rumbleGain = c.createGain();
+  rumbleGain.gain.value = 0;
+  rumble.connect(rumbleGain).connect(master);
+  rumble.start();
+  scrubNodes = { gain, filter, rumble, rumbleGain };
+  return scrubNodes;
+}
+
 export const sfx = {
   click() {
     osc("square", 1800, 1200, 0.04, 0.5);
@@ -131,5 +165,39 @@ export const sfx = {
   },
   windowClose() {
     osc("square", 900, 500, 0.08, 0.3);
+  },
+
+  /** velocity-driven radio-static while scrubbing the signal */
+  scrubUpdate(vel: number) {
+    if (isMuted()) return;
+    const nodes = ensureScrubBed();
+    const c = ctx;
+    if (!nodes || !c) return;
+    const v = Math.min(Math.abs(vel), 40) / 40;
+    const t = c.currentTime;
+    nodes.filter.frequency.setTargetAtTime(300 + v * 2500, t, 0.04);
+    nodes.gain.gain.setTargetAtTime(v * 0.22, t, 0.05);
+    nodes.rumble.frequency.setTargetAtTime(55 + v * 120, t, 0.05);
+    nodes.rumbleGain.gain.setTargetAtTime(v * 0.05, t, 0.05);
+  },
+  scrubEnd() {
+    const c = ctx;
+    if (!scrubNodes || !c) return;
+    const t = c.currentTime;
+    scrubNodes.gain.gain.setTargetAtTime(0, t, 0.12);
+    scrubNodes.rumbleGain.gain.setTargetAtTime(0, t, 0.12);
+  },
+  /** short fiber-crackle burst while tearing; intensity 0..1 */
+  tearGrain(i: number) {
+    noise(0.08 + Math.random() * 0.06, "bandpass", 2400, 1400, 0.25 + Math.min(i, 1) * 0.45);
+  },
+  /** the full rip-open whoosh */
+  tearOpen() {
+    noise(0.5, "lowpass", 2200, 180, 0.5);
+    osc("sawtooth", 220, 50, 0.5, 0.35);
+  },
+  snapClose() {
+    noise(0.12, "bandpass", 3000, 2400, 0.5);
+    osc("triangle", 700, 400, 0.09, 0.4);
   },
 };

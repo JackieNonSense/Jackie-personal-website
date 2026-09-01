@@ -1,12 +1,12 @@
 "use client";
 
-import RoomScene from "@/components/room/RoomScene";
+import PosterExperience from "@/components/poster/PosterExperience";
 import Cursor from "@/components/fx/Cursor";
 
 export default function Home() {
   return (
     <>
-      <RoomScene />
+      <PosterExperience />
       <Cursor />
     </>
   );

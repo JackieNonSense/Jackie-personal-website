@@ -1,124 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm late-night paper palette (lamp on) */
-  --paper: #f3ecd9;
-  --paper-dim: #e4d9bf;
-  --ink: #3b3630;
-  --ink-soft: #6b6153;
-  --wood: #7a5c3e;
-  --wood-dark: #4e3a26;
-  --night: #1c2233;
-  --night-deep: #121724;
-  --amber: #ffb454;
-  --amber-soft: rgba(255, 180, 84, 0.35);
-  --room-wall: #2c3046;
-  --room-floor: #3a2e22;
-
-  /* JR-OS layer (kept phosphor DNA) */
-  --phos-500: #33ff33;
-  --phos-dim: #22aa22;
-  --crt-black: #061006;
-}
-
-/* Lamp off: the room sinks into blue night */
-[data-lit="off"] {
-  --paper: #b6b3ae;
-  --paper-dim: #918d85;
-  --ink: #23212c;
-  --ink-soft: #4a4756;
-  --wood: #46405c;
-  --wood-dark: #2c2840;
-  --amber: #4a5a8a;
-  --amber-soft: rgba(90, 110, 170, 0.18);
-  --room-wall: #171b2c;
-  --room-floor: #14121e;
+  /* Xerox poster palette */
+  --x-black: #0a0a0a;
+  --x-deep: #050505;
+  --x-white: #e8e4da;
+  --x-grey: #9a968c;
+  --x-dim: #55524b;
+  --phos: #33ff33;
+  --phos-bright: #ccffcc;
+  --blue-ink: #2b4bd7;
+  --blue-soft: #4a63c4;
+  --warn: #ff2b2b;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-dim: var(--paper-dim);
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-wood: var(--wood);
-  --color-wood-dark: var(--wood-dark);
-  --color-night: var(--night);
-  --color-night-deep: var(--night-deep);
-  --color-amber: var(--amber);
-  --color-room-wall: var(--room-wall);
-  --color-room-floor: var(--room-floor);
-  --color-phos-500: var(--phos-500);
-  --color-phos-dim: var(--phos-dim);
-  --color-crt-black: var(--crt-black);
+  --color-x-black: var(--x-black);
+  --color-x-deep: var(--x-deep);
+  --color-x-white: var(--x-white);
+  --color-x-grey: var(--x-grey);
+  --color-x-dim: var(--x-dim);
+  --color-phos: var(--phos);
+  --color-phos-bright: var(--phos-bright);
+  --color-blue-ink: var(--blue-ink);
+  --color-blue-soft: var(--blue-soft);
+  --color-warn: var(--warn);
 
-  --font-hand-display: var(--font-hand-display), cursive;
-  --font-hand: var(--font-hand), cursive;
-  --font-type: var(--font-type), monospace;
-  --font-hand-cn: var(--font-hand-cn), "Ma Shan Zheng", cursive;
+  --font-poster: var(--font-anton), "Arial Black", sans-serif;
   --font-mono: var(--font-ibm-plex-mono), monospace;
   --font-display: var(--font-vt323), monospace;
 }
 
 body {
-  background: var(--night-deep);
-  color: var(--ink);
-  font-family: var(--font-hand), cursive;
+  background: var(--x-deep);
+  color: var(--x-white);
+  font-family: var(--font-ibm-plex-mono), monospace;
+  overflow: hidden;
 }
 
 ::selection {
-  background: var(--amber);
-  color: var(--ink);
+  background: var(--phos);
+  color: #000;
 }
 
-/* Hide native cursor when the pencil cursor is active (desktop only) */
+/* Hide native cursor when the crosshair cursor is active (desktop only) */
 .custom-cursor,
 .custom-cursor a,
 .custom-cursor button {
   cursor: none;
 }
 
-/* ── Paper / handmade utilities ───────────────────── */
+/* ── Xerox texture utilities ─────────────────────── */
 
-.paper-grain {
-  position: relative;
-}
-.paper-grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  opacity: 0.06;
-  mix-blend-mode: multiply;
-}
-
-.hand-label {
-  font-family: var(--font-hand-display), cursive;
-  color: var(--ink);
-  background: var(--paper);
-  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.25);
-}
-
-.wobble,
-.wobble-slow {
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* ── CRT layer (JR-OS / kept from v2 for CrtOverlay) ─ */
-
-.scanlines {
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0px,
-    rgba(0, 0, 0, 0) 2px,
-    rgba(0, 0, 0, 0.18) 3px
-  );
-}
-
+/* film grain overlay (animated 2-frame shift) */
 .noise {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: noise-shift 0.4s steps(2) infinite;
+  animation: noise-shift 0.45s steps(2) infinite;
 }
 
 @keyframes noise-shift {
@@ -127,27 +64,26 @@ body {
   100% { background-position: 0 0; }
 }
 
+/* coarse photocopy grain for inside the letterforms / paper */
+.xerox-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='x'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0.4 0.7 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23x)'/%3E%3C/svg%3E");
+}
+
 .crt-vignette {
   background: radial-gradient(
     ellipse at center,
     rgba(0, 0, 0, 0) 55%,
-    rgba(0, 0, 0, 0.55) 100%
+    rgba(0, 0, 0, 0.5) 100%
   );
 }
 
-.sync-bar {
-  background: linear-gradient(
+.scanlines {
+  background: repeating-linear-gradient(
     to bottom,
-    rgba(51, 255, 51, 0) 0%,
-    rgba(51, 255, 51, 0.06) 50%,
-    rgba(51, 255, 51, 0) 100%
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px
   );
-  animation: sync-sweep 7s linear infinite;
-}
-
-@keyframes sync-sweep {
-  0% { transform: translateY(-10vh); }
-  100% { transform: translateY(110vh); }
 }
 
 .crt-flicker {
@@ -162,58 +98,30 @@ body {
   98% { opacity: 1; }
 }
 
-/* ── Room ambience ────────────────────────────────── */
-
-/* Rain streaks inside the window slot */
-.rain {
-  background-image: repeating-linear-gradient(
-    100deg,
-    transparent 0px,
-    transparent 32px,
-    rgba(200, 215, 255, 0.16) 32px,
-    rgba(200, 215, 255, 0.16) 33px,
-    transparent 33px,
-    transparent 60px
-  );
-  animation: rain-fall 0.8s linear infinite;
+/* mono underlined nav/labels from the mockup */
+.sig-label {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  text-underline-offset: 6px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 
-@keyframes rain-fall {
-  0% { background-position: 0 0; }
-  100% { background-position: -12px 64px; }
+.blink {
+  animation: blink 1.4s steps(2) infinite;
 }
 
-/* Lamp light pool */
-.lamp-pool {
-  background: radial-gradient(
-    ellipse 55% 45% at 50% 40%,
-    var(--amber-soft) 0%,
-    rgba(0, 0, 0, 0) 70%
-  );
-  transition: opacity 0.6s ease;
-}
-
-/* Slow color transitions on the whole room when lamp toggles */
-.room-lit-transition,
-.room-lit-transition * {
-  transition:
-    background-color 0.6s ease,
-    color 0.6s ease,
-    filter 0.6s ease,
-    opacity 0.6s ease;
+@keyframes blink {
+  0%, 55% { opacity: 1; }
+  56%, 100% { opacity: 0.25; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .noise,
-  .sync-bar,
   .crt-flicker,
-  .rain {
+  .blink {
     animation: none !important;
-  }
-  .room-lit-transition,
-  .room-lit-transition *,
-  .wobble,
-  .wobble-slow {
-    transition: none !important;
   }
 }
