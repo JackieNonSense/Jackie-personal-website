@@ -22,7 +22,10 @@ export function useGsap(
   scope: RefObject<HTMLElement | null>
 ) {
   const fnRef = useRef(fn);
-  fnRef.current = fn;
+
+  useEffect(() => {
+    fnRef.current = fn;
+  });
 
   useEffect(() => {
     if (!scope.current) return;
