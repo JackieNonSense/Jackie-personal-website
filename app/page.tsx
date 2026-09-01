@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { useGsap, ScrollTrigger } from "@/lib/motion";
 import TabBar from "@/components/layout/TabBar";
 import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
+import SubjectSection from "@/components/sections/SubjectSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import CrtOverlay from "@/components/fx/CrtOverlay";
@@ -39,7 +39,7 @@ export default function Home() {
       <div className="relative z-10">
         <TabBar />
         <HeroSection />
-        <AboutSection />
+        <SubjectSection />
         <SkillsSection />
         <ContactSection />
       </div>
