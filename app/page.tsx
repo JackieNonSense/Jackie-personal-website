@@ -1,40 +1,40 @@
 "use client";
 
-import { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import dynamic from "next/dynamic";
+import { useGsap, ScrollTrigger } from "@/lib/motion";
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ContactSection from "@/components/sections/ContactSection";
+import CrtOverlay from "@/components/fx/CrtOverlay";
 
-gsap.registerPlugin(ScrollTrigger);
+const HeroScene = dynamic(() => import("@/components/three/HeroScene"), {
+  ssr: false,
+});
 
 export default function Home() {
-  useEffect(() => {
-    // Dispatch scroll progress for water background
-    const updateScrollProgress = () => {
-      const scrollY = window.scrollY;
-      const heroHeight = window.innerHeight;
-      const progress = Math.min(scrollY / heroHeight, 1);
+  const mainRef = useRef<HTMLElement>(null);
+  const scrollRef = useRef(0);
 
-      // Dispatch custom event for Scene to use
-      window.dispatchEvent(new CustomEvent('scrollProgress', { detail: progress }));
-    };
-
-    window.addEventListener('scroll', updateScrollProgress);
-    updateScrollProgress();
-
-    return () => {
-      window.removeEventListener('scroll', updateScrollProgress);
-    };
-  }, []);
+  useGsap(() => {
+    // Single source of truth for hero scroll progress, read by the shader.
+    ScrollTrigger.create({
+      start: 0,
+      end: () => window.innerHeight,
+      onUpdate: (self) => {
+        scrollRef.current = self.progress;
+      },
+    });
+  }, mainRef);
 
   return (
-    <main className="relative min-h-screen bg-void text-white selection:bg-crt-green selection:text-black">
-      {/* Blur overlay that activates on scroll */}
-      <div id="blur-overlay" className="fixed inset-0 z-[1] pointer-events-none backdrop-blur-0 bg-black/0 transition-all duration-300" />
+    <main ref={mainRef} className="relative min-h-screen bg-ink text-phos-500 crt-flicker">
+      {/* Phosphor dot-matrix background */}
+      <div className="fixed inset-0 z-0" aria-hidden>
+        <HeroScene scrollRef={scrollRef} />
+      </div>
 
       <div className="relative z-10">
         <Header />
@@ -43,6 +43,8 @@ export default function Home() {
         <SkillsSection />
         <ContactSection />
       </div>
+
+      <CrtOverlay />
     </main>
   );
 }
