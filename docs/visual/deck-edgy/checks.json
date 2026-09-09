@@ -1,0 +1,316 @@
+{
+  "results": [
+    {
+      "step": "standby",
+      "power": "off",
+      "status": "idle",
+      "pose": "0.000",
+      "lit": "0.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "extracting",
+      "power": "on",
+      "status": "playing",
+      "pose": "0.346",
+      "lit": "0.000",
+      "energy": "110.52",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "powered",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "121.75",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "browser-frame-cadence",
+      "samples": 90,
+      "medianMs": 6.099999999998545,
+      "p95Ms": 6.200000000000728,
+      "over50ms": 0,
+      "context": "headless Chromium, local dev server"
+    },
+    {
+      "step": "playing-exchange",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "161.22",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "paused-screen-stays-out",
+      "power": "on",
+      "status": "paused",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "next-while-paused",
+      "power": "on",
+      "status": "paused",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "off",
+      "power": "off",
+      "status": "paused",
+      "pose": "0.000",
+      "lit": "0.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "viewport-390",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "70.32",
+      "css": [
+        346,
+        272.46875
+      ],
+      "buffer": [
+        692,
+        544
+      ],
+      "overflow": false
+    },
+    {
+      "step": "integrated-targets-390",
+      "targets": [
+        {
+          "label": "关闭音乐台",
+          "w": 44,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "暂停音乐",
+          "w": 69.1875,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "下一首",
+          "w": 59.5,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "静音音乐",
+          "w": 44,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "切换显示模式",
+          "w": 44,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "音乐音量",
+          "w": 186.828125,
+          "h": 44.125,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "step": "viewport-1920",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "123.12",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "integrated-targets-1920",
+      "targets": [
+        {
+          "label": "关闭音乐台",
+          "w": 48,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "暂停音乐",
+          "w": 96,
+          "h": 50.390625,
+          "inside": true
+        },
+        {
+          "label": "下一首",
+          "w": 82.546875,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "静音音乐",
+          "w": 58.078125,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "切换显示模式",
+          "w": 55.671875,
+          "h": 44,
+          "inside": true
+        },
+        {
+          "label": "音乐音量",
+          "w": 259.1875,
+          "h": 61.234375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "step": "keyboard-play",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "0.999",
+      "energy": "135.65",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "keyboard-volume",
+      "volume": 26
+    },
+    {
+      "step": "physical-fader",
+      "before": 26,
+      "after": 47
+    },
+    {
+      "step": "touch-play",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "0.999",
+      "energy": "97.55",
+      "css": [
+        346,
+        272.46875
+      ],
+      "buffer": [
+        692,
+        544
+      ],
+      "overflow": false
+    },
+    {
+      "step": "reduced-motion",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        346,
+        272.46875
+      ],
+      "buffer": [
+        692,
+        544
+      ],
+      "overflow": false
+    },
+    {
+      "step": "webgl-fallback",
+      "renderer": "fallback"
+    },
+    {
+      "step": "fallback-controls",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

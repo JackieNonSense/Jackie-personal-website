@@ -1,0 +1,7 @@
+.surface{position:absolute;inset:0;pointer-events:none}
+.stage{position:absolute;inset:0}
+.scene,.fallback{position:absolute;inset:0;width:100%;height:100%}
+.scene canvas,.poster{display:block;width:100%;height:100%}
+.fallbackScreen{position:absolute;left:19%;top:25%;width:62%;color:#88ae83;font:clamp(8px,1vw,11px)/2 'Courier New',monospace;letter-spacing:.02em}
+.fallbackScreen div:first-child{margin-bottom:12px;color:#acc4a0}
+.fallbackScreen div:last-child{margin-top:12px}

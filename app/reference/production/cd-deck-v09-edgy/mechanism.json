@@ -1,0 +1,656 @@
+{
+  "samples": [
+    {
+      "frame": 1,
+      "z": -7.0,
+      "angle": 90
+    },
+    {
+      "frame": 2,
+      "z": -7.0,
+      "angle": 90
+    },
+    {
+      "frame": 3,
+      "z": -7.0,
+      "angle": 90
+    },
+    {
+      "frame": 4,
+      "z": -7.0,
+      "angle": 90
+    },
+    {
+      "frame": 5,
+      "z": -7.0,
+      "angle": 90
+    },
+    {
+      "frame": 6,
+      "z": -6.999215877914952,
+      "angle": 90
+    },
+    {
+      "frame": 7,
+      "z": -6.972296296296296,
+      "angle": 90
+    },
+    {
+      "frame": 8,
+      "z": -6.908648319615912,
+      "angle": 90
+    },
+    {
+      "frame": 9,
+      "z": -6.8104581618655695,
+      "angle": 90
+    },
+    {
+      "frame": 10,
+      "z": -6.679912037037037,
+      "angle": 90
+    },
+    {
+      "frame": 11,
+      "z": -6.519196159122085,
+      "angle": 90
+    },
+    {
+      "frame": 12,
+      "z": -6.330496742112484,
+      "angle": 90
+    },
+    {
+      "frame": 13,
+      "z": -6.116,
+      "angle": 90
+    },
+    {
+      "frame": 14,
+      "z": -5.877892146776406,
+      "angle": 90
+    },
+    {
+      "frame": 15,
+      "z": -5.618359396433471,
+      "angle": 90
+    },
+    {
+      "frame": 16,
+      "z": -5.339587962962963,
+      "angle": 90
+    },
+    {
+      "frame": 17,
+      "z": -5.0437640603566525,
+      "angle": 90
+    },
+    {
+      "frame": 18,
+      "z": -4.733073902606311,
+      "angle": 90
+    },
+    {
+      "frame": 19,
+      "z": -4.409703703703704,
+      "angle": 90
+    },
+    {
+      "frame": 20,
+      "z": -4.075839677640603,
+      "angle": 90
+    },
+    {
+      "frame": 21,
+      "z": -3.7336680384087795,
+      "angle": 90
+    },
+    {
+      "frame": 22,
+      "z": -3.3853750000000007,
+      "angle": 90
+    },
+    {
+      "frame": 23,
+      "z": -3.0331467764060367,
+      "angle": 90
+    },
+    {
+      "frame": 24,
+      "z": -2.6791695816186545,
+      "angle": 90
+    },
+    {
+      "frame": 25,
+      "z": -2.3256296296296295,
+      "angle": 90
+    },
+    {
+      "frame": 26,
+      "z": -1.9747131344307274,
+      "angle": 90
+    },
+    {
+      "frame": 27,
+      "z": -1.6286063100137174,
+      "angle": 90
+    },
+    {
+      "frame": 28,
+      "z": -1.2894953703703695,
+      "angle": 90
+    },
+    {
+      "frame": 29,
+      "z": -0.959566529492454,
+      "angle": 90
+    },
+    {
+      "frame": 30,
+      "z": -0.6410060013717418,
+      "angle": 90
+    },
+    {
+      "frame": 31,
+      "z": -0.3360000000000003,
+      "angle": 90
+    },
+    {
+      "frame": 32,
+      "z": -0.04673473936899786,
+      "angle": 90
+    },
+    {
+      "frame": 33,
+      "z": 0.22460356652949187,
+      "angle": 90
+    },
+    {
+      "frame": 34,
+      "z": 0.4758287037037041,
+      "angle": 90
+    },
+    {
+      "frame": 35,
+      "z": 0.7047544581618661,
+      "angle": 90
+    },
+    {
+      "frame": 36,
+      "z": 0.9091946159122095,
+      "angle": 90
+    },
+    {
+      "frame": 37,
+      "z": 1.0869629629629642,
+      "angle": 90
+    },
+    {
+      "frame": 38,
+      "z": 1.2358732853223593,
+      "angle": 90
+    },
+    {
+      "frame": 39,
+      "z": 1.3537393689986281,
+      "angle": 90
+    },
+    {
+      "frame": 40,
+      "z": 1.4383750000000006,
+      "angle": 90
+    },
+    {
+      "frame": 41,
+      "z": 1.487593964334705,
+      "angle": 90
+    },
+    {
+      "frame": 42,
+      "z": 1.5,
+      "angle": 90
+    },
+    {
+      "frame": 43,
+      "z": 1.5,
+      "angle": 90
+    },
+    {
+      "frame": 44,
+      "z": 1.5,
+      "angle": 90
+    },
+    {
+      "frame": 45,
+      "z": 1.5,
+      "angle": 89.89755071578804
+    },
+    {
+      "frame": 46,
+      "z": 1.5,
+      "angle": 89.48993741095055
+    },
+    {
+      "frame": 47,
+      "z": 1.5,
+      "angle": 88.78655268335709
+    },
+    {
+      "frame": 48,
+      "z": 1.5,
+      "angle": 87.80329822240314
+    },
+    {
+      "frame": 49,
+      "z": 1.5,
+      "angle": 86.55607571748422
+    },
+    {
+      "frame": 50,
+      "z": 1.5,
+      "angle": 85.0607868579958
+    },
+    {
+      "frame": 51,
+      "z": 1.5,
+      "angle": 83.33333333333333
+    },
+    {
+      "frame": 52,
+      "z": 1.5,
+      "angle": 81.38961683289233
+    },
+    {
+      "frame": 53,
+      "z": 1.5,
+      "angle": 79.24553904606825
+    },
+    {
+      "frame": 54,
+      "z": 1.5,
+      "angle": 76.91700166225661
+    },
+    {
+      "frame": 55,
+      "z": 1.5,
+      "angle": 74.41990637085283
+    },
+    {
+      "frame": 56,
+      "z": 1.5,
+      "angle": 71.77015486125245
+    },
+    {
+      "frame": 57,
+      "z": 1.5,
+      "angle": 68.98364882285092
+    },
+    {
+      "frame": 58,
+      "z": 1.5,
+      "angle": 66.07628994504375
+    },
+    {
+      "frame": 59,
+      "z": 1.5,
+      "angle": 63.063979917226405
+    },
+    {
+      "frame": 60,
+      "z": 1.5,
+      "angle": 59.96262042879436
+    },
+    {
+      "frame": 61,
+      "z": 1.5,
+      "angle": 56.78811316914308
+    },
+    {
+      "frame": 62,
+      "z": 1.5,
+      "angle": 53.556359827668096
+    },
+    {
+      "frame": 63,
+      "z": 1.5,
+      "angle": 50.283262093764826
+    },
+    {
+      "frame": 64,
+      "z": 1.5,
+      "angle": 46.984721656828825
+    },
+    {
+      "frame": 65,
+      "z": 1.5,
+      "angle": 43.67664020625552
+    },
+    {
+      "frame": 66,
+      "z": 1.5,
+      "angle": 40.37491943144041
+    },
+    {
+      "frame": 67,
+      "z": 1.5,
+      "angle": 37.095461021778945
+    },
+    {
+      "frame": 68,
+      "z": 1.5,
+      "angle": 33.85416666666666
+    },
+    {
+      "frame": 69,
+      "z": 1.5,
+      "angle": 30.666938055499028
+    },
+    {
+      "frame": 70,
+      "z": 1.5,
+      "angle": 27.549676877671494
+    },
+    {
+      "frame": 71,
+      "z": 1.5,
+      "angle": 24.51828482257953
+    },
+    {
+      "frame": 72,
+      "z": 1.5,
+      "angle": 21.588663579618704
+    },
+    {
+      "frame": 73,
+      "z": 1.5,
+      "angle": 18.776714838184418
+    },
+    {
+      "frame": 74,
+      "z": 1.5,
+      "angle": 16.098340287672176
+    },
+    {
+      "frame": 75,
+      "z": 1.5,
+      "angle": 13.56944161747743
+    },
+    {
+      "frame": 76,
+      "z": 1.5,
+      "angle": 11.205920516995723
+    },
+    {
+      "frame": 77,
+      "z": 1.5,
+      "angle": 9.023678675622499
+    },
+    {
+      "frame": 78,
+      "z": 1.5,
+      "angle": 7.038617782753218
+    },
+    {
+      "frame": 79,
+      "z": 1.5,
+      "angle": 5.266639527783426
+    },
+    {
+      "frame": 80,
+      "z": 1.5,
+      "angle": 3.7236456001085525
+    },
+    {
+      "frame": 81,
+      "z": 1.5,
+      "angle": 2.425537689124094
+    },
+    {
+      "frame": 82,
+      "z": 1.5,
+      "angle": 1.388217484225519
+    },
+    {
+      "frame": 83,
+      "z": 1.5,
+      "angle": 0.6275866748083248
+    },
+    {
+      "frame": 84,
+      "z": 1.5,
+      "angle": 0.15954695026799914
+    },
+    {
+      "frame": 85,
+      "z": 1.5,
+      "angle": 0.0
+    },
+    {
+      "frame": 86,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 87,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 88,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 89,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 90,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 91,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 92,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 93,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 94,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 95,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 96,
+      "z": 1.5,
+      "angle": 0
+    },
+    {
+      "frame": 97,
+      "z": 1.5,
+      "angle": 0
+    }
+  ],
+  "nodes": [
+    "Base",
+    "ScreenCarriage",
+    "ScreenHinge",
+    "FoldedLowerShell",
+    "FoldedLowerShell.001",
+    "FoldedLowerShell.002",
+    "FoldedLowerShell.003",
+    "BaseRoof",
+    "BaseRear",
+    "BaseCheek",
+    "GuideTrack",
+    "SlidingGuide",
+    "DisplayAxle",
+    "BaseCheek.001",
+    "GuideTrack.001",
+    "SlidingGuide.001",
+    "DisplayAxle.001",
+    "FrontConsole",
+    "ExposedSilverEdge",
+    "ExposedSilverEdge.001",
+    "ExposedSilverEdge.002",
+    "ExposedSilverEdge.003",
+    "ExposedSilverEdge.004",
+    "ExposedSilverEdge.005",
+    "ExposedSilverEdge.006",
+    "ExposedSilverEdge.007",
+    "OffsetSpine",
+    "CobaltShoulder",
+    "CobaltWear",
+    "PlaybackSeam",
+    "ExtractionSlot",
+    "SlotTopLip",
+    "OffsetRule",
+    "CobaltCut",
+    "CobaltCut.001",
+    "CobaltCut.002",
+    "CaseEtching",
+    "RecessedFastener",
+    "FastenerSlot",
+    "RecessedFastener.001",
+    "FastenerSlot.001",
+    "RecessedFastener.002",
+    "FastenerSlot.002",
+    "PowerKeySeat",
+    "PowerKey",
+    "PowerKeyLip",
+    "PowerKeyLight",
+    "PlayKeySeat",
+    "PlayKey",
+    "PlayKeyLip",
+    "PlayKeyLight",
+    "NextKeySeat",
+    "NextKey",
+    "NextKeyLip",
+    "NextKeyLight",
+    "MuteKeySeat",
+    "MuteKey",
+    "MuteKeyLip",
+    "MuteKeyLight",
+    "DisplayKeySeat",
+    "DisplayKey",
+    "DisplayKeyLip",
+    "DisplayKeyLight",
+    "VolumeFader",
+    "FaderTrack",
+    "FaderCap",
+    "FaderGrip",
+    "FaderGrip.001",
+    "FaderGrip.002",
+    "FaderGrip.003",
+    "FaderGrip.004",
+    "FaderGrip.005",
+    "VolumeTick",
+    "VolumeTick.001",
+    "VolumeTick.002",
+    "VolumeTick.003",
+    "VolumeTick.004",
+    "VolumeTick.005",
+    "VolumeTick.006",
+    "VolumeTick.007",
+    "VolumeTick.008",
+    "VolumeTick.009",
+    "VolumeTick.010",
+    "VolumeTick.011",
+    "VolumeTick.012",
+    "VolumeTick.013",
+    "VolumeTick.014",
+    "VolumeTick.015",
+    "VolumeTick.016",
+    "VolumeTick.017",
+    "VolumeTick.018",
+    "VolumeTick.019",
+    "VolumeTick.020",
+    "DisplayBack",
+    "DisplayBezel",
+    "GlassEdgeCatch",
+    "DisplayOffsetCheek",
+    "CheekEdge",
+    "DisplayIndex",
+    "DisplayIndex.001",
+    "DisplayIndex.002",
+    "DisplayIndex.003",
+    "OpticalSeal",
+    "DisplaySurface"
+  ],
+  "panel": {
+    "stage": {
+      "width": 20,
+      "height": 15.75,
+      "cameraY": -2
+    },
+    "screenX": -0.55,
+    "keys": [
+      {
+        "id": "power",
+        "node": "PowerKey",
+        "x": -7.2,
+        "y": -4.35,
+        "width": 2,
+        "height": 1.8,
+        "skew": 0
+      },
+      {
+        "id": "play",
+        "node": "PlayKey",
+        "x": -3.6,
+        "y": -4.35,
+        "width": 3.6,
+        "height": 2.1,
+        "skew": 0.2
+      },
+      {
+        "id": "next",
+        "node": "NextKey",
+        "x": 0.35,
+        "y": -4.45,
+        "width": 3.2,
+        "height": 1.7,
+        "skew": 0.12
+      },
+      {
+        "id": "mute",
+        "node": "MuteKey",
+        "x": 3.65,
+        "y": -4.6,
+        "width": 2.3,
+        "height": 1.7,
+        "skew": 0.06
+      },
+      {
+        "id": "display",
+        "node": "DisplayKey",
+        "x": 6.6,
+        "y": -4.65,
+        "width": 2.2,
+        "height": 1.7,
+        "skew": 0.06
+      }
+    ],
+    "volume": {
+      "x": 1.4,
+      "y": -7.2,
+      "width": 10.8,
+      "travel": 9.8
+    }
+  }
+}

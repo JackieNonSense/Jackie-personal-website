@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Proof Six Caps";
+  src: url("/proof/hero-00/fonts/SixCaps.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proof League Gothic";
+  src: url("/proof/hero-00/fonts/LeagueGothic.ttf") format("truetype");
+  font-weight: 400;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+
+.proof {
+  min-height: 100vh;
+  background: #101110;
+  color: #e0e0d9;
+  font: 13px/1.6 Arial, "Microsoft YaHei", sans-serif;
+}
+
+.proof * { box-sizing: border-box; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 18px 28px; border-bottom: 1px solid #363832; }
+.intro { margin-right: auto; }
+.intro p, .notes p { margin: 0; }
+.eyebrow { font: 10px/1.8 "Courier New", monospace; letter-spacing: .12em; color: #b0b6a2; }
+.controls { display: flex; flex-wrap: wrap; gap: 5px; }
+.toolbar button { font: inherit; color: #e0e0d9; background: transparent; border: 1px solid #565b50; padding: 7px 12px; cursor: pointer; }
+.toolbar button[aria-pressed="true"] { color: #101110; background: #d8dfc6; border-color: #d8dfc6; }
+.toolbar button:hover:not(:disabled) { border-color: #d8dfc6; }
+.toolbar button:disabled { opacity: .45; cursor: default; }
+.toolbar button:focus-visible, .toolbar input:focus-visible { outline: 2px solid #c4ff89; outline-offset: 4px; }
+.layers { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; width: 100%; padding: 0; margin: 0; border: 0; color: #bfc3b8; }
+.layers label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+.layers input { accent-color: #bdcca1; }
+.layers:disabled { opacity: .45; }
+.overlayControl { margin-left: auto; }
+.overlayControl input { width: 130px; }
+.overlayControl output { width: 34px; font-variant-numeric: tabular-nums; }
+.stageWrap { padding: 0; }
+.stage { position: relative; width: 100%; max-width: 1586px; aspect-ratio: 1586 / 992; margin: 0 auto; isolation: isolate; overflow: hidden; background: #000; container-type: inline-size; }
+.plate { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: none; object-fit: fill; pointer-events: none; user-select: none; }
+.artwork { mix-blend-mode: screen; }
+.overlay { z-index: 10; }
+.native { overflow: hidden; fill: #d6d5ce; font-weight: 400; font-synthesis: none; }
+.stage[data-type="six-caps"] .native { font-family: "Proof Six Caps", sans-serif; }
+.stage[data-type="league-gothic"] .native { font-family: "Proof League Gothic", sans-serif; font-variation-settings: "wdth" 75; }
+.topName { font-size: 710px; letter-spacing: 14px; }
+.bottomName { font-size: 920px; letter-spacing: 16px; }
+.furniture { position: absolute; inset: 0; color: #dadcd5; font: 1.13cqw/1.2 "Courier New", monospace; letter-spacing: .06em; pointer-events: none; }
+.furniture span { position: absolute; text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; white-space: nowrap; }
+.mark { top: 3.8%; left: 2.15%; }
+.index { top: 3.8%; right: 2.1%; }
+.work { top: 39.1%; left: 2.8%; }
+.about { top: 39.1%; left: 12%; }
+.contact { top: 39.1%; right: 2.8%; }
+.status { top: 39.1%; left: 50%; transform: translateX(-50%); color: #00ef84; font-size: 1.28cqw; }
+.instruction { top: 68.3%; left: 50%; transform: translateX(-50%); font-size: 1.28cqw; }
+.notes { max-width: 1586px; margin: 0 auto; padding: 18px 28px 28px; color: #a7ada0; }
+.notes p + p { margin-top: 7px; }
+.notes strong { color: #e0e0d9; font-weight: 500; }
+@media (max-width: 640px) {
+  .toolbar { padding: 14px 16px; gap: 12px; }
+  .intro { width: 100%; }
+  .layers { gap: 10px 14px; }
+  .overlayControl { width: 100%; margin-left: 0; }
+  .notes { padding: 16px; }
+}

@@ -65,6 +65,14 @@ logs/
 .cache/
 .eslintcache
 
+# Local browser profiles and rendering caches (may contain session data)
+/.edge-*/
+/optix7cache.db
+*.blend1
+
+# Unredacted private reference; use only the approved public copy
+/app/reference/production/hero-00/reference-private-original.png
+
 # Secrets and credentials - NEVER commit!
 *.key
 *.p12

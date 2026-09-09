@@ -1,0 +1,640 @@
+{
+  "status": "Blender design study, not Sony engineering reconstruction or live audio UI",
+  "front": {
+    "width": 18,
+    "height": 10
+  },
+  "screen": {
+    "width": 14.48,
+    "height": 6.49
+  },
+  "samples": [
+    {
+      "frame": 1,
+      "seconds": 0.0,
+      "extension": 0.0,
+      "angle": 0,
+      "panelMinZ": 0.3149999976158142
+    },
+    {
+      "frame": 2,
+      "seconds": 0.016666666666666666,
+      "extension": 0.0,
+      "angle": 0,
+      "panelMinZ": 0.3149999976158142
+    },
+    {
+      "frame": 3,
+      "seconds": 0.03333333333333333,
+      "extension": 0.0,
+      "angle": 0,
+      "panelMinZ": 0.3149999976158142
+    },
+    {
+      "frame": 4,
+      "seconds": 0.05,
+      "extension": 0.0,
+      "angle": 0,
+      "panelMinZ": 0.3149999976158142
+    },
+    {
+      "frame": 5,
+      "seconds": 0.06666666666666667,
+      "extension": 0.0,
+      "angle": 0,
+      "panelMinZ": 0.3149999976158142
+    },
+    {
+      "frame": 6,
+      "seconds": 0.08333333333333333,
+      "extension": 0.0,
+      "angle": 0,
+      "panelMinZ": 0.3149999976158142
+    },
+    {
+      "frame": 7,
+      "seconds": 0.1,
+      "extension": 0.0,
+      "angle": 0,
+      "panelMinZ": 0.3149999976158142
+    },
+    {
+      "frame": 8,
+      "seconds": 0.11666666666666667,
+      "extension": 0.015345071230860988,
+      "angle": 0,
+      "panelMinZ": 0.330345094203949
+    },
+    {
+      "frame": 9,
+      "seconds": 0.13333333333333333,
+      "extension": 0.05874593793102148,
+      "angle": 0,
+      "panelMinZ": 0.37374597787857056
+    },
+    {
+      "frame": 10,
+      "seconds": 0.15,
+      "extension": 0.1262510796118477,
+      "angle": 0,
+      "panelMinZ": 0.44125109910964966
+    },
+    {
+      "frame": 11,
+      "seconds": 0.16666666666666666,
+      "extension": 0.213908975784706,
+      "angle": 0,
+      "panelMinZ": 0.528908908367157
+    },
+    {
+      "frame": 12,
+      "seconds": 0.18333333333333332,
+      "extension": 0.31776810596096255,
+      "angle": 0,
+      "panelMinZ": 0.6327680945396423
+    },
+    {
+      "frame": 13,
+      "seconds": 0.2,
+      "extension": 0.4338769496519839,
+      "angle": 0,
+      "panelMinZ": 0.7488769888877869
+    },
+    {
+      "frame": 14,
+      "seconds": 0.21666666666666667,
+      "extension": 0.558283986369136,
+      "angle": 0,
+      "panelMinZ": 0.8732839226722717
+    },
+    {
+      "frame": 15,
+      "seconds": 0.23333333333333334,
+      "extension": 0.6870376956237851,
+      "angle": 0,
+      "panelMinZ": 1.002037763595581
+    },
+    {
+      "frame": 16,
+      "seconds": 0.25,
+      "extension": 0.8161865569272976,
+      "angle": 0,
+      "panelMinZ": 1.131186604499817
+    },
+    {
+      "frame": 17,
+      "seconds": 0.26666666666666666,
+      "extension": 0.9417790497910397,
+      "angle": 0,
+      "panelMinZ": 1.2567790746688843
+    },
+    {
+      "frame": 18,
+      "seconds": 0.2833333333333333,
+      "extension": 1.0598636537263777,
+      "angle": 0,
+      "panelMinZ": 1.3748637437820435
+    },
+    {
+      "frame": 19,
+      "seconds": 0.3,
+      "extension": 1.1664888482446778,
+      "angle": 0,
+      "panelMinZ": 1.4814889430999756
+    },
+    {
+      "frame": 20,
+      "seconds": 0.31666666666666665,
+      "extension": 1.2577031128573066,
+      "angle": 0,
+      "panelMinZ": 1.5727031230926514
+    },
+    {
+      "frame": 21,
+      "seconds": 0.3333333333333333,
+      "extension": 1.32955492707563,
+      "angle": 0,
+      "panelMinZ": 1.6445549726486206
+    },
+    {
+      "frame": 22,
+      "seconds": 0.35,
+      "extension": 1.3780927704110144,
+      "angle": 0,
+      "panelMinZ": 1.6930928230285645
+    },
+    {
+      "frame": 23,
+      "seconds": 0.36666666666666664,
+      "extension": 1.399365122374826,
+      "angle": 0,
+      "panelMinZ": 1.7143651247024536
+    },
+    {
+      "frame": 24,
+      "seconds": 0.38333333333333336,
+      "extension": 1.4,
+      "angle": 0,
+      "panelMinZ": 1.715000033378601
+    },
+    {
+      "frame": 25,
+      "seconds": 0.4,
+      "extension": 1.4,
+      "angle": 0.05279927173418308,
+      "panelMinZ": 1.7149678468704224
+    },
+    {
+      "frame": 26,
+      "seconds": 0.4166666666666667,
+      "extension": 1.4,
+      "angle": 0.3700669262799441,
+      "panelMinZ": 1.7147772312164307
+    },
+    {
+      "frame": 27,
+      "seconds": 0.43333333333333335,
+      "extension": 1.4,
+      "angle": 0.9629629629629629,
+      "panelMinZ": 1.71443510055542
+    },
+    {
+      "frame": 28,
+      "seconds": 0.45,
+      "extension": 1.4,
+      "angle": 1.818843878015475,
+      "panelMinZ": 1.7139723300933838
+    },
+    {
+      "frame": 29,
+      "seconds": 0.4666666666666667,
+      "extension": 1.4,
+      "angle": 2.9250661676697174,
+      "panelMinZ": 1.7134289741516113
+    },
+    {
+      "frame": 30,
+      "seconds": 0.48333333333333334,
+      "extension": 1.4,
+      "angle": 4.268986328157924,
+      "panelMinZ": 1.7128522396087646
+    },
+    {
+      "frame": 31,
+      "seconds": 0.5,
+      "extension": 1.4,
+      "angle": 5.837960855712334,
+      "panelMinZ": 1.7122957706451416
+    },
+    {
+      "frame": 32,
+      "seconds": 0.5166666666666667,
+      "extension": 1.4,
+      "angle": 7.6193462465651836,
+      "panelMinZ": 1.7118160724639893
+    },
+    {
+      "frame": 33,
+      "seconds": 0.5333333333333333,
+      "extension": 1.4,
+      "angle": 9.600498996948696,
+      "panelMinZ": 1.7114735841751099
+    },
+    {
+      "frame": 34,
+      "seconds": 0.55,
+      "extension": 1.4,
+      "angle": 11.768775603095133,
+      "panelMinZ": 1.7113299369812012
+    },
+    {
+      "frame": 35,
+      "seconds": 0.5666666666666667,
+      "extension": 1.4,
+      "angle": 14.111532561236697,
+      "panelMinZ": 1.7114460468292236
+    },
+    {
+      "frame": 36,
+      "seconds": 0.5833333333333334,
+      "extension": 1.4,
+      "angle": 16.616126367605663,
+      "panelMinZ": 1.711881399154663
+    },
+    {
+      "frame": 37,
+      "seconds": 0.6,
+      "extension": 1.4,
+      "angle": 19.269913518434223,
+      "panelMinZ": 1.712693452835083
+    },
+    {
+      "frame": 38,
+      "seconds": 0.6166666666666667,
+      "extension": 1.4,
+      "angle": 22.060250509954653,
+      "panelMinZ": 1.713934302330017
+    },
+    {
+      "frame": 39,
+      "seconds": 0.6333333333333333,
+      "extension": 1.4,
+      "angle": 24.974493838399155,
+      "panelMinZ": 1.7156504392623901
+    },
+    {
+      "frame": 40,
+      "seconds": 0.65,
+      "extension": 1.4,
+      "angle": 28.0,
+      "panelMinZ": 1.7178821563720703
+    },
+    {
+      "frame": 41,
+      "seconds": 0.6666666666666666,
+      "extension": 1.4,
+      "angle": 31.124125490989385,
+      "panelMinZ": 1.72066068649292
+    },
+    {
+      "frame": 42,
+      "seconds": 0.6833333333333333,
+      "extension": 1.4,
+      "angle": 34.334226807599585,
+      "panelMinZ": 1.7240086793899536
+    },
+    {
+      "frame": 43,
+      "seconds": 0.7,
+      "extension": 1.4,
+      "angle": 37.6176604460628,
+      "panelMinZ": 1.7279398441314697
+    },
+    {
+      "frame": 44,
+      "seconds": 0.7166666666666667,
+      "extension": 1.4,
+      "angle": 40.961782902611304,
+      "panelMinZ": 1.7324565649032593
+    },
+    {
+      "frame": 45,
+      "seconds": 0.7333333333333333,
+      "extension": 1.4,
+      "angle": 44.353950673477286,
+      "panelMinZ": 1.7375514507293701
+    },
+    {
+      "frame": 46,
+      "seconds": 0.75,
+      "extension": 1.4,
+      "angle": 47.78152025489304,
+      "panelMinZ": 1.7432063817977905
+    },
+    {
+      "frame": 47,
+      "seconds": 0.7666666666666667,
+      "extension": 1.4,
+      "angle": 51.231848143090744,
+      "panelMinZ": 1.7493929862976074
+    },
+    {
+      "frame": 48,
+      "seconds": 0.7833333333333333,
+      "extension": 1.4,
+      "angle": 54.69229083430266,
+      "panelMinZ": 1.7560734748840332
+    },
+    {
+      "frame": 49,
+      "seconds": 0.8,
+      "extension": 1.4,
+      "angle": 58.15020482476104,
+      "panelMinZ": 1.7631999254226685
+    },
+    {
+      "frame": 50,
+      "seconds": 0.8166666666666667,
+      "extension": 1.4,
+      "angle": 61.592946610698085,
+      "panelMinZ": 1.7707185745239258
+    },
+    {
+      "frame": 51,
+      "seconds": 0.8333333333333334,
+      "extension": 1.4,
+      "angle": 65.00787268834605,
+      "panelMinZ": 1.778565764427185
+    },
+    {
+      "frame": 52,
+      "seconds": 0.85,
+      "extension": 1.4,
+      "angle": 68.38233955393717,
+      "panelMinZ": 1.7866742610931396
+    },
+    {
+      "frame": 53,
+      "seconds": 0.8666666666666667,
+      "extension": 1.4,
+      "angle": 71.70370370370371,
+      "panelMinZ": 1.7949706315994263
+    },
+    {
+      "frame": 54,
+      "seconds": 0.8833333333333333,
+      "extension": 1.4,
+      "angle": 74.95932163387785,
+      "panelMinZ": 1.8033803701400757
+    },
+    {
+      "frame": 55,
+      "seconds": 0.9,
+      "extension": 1.4,
+      "angle": 78.13654984069186,
+      "panelMinZ": 1.8118270635604858
+    },
+    {
+      "frame": 56,
+      "seconds": 0.9166666666666666,
+      "extension": 1.4,
+      "angle": 81.22274482037795,
+      "panelMinZ": 1.8202316761016846
+    },
+    {
+      "frame": 57,
+      "seconds": 0.9333333333333333,
+      "extension": 1.4,
+      "angle": 84.2052630691684,
+      "panelMinZ": 1.8285197019577026
+    },
+    {
+      "frame": 58,
+      "seconds": 0.95,
+      "extension": 1.4,
+      "angle": 87.07146108329539,
+      "panelMinZ": 1.8366156816482544
+    },
+    {
+      "frame": 59,
+      "seconds": 0.9666666666666667,
+      "extension": 1.4,
+      "angle": 89.8086953589912,
+      "panelMinZ": 1.8444488048553467
+    },
+    {
+      "frame": 60,
+      "seconds": 0.9833333333333333,
+      "extension": 1.4,
+      "angle": 92.40432239248806,
+      "panelMinZ": 1.8372697830200195
+    },
+    {
+      "frame": 61,
+      "seconds": 1.0,
+      "extension": 1.4,
+      "angle": 94.84569868001822,
+      "panelMinZ": 1.829498052597046
+    },
+    {
+      "frame": 62,
+      "seconds": 1.0166666666666666,
+      "extension": 1.4,
+      "angle": 97.12018071781384,
+      "panelMinZ": 1.8223391771316528
+    },
+    {
+      "frame": 63,
+      "seconds": 1.0333333333333334,
+      "extension": 1.4,
+      "angle": 99.21512500210726,
+      "panelMinZ": 1.8158258199691772
+    },
+    {
+      "frame": 64,
+      "seconds": 1.05,
+      "extension": 1.4,
+      "angle": 101.11788802913064,
+      "panelMinZ": 1.8099843263626099
+    },
+    {
+      "frame": 65,
+      "seconds": 1.0666666666666667,
+      "extension": 1.4,
+      "angle": 102.81582629511622,
+      "panelMinZ": 1.8048357963562012
+    },
+    {
+      "frame": 66,
+      "seconds": 1.0833333333333333,
+      "extension": 1.4,
+      "angle": 104.29629629629629,
+      "panelMinZ": 1.800400733947754
+    },
+    {
+      "frame": 67,
+      "seconds": 1.1,
+      "extension": 1.4,
+      "angle": 105.54665452890306,
+      "panelMinZ": 1.796695590019226
+    },
+    {
+      "frame": 68,
+      "seconds": 1.1166666666666667,
+      "extension": 1.4,
+      "angle": 106.55425748916873,
+      "panelMinZ": 1.793740153312683
+    },
+    {
+      "frame": 69,
+      "seconds": 1.1333333333333333,
+      "extension": 1.4,
+      "angle": 107.30646167332557,
+      "panelMinZ": 1.7915499210357666
+    },
+    {
+      "frame": 70,
+      "seconds": 1.15,
+      "extension": 1.4,
+      "angle": 107.79062357760583,
+      "panelMinZ": 1.7901487350463867
+    },
+    {
+      "frame": 71,
+      "seconds": 1.1666666666666667,
+      "extension": 1.4,
+      "angle": 107.99409969824171,
+      "panelMinZ": 1.7895616292953491
+    },
+    {
+      "frame": 72,
+      "seconds": 1.1833333333333333,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    },
+    {
+      "frame": 73,
+      "seconds": 1.2,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    },
+    {
+      "frame": 74,
+      "seconds": 1.2166666666666666,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    },
+    {
+      "frame": 75,
+      "seconds": 1.2333333333333334,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    },
+    {
+      "frame": 76,
+      "seconds": 1.25,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    },
+    {
+      "frame": 77,
+      "seconds": 1.2666666666666666,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    },
+    {
+      "frame": 78,
+      "seconds": 1.2833333333333334,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    },
+    {
+      "frame": 79,
+      "seconds": 1.3,
+      "extension": 1.4,
+      "angle": 108,
+      "panelMinZ": 1.7895454168319702
+    }
+  ],
+  "nodes": [
+    "FixedChassis",
+    "PanelCarriage",
+    "PanelHinge",
+    "ScreenAssembly",
+    "Enclosed rear housing",
+    "Internal bay face",
+    "CD slot bevel",
+    "CD throat",
+    "Bay caption",
+    "Media bay lower inset",
+    "Bay lower caption",
+    "Fixed side rail",
+    "Linear slide channel",
+    "Travelling hinge arm",
+    "Hinge axle",
+    "Rear seam",
+    "Rear seam.001",
+    "Rear seam.002",
+    "Fixed side rail.001",
+    "Linear slide channel.001",
+    "Travelling hinge arm.001",
+    "Hinge axle.001",
+    "Rear seam.003",
+    "Rear seam.004",
+    "Rear seam.005",
+    "Top header",
+    "Fixed lower console",
+    "ScreenBack",
+    "Continuous screen bezel",
+    "Black optical gasket",
+    "GlassBack",
+    "Glass edge catch",
+    "DisplayArtwork",
+    "Unlit display segments artwork",
+    "Deep blue phosphor artwork",
+    "Cyan phosphor artwork",
+    "Chartreuse phosphor artwork",
+    "Amber indicators artwork",
+    "DISP recess",
+    "DISP key",
+    "DISP label",
+    "PLAY recess",
+    "PLAY key",
+    "PLAY label",
+    "NEXT recess",
+    "NEXT key",
+    "NEXT label",
+    "OPEN recess",
+    "OPEN key",
+    "OPEN label",
+    "ANGLE recess",
+    "ANGLE key",
+    "ANGLE label",
+    "MUTE recess",
+    "MUTE key",
+    "MUTE label",
+    "VolumeFader",
+    "Fader black recess",
+    "Fader slide track",
+    "Fader cap",
+    "Fader grip groove",
+    "Fader grip groove.001",
+    "Fader grip groove.002",
+    "Fader grip groove.003",
+    "Fader grip groove.004",
+    "Volume minus",
+    "Volume plus",
+    "Volume print",
+    "PLAY / PAUSE bottom key",
+    "PLAY / PAUSE bottom legend",
+    "NEXT > bottom key",
+    "NEXT > bottom legend"
+  ]
+}
