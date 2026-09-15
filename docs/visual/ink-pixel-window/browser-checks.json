@@ -1,0 +1,12 @@
+{
+  "report": [
+    "1440: event drawer, no audio/video/iframe, no horizontal overflow.",
+    "Choosing an event pauses the film for reading.",
+    "Rapid chapter changes settle on the final selection; close returns focus.",
+    "Reduced motion: manual keyframes, AI preview waits for confirmation.",
+    "390 / DPR 2: reflowed controls and drawer, no horizontal overflow.",
+    "1920 / DPR 2: no horizontal overflow.",
+    "No InkTrace API/resource requests, no Runtime exceptions."
+  ],
+  "errors": []
+}
