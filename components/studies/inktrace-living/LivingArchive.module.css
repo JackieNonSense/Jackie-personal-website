@@ -1,0 +1,397 @@
+.archive{
+  --scene-ink:#34432e}
+.archive button{
+  font-synthesis:none}
+.window{
+  overflow:visible}
+.bookStage{
+  min-height:700px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  border-bottom:1px solid #a0a48d}
+.bookStage>p{
+  color:#78816d}
+.bookArt{
+  display:block;
+  width:192px;
+  height:168px;
+  background:url('/studies/inktrace/pixel-world/book-sheet-v04.png') 0 0/1536px 168px;
+  image-rendering:pixelated}
+.bookPause{
+  min-height:44px;
+  padding:8px 14px;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid #89977f;
+  color:#61735a!important}
+.scenePanel{
+  min-width:0}
+.scene{
+  position:relative;
+  height:812px;
+  isolation:isolate;
+  background:#c5baa0 center/100% 100% no-repeat;
+  image-rendering:pixelated;
+  overflow:hidden}
+.timeline{
+  background-image:url('/studies/inktrace/living-archive/scenes/timeline-v01.webp')}
+.characters{
+  background-image:url('/studies/inktrace/living-archive/scenes/characters-v01.webp')}
+.ai{
+  background-image:url('/studies/inktrace/living-archive/scenes/ai-v01.webp')}
+.sceneCanvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  image-rendering:pixelated;
+  z-index:-1}
+.scrollControls{
+  position:absolute;
+  left:10%;
+  width:80%;
+  top:31%;
+  height:34%;
+  padding:8px 12px;
+  color:#343f2c}
+.years{
+  display:flex;
+  justify-content:center;
+  gap:26px}
+.years>button{
+  min-height:74px;
+  min-width:100px;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid #776f57;
+  color:#4d533d}
+.years>button>span{
+  font:32px/1 WorkshopPixel,monospace;
+  display:block}
+.years small{
+  font:16px/1.5 WorkshopPixel,monospace;
+  display:block;
+  margin-top:8px}
+.years .selected{
+  border-bottom:3px solid #244cb3;
+  color:#244cb3}
+.months{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:18px auto 12px}
+.months button{
+  border:1px solid #a7a083;
+  box-shadow:inset 1px 1px #fff5db;
+  min-height:44px;
+  background:#e5dcc2;
+  padding:8px 16px}
+.months button[aria-pressed=true]{
+  color:#eee8d8;
+  background:#244cb3;
+  border-color:#244cb3}
+.eventList button{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:6px 12px;
+  text-align:left;
+  width:100%;
+  min-height:82px;
+  padding:10px 18px;
+  background:#eee4c9;
+  border:1px solid #a99d7b;
+  box-shadow:3px 3px #534b3929;
+  color:#394631}
+.eventList button>span:last-child{
+  grid-column:2;
+  grid-row:1/3;
+  align-self:center;
+  font-size:24px;
+  color:#244cb3}
+.eventList button[aria-pressed=true]{
+  border-color:#244cb3;
+  box-shadow:3px 3px #244cb322}
+.date{
+  font:16px/1.5 WorkshopMono,monospace;
+  color:#67725b}
+.doorLabels{
+  position:absolute;
+  top:16%;
+  left:10%;
+  width:80%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  text-align:center;
+  font:16px/1 WorkshopPixel,monospace;
+  color:#4b523d}
+.personTarget{
+  position:absolute;
+  transform:translateX(-50%);
+  width:92px;
+  height:142px;
+  border:0;
+  background:transparent;
+  padding:98px 4px 0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  color:#2e402a!important}
+.personTarget>span{
+  padding:6px 10px;
+  background:#e9e1c8;
+  border-bottom:2px solid #788265;
+  box-shadow:2px 2px #4b4d3722}
+.personTarget[aria-pressed=true]>span{
+  background:#244cb3;
+  color:#eee8d8;
+  border-color:#16377c}
+.personTarget:focus-visible{
+  outline-offset:0!important;
+  outline:2px dashed #244cb3!important}
+.relationshipLabels{
+  position:absolute;
+  top:79%;
+  left:13%;
+  width:74%;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  color:#203f8f}
+.relationshipLabels>span{
+  background:#e7dfc4e8;
+  padding:6px 10px;
+  border-bottom:1px solid #8e9778;
+  font-size:16px}
+.request{
+  position:absolute;
+  top:11%;
+  left:28%;
+  width:43%;
+  font:16px/1.5 WorkshopPixel,monospace;
+  color:#384831}
+.caret{
+  color:#244cb3}
+.aiNode{
+  position:absolute;
+  transform:translateX(-50%);
+  width:80px;
+  height:62px;
+  min-height:44px;
+  text-align:left;
+  padding:3px 9px 30px;
+  border:0;
+  background:transparent;
+  color:#384730!important;
+  line-height:24px!important}
+.aiNode:hover{
+  outline:1px solid #244cb3;
+  outline-offset:3px}
+.aiRelations{
+  position:absolute;
+  left:44%;
+  top:39%;
+  width:24%;
+  height:17%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  color:#244cb3;
+  pointer-events:none}
+.aiRelations>span{
+  font:16px/1.3 WorkshopPixel,monospace;
+  background:#ece4ccde;
+  align-self:flex-start;
+  padding:2px 4px}
+.slot{
+  height:248px;
+  min-height:248px!important}
+.connections{
+  margin-top:8px!important;
+  color:#244cb3!important}
+.confirmation{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+  flex-wrap:wrap}
+.confirmation button{
+  min-height:44px;
+  padding:8px 16px;
+  border:1px solid #858575;
+  background:#e4decb;
+  box-shadow:inset 1px 1px #fff9e5}
+.confirmation .confirm{
+  background:#244cb3;
+  color:#eee8d8;
+  border-color:#17397f}
+.sceneTools{
+  height:144px;
+  padding:24px 22px;
+  background:#d4cebf;
+  border-bottom:1px solid #a09b88;
+  color:#5b6a50}
+.sceneTools>span{
+  color:#244cb3;
+  font:16px/1.5 WorkshopMono,monospace}
+.sceneTools>p{
+  margin-top:12px!important;
+  max-width:600px}
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:5px;
+  padding:8px 6px;
+  background:#c9c3b7;
+  border-top:1px solid #979483}
+.tabs button{
+  min-height:54px;
+  padding:10px 6px;
+  border:1px solid #8a8877;
+  background:#e4dfd0;
+  box-shadow:inset 1px 1px #fff9e8,inset -1px -1px #b6b29f;
+  line-height:1.4}
+.tabs button>span{
+  margin-right:8px;
+  color:#7f816d}
+.tabs button[aria-selected=true]{
+  background:#244cb3;
+  color:#eee8d8;
+  border-color:#173981;
+  box-shadow:inset 1px 1px #7793d1}
+.tabs button[aria-selected=true]>span{
+  color:#b4c8ef}
+.tabs button .tabName{color:inherit;display:inline;margin:0}
+.archive [data-reading-slot]{
+  height:248px;
+  min-height:248px}
+.archive [data-wiki-window] [class*='toolBar']{
+  height:144px}
+.archive [class*='playback']{
+  min-height:140px}
+.scene [role=group] button:hover{
+  border-color:#244cb3}
+.scene:has(canvas[data-render-mode=static]) .scrollControls{background:#eee5ce;border:1px solid #a69b7a;box-shadow:4px 5px #302d2844}
+.scene:has(canvas[data-render-mode=static]) .aiNode{background:#eee5ce;border:1px solid #a69b7a}
+
+@media(max-width:1250px) and (min-width:701px){
+  .scene{
+  height:872px}
+.scrollControls{
+  left:8%;
+  width:84%;
+  padding-inline:6px}
+.months button{
+  padding-inline:10px}
+.doorLabels{
+  font-size:16px;
+  left:8%;
+  width:84%}
+.archive [data-reading-slot]{
+  height:270px;
+  min-height:270px}
+.archive [data-wiki-window] [class*='toolBar']{
+  height:198px}
+.sceneTools{
+  height:198px}
+.aiRelations{
+  left:41%;
+  width:30%}
+.tabs button>span{
+  display:block;
+  margin:0}
+.request{
+  left:26%;
+  width:48%}
+}
+
+@media(max-width:700px){
+  .bookStage{
+  min-height:530px;
+  text-align:center}
+.bookStage>p{
+  max-width:250px}
+.scene{
+  height:620px}
+.scrollControls{
+  top:26%;
+  left:6%;
+  width:88%;
+  height:40%;
+  padding:0 8px}
+.years{
+  gap:18px}
+.years>button{
+  min-width:90px}
+.months{
+  gap:4px;
+  flex-wrap:wrap;
+  margin:18px 0}
+.months button{
+  padding:8px;
+  flex:1;
+  min-width:78px}
+.eventList button{
+  padding:12px;
+  min-height:112px}
+.doorLabels{
+  font-size:16px;
+  left:8%;
+  width:84%;
+  line-height:1.5;
+  top:17%;
+  word-break:break-all;
+  gap:12px}
+.personTarget{
+  width:82px;
+  height:142px}
+.personTarget>span{
+  padding:6px}
+.relationshipLabels{
+  left:8%;
+  width:84%;
+  top:80%;
+  gap:6px;
+  flex-direction:column;
+  align-items:center}
+.relationshipLabels>span{
+  padding:5px 8px}
+.request{
+  top:10%;
+  left:24%;
+  width:52%;
+  line-height:1.5}
+.aiRelations{
+  left:38%;
+  width:52%;
+  top:74%;
+  height:12%;
+  align-items:center}
+.aiRelations>span{
+  font-size:16px}
+.slot{
+  padding-inline:14px!important}
+.archive [data-reading-slot]{
+  height:320px;
+  min-height:320px}
+.archive [data-wiki-window] [class*='toolBar']{
+  height:236px}
+.sceneTools{
+  height:144px;
+  padding:24px 18px}
+.sceneTools>span{
+  font:16px/1.5 WorkshopPixel,monospace}
+.sceneTools>p{
+  margin-top:18px!important}
+.tabs{
+  grid-template-columns:repeat(2,minmax(0,1fr))}
+.tabs button{
+  min-height:48px}
+.tabs button>span{
+  margin-right:8px}
+.archive [class*='playback']{
+  min-height:214px}
+}

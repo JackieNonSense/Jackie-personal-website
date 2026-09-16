@@ -1,0 +1,181 @@
+{
+  "checks": [
+    {
+      "name": "time advances once per wall clock",
+      "pass": true,
+      "data": {
+        "scene": "timeline",
+        "mode": "demo",
+        "time": 1115,
+        "ambient": 1115,
+        "actors": "18:610:0"
+      }
+    },
+    {
+      "name": "pause freezes narrative and actors",
+      "pass": true,
+      "data": {
+        "scene": "timeline",
+        "mode": "demo",
+        "time": 1121,
+        "ambient": 1121,
+        "actors": "18:610:0"
+      }
+    },
+    {
+      "name": "resume continues from same place",
+      "pass": true,
+      "data": {
+        "scene": "timeline",
+        "mode": "demo",
+        "time": 1624,
+        "ambient": 1624,
+        "actors": "18:610:0"
+      }
+    },
+    {
+      "name": "hidden page does not catch up",
+      "pass": true,
+      "data": {
+        "frozen": {
+          "scene": "timeline",
+          "mode": "demo",
+          "time": 1624,
+          "ambient": 1624,
+          "actors": "18:610:0"
+        },
+        "resumed": {
+          "scene": "timeline",
+          "mode": "demo",
+          "time": 1776,
+          "ambient": 1776,
+          "actors": "18:610:0"
+        }
+      }
+    },
+    {
+      "name": "offscreen freezes both clocks",
+      "pass": true,
+      "data": {
+        "away": {
+          "scene": "timeline",
+          "mode": "demo",
+          "time": 1788,
+          "ambient": 1788,
+          "actors": "18:610:0"
+        },
+        "away2": {
+          "scene": "timeline",
+          "mode": "demo",
+          "time": 1788,
+          "ambient": 1788,
+          "actors": "18:610:0"
+        }
+      }
+    },
+    {
+      "name": "manual timeline never takes itself back",
+      "pass": true,
+      "data": {
+        "scene": "timeline",
+        "mode": "manual",
+        "time": 200,
+        "ambient": 1097,
+        "actors": "641:610:0"
+      }
+    },
+    {
+      "name": "characters change position and gait",
+      "pass": true,
+      "data": {
+        "a": {
+          "scene": "characters",
+          "mode": "demo",
+          "time": 691,
+          "ambient": 691,
+          "actors": "234:296:1,522:271:2,810:271:0"
+        },
+        "z": {
+          "scene": "characters",
+          "mode": "demo",
+          "time": 1200,
+          "ambient": 1200,
+          "actors": "234:336:4,522:284:1,810:271:0"
+        }
+      }
+    },
+    {
+      "name": "character click takes control",
+      "pass": true,
+      "data": {
+        "scene": "characters",
+        "mode": "manual",
+        "time": 1212,
+        "ambient": 1309,
+        "actors": "234:456:5,522:391:0,810:456:0"
+      }
+    },
+    {
+      "name": "AI stops waiting for human confirmation",
+      "pass": true,
+      "data": "↳\nPREVIEW\n3 PEOPLE / 2 EXISTING CONNECTIONS\nWaiting for confirmation\n\nReview the existing connections. Nothing is written until you confirm.\n\nConfirm →\nPreview again"
+    },
+    {
+      "name": "explicit confirmation completes archive",
+      "pass": true,
+      "data": {
+        "scene": "ai",
+        "mode": "manual",
+        "time": 16000,
+        "ambient": 18697,
+        "actors": "167:627:0"
+      }
+    },
+    {
+      "name": "rapid changes keep only last scene",
+      "pass": true,
+      "data": {
+        "scene": "wiki",
+        "mode": "demo",
+        "time": 42,
+        "ambient": 42,
+        "actors": "7:1,668:0,746:0"
+      }
+    },
+    {
+      "name": "Wiki uses a single clock",
+      "pass": true,
+      "data": {
+        "scene": "wiki",
+        "mode": "demo",
+        "time": 1267,
+        "ambient": 1267,
+        "actors": "119:1,668:0,746:0"
+      }
+    },
+    {
+      "name": "live reduced-motion freezes clocks",
+      "pass": true,
+      "data": {
+        "scene": "wiki",
+        "mode": "demo",
+        "time": 1273,
+        "ambient": 1273,
+        "actors": "120:1,668:0,746:0"
+      }
+    },
+    {
+      "name": "close removes all scene renderers",
+      "pass": true
+    },
+    {
+      "name": "touch opens fresh Timeline",
+      "pass": true
+    },
+    {
+      "name": "no audio video or remote product embed",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

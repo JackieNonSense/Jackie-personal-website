@@ -1,0 +1,15 @@
+.proof { padding: 24px; border: 1px solid #aaa38f; background: #eee8d8; color: #23241f; }
+.heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.heading h3 { font: inherit; font-size: 24px; margin: 0; }
+.heading span, .note { color: #57564f; }
+.proof p { max-width: 74ch; font-size: 16px; line-height: 1.6; margin: 16px 0; }
+.viewport { width: 100%; overflow: auto; border-block: 1px solid #c9c3b7; background: #e6dfcd; min-height: 96px; }
+.viewport canvas { display: block; image-rendering: pixelated; margin: auto; }
+.viewport p { padding: 12px; }
+.cast { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 12px auto 24px; max-width: 864px; font-size: 16px; text-align: center; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; }
+.controls button { min-width: 72px; min-height: 44px; border: 2px solid; border-color: #fffbec #57564f #57564f #fffbec; padding: 8px 16px; background: #c9c3b7; color: #23241f; font: inherit; font-size: 16px; cursor: pointer; }
+.controls button[aria-pressed='true'] { background: #244cb3; color: #eee8d8; border-color: #19357e #789ae9 #789ae9 #19357e; }
+.controls button:focus-visible, .download:focus-visible { outline: 2px solid #244cb3; outline-offset: 4px; }
+.download { display: inline-flex; align-items: center; min-height: 44px; color: #244cb3; text-underline-offset: 4px; }
+@media(max-width: 600px) { .proof { padding: 12px; } .cast { gap: 4px; text-align: left; } .controls button { flex: 1 0 26%; padding-inline: 8px; } }

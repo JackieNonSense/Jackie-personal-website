@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "id": "timeline",
+      "pass": true,
+      "text": "21 / 09 / 312 · CHAPTER III\nDeparture\n\nMara and Sen leave with the map. Their notes record the departure, but not yet the destination.\n\nMara + Sen / connected people",
+      "overflow": false,
+      "canvas": "static",
+      "mapFallback": false
+    },
+    {
+      "id": "characters",
+      "pass": true,
+      "text": "The guide\nSen\n\nKnows the northern crossing. Walks where the maps fall silent.\n\nMara / guide\n\nCHAPTERS III / IV / VI",
+      "overflow": false,
+      "canvas": "static",
+      "mapFallback": false
+    },
+    {
+      "id": "ai",
+      "pass": true,
+      "text": "3 PEOPLE / 2 EXISTING CONNECTIONS\nCanvas created\n\nThe sample canvas is filed. Nothing was sent to an account or a live AI.\n\nPreview again",
+      "overflow": false,
+      "canvas": "static",
+      "mapFallback": false
+    },
+    {
+      "id": "wiki",
+      "pass": true,
+      "text": "CHARACTER FILE / 001\nMara / The archivist\n\nKeeps the records. Wants to know what the archive has left out.\n\n×",
+      "overflow": false,
+      "canvas": "static",
+      "mapFallback": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,80 @@
+{
+  "version": "phase-1-v02",
+  "reviewOnly": true,
+  "image": "/studies/inktrace/living-archive/review/sprite-sheet.png",
+  "cellWidth": 32,
+  "cellHeight": 48,
+  "columns": 8,
+  "rows": 3,
+  "feetBaseline": 42,
+  "characters": [
+    {
+      "id": "mara",
+      "name": "Mara",
+      "row": 0,
+      "role": "Archivist"
+    },
+    {
+      "id": "ivo",
+      "name": "Ivo",
+      "row": 1,
+      "role": "Cartographer"
+    },
+    {
+      "id": "sen",
+      "name": "Sen",
+      "row": 2,
+      "role": "Guide"
+    }
+  ],
+  "actions": {
+    "idle": {
+      "frames": [
+        0
+      ],
+      "frameDurationMs": 1200,
+      "loop": false
+    },
+    "walk": {
+      "frames": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "frameDurationMs": 150,
+      "loop": true
+    },
+    "turn": {
+      "frames": [
+        0,
+        5
+      ],
+      "frameDurationMs": 260,
+      "loop": false
+    },
+    "work": {
+      "frames": [
+        0,
+        6,
+        7,
+        0
+      ],
+      "frameDurationMs": 300,
+      "loop": false
+    }
+  },
+  "frameNames": [
+    "idle",
+    "walk-contact-a",
+    "walk-passing-a",
+    "walk-contact-b",
+    "walk-passing-b",
+    "turn-back",
+    "work-reach",
+    "work-deliver"
+  ],
+  "sampling": "nearest",
+  "source": "Built-in imagegen; three-row eight-column master v02, then mechanical foot registration and nearest-neighbor extraction.",
+  "limitations": "Phase-one pose proof. Idle is a held frame; final subtle idle cycle and production-scene contact paths remain subject to design review."
+}

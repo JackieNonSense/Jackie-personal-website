@@ -1,0 +1,62 @@
+[
+  {
+    "id": "timeline",
+    "source": "Actual Chrome screencast, original timing",
+    "silent": true,
+    "frames": 183,
+    "discardedIncompleteFrames": 0,
+    "duration": 23785,
+    "endedAt": 18214,
+    "complete": true,
+    "actions": [
+      "Select year 313, May, A signal received"
+    ],
+    "width": 768,
+    "height": 1061
+  },
+  {
+    "id": "characters",
+    "source": "Actual Chrome screencast, original timing",
+    "silent": true,
+    "frames": 151,
+    "discardedIncompleteFrames": 0,
+    "duration": 19885,
+    "endedAt": 14229,
+    "complete": true,
+    "actions": [
+      "Select Sen"
+    ],
+    "width": 768,
+    "height": 1061
+  },
+  {
+    "id": "ai",
+    "source": "Actual Chrome screencast, original timing",
+    "silent": true,
+    "frames": 152,
+    "discardedIncompleteFrames": 0,
+    "duration": 21852,
+    "endedAt": 16144,
+    "complete": true,
+    "actions": [
+      "Confirm preview and create sample canvas"
+    ],
+    "width": 768,
+    "height": 1061
+  },
+  {
+    "id": "wiki",
+    "source": "Actual Chrome screencast, original timing",
+    "silent": true,
+    "frames": 209,
+    "discardedIncompleteFrames": 0,
+    "duration": 27688,
+    "endedAt": 22234,
+    "complete": true,
+    "actions": [
+      "Wrap image left, reorder quotation, preview linked region"
+    ],
+    "width": 768,
+    "height": 1061
+  }
+]
