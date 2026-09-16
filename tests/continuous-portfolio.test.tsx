@@ -18,17 +18,15 @@ describe("approved continuous print composition", () => {
     expect(faults[0].closest("section")).toBeNull();
   });
 
-  it("identifies the printed project specimen honestly, with a real external link", () => {
+  it("identifies the playable example honestly, with a real external link", () => {
     render(<Portfolio />);
-    expect(screen.getByText("PORTFOLIO PRINT / NOT A PRODUCT SCREENSHOT")).toBeVisible();
+    expect(screen.getByText(/Independent example content — not a product recording/)).toBeVisible();
     expect(screen.getByRole("link", { name: /Visit Inktrace/ })).toHaveAttribute("href", "https://inktrace.app");
   });
 
   it("keeps material artwork decorative rather than flattening the approved mockup", () => {
     const { container } = render(<Portfolio />);
-    const material = container.querySelector('img[src="/portfolio/torn-stock-v01.png"]');
-    expect(material).not.toBeNull();
-    expect(material).toHaveAttribute("alt", "");
+    expect(screen.getByRole('button', {name:'Open the Living Archive'})).toBeVisible();
     expect(container.querySelector('img[src*="concept"]')).toBeNull();
     expect(screen.getByRole("link", { name: "Explore experiments ↓" })).toHaveAttribute("href", "#experiments");
   });

@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion, MotionConfig } from "framer-motion";
 import SignalRift from "./SignalRift";
+import LivingArchive from "../studies/inktrace-living/LivingArchive";
 import TonerLettering from "./TonerLettering";
 import MusicDeck from "./MusicDeck";
 import MonitorEntry from "./MonitorEntry";
@@ -79,30 +80,7 @@ export default function Portfolio() {
         </nav>
         <div className={styles.heroFoot}><span>A SMALL OPENING.<br />ANOTHER WORLD.</span><a href="#work">FOLLOW THE SIGNAL ↓</a></div>
       </section>
-      <section id="work" className={`${styles.section} ${styles.workSection}`} aria-labelledby="work-title">
-        <div className={styles.sectionTop}><span><b>01</b> / SELECTED WORK</span><span>THE SIGNAL HAS A SOURCE</span></div>
-        <motion.h2 id="work-title" className={`${styles.display} ${styles.workTitle}`} {...reveal}>INKTRACE</motion.h2>
-        <div className={styles.inkGhost} aria-hidden="true">ce</div>
-        <motion.figure className={styles.specimen} initial={false} whileInView={still ? {} : { y: -8 }} viewport={{ once: true }} transition={{ duration: .35 }}>
-          <img src="/portfolio/torn-stock-v01.png" alt="" className={styles.stock} draggable={false} />
-          <div className={styles.specimenPrint} aria-hidden="true">
-            <div className={styles.printTop}><span>INKTRACE / INDEPENDENT WEBSITE</span><span>01</span></div>
-            <span className={styles.registration}>+</span>
-            <div className={styles.inkWord}>inktrace</div>
-            <div className={styles.inkEcho}>inktrace<br />inktrace</div>
-            <span className={styles.printRule}>← — — — — — — — →</span>
-            <span className={styles.printUrl}>inktrace.app</span>
-            <span className={styles.printBleed}>ce</span>
-          </div>
-          <figcaption>PORTFOLIO PRINT / NOT A PRODUCT SCREENSHOT</figcaption>
-        </motion.figure>
-        <motion.div className={styles.workCopy} {...reveal}>
-          <p>An independent<br />space for creation.</p>
-          <motion.a href={content.inktrace.href} target="_blank" rel="noopener noreferrer" className={styles.textLink} whileHover={hover} aria-label="Visit Inktrace — opens in a new tab">VISIT INKTRACE.APP ↗</motion.a>
-          <p className={styles.aside}>A different corner<br />of my internet.</p>
-          <a href="#about" className={styles.smallLink}>THE PERSON BEHIND IT ↓</a>
-        </motion.div>
-      </section>
+      <LivingArchive embedded still={still}/>
       <section id="about" className={`${styles.section} ${styles.aboutSection}`} aria-labelledby="about-title">
         <div className={styles.sectionTop}><span><b>02</b> / THE PERSON BEHIND THE SIGNAL</span></div>
         <motion.h2 id="about-title" className={`${styles.display} ${styles.jackie}`} {...reveal}>JACKIE</motion.h2>

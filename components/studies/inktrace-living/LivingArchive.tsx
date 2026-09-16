@@ -11,7 +11,7 @@ import {SceneSelection,prepareScene} from './scene-assets';
 import s from './LivingArchive.module.css';
 import w from './WikiStudy.module.css';
 
-export default function LivingArchive({still=false}:{still?:boolean}){
+export default function LivingArchive({still=false,embedded=false}:{still?:boolean;embedded?:boolean}){
  const [runtime]=useState(()=>{const r=new ArchiveRuntime();r.close();return r;}),[wiki]=useState(()=>new WikiRuntime());
  const state=useSyncExternalStore(runtime.subscribe,runtime.getSnapshot,runtime.getSnapshot),wikiState=useSyncExternalStore(wiki.subscribe,wiki.getSnapshot,wiki.getSnapshot);
  const reduced=useLiveReducedMotion(),quiet=still||reduced;
@@ -43,10 +43,11 @@ export default function LivingArchive({still=false}:{still?:boolean}){
  const step=(delta:number)=>{if(state.scene==='wiki')wiki.step(current.step+delta);else runtime.step(current.step+delta);};
  const tabKey=(event:KeyboardEvent<HTMLButtonElement>,index:number)=>{const keys:Record<string,number>={ArrowRight:(index+1)%4,ArrowLeft:(index+3)%4,Home:0,End:3};if(event.key in keys){event.preventDefault();const next=keys[event.key];setTabFocus(SCENES[next].id);tabs.current[next]?.focus();}};
  const sceneName=def.name;
- return <main className={`${w.study} ${s.archive}`}>
+ const Container=embedded?'section':'main',Title=embedded?'h2':'h1';
+ return <Container id={embedded?'work':undefined} aria-labelledby={embedded?'work-title':undefined} data-embedded={embedded||undefined} className={`${w.study} ${s.archive}`}>
   <aside className={w.intro}>
-   <a className={w.back} href="/studies/inktrace/living-archive/review">← Art direction</a><h1>INKTRACE</h1>
-   <div className={w.introCopy}><span className={w.kicker}>THE LIVING ARCHIVE</span><h2>A world,<br/>in the<br/>making.</h2><p>I build complex worlds. Their chapters, people, timelines and notes shouldn’t live in disconnected tools.</p><p>InkTrace brings those pieces into one writing workspace.</p><a className={w.visit} href="https://inktrace.app" target="_blank" rel="noreferrer">EXPLORE INKTRACE <span>↗</span></a></div>
+   {embedded?<span className={w.back}>01 / SELECTED WORK</span>:<a className={w.back} href="/studies/inktrace/living-archive/review">← Art direction</a>}<Title id={embedded?'work-title':undefined} data-archive-title>INKTRACE</Title>
+   <div className={w.introCopy}><span className={w.kicker}>THE LIVING ARCHIVE</span><h2>A world,<br/>in the<br/>making.</h2><p>I build complex worlds. Their chapters, people, timelines and notes shouldn’t live in disconnected tools.</p><p>InkTrace brings those pieces into one writing workspace.</p><motion.a {...feedback} className={w.visit} href="https://inktrace.app" target="_blank" rel="noopener noreferrer" aria-label={embedded?'Visit Inktrace — opens in a new tab':undefined}>EXPLORE INKTRACE <span>↗</span></motion.a></div>
    <p className={w.note}>A playable interpretation.<br/>Sample world. No live AI.<br/>Entirely silent.</p>
   </aside>
   <section className={w.paperColumn} aria-label="InkTrace Living Archive">
@@ -67,8 +68,8 @@ export default function LivingArchive({still=false}:{still?:boolean}){
       </div>
       <div className={w.progress} style={{gridTemplateColumns:`repeat(${def.steps.length},1fr)`}} aria-label={`Demonstration step ${current.step+1} of ${def.steps.length}`}>{def.steps.map((label,i)=><span key={label} data-complete={i<=current.step}/>)}</div>
      </motion.div>}
-    <footer className={w.studyFooter}><p>Four little worlds. Every record stays connected.<br/>Independent example content — not a product recording.</p><a href="/studies/inktrace/living-archive/wiki">Original Wiki study ↗</a></footer>
+    <footer className={w.studyFooter}><p>Four little worlds. Every record stays connected.<br/>Independent example content — not a product recording.</p>{embedded?<motion.a {...feedback} href="#about">THE PERSON BEHIND IT ↓</motion.a>:<a href="/studies/inktrace/living-archive/wiki">Original Wiki study ↗</a>}</footer>
    </div>
   </section>
- </main>;
+ </Container>;
 }
