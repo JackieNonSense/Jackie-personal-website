@@ -9,13 +9,14 @@ async function component(file: string) {
   return import(/* @vite-ignore */ path);
 }
 describe("front-facing objects", () => {
-  it("uses a render of the same dark model as its poster, and conceals unprepared 3D", async () => {
+  it("uses the supplied cyan-black monitor artwork without swapping to a different 3D shell", async () => {
     const { default: MonitorEntry } = await component("MonitorEntry.tsx");
     const { container } = render(createElement(MonitorEntry, { still: true }));
     const poster = container.querySelector('img[data-device-fallback="monitor"]');
-    expect(poster).toHaveAttribute("src", "/portfolio/monitor-standby-v04.png");
+    expect(poster).toHaveAttribute("src", "/portfolio/monitor-cyan-cutout-v02.png");
     expect(container.querySelector('svg[data-device-fallback="monitor"]')).toBeNull();
-    expect(container.querySelector('[data-ready="false"]')).toHaveStyle({ visibility: "hidden" });
+    expect(container.querySelector('canvas')).toBeNull();
+    expect(container.querySelector('[data-monitor-renderer]')).toHaveAttribute('data-monitor-renderer', 'artwork');
   });
   it("uses a dedicated monitor surface with a legible non-WebGL startup and no decorative detection label", async () => {
     const { default: Portfolio } = await component("Portfolio.tsx");
@@ -23,7 +24,7 @@ describe("front-facing objects", () => {
     expect(screen.queryByText("SIGNAL DETECTED")).not.toBeInTheDocument();
     const link = screen.getByRole("link", { name: "Open monitor" });
     fireEvent.focus(link);
-    expect(container.querySelector('[data-monitor-fallback-screen]')?.textContent).toContain("TERMINAL READY");
+    expect(container.querySelector('[data-monitor-fallback-screen]')?.textContent).toBe("JR\nENTER");
     expect(container.querySelector('[data-testid="monitor-entry"] [class*="enterWord"]')).toBeNull();
     expect(screen.getByRole("link", { name: "ENTER TERMINAL ↗" })).toHaveAttribute("href", "/terminal");
   });

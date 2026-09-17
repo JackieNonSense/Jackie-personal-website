@@ -5,9 +5,10 @@ import Portfolio from "../components/portfolio/Portfolio";
 describe("approved continuous print composition", () => {
   it("keeps the approved display titles as accessible selectable page content", () => {
     render(<Portfolio />);
-    for (const name of ["INKTRACE", "JACKIE", "STILL EXPLORING", "LET’S CONNECT"]) {
+    for (const name of ["INKTRACE", "JACKIE", "LET’S CONNECT"]) {
       expect(screen.getByRole("heading", { level: 2, name })).toBeVisible();
     }
+    expect(screen.getByRole("heading", { level: 2, name: "Experiments" })).toBeInTheDocument();
   });
 
   it("uses one noninteractive continuous paper fault behind all chapters", () => {

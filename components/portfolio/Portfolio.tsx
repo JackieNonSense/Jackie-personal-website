@@ -98,10 +98,8 @@ export default function Portfolio() {
         <MusicDeck player={player} state={music} still={still} onVisibility={setDeckVisible} />
       </section>
       <section id="experiments" className={`${styles.section} ${styles.experiments}`} aria-labelledby="experiments-title">
-        <div className={styles.sectionTop}><span><b>03</b> / EXPERIMENTS</span><span>SMALL THINGS. STRANGE REWARDS.</span></div>
-        <motion.h2 id="experiments-title" className={`${styles.display} ${styles.experimentsHeading}`} {...reveal}>STILL EXPLORING</motion.h2>
+        <h2 id="experiments-title" className={styles.srOnly}>Experiments</h2>
         <div className={styles.experimentGrid}>
-          <motion.div className={styles.experimentIntro} {...reveal}><p>There is more<br />behind the glass.</p><span>A SMALL TERMINAL.<br />A DIFFERENT WAY IN.</span></motion.div>
           <MonitorEntry still={still} />
         </div>
       </section>
