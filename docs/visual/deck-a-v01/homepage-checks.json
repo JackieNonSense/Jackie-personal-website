@@ -1,0 +1,85 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "deckWidth": 480,
+      "status": "idle",
+      "canvasCount": 1,
+      "posterLoaded": true,
+      "buttons": [
+        {
+          "name": "播放音乐",
+          "height": 44
+        },
+        {
+          "name": "下一首",
+          "height": 44
+        },
+        {
+          "name": "静音音乐",
+          "height": 44
+        },
+        {
+          "name": "切换显示模式",
+          "height": 44
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "deckWidth": 480,
+      "status": "idle",
+      "canvasCount": 1,
+      "posterLoaded": true,
+      "buttons": [
+        {
+          "name": "播放音乐",
+          "height": 44
+        },
+        {
+          "name": "下一首",
+          "height": 44
+        },
+        {
+          "name": "静音音乐",
+          "height": 44
+        },
+        {
+          "name": "切换显示模式",
+          "height": 44
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "deckWidth": 346,
+      "status": "idle",
+      "canvasCount": 1,
+      "posterLoaded": true,
+      "buttons": [
+        {
+          "name": "播放音乐",
+          "height": 44
+        },
+        {
+          "name": "下一首",
+          "height": 44
+        },
+        {
+          "name": "静音音乐",
+          "height": 44
+        },
+        {
+          "name": "切换显示模式",
+          "height": 44
+        }
+      ]
+    }
+  ],
+  "audio": "play -> pause -> next while paused passed",
+  "webglFallback": true,
+  "errors": []
+}

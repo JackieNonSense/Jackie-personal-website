@@ -51,25 +51,24 @@ describe("signal behavior", () => {
     expect(button).toHaveAttribute("aria-pressed", "false");
     expect(container.querySelector('[data-rift-backing]')).not.toBeNull();
     expect(container.querySelector('[data-rift-bed] img')).not.toBeNull();
-    expect(container.querySelectorAll('[data-paper-lip]')).toHaveLength(2);
+    expect(screen.getByTestId('rift-canvas')).toHaveAttribute('data-paper-layers','upper lower');
   });
 });
 
 describe("complete local portfolio", () => {
-  it("uses a clean silhouette with independently controlled toner, and a readable asset fallback", async () => {
+  it("uses the approved Hero art and retains a readable asset fallback", async () => {
     const { default: Portfolio } = await moduleAt("Portfolio.tsx");
     const { container } = render(createElement(Portfolio));
-    expect(container.querySelector('[data-testid="toner-lettering"] mask')).not.toBeNull();
-    const stencil = container.querySelector('img[src="/portfolio/name-stencil-v04.png"]');
-    expect(stencil).not.toBeNull();
-    fireEvent.error(stencil!);
-    expect(screen.getByTestId("lettering-fallback")).toHaveTextContent("YUCHAO");
+    const artwork = container.querySelector('img[src="/studies/hero-ink-signal/approved-hero.png"]');
+    expect(artwork).not.toBeNull();
+    fireEvent.error(artwork!);
+    expect(screen.getByRole('heading', {name:'Yuchao Wang'})).toHaveAttribute('data-artwork-fallback','true');
   });
   it("has real ordered chapters and no public birthday beyond approved email", async () => {
     const { default: Portfolio } = await moduleAt("Portfolio.tsx");
     const { container } = render(createElement(Portfolio));
     expect(screen.getByRole("heading", { level: 1, name: "Yuchao Wang" })).toBeInTheDocument();
-    expect([...container.querySelectorAll("section[id]")].map(s => s.id)).toEqual(["signal", "work", "about", "experiments", "contact"]);
+    expect([...container.querySelectorAll("section[id]")].map(s => s.id)).toEqual(["signal", "about", "work", "experiments", "contact"]);
     for (const id of ["work", "about", "experiments", "contact"]) {
       expect(container.querySelector(`a[href="#${id}"]`)).not.toBeNull();
     }

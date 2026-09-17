@@ -1,0 +1,63 @@
+{
+  "results": [
+    {
+      "step": "hover",
+      "data": {
+        "testid": "rift-canvas",
+        "paperLayers": "upper lower",
+        "opening": "1.000",
+        "center": "0.316",
+        "drawing": "running"
+      }
+    },
+    {
+      "step": "pointer-volume",
+      "style": {
+        "outline": "none",
+        "focus": false,
+        "value": "61"
+      }
+    },
+    {
+      "step": "layout-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "cta": {
+        "x": 22,
+        "y": 1018.109375,
+        "width": 346,
+        "height": 52,
+        "top": 1018.109375,
+        "right": 368,
+        "bottom": 1070.109375,
+        "left": 22
+      }
+    },
+    {
+      "step": "layout-1920",
+      "width": 1920,
+      "scrollWidth": 1905,
+      "cta": {
+        "x": 102.5,
+        "y": 779.609375,
+        "width": 215.390625,
+        "height": 52,
+        "top": 779.609375,
+        "right": 317.890625,
+        "bottom": 831.609375,
+        "left": 102.5
+      }
+    },
+    {
+      "step": "reduced",
+      "data": {
+        "testid": "rift-canvas",
+        "paperLayers": "upper lower",
+        "opening": "1.000",
+        "center": "0.737",
+        "drawing": "static"
+      }
+    }
+  ],
+  "errors": []
+}

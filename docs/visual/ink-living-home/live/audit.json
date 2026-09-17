@@ -1,0 +1,374 @@
+{
+  "base": "https://www.yuchaowang.dev",
+  "results": [
+    {
+      "width": 390,
+      "scene": "timeline",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 10,
+        "y": 1789.921875,
+        "width": 370,
+        "height": 1546.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "scene": "characters",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 10,
+        "y": 1789.921875,
+        "width": 370,
+        "height": 1546.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "scene": "ai",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 10,
+        "y": 1789.921875,
+        "width": 370,
+        "height": 1546.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "scene": "wiki",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 10,
+        "y": 1789.921875,
+        "width": 370,
+        "height": 1972.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "check": "close and restore focus",
+      "pass": true
+    },
+    {
+      "width": 1024,
+      "scene": "timeline",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 264.15625,
+        "y": 1080.6875,
+        "width": 719.25,
+        "height": 1710.171875,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1024,
+      "scene": "characters",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 264.15625,
+        "y": 1080.6875,
+        "width": 719.25,
+        "height": 1710.171875,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1024,
+      "scene": "ai",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 264.15625,
+        "y": 1080.6875,
+        "width": 719.25,
+        "height": 1710.171875,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1024,
+      "scene": "wiki",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 264.15625,
+        "y": 1080.6875,
+        "width": 719.25,
+        "height": 1710.171875,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1024,
+      "check": "close and restore focus",
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "scene": "timeline",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 364,
+        "y": 1109.796875,
+        "width": 1025,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "scene": "characters",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 364,
+        "y": 1109.796875,
+        "width": 1025,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "scene": "ai",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 364,
+        "y": 1109.796875,
+        "width": 1025,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "scene": "wiki",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 364,
+        "y": 1109.796875,
+        "width": 1025,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "check": "close and restore focus",
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "scene": "timeline",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 611.484375,
+        "y": 1121,
+        "width": 1120,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "scene": "characters",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 611.484375,
+        "y": 1121,
+        "width": 1120,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "scene": "ai",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 611.484375,
+        "y": 1121,
+        "width": 1120,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "scene": "wiki",
+      "main": 1,
+      "h1": 1,
+      "work": 1,
+      "overflow": false,
+      "readingOverlap": false,
+      "aboutOverlap": false,
+      "audioAttempts": 0,
+      "font": "WorkshopPixel, monospace",
+      "clip": {
+        "x": 611.484375,
+        "y": 1121,
+        "width": 1120,
+        "height": 1547.390625,
+        "scale": 1
+      },
+      "misses": [],
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "check": "close and restore focus",
+      "pass": true
+    },
+    {
+      "check": "global pause freezes scene",
+      "pass": true
+    },
+    {
+      "check": "global resume retains place",
+      "pass": true
+    },
+    {
+      "check": "local pause survives global toggle",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "width": 1440,
+    "geometry": {
+      "screen": {
+        "x": 186.546875,
+        "y": 277.796875,
+        "w": 362.078125,
+        "h": 219.875
+      },
+      "renderer": "three",
+      "phase": "ready"
+    },
+    "errors": [],
+    "mediaPlayAttempts": 0
+  },
+  {
+    "width": 390,
+    "geometry": {
+      "screen": {
+        "x": 93.953125,
+        "y": 310.671875,
+        "w": 202.0625,
+        "h": 122.703125
+      },
+      "renderer": "three",
+      "phase": "ready"
+    },
+    "errors": [],
+    "mediaPlayAttempts": 0
+  },
+  {
+    "width": 1024,
+    "geometry": {
+      "screen": {
+        "x": 169.90625,
+        "y": 278.09375,
+        "w": 362.078125,
+        "h": 219.875
+      },
+      "renderer": "three",
+      "phase": "ready"
+    },
+    "errors": [],
+    "mediaPlayAttempts": 0
+  },
+  {
+    "width": 1920,
+    "geometry": {
+      "screen": {
+        "x": 205.75,
+        "y": 277.625,
+        "w": 362.078125,
+        "h": 219.875
+      },
+      "renderer": "three",
+      "phase": "ready"
+    },
+    "errors": [],
+    "mediaPlayAttempts": 0
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-09-05T13:06:59.632Z",
+  "url": "http://127.0.0.1:3011/design/hero-00",
+  "checks": [
+    {
+      "desktop": {
+        "heading": "Yuchao Wang",
+        "mode": "artwork",
+        "images": [
+          {
+            "src": "/proof/hero-00/material-plate-v01.png",
+            "width": 1586,
+            "height": 992
+          },
+          {
+            "src": "/proof/hero-00/name-lettering-v01.png",
+            "width": 1586,
+            "height": 992
+          }
+        ],
+        "scrollWidth": 1600,
+        "viewport": 1600
+      }
+    },
+    {
+      "label": "Six Caps",
+      "metrics": {
+        "font": "\"Proof Six Caps\", sans-serif",
+        "glyphs": [
+          {
+            "text": "YUCHAO",
+            "x": 250,
+            "y": -419,
+            "width": 1104.625,
+            "height": 935,
+            "inkTop": -244.15625
+          },
+          {
+            "text": "WANG",
+            "x": 280,
+            "y": 471,
+            "width": 1041.5,
+            "height": 1211,
+            "inkTop": 697.375
+          }
+        ],
+        "loaded": true
+      }
+    },
+    {
+      "label": "League Gothic",
+      "metrics": {
+        "font": "\"Proof League Gothic\", sans-serif",
+        "glyphs": [
+          {
+            "text": "YUCHAO",
+            "x": 250,
+            "y": -321,
+            "width": 1116.34375,
+            "height": 852,
+            "inkTop": -166.5
+          },
+          {
+            "text": "WANG",
+            "x": 280,
+            "y": 495,
+            "width": 1043.34375,
+            "height": 1104,
+            "inkTop": 695
+          }
+        ],
+        "loaded": true
+      }
+    },
+    {
+      "mobile": {
+        "scrollWidth": 390,
+        "viewport": 390,
+        "stageWidth": 390
+      }
+    }
+  ],
+  "exceptions": []
+}

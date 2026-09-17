@@ -1,6 +1,6 @@
 /** Period-style VFD artwork. All meters are driven by the shared audio analyser. */
 import type {DisplayMotion} from './deck-display-motion';
-export type VfdState = { title:string; time:number; volume:number; track:number; status:string; lit:number; alternate:boolean; levels:number[]; motion?:DisplayMotion };
+export type VfdState = { title:string; time:number; volume:number; track:number; status:string; lit:number; alternate:boolean; levels:number[]; peaks?:number[]; kick?:number; motion?:DisplayMotion };
 const patterns = ['abcdef','bc','abged','abgcd','fgbc','afgcd','afgecd','abc','abcdefg','abfgcd'];
 const segments:Record<string,number[]>={a:[5,0,25,0],b:[29,4,29,23],c:[29,31,29,50],d:[5,54,25,54],e:[1,31,1,50],f:[1,4,1,23],g:[5,27,25,27]};
 // Five-column character generator, rather than a smooth contemporary UI font.
@@ -22,8 +22,11 @@ export function drawVfd(canvas:HTMLCanvasElement,s:VfdState){
   if(s.lit>.001){
     c.save();c.globalAlpha=s.lit;
     const gain=s.motion?.levelGain??1;
+    // Caps and the bass pulse ride the same gain as the levels, so a disc exchange
+    // contracts the whole meter instead of leaving artefacts on dark glass.
+    const kick=Math.max(0,Math.min(1,(s.kick??0)*gain)),cap=(i:number)=>(s.peaks?.[i]??0)*gain;
     if(s.motion){c.beginPath();c.rect(0,0,1024,416*s.motion.reveal);c.clip();}
-    const cyan='#55d9f7',blue='#277fea',lime='#bed557',amber='#e3b76b';
+    const cyan='#55d9f7',blue='#277fea',lime='#bed557',amber='#e3b76b',peak='#c6f6ff';
     const label=(text:string,x:number,y:number,color=cyan,size=14)=>{c.fillStyle=color;c.font=`${size>=24?'bold ':''}${size}px "Courier New",monospace`;c.fillText(text,x,y);};
     const line=(x:number,y:number,w:number,color:string)=>{c.fillStyle=color;c.fillRect(x,y,w,1);};
     label('OPTICAL SOUND SYSTEM',27,28,'#849aa7',13);label('MULTI CONTROL / DIGITAL AUDIO',636,28,'#849aa7',13);line(27,40,970,'#28404b');
@@ -38,15 +41,25 @@ export function drawVfd(canvas:HTMLCanvasElement,s:VfdState){
     const cx=463,cy=352,inner=122;
     for(let i=0;i<44;i++){
       const a=Math.PI+(i/43)*Math.PI;
-      const value=(s.levels[Math.floor(i/44*s.levels.length)]??0)*gain;
+      const column=Math.floor(i/44*s.levels.length),value=(s.levels[column]??0)*gain;
       for(let band=0;band<8;band++){
-        const r=inner+band*12,lit=band<value;
-        c.strokeStyle=lit?(band>6?lime:band>3?cyan:blue):(band>3?'#103447':'#102636');c.lineWidth=5;
+        // A bass onset lifts the lit colour ramp one stage. Dormant electrodes keep
+        // their printed tone, so an unlit meter never borrows the beat.
+        const r=inner+band*12,lit=band<value,step=band+kick*1.6;
+        c.strokeStyle=lit?(step>6?lime:step>3?cyan:blue):(band>3?'#103447':'#102636');c.lineWidth=5;
         c.beginPath();c.arc(cx,cy,r,a+.005,a+.042);c.stroke();
       }
+      const hold=cap(column);
+      if(hold>.35){c.strokeStyle=peak;c.lineWidth=5;c.beginPath();c.arc(cx,cy,inner+Math.min(7,Math.floor(hold))*12,a+.005,a+.042);c.stroke();}
       if(i%3===0){c.strokeStyle='#3285ab';c.lineWidth=1.5;c.beginPath();c.moveTo(cx+227*Math.cos(a),cy+227*Math.sin(a));c.lineTo(cx+233*Math.cos(a),cy+233*Math.sin(a));c.stroke();}
     }
     c.strokeStyle='#238abb';c.lineWidth=1.5;c.beginPath();c.arc(cx,cy,112,Math.PI,2*Math.PI);c.stroke();
+    // The onset lights the inner rim and sends one ring outward across the clear
+    // glass beyond the electrodes, where it reads instead of being lost among the
+    // lit dots. No electrode moves, so the printed layout stays exactly where it is.
+    if(kick>.02){const base=c.globalAlpha;c.save();c.strokeStyle=peak;
+      c.globalAlpha=base*kick*.8;c.lineWidth=2+kick*3;c.beginPath();c.arc(cx,cy,112,Math.PI,2*Math.PI);c.stroke();
+      c.globalAlpha=base*kick*.7;c.lineWidth=1+kick*3;c.beginPath();c.arc(cx,cy,208+(1-kick)*58,Math.PI,2*Math.PI);c.stroke();c.restore();}
     const t=Math.floor(s.time);digits(c,`${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`,360,283,1.06,cyan);
     label(s.alternate?'OPTICAL / PCM':'ELAPSED TIME',409,371,'#73abc1',12);
     if(s.alternate){c.fillStyle='#030c13';c.fillRect(228,151,468,110);label('DIGITAL AUDIO',255,186,cyan,30);label('44.1 kHz / STEREO',255,221,lime,24);label('DIRECT SIGNAL PATH',255,245,'#688796',13);}
@@ -55,7 +68,9 @@ export function drawVfd(canvas:HTMLCanvasElement,s:VfdState){
     label('VOLUME',774,156,amber,14);digits(c,String(Math.round(s.volume*100)).padStart(2,'0'),858,135,.75,lime);
     for(let i=0;i<22;i++){c.fillStyle=i/22<s.volume?cyan:'#112934';c.fillRect(775+i*8,194,5,10);}
     label('SPECTRUM',774,241,'#73abc1',14);
-    for(let i=0;i<16;i++){const value=(s.levels[i*2]??0)*gain;for(let j=0;j<9;j++){c.fillStyle=j<value?(j>6?amber:cyan):'#102832';c.fillRect(775+i*11,316-j*7,7,4);}}
+    for(let i=0;i<16;i++){const value=(s.levels[i*2]??0)*gain,hold=cap(i*2);
+      for(let j=0;j<9;j++){c.fillStyle=j<value?(j>6?amber:cyan):'#102832';c.fillRect(775+i*11,316-j*7,7,4);}
+      if(hold>.35){c.fillStyle=amber;c.fillRect(775+i*11,316-Math.min(8,Math.floor(hold))*7,7,4);}}
     label('L',778,344,lime,12);label('R',927,344,lime,12);line(798,339,112,'#295c74');
     line(27,385,970,'#24404d');label('CD / MD',28,404,'#759797',12);label('FLUORESCENT DISPLAY',391,404,'#4e798b',12);label('DSP · WIDE BIT STREAM',791,404,'#859768',12);
     // Phosphor rows stay crisp; they are not a blur filter on the display.

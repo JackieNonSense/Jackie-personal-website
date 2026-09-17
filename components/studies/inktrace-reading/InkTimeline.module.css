@@ -1,0 +1,76 @@
+.timeline { color: #26261e; padding-top: 15px; padding-bottom: 37px; }
+.heading { display: flex; justify-content: space-between; align-items: end; gap: 22px; }
+.kicker { font: 10px/1.5 'Courier New', monospace; letter-spacing: .045em; text-transform: uppercase; color: #67685b; }
+.heading h2 { font: 43px/1.06 Georgia, serif; letter-spacing: -1.6px; margin-top: 13px !important; }
+.filters { display: flex; align-items: center; gap: 14px; }
+.filters button { min-height: 44px; padding: 6px 0; border: 0; background: transparent; color: #656557; font: 12px Arial, sans-serif; white-space: nowrap; }
+.filters button[aria-pressed='true'] { color: #902d25; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.filters button > span { margin-left: 4px; }
+.railViewport { margin-top: 30px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-color: #9d6551 transparent; scrollbar-width: thin; }
+.rail { display: grid; grid-template-columns: repeat(5, minmax(132px, 1fr)); list-style: none; margin: 0; padding: 8px 0 12px; min-width: 660px; }
+.rail:has(li:nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(180px, 1fr)); min-width: 360px; }
+.rail li { position: relative; min-width: 0; }
+.rail li::before { content: ''; height: 1px; background: #9f9784; position: absolute; inset: 41px 0 auto; }
+.rail li:last-child::before { right: 20px; }
+.rail button { position: relative; width: 100%; display: flex; flex-direction: column; text-align: left; align-items: start; border: 0; background: transparent; min-height: 163px; padding: 0 17px 0 0; }
+.date { color: #68695c; font: 10px 'Courier New', monospace; line-height: 18px; white-space: nowrap; }
+.date > span { color: #8b8c7c; font-size: 9px; }
+.node { display: flex; align-items: center; width: 24px; height: 32px; margin-top: 6px; }
+.node > i { display: block; width: 7px; height: 7px; background: #e9e3d5; border: 1px solid #716e5c; border-radius: 50%; }
+.eventName { display: block; max-width: 170px; padding-top: 6px; font: 18px/1.14 Georgia, serif; letter-spacing: -.3px; }
+.eventType { padding-top: 13px; color: #717262; font: 9px 'Courier New', monospace; text-transform: uppercase; letter-spacing: .06em; }
+.rail button[aria-expanded='true'] .node > i { width: 10px; height: 10px; background: #902d25; border-color: #902d25; box-shadow: 0 0 0 4px #e6d9c8; }
+.rail button[aria-expanded='true'] .eventName, .rail button[aria-expanded='true'] .date { color: #902d25; }
+.rail li:nth-child(even) .eventName { padding-top: 18px; }
+.sequenceNote { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid #b5af9e; color: #767466; font: 9px/1.4 'Courier New', monospace; }
+.sequenceNote > span:last-child { white-space: nowrap; }
+.detail { position: relative; display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 23px; margin-top: 23px; padding: 0 0 20px; }
+.datePrint { display: flex; flex-direction: column; padding-top: 40px; color: #91322a; font: 10px/1.5 'Courier New', monospace; }
+.datePrint strong { display: block; margin: 10px 0; font: 53px/.93 Georgia, serif; letter-spacing: -4px; }
+.detailBody { min-width: 0; padding-left: 24px; border-left: 1px solid #a6493b; }
+.detailTop { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; color: #68675b; font: 9px/1.4 'Courier New', monospace; text-transform: uppercase; }
+.detailTop button { display: flex; align-items: center; gap: 14px; min-height: 44px; padding: 0; border: 0; background: transparent; font: 11px 'Courier New', monospace; color: #68675b; }
+.detail h3 { font: 31px/1.13 Georgia, serif; letter-spacing: -.9px; margin: 10px 0 16px !important; }
+.summary { font: 17px/1.55 Georgia, serif; }
+.context { margin-top: 15px !important; font: 12px/1.7 Arial, sans-serif; color: #65665a; }
+.noteButton { display: flex; align-items: center; gap: 12px; margin-top: 15px; min-height: 44px; padding: 0; border: 0; background: transparent; color: #902d25; font: 11px 'Courier New', monospace; }
+.noteButton span { font: 22px Georgia, serif; }
+.writingNote { margin-top: 8px; padding: 15px 20px; border-left: 2px solid #902d25; background: #d6cbbb66; }
+.writingNote > span { font: 9px 'Courier New', monospace; color: #902d25; text-transform: uppercase; }
+.writingNote p { margin-top: 10px !important; font: italic 17px/1.55 Georgia, serif; }
+.provenance { margin-top: 13px !important; color: #767466; font: 9px/1.5 'Courier New', monospace; }
+.closed { min-height: 150px; display: flex; align-items: center; justify-content: space-between; color: #65665a; font: 20px/1.4 Georgia, serif; }
+@media (min-width: 1700px) {
+  .heading h2 { font-size: 51px; }
+  .eventName { font-size: 22px; max-width: 210px; }
+  .rail button { min-height: 175px; }
+  .date { font-size: 12px; }
+  .detail { grid-template-columns: 145px minmax(0, 1fr); gap: 35px; }
+  .datePrint strong { font-size: 67px; }
+  .detail h3 { font-size: 38px; }
+  .summary { font-size: 21px; }
+  .context { font-size: 15px; }
+}
+@media (max-width: 600px) {
+  .timeline { padding-top: 5px; padding-bottom: 30px; }
+  .heading { align-items: start; flex-direction: column; gap: 15px; }
+  .heading h2 { font-size: 36px; }
+  .filters { gap: 26px; }
+  .filters button { font-size: 14px; }
+  .railViewport { margin-top: 16px; }
+  .rail { grid-template-columns: repeat(5, 143px); min-width: 715px; }
+  .rail button { min-height: 160px; }
+  .eventName { font-size: 19px; }
+  .sequenceNote { flex-direction: column; gap: 5px; padding-top: 8px; font-size: 9px; }
+  .detail { grid-template-columns: 1fr; gap: 10px; margin-top: 16px; }
+  .datePrint { flex-direction: row; gap: 13px; align-items: baseline; padding-top: 0; }
+  .datePrint strong { margin: 0; font-size: 39px; letter-spacing: -2px; }
+  .detailBody { padding-left: 16px; }
+  .detail h3 { font-size: 31px; }
+  .summary { font-size: 18px; }
+  .context { font-size: 14px; }
+  .provenance { font-size: 10px; line-height: 1.6; }
+  .noteButton { font-size: 12px; }
+  .detailTop { font-size: 9px; }
+  .writingNote { padding-inline: 12px; }
+}

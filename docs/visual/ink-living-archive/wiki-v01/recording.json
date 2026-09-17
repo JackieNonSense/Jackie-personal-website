@@ -1,0 +1,23 @@
+{
+  "source": "Actual localhost browser frames; normal speed, no generated transitions",
+  "silent": true,
+  "width": 768,
+  "height": 924,
+  "frames": 200,
+  "duration": 45878,
+  "complete": true,
+  "actions": [
+    {
+      "at": 42079,
+      "action": "Manual wrap left"
+    },
+    {
+      "at": 43188,
+      "action": "Move quotation earlier"
+    },
+    {
+      "at": 44324,
+      "action": "Open linked region in the reading slot"
+    }
+  ]
+}

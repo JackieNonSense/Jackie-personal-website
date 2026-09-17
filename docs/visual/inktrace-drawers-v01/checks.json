@@ -1,0 +1,110 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "doc": 1440,
+      "panels": 1,
+      "active": "workspace",
+      "buttons": [
+        {
+          "label": "Why I built it",
+          "w": 86,
+          "h": 48,
+          "x": 831.078125,
+          "right": 917.078125,
+          "reachable": true
+        },
+        {
+          "label": "Inside the workspace",
+          "w": 48,
+          "h": 132,
+          "x": 1391.984375,
+          "right": 1439.984375,
+          "reachable": true
+        },
+        {
+          "label": "How things connect",
+          "w": 48,
+          "h": 145,
+          "x": 1387.984375,
+          "right": 1435.984375,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "doc": 390,
+      "panels": 1,
+      "active": "workspace",
+      "buttons": [
+        {
+          "label": "Why I built it",
+          "w": 86,
+          "h": 48,
+          "x": 83.90625,
+          "right": 169.90625,
+          "reachable": true
+        },
+        {
+          "label": "Inside the workspace",
+          "w": 44,
+          "h": 108,
+          "x": 342.99127197265625,
+          "right": 386.99127197265625,
+          "reachable": true
+        },
+        {
+          "label": "How things connect",
+          "w": 44,
+          "h": 125,
+          "x": 339,
+          "right": 383,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "doc": 1920,
+      "panels": 1,
+      "active": "workspace",
+      "buttons": [
+        {
+          "label": "Why I built it",
+          "w": 86,
+          "h": 48,
+          "x": 1119.140625,
+          "right": 1205.140625,
+          "reachable": true
+        },
+        {
+          "label": "Inside the workspace",
+          "w": 48,
+          "h": 132,
+          "x": 1872,
+          "right": 1920,
+          "reachable": true
+        },
+        {
+          "label": "How things connect",
+          "w": 48,
+          "h": 149.21875,
+          "x": 1868,
+          "right": 1916,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "touch": "passed"
+    },
+    {
+      "reduced": "passed"
+    },
+    {
+      "texturesUnavailable": "content and controls remain usable"
+    }
+  ],
+  "errors": []
+}

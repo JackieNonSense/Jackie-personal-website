@@ -70,4 +70,14 @@ describe('pixel-window interface',()=>{
   fireEvent.click(screen.getByRole('tab',{name:/Characters/}));
   expect(screen.queryByRole('region',{name:'Event archive'})).not.toBeInTheDocument();
  });
+ it('focuses the close control when opening without motion',()=>{
+  render(<PixelShowcase still/>);open();
+  expect(screen.getByRole('button',{name:'Close InkTrace demo'})).toHaveFocus();
+ });
+ it('keeps a reading drawer open when its already-selected chapter is clicked',()=>{
+  render(<PixelShowcase still/>);open();
+  fireEvent.click(screen.getByRole('button',{name:'Read event: The archive opens'}));
+  fireEvent.click(screen.getByRole('tab',{name:/Timeline/}));
+  expect(screen.getByRole('region',{name:'Event archive'})).toBeVisible();
+ });
 });

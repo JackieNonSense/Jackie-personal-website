@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {initialPlayback,playback,beat,durations,type Playback} from '../components/studies/inktrace-pixel/playback';
+import {initialPlayback,playback,beat,durations,windowPose,type Playback} from '../components/studies/inktrace-pixel/playback';
 
 const tick=(s:Playback,dt:number,active=true)=>playback(s,{type:'tick',dt,active});
 const opened=()=>tick(playback(initialPlayback,{type:'open'}),700);
@@ -60,5 +60,39 @@ describe('pixel-window playback',()=>{
  it('rejects negative time and preserves paused state when becoming visible',()=>{
   const s=playback(tick(opened(),1000),{type:'pause'});
   expect(tick(s,-100)).toEqual(s);expect(tick(s,100,false)).toEqual(s);
+ });
+ it('settles the book before opening the frame, then reveals readable contents',()=>{
+  const opening=playback(initialPlayback,{type:'open'});
+  const early=windowPose(tick(opening,100));
+  const frame=windowPose(tick(opening,300));
+  expect(early.bookOpacity).toBeGreaterThan(.9);
+  expect(early.contentOpacity).toBe(0);
+  expect(early.bookScale).toBeLessThan(1);
+  expect(frame.width).toBeGreaterThan(frame.height);
+  expect(frame.frameOpacity).toBe(1);
+  expect(frame.contentOpacity).toBe(0);
+  expect(windowPose(opened())).toMatchObject({width:1,height:1,frameOpacity:1,contentOpacity:1,bookOpacity:0});
+ });
+ it('does not restart an in-progress close or jump to a fully open frame',()=>{
+  const half=tick(playback(initialPlayback,{type:'open'}),320);
+  const closing=playback(half,{type:'close'});
+  expect(windowPose(closing)).toEqual(windowPose(half));
+  const later=tick(closing,120);
+  expect(playback(later,{type:'close'})).toBe(later);
+  expect(windowPose(later).contentOpacity).toBe(0);
+  expect(windowPose(tick(closing,350)).bookOpacity).toBe(1);
+ });
+ it('never replays the current chapter just because its selected tab was clicked',()=>{
+  const s=tick(opened(),3100);
+  expect(playback(s,{type:'select',scene:0})).toBe(s);
+ });
+ it('has finite, bounded poses and instant reduced-motion endpoints',()=>{
+  for(const transition of [-500,0,200,10000,NaN,Infinity]){
+   for(const value of Object.values(windowPose({...initialPlayback,phase:'opening',transition})))
+    expect(Number.isFinite(value)&&value>=0&&value<=1).toBe(true);
+  }
+  const staticOpen=playback({...initialPlayback,still:true},{type:'open'});
+  expect(windowPose(staticOpen).contentOpacity).toBe(1);
+  expect(windowPose(playback(staticOpen,{type:'close'})).bookOpacity).toBe(1);
  });
 });

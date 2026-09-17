@@ -28,7 +28,7 @@ describe("front-facing objects", () => {
     expect(container.querySelector('[data-testid="monitor-entry"] [class*="enterWord"]')).toBeNull();
     expect(screen.getByRole("link", { name: "ENTER TERMINAL ↗" })).toHaveAttribute("href", "/terminal");
   });
-  it("provides a silent music deck and licensed credits in About", async () => {
+  it("provides a silent music deck and accurate artist credits in About", async () => {
     const { default: Portfolio } = await component("Portfolio.tsx");
     const { container } = render(createElement(Portfolio));
     expect(screen.getByRole("button", { name: "播放音乐" })).toBeEnabled();
@@ -36,8 +36,12 @@ describe("front-facing objects", () => {
     expect(container.querySelector("#about [data-testid='music-deck']")).not.toBeNull();
     expect(container.querySelector("audio")).toBeNull();
     expect(screen.getByText("MUSIC CREDITS")).toBeInTheDocument();
-    expect(container.textContent).toContain("Kevin MacLeod");
-    expect(container.querySelectorAll('a[href="https://creativecommons.org/licenses/by/4.0/"]')).toHaveLength(2);
+    expect(container.textContent).toContain("浜崎あゆみ");
+    expect(container.textContent).toContain("ilyhiryu");
+    expect(container.textContent).toContain("2z2");
+    expect(container.textContent).not.toContain("Kevin MacLeod");
+    expect(container.textContent).not.toContain("Two licensed listening demos");
+    expect(container.querySelectorAll('a[href="https://creativecommons.org/licenses/by/4.0/"]')).toHaveLength(0);
     expect(screen.queryByText("SIGNAL STUDY")).not.toBeInTheDocument();
   });
   it("monitor wakes on focus, returns to black on blur and retains a native link", async () => {

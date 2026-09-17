@@ -60,3 +60,19 @@ it('rejects invalid or unbounded texture allocations',async()=>{
     await expect(generate(width,height)).rejects.toThrow(RangeError);
   }
 });
+
+it('gives the moulded key caps and their seats a real finish, not bare plastic',async()=>{
+  const {deckFinish}=await import(/* @vite-ignore */ '../components/portfolio/deck-patina');
+  // Four of the five key bodies are Graphite and the seats are Gasket; without an
+  // entry they render flat beside the finished silver paddle and chrome lips.
+  for(const name of ['Graphite','Gasket']){
+    const finish=deckFinish[name];
+    expect(finish,name+' has a finish profile').toBeDefined();
+    expect(finish.roughness).toBeGreaterThan(.2);expect(finish.roughness).toBeLessThanOrEqual(1);
+    expect(finish.variation).toBeGreaterThan(0);expect(finish.variation).toBeLessThan(.1);
+    expect(finish.bump).toBeGreaterThan(0);expect(finish.bump).toBeLessThan(.02);
+    expect(finish.clearcoat).toBeGreaterThanOrEqual(0);expect(finish.clearcoat).toBeLessThan(.3);
+  }
+  // A lit emissive bar must not be dulled by a roughness map.
+  expect(deckFinish.KeyLight).toBeUndefined();
+});

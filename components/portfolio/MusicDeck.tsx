@@ -18,6 +18,6 @@ export default function MusicDeck({ player, state, still, onVisibility }: { play
     <DeckSurface near={near} active={drawing} player={player} state={state} still={still} displayMode={displayMode} onDisplay={switchDisplay}/>
     <div className={styles.deckCaption}><span aria-live="polite">{state.status === "error" ? "READ ERROR" : state.status === "loading" ? "LOADING…" : state.status === "switching" ? "CHANGING DISC…" : state.status === "playing" ? "NOW PLAYING" : state.status === "paused" ? "PAUSED" : "PRESS PLAY"}</span><span>{track.title}</span></div>
     {state.error && <p role="alert" className={styles.audioError}>{state.error} Use PLAY to retry, or SEEK to skip.</p>}
-    <details className={styles.credits}><summary>MUSIC CREDITS</summary><p>Two licensed listening demos, not my work or final playlist.</p>{musicTracks.map(item=><div key={item.id}><p>{item.credit}</p><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">Artist / source ↗</a><a href={item.licenseUrl} target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a></div>)}</details>
+    <details className={styles.credits}><summary>MUSIC CREDITS</summary>{musicTracks.map(item=><div key={item.id}><p>{item.title} — {item.artist}</p></div>)}</details>
   </motion.div>;
 }

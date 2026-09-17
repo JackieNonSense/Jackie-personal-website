@@ -1,0 +1,338 @@
+[
+  {
+    "url": "http://localhost:3011/#about",
+    "dpr": 1,
+    "canvas": [
+      480,
+      248
+    ],
+    "css": [
+      480,
+      248
+    ],
+    "drawingBuffer": [
+      480,
+      248
+    ],
+    "samples": 4,
+    "antialias": true,
+    "renderer": "three",
+    "chain": [
+      {
+        "tag": "CANVAS",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "SECTION",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "MAIN",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "BODY",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "HTML",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3011/#about",
+    "dpr": 2,
+    "canvas": [
+      960,
+      496
+    ],
+    "css": [
+      480,
+      248
+    ],
+    "drawingBuffer": [
+      960,
+      496
+    ],
+    "samples": 4,
+    "antialias": true,
+    "renderer": "three",
+    "chain": [
+      {
+        "tag": "CANVAS",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "SECTION",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "MAIN",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "BODY",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "HTML",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3011/design/deck",
+    "dpr": 1,
+    "canvas": [
+      1060,
+      547
+    ],
+    "css": [
+      1060,
+      547.65625
+    ],
+    "drawingBuffer": [
+      1060,
+      547
+    ],
+    "samples": 4,
+    "antialias": true,
+    "renderer": "three",
+    "chain": [
+      {
+        "tag": "CANVAS",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "MAIN",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "BODY",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "HTML",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3011/design/deck",
+    "dpr": 2,
+    "canvas": [
+      2120,
+      1095
+    ],
+    "css": [
+      1060,
+      547.65625
+    ],
+    "drawingBuffer": [
+      2120,
+      1095
+    ],
+    "samples": 4,
+    "antialias": true,
+    "renderer": "three",
+    "chain": [
+      {
+        "tag": "CANVAS",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "DIV",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "MAIN",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "BODY",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      },
+      {
+        "tag": "HTML",
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "auto"
+      }
+    ]
+  }
+]

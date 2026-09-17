@@ -1,0 +1,118 @@
+[
+  {
+    "width": 1440,
+    "height": 900,
+    "dpr": 1,
+    "font": {
+      "family": "PortfolioCondensed, \"Arial Narrow\", sans-serif",
+      "size": 302.4,
+      "mask": "url(\"http://localhost:3011/portfolio/toner-mask.svg\")"
+    },
+    "copyBox": {
+      "x": 57.59375,
+      "y": 339.78125,
+      "width": 600,
+      "height": 595.90625
+    },
+    "deckBox": {
+      "x": 766.359375,
+      "y": 365.78125,
+      "width": 616.046875,
+      "height": 607.515625
+    },
+    "content": "all original paragraphs and skills retained",
+    "errors": [],
+    "blocked": [
+      "http://local.adguard.org",
+      "http://local.adguard.org"
+    ],
+    "mediaPlayAttempts": 0
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "dpr": 2,
+    "font": {
+      "family": "PortfolioCondensed, \"Arial Narrow\", sans-serif",
+      "size": 360,
+      "mask": "url(\"http://localhost:3011/portfolio/toner-mask.svg\")"
+    },
+    "copyBox": {
+      "x": 76.796875,
+      "y": 571.484375,
+      "width": 600,
+      "height": 621
+    },
+    "deckBox": {
+      "x": 1122.5,
+      "y": 597.484375,
+      "width": 620,
+      "height": 610.640625
+    },
+    "content": "all original paragraphs and skills retained",
+    "errors": [],
+    "blocked": [
+      "http://local.adguard.org",
+      "http://local.adguard.org"
+    ],
+    "mediaPlayAttempts": 0
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 2,
+    "font": {
+      "family": "PortfolioCondensed, \"Arial Narrow\", sans-serif",
+      "size": 140.4,
+      "mask": "url(\"http://localhost:3011/portfolio/toner-mask.svg\")"
+    },
+    "copyBox": {
+      "x": 22,
+      "y": -12.265625,
+      "width": 346,
+      "height": 647.1875
+    },
+    "deckBox": {
+      "x": 22,
+      "y": 664.921875,
+      "width": 346,
+      "height": 394.859375
+    },
+    "content": "all original paragraphs and skills retained",
+    "errors": [],
+    "blocked": [
+      "http://local.adguard.org",
+      "http://local.adguard.org"
+    ],
+    "mediaPlayAttempts": 0
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "dpr": 1,
+    "font": {
+      "family": "PortfolioCondensed, \"Arial Narrow\", sans-serif",
+      "size": 215.04,
+      "mask": "url(\"http://localhost:3011/portfolio/toner-mask.svg\")"
+    },
+    "copyBox": {
+      "x": 40.953125,
+      "y": 237.6875,
+      "width": 438.078125,
+      "height": 595.90625
+    },
+    "deckBox": {
+      "x": 544.96875,
+      "y": 263.6875,
+      "width": 438.078125,
+      "height": 467.375
+    },
+    "content": "all original paragraphs and skills retained",
+    "errors": [],
+    "blocked": [
+      "http://local.adguard.org",
+      "http://local.adguard.org"
+    ],
+    "mediaPlayAttempts": 0
+  }
+]

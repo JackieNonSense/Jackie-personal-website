@@ -1,4 +1,5 @@
 import type { MediaPort } from "./music-controller";
+import { DECK_ANALYSER } from "./deck-beat-meter";
 
 /** Created only by a user playback gesture, not by mounting or scrolling. */
 export function createBrowserAudio(): MediaPort {
@@ -21,7 +22,9 @@ export function createBrowserAudio(): MediaPort {
       if (!context && typeof AudioContext !== "undefined") {
         context = new AudioContext();
         gain = context.createGain(); gain.gain.value = 0;
-        analyser = context.createAnalyser(); analyser.fftSize = 256; analyser.smoothingTimeConstant = .75;
+        // Wide window, light smoothing: bass transients survive as their own bins
+        // instead of being averaged flat by the analyser before the meter sees them.
+        analyser = Object.assign(context.createAnalyser(), DECK_ANALYSER);
         data = new Uint8Array(analyser.frequencyBinCount);
         source = context.createMediaElementSource(audio);
         source.connect(analyser); analyser.connect(gain); gain.connect(context.destination);

@@ -20,3 +20,11 @@ export function spectrumBands(sample:Uint8Array|undefined){
     return Math.round(sum/(end-start)/255*9);
   });
 }
+/** A key snaps down under the finger and returns more slowly, the way a sprung
+ * console key does. Attention fades in rather than switching on. */
+export function keyResponse(previous:{press:number;glow:number},pressed:boolean,attentive:boolean,dt:number,still:boolean){
+  if(still)return{press:pressed?1:0,glow:attentive?1:0};
+  const step=Math.min(Math.max(dt,0),.05),ease=(from:number,to:number,rate:number)=>from+(to-from)*(1-Math.exp(-step*rate));
+  const press=pressed?1:0,glow=attentive?1:0;
+  return{press:clamp(ease(previous.press,press,press>previous.press?55:20)),glow:clamp(ease(previous.glow,glow,18))};
+}

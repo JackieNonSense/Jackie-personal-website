@@ -197,16 +197,16 @@ const JUMP_FORCE = -280;
 const PLAYER_SPEED = 100;
 
 // ==================== COMPONENT ====================
-interface CRTScreenProps {
+interface CRTScreenProps { directGame?: boolean;
   position?: [number, number, number];
 }
 
-export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
+export default function CRTScreen({ position = [0, 0, 0], directGame = false }: CRTScreenProps) {
   const meshRef = useRef<THREE.Mesh>(null!);
   const keysRef = useRef<Set<string>>(new Set());
 
   const [state, setState] = useState<TerminalState>({
-    bootPhase: 'logo',
+    bootPhase: directGame ? 'ready' : 'logo',
     currentView: 'menu',
     selectedIndex: 0,
     inputBuffer: "",
@@ -244,6 +244,7 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
 
   // Boot sequence
   useEffect(() => {
+    if (directGame) return;
     const timers: NodeJS.Timeout[] = [];
     BOOT_LOGO.forEach((_, i) => {
       timers.push(setTimeout(() => setLogoLines(i + 1), 50 + i * 80));
@@ -343,6 +344,7 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
     }));
   }, []);
 
+  useEffect(() => { if (directGame) initGame(); }, [directGame, initGame]);
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     const key = e.key.toLowerCase();
     keysRef.current.add(key);
@@ -468,9 +470,13 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
   }, []);
 
   useEffect(() => {
+    const clearHeldKeys = () => keysRef.current.clear();
+    window.addEventListener('blur', clearHeldKeys);
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
     return () => {
+      window.removeEventListener('blur', clearHeldKeys);
+      clearHeldKeys();
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
@@ -566,8 +572,8 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
     ctx.fillRect(0, 0, 512, 384);
 
     ctx.font = '12px monospace';
-    ctx.fillStyle = '#00ff00';
-    ctx.shadowColor = '#00ff00';
+    ctx.fillStyle = '#a3dbcb';
+    ctx.shadowColor = '#a3dbcb';
     ctx.shadowBlur = 3; // Increased glow
 
     const { bootPhase, currentView, selectedIndex, inputBuffer, mails, selectedMail, files, selectedFile, logs, logScrollOffset, gameState, passwordAttempts, loadingProgress } = state;
@@ -597,8 +603,8 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
         ctx.fillStyle = '#ffaa00';
         ctx.shadowColor = '#ffaa00';
         ctx.fillText(`INCORRECT. ${3 - passwordAttempts} ATTEMPTS LEFT.`, 40, y);
-        ctx.fillStyle = '#00ff00';
-        ctx.shadowColor = '#00ff00';
+        ctx.fillStyle = '#a3dbcb';
+        ctx.shadowColor = '#a3dbcb';
       }
       y += 30;
       ctx.fillText("> " + "*".repeat(inputBuffer.length) + (cursorVisible ? "_" : " "), 40, y);
@@ -644,19 +650,19 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
       ctx.font = '11px monospace';
 
       y = 60;
-      ctx.fillStyle = '#008800';
+      ctx.fillStyle = '#618e7f';
       ctx.fillText("JR INDUSTRIES (TM) TERMLINK", 30, y);
       y += 25;
       ctx.fillText("────────────────────────────────", 30, y);
       y += 20;
 
-      ctx.fillStyle = '#00ff00';
+      ctx.fillStyle = '#a3dbcb';
 
       // Show commands one by one
       VERIFY_COMMANDS.slice(0, state.verifyLines).forEach((cmd, i) => {
         // Last visible line gets typing cursor effect
         if (i === state.verifyLines - 1) {
-          ctx.fillStyle = '#00ff00';
+          ctx.fillStyle = '#a3dbcb';
           ctx.fillText(cmd + (cursorVisible ? "█" : ""), 30, y);
         } else {
           // Previous lines slightly dimmer
@@ -668,7 +674,7 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
 
       // Blinking cursor at bottom if still typing
       if (state.verifyLines < VERIFY_COMMANDS.length && cursorVisible) {
-        ctx.fillStyle = '#00ff00';
+        ctx.fillStyle = '#a3dbcb';
         ctx.fillText(">", 30, y);
       }
     }
@@ -681,9 +687,9 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
       // Progress bar
       const barWidth = 200;
       const barX = 156;
-      ctx.strokeStyle = '#00ff00';
+      ctx.strokeStyle = '#a3dbcb';
       ctx.strokeRect(barX, y, barWidth, 16);
-      ctx.fillStyle = '#00ff00';
+      ctx.fillStyle = '#a3dbcb';
       ctx.fillRect(barX + 2, y + 2, (barWidth - 4) * (loadingProgress / 100), 12);
 
       y += 30;
@@ -713,8 +719,8 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
       ];
 
       ctx.font = '10px monospace';
-      ctx.fillStyle = '#00ff00';
-      ctx.shadowColor = '#00ff00';
+      ctx.fillStyle = '#a3dbcb';
+      ctx.shadowColor = '#a3dbcb';
       ctx.shadowBlur = 8; // Extra glow for welcome
 
       y = 80;
@@ -725,7 +731,7 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
 
       // Blinking "initializing..."
       if (cursorVisible) {
-        ctx.fillStyle = '#008800';
+        ctx.fillStyle = '#618e7f';
         ctx.fillText("[ INITIALIZING TERMINAL... ]", 256, y + 20);
       }
 
@@ -743,17 +749,17 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
         MAIN_MENU.forEach((item, i) => {
           const sel = i === selectedIndex;
           if (sel) {
-            ctx.fillStyle = '#00ff00';
+            ctx.fillStyle = '#a3dbcb';
             ctx.fillRect(100, y - 10, 312, 16);
             ctx.fillStyle = '#000000';
           }
           ctx.fillText(`[${i + 1}] ${item.label} - ${item.desc}`, 256, y);
-          if (sel) ctx.fillStyle = '#00ff00';
+          if (sel) ctx.fillStyle = '#a3dbcb';
           y += 20;
         });
 
         y = 340;
-        ctx.fillStyle = '#008800';
+        ctx.fillStyle = '#618e7f';
         ctx.fillText("↑↓: Select   ENTER: Open   1-5: Quick", 256, y);
         ctx.textAlign = 'left';
       }
@@ -763,12 +769,12 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
         y = 50;
         mails.forEach((m, i) => {
           const sel = i === selectedIndex;
-          if (sel) { ctx.fillStyle = '#00ff00'; ctx.fillRect(15, y - 10, 400, 14); ctx.fillStyle = '#000'; }
+          if (sel) { ctx.fillStyle = '#a3dbcb'; ctx.fillRect(15, y - 10, 400, 14); ctx.fillStyle = '#000'; }
           ctx.fillText(`${sel ? '>' : ' '} ${m.read ? ' ' : '*'} ${m.from}: ${m.subject.slice(0, 30)}`, 20, y);
-          if (sel) ctx.fillStyle = '#00ff00';
+          if (sel) ctx.fillStyle = '#a3dbcb';
           y += 16;
         });
-        ctx.fillStyle = '#008800'; ctx.fillText("↑↓/ENTER/ESC", 20, 360);
+        ctx.fillStyle = '#618e7f'; ctx.fillText("↑↓/ENTER/ESC", 20, 360);
       }
       else if (currentView === 'mail-read' && selectedMail) {
         ctx.fillText(`FROM: ${selectedMail.from}`, 20, 25);
@@ -777,7 +783,7 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
         ctx.fillText("────────────────────────────────", 20, 70);
         y = 90;
         selectedMail.body.forEach(line => { ctx.fillText(line, 20, y); y += 16; });
-        ctx.fillStyle = '#008800'; ctx.fillText("ESC: Back", 20, 360);
+        ctx.fillStyle = '#618e7f'; ctx.fillText("ESC: Back", 20, 360);
       }
       else if (currentView === 'files') {
         ctx.fillText("═══ FILES ═══", 20, 25);
@@ -786,46 +792,46 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
         (files.children || []).forEach((f, i) => {
           const sel = i === selectedIndex;
           const icon = f.type === 'folder' ? 'DIR' : f.type === 'encrypted' ? 'ENC' : 'TXT';
-          if (sel) { ctx.fillStyle = '#00ff00'; ctx.fillRect(15, y - 10, 250, 14); ctx.fillStyle = '#000'; }
+          if (sel) { ctx.fillStyle = '#a3dbcb'; ctx.fillRect(15, y - 10, 250, 14); ctx.fillStyle = '#000'; }
           ctx.fillText(`${sel ? '>' : ' '} [${icon}] ${f.name}`, 20, y);
-          if (sel) ctx.fillStyle = '#00ff00';
+          if (sel) ctx.fillStyle = '#a3dbcb';
           y += 16;
         });
-        ctx.fillStyle = '#008800'; ctx.fillText("↑↓/ENTER/ESC", 20, 360);
+        ctx.fillStyle = '#618e7f'; ctx.fillText("↑↓/ENTER/ESC", 20, 360);
       }
       else if (currentView === 'file-view' && selectedFile) {
         ctx.fillText(`═══ ${selectedFile.name} ═══`, 20, 25);
         y = 50;
         (selectedFile.content || []).forEach(line => { ctx.fillText(line, 20, y); y += 16; });
-        ctx.fillStyle = '#008800'; ctx.fillText("ESC: Back", 20, 360);
+        ctx.fillStyle = '#618e7f'; ctx.fillText("ESC: Back", 20, 360);
       }
       else if (currentView === 'logs') {
         ctx.fillText("═══ LOGS ═══", 20, 25);
         y = 50;
         logs.slice(logScrollOffset, logScrollOffset + 16).forEach(log => {
-          const c = log.level === 'CRITICAL' ? '#ff4444' : log.level === 'ERROR' ? '#ff8844' : log.level === 'WARN' ? '#ffff44' : '#00ff00';
+          const c = log.level === 'CRITICAL' ? '#ff4444' : log.level === 'ERROR' ? '#ff8844' : log.level === 'WARN' ? '#ffff44' : '#a3dbcb';
           ctx.fillStyle = c; ctx.shadowColor = c;
           ctx.fillText(`[${log.timestamp}] ${log.level}: ${log.message}`, 10, y);
           y += 16;
         });
-        ctx.fillStyle = '#008800'; ctx.shadowColor = '#00ff00'; ctx.fillText("↑↓/ESC", 20, 360);
+        ctx.fillStyle = '#618e7f'; ctx.shadowColor = '#a3dbcb'; ctx.fillText("↑↓/ESC", 20, 360);
       }
       else if (currentView === 'system') {
         ctx.fillText("═══ SYSTEM ═══", 20, 25);
         y = 50;
         ["JR TERMLINK v1.25", "Build: 1981-03-01", "", "Memory: 64KB [OK]", "Storage: 360KB Floppy", "Network: [OFFLINE]", "", "Status: CONTAINMENT BREACH"].forEach(l => { ctx.fillText(l, 20, y); y += 16; });
-        ctx.fillStyle = '#008800'; ctx.fillText("ESC: Back", 20, 360);
+        ctx.fillStyle = '#618e7f'; ctx.fillText("ESC: Back", 20, 360);
       }
       // Game
       else if (currentView === 'game' && gameState) {
         ctx.shadowBlur = 0;
 
         // Platforms
-        ctx.fillStyle = '#004400';
+        ctx.fillStyle = '#183e31';
         PLATFORMS.forEach(p => ctx.fillRect(p.x, p.y, p.w, 8));
 
         // Player
-        drawSprite(ctx, PLAYER_SPRITE, gameState.playerX, gameState.playerY, '#00ff00', gameState.facing < 0);
+        drawSprite(ctx, PLAYER_SPRITE, gameState.playerX, gameState.playerY, '#a3dbcb', gameState.facing < 0);
 
         // Bullets
         ctx.fillStyle = '#ffff00';
@@ -835,24 +841,24 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
         gameState.enemies.forEach(e => drawSprite(ctx, ENEMY_SPRITE, e.x, e.y, '#ff4444'));
 
         // UI
-        ctx.fillStyle = '#00ff00';
+        ctx.fillStyle = '#a3dbcb';
         ctx.shadowBlur = 3;
         ctx.fillText(`SCORE: ${gameState.score}`, 20, 20);
-        ctx.fillStyle = '#008800';
+        ctx.fillStyle = '#618e7f';
         ctx.fillText("WASD:Move  J:Shoot  ESC:Exit", 20, 375);
 
         if (gameState.gameOver) {
           ctx.fillStyle = 'rgba(0,0,0,0.8)';
           ctx.fillRect(120, 130, 270, 100);
-          ctx.strokeStyle = '#00ff00';
+          ctx.strokeStyle = '#a3dbcb';
           ctx.strokeRect(120, 130, 270, 100);
-          ctx.fillStyle = '#00ff00';
+          ctx.fillStyle = '#a3dbcb';
           ctx.textAlign = 'center';
           ctx.fillText("══════════════════════", 256, 150);
           ctx.fillText("G A M E   O V E R", 256, 170);
           ctx.fillText("══════════════════════", 256, 190);
           ctx.fillText(`Score: ${gameState.score}`, 256, 210);
-          ctx.fillStyle = '#008800';
+          ctx.fillStyle = '#618e7f';
           ctx.fillText("[R] Restart  [ESC] Exit", 256, 225);
           ctx.textAlign = 'left';
         }
@@ -875,3 +881,5 @@ export default function CRTScreen({ position = [0, 0, 0] }: CRTScreenProps) {
     </group>
   );
 }
+
+

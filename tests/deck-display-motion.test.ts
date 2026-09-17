@@ -88,6 +88,14 @@ function drawing(){
 }
 const sample={title:'A',time:12,volume:.25,track:1,status:'playing',lit:.8,alternate:false,levels:Array(32).fill(8) as number[]};
 
+it('adds falling peak caps and a restrained bass pulse without changing the VFD layout',()=>{
+  const output=drawing();drawVfd(output.canvas,{...sample,levels:Array(32).fill(2),peaks:Array(32).fill(7),kick:1});
+  expect(output.arcs.some(a=>a.color==='#c6f6ff')).toBe(true);
+  expect(output.fills.some(f=>f.x>=775&&f.y<300&&f.color==='#e3b76b')).toBe(true);
+  const still=drawing();drawVfd(still.canvas,{...sample,levels:Array(32).fill(0),peaks:Array(32).fill(0),kick:0});
+  expect(still.arcs.some(a=>a.color==='#c6f6ff')).toBe(false);
+});
+
 it('clips the illuminated VFD to the warm-up reveal while keeping the glass intact',()=>{
   const output=drawing();drawVfd(output.canvas,{...sample,motion:{reveal:.25,levelGain:1,titleAlpha:1,titleOffset:0,needsFrame:true}});
   expect(output.rects).toContainEqual([0,0,1024,104]);

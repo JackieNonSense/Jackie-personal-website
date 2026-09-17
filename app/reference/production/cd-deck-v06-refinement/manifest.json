@@ -1,0 +1,19 @@
+{
+  "blender": "4.5.13 LTS",
+  "units": "1 unit = 10mm; web Y-up preserved",
+  "frontAspect": 1.935483870967742,
+  "source": "deck-a-master.blend",
+  "export": "deck-a-v02.glb",
+  "sha256": "c6e6b0152417c13d15e09326d97ff09161a7ec7d9568e422f5ca7f3405a0ae7c",
+  "pivots": [
+    "Chassis",
+    "FacePivot",
+    "VolumePivot",
+    "KeyPlay",
+    "KeyNext",
+    "KeyDisplay",
+    "KeyMute",
+    "DiscCarrier"
+  ],
+  "stage": "REFINEMENT 02 \u2014 geometric function symbols and planar annular normals; homepage controls connected"
+}

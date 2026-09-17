@@ -1,0 +1,859 @@
+{
+  "count": {
+    "roots": 1,
+    "scenes": 1,
+    "fallbackDisplay": "none"
+  },
+  "cold": {
+    "states": [
+      {
+        "t": 474.09999990463257,
+        "count": 1,
+        "renderer": "fallback",
+        "hidden": false,
+        "display": "block",
+        "canvas": false,
+        "awake": "false",
+        "width": 380,
+        "fonts": "loading"
+      },
+      {
+        "t": 533.5,
+        "count": 1,
+        "renderer": "fallback",
+        "hidden": false,
+        "display": "block",
+        "canvas": false,
+        "awake": "false",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 1356.0999999046326,
+        "count": 1,
+        "renderer": "fallback",
+        "hidden": false,
+        "display": "block",
+        "canvas": true,
+        "awake": "false",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 2416.7000000476837,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 2843.899999856949,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loading"
+      },
+      {
+        "t": 2866.7000000476837,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 4535.5,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loading"
+      },
+      {
+        "t": 4540.599999904633,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      }
+    ],
+    "pixels": [
+      {
+        "t": 2204.0999999046326,
+        "rgb": "123,102,70,255",
+        "hasEnvironmentSampler": false
+      },
+      {
+        "t": 2470.7000000476837,
+        "rgb": "224,218,205,255",
+        "hasEnvironmentSampler": true
+      }
+    ]
+  },
+  "awake": {
+    "states": [
+      {
+        "t": 474.09999990463257,
+        "count": 1,
+        "renderer": "fallback",
+        "hidden": false,
+        "display": "block",
+        "canvas": false,
+        "awake": "false",
+        "width": 380,
+        "fonts": "loading"
+      },
+      {
+        "t": 533.5,
+        "count": 1,
+        "renderer": "fallback",
+        "hidden": false,
+        "display": "block",
+        "canvas": false,
+        "awake": "false",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 1356.0999999046326,
+        "count": 1,
+        "renderer": "fallback",
+        "hidden": false,
+        "display": "block",
+        "canvas": true,
+        "awake": "false",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 2416.7000000476837,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 2843.899999856949,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loading"
+      },
+      {
+        "t": 2866.7000000476837,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 4535.5,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loading"
+      },
+      {
+        "t": 4540.599999904633,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "false",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 5054.099999904633,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "off",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 5136.700000047684,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "warming",
+        "lines": "0",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 5445.399999856949,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "booting",
+        "lines": "1",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 5708.799999952316,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "booting",
+        "lines": "2",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 5959.399999856949,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "booting",
+        "lines": "3",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 6195.099999904633,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "booting",
+        "lines": "4",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 6472.299999952316,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "ready",
+        "lines": "5",
+        "width": 380,
+        "fonts": "loaded"
+      },
+      {
+        "t": 6530.599999904633,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "ready",
+        "lines": "5",
+        "width": 380,
+        "fonts": "loading"
+      },
+      {
+        "t": 6539.799999952316,
+        "count": 1,
+        "renderer": "three",
+        "hidden": true,
+        "display": "none",
+        "canvas": true,
+        "awake": "true",
+        "phase": "ready",
+        "lines": "5",
+        "width": 380,
+        "fonts": "loaded"
+      }
+    ],
+    "pixels": [
+      {
+        "t": 2204.0999999046326,
+        "rgb": "123,102,70,255",
+        "hasEnvironmentSampler": false
+      },
+      {
+        "t": 2470.7000000476837,
+        "rgb": "224,218,205,255",
+        "hasEnvironmentSampler": true
+      }
+    ]
+  },
+  "exceptions": [],
+  "frames": [
+    {
+      "file": "frame-000.jpg",
+      "timestamp": 1788749143.53522
+    },
+    {
+      "file": "frame-001.jpg",
+      "timestamp": 1788749144.120452
+    },
+    {
+      "file": "frame-002.jpg",
+      "timestamp": 1788749144.12417
+    },
+    {
+      "file": "frame-003.jpg",
+      "timestamp": 1788749144.15219
+    },
+    {
+      "file": "frame-004.jpg",
+      "timestamp": 1788749144.204032
+    },
+    {
+      "file": "frame-005.jpg",
+      "timestamp": 1788749144.223322
+    },
+    {
+      "file": "frame-006.jpg",
+      "timestamp": 1788749144.232694
+    },
+    {
+      "file": "frame-007.jpg",
+      "timestamp": 1788749144.25838
+    },
+    {
+      "file": "frame-008.jpg",
+      "timestamp": 1788749144.281254
+    },
+    {
+      "file": "frame-009.jpg",
+      "timestamp": 1788749144.294408
+    },
+    {
+      "file": "frame-010.jpg",
+      "timestamp": 1788749144.335351
+    },
+    {
+      "file": "frame-011.jpg",
+      "timestamp": 1788749144.353737
+    },
+    {
+      "file": "frame-012.jpg",
+      "timestamp": 1788749144.364846
+    },
+    {
+      "file": "frame-013.jpg",
+      "timestamp": 1788749144.383202
+    },
+    {
+      "file": "frame-014.jpg",
+      "timestamp": 1788749144.412765
+    },
+    {
+      "file": "frame-015.jpg",
+      "timestamp": 1788749144.444772
+    },
+    {
+      "file": "frame-016.jpg",
+      "timestamp": 1788749144.453423
+    },
+    {
+      "file": "frame-017.jpg",
+      "timestamp": 1788749144.467523
+    },
+    {
+      "file": "frame-018.jpg",
+      "timestamp": 1788749144.530625
+    },
+    {
+      "file": "frame-019.jpg",
+      "timestamp": 1788749144.536097
+    },
+    {
+      "file": "frame-020.jpg",
+      "timestamp": 1788749144.541624
+    },
+    {
+      "file": "frame-021.jpg",
+      "timestamp": 1788749144.603762
+    },
+    {
+      "file": "frame-022.jpg",
+      "timestamp": 1788749144.612891
+    },
+    {
+      "file": "frame-023.jpg",
+      "timestamp": 1788749144.644173
+    },
+    {
+      "file": "frame-024.jpg",
+      "timestamp": 1788749144.680263
+    },
+    {
+      "file": "frame-025.jpg",
+      "timestamp": 1788749144.700634
+    },
+    {
+      "file": "frame-026.jpg",
+      "timestamp": 1788749144.716711
+    },
+    {
+      "file": "frame-027.jpg",
+      "timestamp": 1788749144.736529
+    },
+    {
+      "file": "frame-028.jpg",
+      "timestamp": 1788749144.764229
+    },
+    {
+      "file": "frame-029.jpg",
+      "timestamp": 1788749144.781181
+    },
+    {
+      "file": "frame-030.jpg",
+      "timestamp": 1788749144.78835
+    },
+    {
+      "file": "frame-031.jpg",
+      "timestamp": 1788749144.833589
+    },
+    {
+      "file": "frame-032.jpg",
+      "timestamp": 1788749144.836112
+    },
+    {
+      "file": "frame-033.jpg",
+      "timestamp": 1788749144.840229
+    },
+    {
+      "file": "frame-034.jpg",
+      "timestamp": 1788749144.900953
+    },
+    {
+      "file": "frame-035.jpg",
+      "timestamp": 1788749144.977388
+    },
+    {
+      "file": "frame-036.jpg",
+      "timestamp": 1788749145.849314
+    },
+    {
+      "file": "frame-037.jpg",
+      "timestamp": 1788749146.085282
+    },
+    {
+      "file": "frame-038.jpg",
+      "timestamp": 1788749146.40769
+    },
+    {
+      "file": "frame-039.jpg",
+      "timestamp": 1788749146.535975
+    },
+    {
+      "file": "frame-040.jpg",
+      "timestamp": 1788749147.394152
+    },
+    {
+      "file": "frame-041.jpg",
+      "timestamp": 1788749148.232118
+    },
+    {
+      "file": "frame-042.jpg",
+      "timestamp": 1788749148.247664
+    },
+    {
+      "file": "frame-043.jpg",
+      "timestamp": 1788749148.256937
+    },
+    {
+      "file": "frame-044.jpg",
+      "timestamp": 1788749148.27695
+    },
+    {
+      "file": "frame-045.jpg",
+      "timestamp": 1788749148.289378
+    },
+    {
+      "file": "frame-046.jpg",
+      "timestamp": 1788749148.306835
+    },
+    {
+      "file": "frame-047.jpg",
+      "timestamp": 1788749148.32688
+    },
+    {
+      "file": "frame-048.jpg",
+      "timestamp": 1788749148.334363
+    },
+    {
+      "file": "frame-049.jpg",
+      "timestamp": 1788749148.35775
+    },
+    {
+      "file": "frame-050.jpg",
+      "timestamp": 1788749148.366397
+    },
+    {
+      "file": "frame-051.jpg",
+      "timestamp": 1788749148.378762
+    },
+    {
+      "file": "frame-052.jpg",
+      "timestamp": 1788749148.396826
+    },
+    {
+      "file": "frame-053.jpg",
+      "timestamp": 1788749148.408631
+    },
+    {
+      "file": "frame-054.jpg",
+      "timestamp": 1788749148.424286
+    },
+    {
+      "file": "frame-055.jpg",
+      "timestamp": 1788749148.440847
+    },
+    {
+      "file": "frame-056.jpg",
+      "timestamp": 1788749148.450454
+    },
+    {
+      "file": "frame-057.jpg",
+      "timestamp": 1788749148.467766
+    },
+    {
+      "file": "frame-058.jpg",
+      "timestamp": 1788749148.480988
+    },
+    {
+      "file": "frame-059.jpg",
+      "timestamp": 1788749148.487483
+    },
+    {
+      "file": "frame-060.jpg",
+      "timestamp": 1788749148.510015
+    },
+    {
+      "file": "frame-061.jpg",
+      "timestamp": 1788749148.517715
+    },
+    {
+      "file": "frame-062.jpg",
+      "timestamp": 1788749148.529714
+    },
+    {
+      "file": "frame-063.jpg",
+      "timestamp": 1788749148.54796
+    },
+    {
+      "file": "frame-064.jpg",
+      "timestamp": 1788749148.562373
+    },
+    {
+      "file": "frame-065.jpg",
+      "timestamp": 1788749148.571159
+    },
+    {
+      "file": "frame-066.jpg",
+      "timestamp": 1788749148.588028
+    },
+    {
+      "file": "frame-067.jpg",
+      "timestamp": 1788749148.611074
+    },
+    {
+      "file": "frame-068.jpg",
+      "timestamp": 1788749148.64494
+    },
+    {
+      "file": "frame-069.jpg",
+      "timestamp": 1788749148.672765
+    },
+    {
+      "file": "frame-070.jpg",
+      "timestamp": 1788749148.689282
+    },
+    {
+      "file": "frame-071.jpg",
+      "timestamp": 1788749148.691415
+    },
+    {
+      "file": "frame-072.jpg",
+      "timestamp": 1788749148.708278
+    },
+    {
+      "file": "frame-073.jpg",
+      "timestamp": 1788749148.727693
+    },
+    {
+      "file": "frame-074.jpg",
+      "timestamp": 1788749148.738246
+    },
+    {
+      "file": "frame-075.jpg",
+      "timestamp": 1788749148.756443
+    },
+    {
+      "file": "frame-076.jpg",
+      "timestamp": 1788749148.769473
+    },
+    {
+      "file": "frame-077.jpg",
+      "timestamp": 1788749148.788866
+    },
+    {
+      "file": "frame-078.jpg",
+      "timestamp": 1788749148.799942
+    },
+    {
+      "file": "frame-079.jpg",
+      "timestamp": 1788749148.823171
+    },
+    {
+      "file": "frame-080.jpg",
+      "timestamp": 1788749148.831888
+    },
+    {
+      "file": "frame-081.jpg",
+      "timestamp": 1788749148.842001
+    },
+    {
+      "file": "frame-082.jpg",
+      "timestamp": 1788749148.872086
+    },
+    {
+      "file": "frame-083.jpg",
+      "timestamp": 1788749148.890592
+    },
+    {
+      "file": "frame-084.jpg",
+      "timestamp": 1788749148.894715
+    },
+    {
+      "file": "frame-085.jpg",
+      "timestamp": 1788749148.925266
+    },
+    {
+      "file": "frame-086.jpg",
+      "timestamp": 1788749148.931517
+    },
+    {
+      "file": "frame-087.jpg",
+      "timestamp": 1788749148.946045
+    },
+    {
+      "file": "frame-088.jpg",
+      "timestamp": 1788749148.981064
+    },
+    {
+      "file": "frame-089.jpg",
+      "timestamp": 1788749149.008978
+    },
+    {
+      "file": "frame-090.jpg",
+      "timestamp": 1788749149.037976
+    },
+    {
+      "file": "frame-091.jpg",
+      "timestamp": 1788749149.066104
+    },
+    {
+      "file": "frame-092.jpg",
+      "timestamp": 1788749149.092551
+    },
+    {
+      "file": "frame-093.jpg",
+      "timestamp": 1788749149.121525
+    },
+    {
+      "file": "frame-094.jpg",
+      "timestamp": 1788749149.152144
+    },
+    {
+      "file": "frame-095.jpg",
+      "timestamp": 1788749149.178918
+    },
+    {
+      "file": "frame-096.jpg",
+      "timestamp": 1788749149.207455
+    },
+    {
+      "file": "frame-097.jpg",
+      "timestamp": 1788749149.241637
+    },
+    {
+      "file": "frame-098.jpg",
+      "timestamp": 1788749149.271143
+    },
+    {
+      "file": "frame-099.jpg",
+      "timestamp": 1788749149.299666
+    },
+    {
+      "file": "frame-100.jpg",
+      "timestamp": 1788749149.324559
+    },
+    {
+      "file": "frame-101.jpg",
+      "timestamp": 1788749149.352116
+    },
+    {
+      "file": "frame-102.jpg",
+      "timestamp": 1788749149.380094
+    },
+    {
+      "file": "frame-103.jpg",
+      "timestamp": 1788749149.409639
+    },
+    {
+      "file": "frame-104.jpg",
+      "timestamp": 1788749149.437332
+    },
+    {
+      "file": "frame-105.jpg",
+      "timestamp": 1788749149.463971
+    },
+    {
+      "file": "frame-106.jpg",
+      "timestamp": 1788749149.49114
+    },
+    {
+      "file": "frame-107.jpg",
+      "timestamp": 1788749149.518144
+    },
+    {
+      "file": "frame-108.jpg",
+      "timestamp": 1788749149.546628
+    },
+    {
+      "file": "frame-109.jpg",
+      "timestamp": 1788749149.579758
+    },
+    {
+      "file": "frame-110.jpg",
+      "timestamp": 1788749149.609601
+    },
+    {
+      "file": "frame-111.jpg",
+      "timestamp": 1788749149.639262
+    },
+    {
+      "file": "frame-112.jpg",
+      "timestamp": 1788749149.665493
+    },
+    {
+      "file": "frame-113.jpg",
+      "timestamp": 1788749149.700533
+    },
+    {
+      "file": "frame-114.jpg",
+      "timestamp": 1788749149.730579
+    },
+    {
+      "file": "frame-115.jpg",
+      "timestamp": 1788749149.757346
+    },
+    {
+      "file": "frame-116.jpg",
+      "timestamp": 1788749149.786245
+    },
+    {
+      "file": "frame-117.jpg",
+      "timestamp": 1788749149.807882
+    },
+    {
+      "file": "frame-118.jpg",
+      "timestamp": 1788749149.833306
+    },
+    {
+      "file": "frame-119.jpg",
+      "timestamp": 1788749149.85824
+    },
+    {
+      "file": "frame-120.jpg",
+      "timestamp": 1788749149.88551
+    },
+    {
+      "file": "frame-121.jpg",
+      "timestamp": 1788749149.911667
+    },
+    {
+      "file": "frame-122.jpg",
+      "timestamp": 1788749149.941567
+    },
+    {
+      "file": "frame-123.jpg",
+      "timestamp": 1788749149.972821
+    },
+    {
+      "file": "frame-124.jpg",
+      "timestamp": 1788749150.083736
+    },
+    {
+      "file": "frame-125.jpg",
+      "timestamp": 1788749150.28781
+    }
+  ]
+}

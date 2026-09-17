@@ -7,6 +7,17 @@ export type DeckPatina = {
   roughness: Uint8Array;
 };
 
+// Absolute roughness, not a second multiplier over the generated roughness map.
+export const deckFinish: Record<string, { roughness: number; variation: number; bump: number; anisotropy: number; clearcoat: number }> = {
+  DarkAnodized: { roughness: .57, variation: .06, bump: .006, anisotropy: .15, clearcoat: 0 },
+  TitaniumPaddle: { roughness: .29, variation: .025, bump: .002, anisotropy: .65, clearcoat: .08 },
+  CobaltEnamel: { roughness: .24, variation: .025, bump: .001, anisotropy: 0, clearcoat: .65 },
+  NarrowChrome: { roughness: .19, variation: .018, bump: .001, anisotropy: .45, clearcoat: 0 },
+  // Moulded matte key caps, polished a little where thumbs land, seated in rubber.
+  Graphite: { roughness: .44, variation: .05, bump: .005, anisotropy: 0, clearcoat: .12 },
+  Gasket: { roughness: .86, variation: .03, bump: .008, anisotropy: 0, clearcoat: 0 },
+};
+
 const clamp = (value: number, low: number, high: number) => Math.max(low, Math.min(high, value));
 
 /**

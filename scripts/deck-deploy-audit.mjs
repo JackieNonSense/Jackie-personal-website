@@ -33,7 +33,7 @@ try{
  results.push({step:'powered',...await stats()});await shot('04-playing');await poster('deploy-powered-v03');
  const cadence=await run(`new Promise(resolve=>{const deltas=[];let last;const frame=t=>{if(last!==undefined)deltas.push(t-last);last=t;if(deltas.length===90){const sorted=deltas.slice().sort((a,b)=>a-b);resolve({samples:deltas.length,medianMs:sorted[45],p95Ms:sorted[85],over50ms:deltas.filter(v=>v>50).length,context:'headless Chromium, local dev server'});}else requestAnimationFrame(frame);};requestAnimationFrame(frame);})`);results.push({step:'browser-frame-cadence',...cadence});
  await click('下一首');await click('下一首');await delay(240);await shot('06-track-out');await delay(510);await shot('07-track-in');await delay(750);
- results.push({step:'playing-exchange',...await stats()});assert.equal((await stats()).pose,'1.000');assert.equal((await stats()).status,'playing');
+ results.push({step:'playing-exchange',...await stats()});console.log('playing-exchange',results.at(-1));assert.equal((await stats()).pose,'1.000');assert.equal((await stats()).status,'playing');
  await click('静音音乐');assert.equal(await run(`document.querySelector('[data-model-key="MuteKey"]').getAttribute('aria-pressed')`),'true');await click('取消静音');
  await click('切换显示模式');assert.equal(await run(`document.querySelector('[data-model-key="DisplayKey"]').getAttribute('aria-pressed')`),'true');await shot('display-mode');await click('切换显示模式');
  await click('暂停音乐');await delay(500);const paused=await stats();results.push({step:'paused-screen-stays-out',...paused});assert.equal(paused.pose,'1.000');assert.equal(Number(paused.energy),0,'paused spectrum must not freeze at a nonzero audio level');
@@ -62,4 +62,4 @@ try{
  await run(`document.querySelector('[data-mechanism="deploy"] canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext()`);await delay(400);results.push({step:'webgl-fallback',renderer:await run(`document.querySelector('[data-deck-renderer]').dataset.deckRenderer`)});await shot('fallback');
  await click('开启音乐台');assert.equal((await stats()).power,'on');await click('静音音乐');assert.equal(await run(`document.querySelector('[data-model-key="MuteKey"]').getAttribute('aria-pressed')`),'true');await click('暂停音乐');await click('下一首');await delay(1300);assert.equal(await run(`Boolean(document.querySelector('[data-deck-fallback-display]'))`),true);await shot('fallback-live-screen');await click('关闭音乐台');results.push({step:'fallback-controls',passed:true});
  await writeFile(out+'/checks.json',JSON.stringify({results,errors},null,2));console.log(JSON.stringify({results,errors},null,2));
-}finally{ws.close();await fetch('http://127.0.0.1:9333/json/close/'+target.id).catch(()=>{});}
+}catch(error){console.error('Deck audit failed:',error);throw error;}finally{ws.close();await fetch('http://127.0.0.1:9333/json/close/'+target.id,{signal:AbortSignal.timeout(5000)}).catch(()=>{});}

@@ -28,6 +28,8 @@ Opening uses a clipped frame expansion; the complete pixel-fragment morph remain
 
 No homepage integration until the user reviews this sample.
 
+2026-09-16 local refinement: see [typography / motion v02](type-motion-v02/notes.md). This improves legibility, phased frame reveal, drawer ink sequencing and cancellation/focus behavior without changing the B artwork or publishing another commit. Earlier checks and images below describe the first sample and are preserved for comparison.
+
 ## Verification
 
 TDD: reducer had eight failing tests against its stub; UI had ten failing tests. Both now pass (19 tests), including static steps, manual tab activation, close/refocus and event drawers. TypeScript --noEmit and scoped ESLint pass.

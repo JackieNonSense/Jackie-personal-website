@@ -1,0 +1,37 @@
+{
+  "url": "http://localhost:3011/",
+  "checkedAt": "2026-09-06T10:03:01.627Z",
+  "checks": [
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "scrollWidth": 390,
+      "viewport": 390,
+      "canvasWidth": 780,
+      "cssWidth": 390
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "scrollWidth": 1905,
+      "viewport": 1920,
+      "canvasWidth": 3810,
+      "cssWidth": 1905
+    }
+  ],
+  "frameTiming": {
+    "sampleFrames": 89,
+    "medianMs": 16.699999999999818,
+    "p95Ms": 16.800000000000182,
+    "environment": "Headless Chrome, software GPU; not a hardware FPS promise"
+  },
+  "recording": {
+    "file": "09-scroll-preview.webm",
+    "frames": 111,
+    "durationMs": 11483.7060546875,
+    "source": "Actual CDP viewport frames; no generated UI"
+  },
+  "exceptions": []
+}

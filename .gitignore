@@ -79,3 +79,23 @@ logs/
 *.pfx
 secrets/
 credentials/
+
+# Local visual-audit artifacts: heavy media stays out of git, text notes stay versioned
+/docs/visual/**/*.png
+/docs/visual/**/*.jpg
+/docs/visual/**/*.jpeg
+/docs/visual/**/*.gif
+/docs/visual/**/*.webm
+/docs/visual/**/*.mp4
+
+# Reference/production artwork and 3D sources: not used at runtime
+/app/reference/**/*.png
+/app/reference/**/*.jpg
+/app/reference/**/*.jpeg
+/app/reference/**/*.blend
+/app/reference/**/*.blend1
+/app/reference/**/*.blend@
+/app/reference/**/*.glb
+
+# Scratch screenshots dropped at the repo root by audit scripts
+/*.png

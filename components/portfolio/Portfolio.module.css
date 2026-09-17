@@ -8,7 +8,7 @@
 .srOnly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .skip{position:fixed;top:8px;left:8px;z-index:100;padding:10px 20px;background:#e2e0d6;color:#080909!important;transform:translateY(-150%)}
 .skip:focus{transform:none}
-.paperFault{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.48}
+.paperFault{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.38}
 .hero{position:relative;min-height:720px;height:100svh;max-height:1300px;isolation:isolate;overflow:hidden}
 .material,.lettering,.characters{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none}
 .material{z-index:1;mask-image:linear-gradient(transparent 35%,black 45%,black 66%,transparent 73%)}
@@ -60,21 +60,24 @@
 .workCopy .aside{font-size:12px;color:#a5aa9d;margin:35px 0 12px}
 .textLink{display:inline-flex;min-height:44px;align-items:center;font-size:13px;letter-spacing:.04em;text-decoration:underline!important;text-underline-offset:5px;text-transform:uppercase}
 .smallLink{display:inline-flex;align-items:center;min-height:44px;font-size:10px;text-decoration:underline!important;text-underline-offset:4px}
-.aboutSection{padding-top:60px;padding-bottom:130px}
-.jackie{font-size:28vw;max-width:50%;margin-top:30px}
+.aboutSection{padding-top:clamp(50px,6vw,100px);padding-bottom:90px}
+.aboutTitle{font-size:clamp(144px,21vw,360px);max-width:none;margin:0;white-space:nowrap}
 .signature{font-size:16px;letter-spacing:.025em;margin-top:26px}
+.aboutLayout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7%;align-items:start;margin-top:40px}
+.aboutDevice{position:relative;min-width:0;padding-top:0;align-self:start;margin-top:calc(-1 * (clamp(144px,21vw,360px) * .97 + 124px))}
+.aboutDevice [data-testid='music-deck']{position:relative;inset:auto;width:100%;max-width:620px;margin:0 auto}
 .marginCode{position:absolute;left:4%;top:57%;font-size:13px;line-height:1.95;color:#284278;letter-spacing:.25em}
-.aboutCopy{position:relative;z-index:3;margin:48px 0 0 19%;max-width:48%;font-size:18px;letter-spacing:.015em}
+.aboutCopy{position:relative;z-index:3;margin:0;max-width:600px;font-size:18px;letter-spacing:.015em}
 .aboutCopy>p{margin:0 0 32px}
 .aboutLead{font-size:22px}
 .aboutCopy .aboutDetail{font-size:14px;line-height:1.9;color:#a7aca1;max-width:480px;margin-top:34px}
 .practice{margin:45px 0 28px}
-.practice>div{display:grid;grid-template-columns:132px 1fr;gap:15px;margin:16px 0;font-size:12px}
+.practice>div{display:grid;grid-template-columns:122px 1fr;gap:15px;margin:18px 0;font-size:14px}
 .practice span{color:#879ac0;font-size:10px;letter-spacing:.06em}
 .practice p{margin:0}
 .experiments{padding-top:0;padding-bottom:60px}
 .experimentsHeading{font-size:19vw;margin:32px 0 42px}
-.experimentGrid{display:grid;grid-template-columns:minmax(0,620px);max-width:1100px;align-items:center;margin:0}
+.experimentGrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:8%;max-width:1100px;align-items:center;margin:30px auto 0}
 .experimentGrid [data-testid='monitor-entry']{justify-self:start;width:100%;max-width:620px}
 .experimentIntro{padding-left:8%;font-size:20px;line-height:1.7}.experimentIntro span{display:block;margin-top:28px;font-size:10px;letter-spacing:.08em;color:#8d9b86}
 .experiment{display:block;min-width:0}
@@ -91,7 +94,7 @@
 .glyphPreview{display:flex;flex-direction:column;gap:8px;margin:32px 0 24px;font-size:14px;letter-spacing:.05em;color:#398a5a}
 .signalStudy .textLink{color:var(--white)}
 .contact{padding-top:20px;padding-bottom:100px}
-.contactTitle{font-size:22vw;margin:32px 0 20px}
+.contactTitle{font-size:clamp(120px,17.5vw,300px);margin:32px 0 20px;white-space:nowrap}
 .contactLinks{display:flex;gap:8%;align-items:center;max-width:850px}
 .email{display:inline-flex;align-items:center;min-height:44px;font-size:12px;color:#a1a699!important;overflow-wrap:anywhere;margin-top:15px}
 .contactBottom{display:flex;justify-content:space-between;align-items:center;gap:30px;margin-top:42px;font-size:10px}
@@ -102,7 +105,7 @@
 .endLine i{display:block;width:6px;height:6px;border-radius:50%;background:var(--green)}
 .pause{position:fixed;right:20px;bottom:15px;z-index:40;min-height:44px;padding:8px 12px;background:#101611ed;color:#d6decb;border:1px solid #515d4b;font-size:10px!important;letter-spacing:.05em}
 .pause:hover{border-color:#b9ceb1}
-@media(min-width:1800px){.workSection{min-height:1120px}.aboutCopy{margin-top:70px;font-size:21px}.aboutCopy .aboutDetail{font-size:16px}.practice>div{font-size:14px}.experimentGrid{max-width:1400px}.monitorPreview{max-width:680px}.monitorPreview>div{padding:25px}.monitorPreview pre{margin:40px 0}.sectionTop{font-size:13px}}
+@media(min-width:1800px){.workSection{min-height:1120px}.aboutCopy{font-size:21px}.aboutCopy .aboutDetail{font-size:16px}.practice>div{font-size:14px}.experimentGrid{max-width:1400px}.monitorPreview{max-width:680px}.monitorPreview>div{padding:25px}.monitorPreview pre{margin:40px 0}.sectionTop{font-size:13px}}
 @media(max-width:760px){
  .portfolio{background-size:800px 800px;font-size:14px}
  .hero{min-height:650px;height:100svh;max-height:950px}
@@ -129,16 +132,18 @@
  .workCopy .aside{margin-top:20px;font-size:12px}.workCopy .smallLink{font-size:10px}
  .textLink{font-size:12px}
  .aboutSection{padding-top:30px;padding-bottom:70px}
- .jackie{font-size:66vw;max-width:none;margin:32px 0 12px}.signature{font-size:14px;margin-top:18px}
- .aboutCopy{margin:40px 0 0 12%;font-size:16px;max-width:85%}
- .aboutLead{font-size:18px}.aboutCopy .aboutDetail{font-size:13px}
+ .aboutTitle{font-size:36vw;max-width:none;margin:15px 0 12px}.signature{font-size:14px;margin-top:18px}
+ .aboutLayout{grid-template-columns:1fr;gap:30px;margin-top:32px}
+ .aboutDevice{padding-top:0;margin-top:0}
+ .aboutCopy{margin:0;font-size:16px;max-width:none}
+ .aboutLead{font-size:18px}.aboutCopy .aboutDetail{font-size:14px}
  .marginCode{left:20px;top:48%;font-size:9px;letter-spacing:.02em;opacity:.6}
- .practice{margin:30px 0 20px}.practice>div{grid-template-columns:1fr;gap:4px;font-size:12px;margin:20px 0}.practice span{font-size:9px}
+ .practice{margin:30px 0 20px}.practice>div{grid-template-columns:1fr;gap:4px;font-size:14px;margin:20px 0}.practice span{font-size:10px}
  .experimentsHeading{font-size:24vw;line-height:1.05;white-space:nowrap;margin:28px 0 32px}
  .experimentGrid{grid-template-columns:1fr;gap:32px}
  .monitorPreview{font-size:11px}.monitorPreview pre{font-size:11px;letter-spacing:2px}
  .signalStudy{max-width:100%;padding-left:12%}.glyphPreview{font-size:12px;letter-spacing:0;gap:5px;margin:24px 0 15px}
- .contactTitle{font-size:28vw;margin:26px 0 15px;white-space:nowrap}
+ .contactTitle{font-size:24vw;margin:26px 0 15px;white-space:nowrap}
  .contactLinks{gap:25px}.email{font-size:11px;max-width:100%;word-break:break-word}
  .contactBottom{font-size:9px;gap:10px;margin-top:26px}.contactBottom>span{padding:0;font-size:8px}
  .endLine{margin-right:16%}.endLine>span{right:-20%;font-size:9px}

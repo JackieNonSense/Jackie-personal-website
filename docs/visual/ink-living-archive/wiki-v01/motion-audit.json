@@ -1,0 +1,271 @@
+{
+  "gait": {
+    "a": {
+      "clock": 703,
+      "ambient": 703,
+      "actors": "43:1,604:0,682:0",
+      "width": 100,
+      "mode": "demo",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    },
+    "c": {
+      "clock": 939,
+      "ambient": 939,
+      "actors": "67:3,604:0,682:0",
+      "width": 100,
+      "mode": "demo",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    }
+  },
+  "suspension": {
+    "paused": {
+      "clock": 939,
+      "ambient": 939,
+      "actors": "67:3,604:0,682:0",
+      "width": 100,
+      "mode": "demo",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    },
+    "offscreen": {
+      "clock": 1279,
+      "ambient": 1279,
+      "actors": "108:1,604:0,682:0",
+      "width": 100,
+      "mode": "demo",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    },
+    "returned": {
+      "clock": 1370,
+      "ambient": 1370,
+      "actors": "120:2,604:0,682:0",
+      "width": 100,
+      "mode": "demo",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    },
+    "frozen": {
+      "clock": 1370,
+      "ambient": 1370,
+      "actors": "120:2,604:0,682:0",
+      "width": 100,
+      "mode": "demo",
+      "visible": "hidden",
+      "record": "A name is a doorway."
+    },
+    "thawed": {
+      "clock": 1485,
+      "ambient": 1485,
+      "actors": "135:2,604:0,682:0",
+      "width": 100,
+      "mode": "demo",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    }
+  },
+  "resize": {
+    "handle": {
+      "x": 949,
+      "y": 535.59375
+    },
+    "dragged": {
+      "clock": 1497,
+      "ambient": 1497,
+      "actors": "136:0,604:0,682:0",
+      "width": 53,
+      "mode": "manual",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    },
+    "keyboard": {
+      "clock": 1497,
+      "ambient": 1497,
+      "actors": "136:0,604:0,682:0",
+      "width": 48,
+      "mode": "manual",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    }
+  },
+  "playback": {
+    "mid": {
+      "clock": 5612,
+      "ambient": 5612,
+      "actors": "267:0,345:6,682:0",
+      "width": 97.1735,
+      "mode": "demo",
+      "visible": "visible",
+      "record": "A name is a doorway."
+    },
+    "wrap": [
+      {
+        "x": 464,
+        "w": 704,
+        "y": 413.1875
+      }
+    ],
+    "end": {
+      "clock": 22000,
+      "ambient": 22146,
+      "actors": "267:5,345:0,942:0",
+      "width": 44,
+      "mode": "ended",
+      "visible": "visible",
+      "quote": "“We keep what the tide forgets.”— Mara, field journal",
+      "record": "Mara / The archivist"
+    }
+  },
+  "resources": [
+    {
+      "host": "localhost",
+      "path": "/studies/inktrace/living-archive/wiki/coast-v01.webp",
+      "type": "link"
+    },
+    {
+      "host": "local.adguard.org",
+      "path": "/",
+      "type": "script"
+    },
+    {
+      "host": "local.adguard.org",
+      "path": "/",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/app_globals_0yg4wg8.css",
+      "type": "link"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/components_studies_inktrace-living_WikiStudy_module_154cp7b.css",
+      "type": "link"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_1di75ot._.js",
+      "type": "link"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_next_dist_compiled_next-devtools_index_090k2jm.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_next_dist_compiled_1amofcm._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_%40swc_helpers_cjs_1r9vbqw._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/_1anvha4._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/turbopack-_08bm286._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/_1zo2hib._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_next_dist_20wefz_._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/components_studies_1orwpk5._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/node_modules_1h0r-87._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/portfolio/black-stock-v01.png",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/portfolio/toner-mask.svg",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/studies/inktrace/living-archive/wiki/workshop-v01.webp",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/studies/inktrace/ivory-stock-v01.png",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/proof/hero-00/fonts/SixCaps.ttf",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/fonts/fusion-pixel/fusion-pixel-8px-proportional-latin.otf.woff2",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/fonts/fusion-pixel/fusion-pixel-8px-monospaced-latin.otf.woff2",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/fonts/fusion-pixel/fusion-pixel-12px-proportional-latin.otf.woff2",
+      "type": "css"
+    },
+    {
+      "host": "localhost",
+      "path": "/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_1mojsay._.js",
+      "type": "script"
+    },
+    {
+      "host": "localhost",
+      "path": "/studies/inktrace/living-archive/review/sprite-sheet.png",
+      "type": "img"
+    }
+  ],
+  "console": [],
+  "errors": [],
+  "touch": true
+}

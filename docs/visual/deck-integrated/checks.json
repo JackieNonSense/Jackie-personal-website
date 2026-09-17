@@ -1,0 +1,291 @@
+{
+  "results": [
+    {
+      "step": "standby",
+      "power": "off",
+      "status": "idle",
+      "pose": "0.000",
+      "lit": "0.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "extracting",
+      "power": "on",
+      "status": "playing",
+      "pose": "0.341",
+      "lit": "0.000",
+      "energy": "110.68",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "powered",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "87.44",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "paused-screen-stays-out",
+      "power": "on",
+      "status": "paused",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "next-while-paused",
+      "power": "on",
+      "status": "paused",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "off",
+      "power": "off",
+      "status": "paused",
+      "pose": "0.000",
+      "lit": "0.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "viewport-390",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "172.18",
+      "css": [
+        346,
+        272.46875
+      ],
+      "buffer": [
+        692,
+        544
+      ],
+      "overflow": false
+    },
+    {
+      "step": "integrated-targets-390",
+      "targets": [
+        {
+          "label": "关闭音乐台",
+          "w": 48.4375,
+          "h": 44.125,
+          "inside": true
+        },
+        {
+          "label": "暂停音乐",
+          "w": 48.4375,
+          "h": 44.125,
+          "inside": true
+        },
+        {
+          "label": "下一首",
+          "w": 48.4375,
+          "h": 44.125,
+          "inside": true
+        },
+        {
+          "label": "静音音乐",
+          "w": 48.4375,
+          "h": 44.125,
+          "inside": true
+        },
+        {
+          "label": "切换显示模式",
+          "w": 48.4375,
+          "h": 44.125,
+          "inside": true
+        },
+        {
+          "label": "音乐音量",
+          "w": 235.265625,
+          "h": 44.125,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "step": "viewport-1920",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "152.71",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "integrated-targets-1920",
+      "targets": [
+        {
+          "label": "关闭音乐台",
+          "w": 67.1875,
+          "h": 61.234375,
+          "inside": true
+        },
+        {
+          "label": "暂停音乐",
+          "w": 67.1875,
+          "h": 61.234375,
+          "inside": true
+        },
+        {
+          "label": "下一首",
+          "w": 67.1875,
+          "h": 61.234375,
+          "inside": true
+        },
+        {
+          "label": "静音音乐",
+          "w": 67.1875,
+          "h": 61.234375,
+          "inside": true
+        },
+        {
+          "label": "切换显示模式",
+          "w": 67.1875,
+          "h": 61.234375,
+          "inside": true
+        },
+        {
+          "label": "音乐音量",
+          "w": 326.390625,
+          "h": 61.234375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "step": "keyboard-play",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "0.999",
+      "energy": "175.11",
+      "css": [
+        480,
+        378
+      ],
+      "buffer": [
+        960,
+        756
+      ],
+      "overflow": false
+    },
+    {
+      "step": "keyboard-volume",
+      "volume": 26
+    },
+    {
+      "step": "physical-fader",
+      "before": 26,
+      "after": 43
+    },
+    {
+      "step": "touch-play",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "0.999",
+      "energy": "180.09",
+      "css": [
+        346,
+        272.46875
+      ],
+      "buffer": [
+        692,
+        544
+      ],
+      "overflow": false
+    },
+    {
+      "step": "reduced-motion",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        346,
+        272.46875
+      ],
+      "buffer": [
+        692,
+        544
+      ],
+      "overflow": false
+    },
+    {
+      "step": "webgl-fallback",
+      "renderer": "fallback"
+    },
+    {
+      "step": "fallback-controls",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

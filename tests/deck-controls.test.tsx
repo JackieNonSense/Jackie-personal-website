@@ -54,6 +54,19 @@ afterEach(() => {
 });
 
 describe('integrated deck HTML control wiring', () => {
+  it('starts with Fly high and cycles through the three supplied tracks before returning to it', async () => {
+    const { player, audio, creations } = setup();
+    expect(creations()).toBe(0);
+    expect(player.getSnapshot()).toMatchObject({ track: 0, wantsPlaying: false });
+    await click('播放音乐');
+    expect(audio.src).toBe('/audio/fly-high-cut.mp3');
+    for (const [track, src] of [[1, '/audio/ilyhiryu-army-mov.mp3'], [2, '/audio/2z2-diva.mp3'], [0, '/audio/fly-high-cut.mp3']] as const) {
+      await click('下一首'); await advance(1100);
+      expect(player.getSnapshot()).toMatchObject({ track, status: 'playing' });
+      expect(audio.src).toBe(src);
+    }
+  });
+
   it('the model power key really switches power off, rather than only pausing', async () => {
     const { player, audio } = setup();
     await click('开启音乐台');

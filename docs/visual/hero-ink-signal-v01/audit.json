@@ -1,0 +1,14 @@
+{
+  "report": [
+    "Desktop: ordinary click does nothing; keyboard opens existing password; Escape closes and returns focus; pause/resume verified.",
+    "Recorded 151 actual compositor frames, 9701ms, 15.57fps, silent.",
+    "Reduced motion: static clock, keyboard and close control remain available.",
+    "390px: note contained, close target at least44px, no horizontal overflow."
+  ],
+  "errors": [],
+  "blockedRequests": [
+    "http://local.adguard.org",
+    "http://local.adguard.org"
+  ],
+  "sound": false
+}

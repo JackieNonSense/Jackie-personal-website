@@ -1,0 +1,5263 @@
+{
+  "frames": [
+    {
+      "ms": 0,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.46,
+      "audioPaused": false
+    },
+    {
+      "ms": 2.200000047683716,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.46,
+      "audioPaused": false
+    },
+    {
+      "ms": 10.299999952316284,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.46,
+      "audioPaused": false
+    },
+    {
+      "ms": 15.400000095367432,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.46,
+      "audioPaused": false
+    },
+    {
+      "ms": 20.799999952316284,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 146.47,
+      "audioPaused": false
+    },
+    {
+      "ms": 26.40000009536743,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 146.47,
+      "audioPaused": false
+    },
+    {
+      "ms": 32.799999952316284,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 146.47,
+      "audioPaused": false
+    },
+    {
+      "ms": 38.40000009536743,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 146.47,
+      "audioPaused": false
+    },
+    {
+      "ms": 44.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 146.47,
+      "audioPaused": false
+    },
+    {
+      "ms": 63.700000047683716,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.89,
+      "audioPaused": false
+    },
+    {
+      "ms": 64.90000009536743,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.89,
+      "audioPaused": false
+    },
+    {
+      "ms": 69.10000014305115,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.89,
+      "audioPaused": false
+    },
+    {
+      "ms": 75.20000004768372,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.89,
+      "audioPaused": false
+    },
+    {
+      "ms": 81,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.89,
+      "audioPaused": false
+    },
+    {
+      "ms": 88.40000009536743,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.89,
+      "audioPaused": false
+    },
+    {
+      "ms": 93.29999995231628,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.89,
+      "audioPaused": false
+    },
+    {
+      "ms": 99.70000004768372,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.22,
+      "audioPaused": false
+    },
+    {
+      "ms": 105.29999995231628,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.22,
+      "audioPaused": false
+    },
+    {
+      "ms": 111.40000009536743,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.22,
+      "audioPaused": false
+    },
+    {
+      "ms": 117.60000014305115,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.22,
+      "audioPaused": false
+    },
+    {
+      "ms": 123.40000009536743,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.22,
+      "audioPaused": false
+    },
+    {
+      "ms": 129.60000014305115,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 148.22,
+      "audioPaused": false
+    },
+    {
+      "ms": 150.5,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 154.79999995231628,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 156,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 159.90000009536743,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 166.20000004768372,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 172.10000014305115,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 178.20000004768372,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 185,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 190.20000004768372,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 196.29999995231628,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 202.90000009536743,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 208.40000009536743,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 214.29999995231628,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 220.90000009536743,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 226.70000004768372,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 232.60000014305115,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 238.90000009536743,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 245,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 250.60000014305115,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 256.7000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 262.7000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 268.7000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 275,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 281.40000009536743,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 287.10000014305115,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 293.5,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 299.10000014305115,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 305.10000014305115,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 311.2000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 342.10000014305115,
+      "status": "switching",
+      "angle": 0.82,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 345.7999999523163,
+      "status": "switching",
+      "angle": 1.07,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 347.2000000476837,
+      "status": "switching",
+      "angle": 1.18,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 353.60000014305115,
+      "status": "switching",
+      "angle": 1.62,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 359.7000000476837,
+      "status": "switching",
+      "angle": 2.13,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 366.2000000476837,
+      "status": "switching",
+      "angle": 2.7,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 372,
+      "status": "switching",
+      "angle": 3.29,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 378.10000014305115,
+      "status": "switching",
+      "angle": 3.95,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 384.2999999523163,
+      "status": "switching",
+      "angle": 4.67,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 390.2999999523163,
+      "status": "switching",
+      "angle": 5.39,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 396,
+      "status": "switching",
+      "angle": 6.18,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 402.2000000476837,
+      "status": "switching",
+      "angle": 6.98,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 408.10000014305115,
+      "status": "switching",
+      "angle": 7.83,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 414.40000009536743,
+      "status": "switching",
+      "angle": 8.69,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 420.7000000476837,
+      "status": "switching",
+      "angle": 9.6,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 426.60000014305115,
+      "status": "switching",
+      "angle": 10.5,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 432.5,
+      "status": "switching",
+      "angle": 11.42,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 438.60000014305115,
+      "status": "switching",
+      "angle": 12.35,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 444.5,
+      "status": "switching",
+      "angle": 13.28,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 451.2000000476837,
+      "status": "switching",
+      "angle": 14.23,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 457,
+      "status": "switching",
+      "angle": 15.17,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 462.7999999523163,
+      "status": "switching",
+      "angle": 16.12,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 468.90000009536743,
+      "status": "switching",
+      "angle": 17.04,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 475.2000000476837,
+      "status": "switching",
+      "angle": 17.96,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 481.10000014305115,
+      "status": "switching",
+      "angle": 18.86,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 487.10000014305115,
+      "status": "switching",
+      "angle": 19.73,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 493,
+      "status": "switching",
+      "angle": 20.59,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 499.2000000476837,
+      "status": "switching",
+      "angle": 21.42,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 505,
+      "status": "switching",
+      "angle": 22.21,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 511.5,
+      "status": "switching",
+      "angle": 22.98,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 517.2999999523163,
+      "status": "switching",
+      "angle": 23.69,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 523.6000001430511,
+      "status": "switching",
+      "angle": 24.37,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 529.2000000476837,
+      "status": "switching",
+      "angle": 25.02,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 535.2999999523163,
+      "status": "switching",
+      "angle": 25.6,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 541.2999999523163,
+      "status": "switching",
+      "angle": 26.12,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 547.7000000476837,
+      "status": "switching",
+      "angle": 26.6,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 553.9000000953674,
+      "status": "switching",
+      "angle": 27.02,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 559.7999999523163,
+      "status": "switching",
+      "angle": 27.35,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 673.2000000476837,
+      "status": "switching",
+      "angle": 27.63,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 674.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.503,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 676.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.517,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 681,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.557,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 687.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.606,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 693.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.655,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 699.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.704,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 705.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.748,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 711.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.792,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 717.4000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.832,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 723.4000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.87,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 729.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.903,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 735.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.932,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 742.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.957,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 747.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.976,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 753.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.991,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 759.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.998,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 765.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 1,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 781.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.983,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 787.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.97,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 788.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.966,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 791,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.959,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 796.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.943,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 802.4000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.92,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 808.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.895,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 814.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.868,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 820.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.838,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 826.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.805,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 832.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.77,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 838.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.733,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 844.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.696,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 850.6000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.657,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 856.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.618,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 863.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.577,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 868.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.536,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 875.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.495,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 881,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.454,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 887.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.413,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 893.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.372,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 899.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.332,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 905.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.294,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 911.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.256,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 917.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.221,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 923.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.186,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 929.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.154,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 935.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.125,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 942.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.098,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 947.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.073,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 954.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.051,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 959.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.034,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 966.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.02,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 971.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.009,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 978.1000001430511,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.002,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 984.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 990.1000001430511,
+      "status": "switching",
+      "angle": 27.93,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1006.5,
+      "status": "switching",
+      "angle": 27.05,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1009.2000000476837,
+      "status": "switching",
+      "angle": 26.76,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1010.2000000476837,
+      "status": "switching",
+      "angle": 26.67,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1014.2000000476837,
+      "status": "switching",
+      "angle": 26.28,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1020.2999999523163,
+      "status": "switching",
+      "angle": 25.58,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1026.2999999523163,
+      "status": "switching",
+      "angle": 24.77,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1032.4000000953674,
+      "status": "switching",
+      "angle": 23.87,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1038.6000001430511,
+      "status": "switching",
+      "angle": 22.91,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1044.7000000476837,
+      "status": "switching",
+      "angle": 21.85,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1050.7000000476837,
+      "status": "switching",
+      "angle": 20.75,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1056.9000000953674,
+      "status": "switching",
+      "angle": 19.61,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1062.7999999523163,
+      "status": "switching",
+      "angle": 18.43,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1069,
+      "status": "switching",
+      "angle": 17.17,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1074.9000000953674,
+      "status": "switching",
+      "angle": 15.93,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1081.6000001430511,
+      "status": "switching",
+      "angle": 14.65,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1087.5,
+      "status": "switching",
+      "angle": 13.33,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1093,
+      "status": "switching",
+      "angle": 12.12,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1099.2000000476837,
+      "status": "switching",
+      "angle": 10.85,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1105.2999999523163,
+      "status": "switching",
+      "angle": 9.63,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1111.2999999523163,
+      "status": "switching",
+      "angle": 8.43,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1117.7999999523163,
+      "status": "switching",
+      "angle": 7.27,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1123.2999999523163,
+      "status": "switching",
+      "angle": 6.17,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1129.5,
+      "status": "switching",
+      "angle": 5.14,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1135.4000000953674,
+      "status": "switching",
+      "angle": 4.14,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1141.5,
+      "status": "switching",
+      "angle": 3.26,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1148.6000001430511,
+      "status": "switching",
+      "angle": 2.3,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1154.2000000476837,
+      "status": "switching",
+      "angle": 1.73,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1159.6000001430511,
+      "status": "switching",
+      "angle": 1.14,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1165.7000000476837,
+      "status": "switching",
+      "angle": 0.66,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1171.9000000953674,
+      "status": "switching",
+      "angle": 0.3,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1177.9000000953674,
+      "status": "switching",
+      "angle": 0.08,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1184.2000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1190.2000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1204.7000000476837,
+      "status": "loading",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1206.4000000953674,
+      "status": "loading",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1221.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1223.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 93.6,
+      "audioPaused": false
+    },
+    {
+      "ms": 1236.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 93.6,
+      "audioPaused": false
+    },
+    {
+      "ms": 1238.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 93.6,
+      "audioPaused": false
+    },
+    {
+      "ms": 1244.6000001430511,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 93.6,
+      "audioPaused": false
+    },
+    {
+      "ms": 1250.6000001430511,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 93.6,
+      "audioPaused": false
+    },
+    {
+      "ms": 1270.6000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1277.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1280.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1282.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1290.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1292.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1299.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1305.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1311,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1317.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1323.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1329.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1335.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1341.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1347.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1353.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1359.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1365.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1371.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1378.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1383.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1390,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1396.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1402,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1408.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1414.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1420.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1426.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1432.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1437.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1443.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1449.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1455.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1469.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1472.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1474.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1480,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1486.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1492.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1498.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1504.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1510.6000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1516.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1522.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1528.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1534.6000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1540.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1546.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1552.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1558.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1564.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1570.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1577,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1583.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1589.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1595.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1601.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1607.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1613.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1619.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1625.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1631.6000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1637.6000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1643.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1649.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1655.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1661.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1667.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1673.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1680,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1686.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1692.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1698.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1704.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1710.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1716.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1722.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1728.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1734.6000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1740.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1746.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1752.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1758.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1764.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1770.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1776.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1783.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1789.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1795.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1801.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1807.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1813.2999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1819.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1825.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1831.4000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1837.5,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1843.6000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1849.7000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1855.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1861.7999999523163,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1867.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1873.9000000953674,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1880.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1886.1000001430511,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1892.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1898.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1904.2000000476837,
+      "status": "paused",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 1920.5,
+      "status": "loading",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1951,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1953.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1958.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 1964.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 1970.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 1977,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 1983.1000001430511,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 1989.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 1995.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2001.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 2007.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 2013.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 2019.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 2025.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 2031.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 2037.6000001430511,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 153.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2043.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 153.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2049.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 153.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2055.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 153.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2061.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 153.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2067.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 153.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2073.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.74,
+      "audioPaused": false
+    },
+    {
+      "ms": 2080,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.74,
+      "audioPaused": false
+    },
+    {
+      "ms": 2086.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.74,
+      "audioPaused": false
+    },
+    {
+      "ms": 2092.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.74,
+      "audioPaused": false
+    },
+    {
+      "ms": 2098.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.74,
+      "audioPaused": false
+    },
+    {
+      "ms": 2104.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.74,
+      "audioPaused": false
+    },
+    {
+      "ms": 2110.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.43,
+      "audioPaused": false
+    },
+    {
+      "ms": 2116.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.43,
+      "audioPaused": false
+    },
+    {
+      "ms": 2122.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.43,
+      "audioPaused": false
+    },
+    {
+      "ms": 2128.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.43,
+      "audioPaused": false
+    },
+    {
+      "ms": 2134.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.43,
+      "audioPaused": false
+    },
+    {
+      "ms": 2140.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.43,
+      "audioPaused": false
+    },
+    {
+      "ms": 2146.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.24,
+      "audioPaused": false
+    },
+    {
+      "ms": 2152.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.24,
+      "audioPaused": false
+    },
+    {
+      "ms": 2158.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.24,
+      "audioPaused": false
+    },
+    {
+      "ms": 2172.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.24,
+      "audioPaused": false
+    },
+    {
+      "ms": 2175.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 159.24,
+      "audioPaused": false
+    },
+    {
+      "ms": 2176.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.78,
+      "audioPaused": false
+    },
+    {
+      "ms": 2183,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.78,
+      "audioPaused": false
+    },
+    {
+      "ms": 2189,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.78,
+      "audioPaused": false
+    },
+    {
+      "ms": 2195.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.78,
+      "audioPaused": false
+    },
+    {
+      "ms": 2201.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.78,
+      "audioPaused": false
+    },
+    {
+      "ms": 2207.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.78,
+      "audioPaused": false
+    },
+    {
+      "ms": 2213.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 160.78,
+      "audioPaused": false
+    },
+    {
+      "ms": 2219.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 163.15,
+      "audioPaused": false
+    },
+    {
+      "ms": 2225.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 163.15,
+      "audioPaused": false
+    },
+    {
+      "ms": 2231.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 163.15,
+      "audioPaused": false
+    },
+    {
+      "ms": 2237.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 163.15,
+      "audioPaused": false
+    },
+    {
+      "ms": 2243.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 163.15,
+      "audioPaused": false
+    },
+    {
+      "ms": 2249.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 163.15,
+      "audioPaused": false
+    },
+    {
+      "ms": 2255.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 166.38,
+      "audioPaused": false
+    },
+    {
+      "ms": 2261.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 166.38,
+      "audioPaused": false
+    },
+    {
+      "ms": 2267.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 166.38,
+      "audioPaused": false
+    },
+    {
+      "ms": 2274,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 166.38,
+      "audioPaused": false
+    },
+    {
+      "ms": 2280,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 166.38,
+      "audioPaused": false
+    },
+    {
+      "ms": 2286,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 166.38,
+      "audioPaused": false
+    },
+    {
+      "ms": 2292.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2298.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2304.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2310.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2316.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2322.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.39,
+      "audioPaused": false
+    },
+    {
+      "ms": 2328.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168,
+      "audioPaused": false
+    },
+    {
+      "ms": 2334.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168,
+      "audioPaused": false
+    },
+    {
+      "ms": 2340.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168,
+      "audioPaused": false
+    },
+    {
+      "ms": 2346.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168,
+      "audioPaused": false
+    },
+    {
+      "ms": 2352.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168,
+      "audioPaused": false
+    },
+    {
+      "ms": 2358.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168,
+      "audioPaused": false
+    },
+    {
+      "ms": 2364.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 2370.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 2376.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 2383,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 2389.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 2395.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 2401.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.65,
+      "audioPaused": false
+    },
+    {
+      "ms": 2407.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.65,
+      "audioPaused": false
+    },
+    {
+      "ms": 2413.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.65,
+      "audioPaused": false
+    },
+    {
+      "ms": 2419.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.65,
+      "audioPaused": false
+    },
+    {
+      "ms": 2425.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.65,
+      "audioPaused": false
+    },
+    {
+      "ms": 2438.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.65,
+      "audioPaused": false
+    },
+    {
+      "ms": 2441.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2443.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2449.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2455.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2463.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2467.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2474.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 2479.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.03,
+      "audioPaused": false
+    },
+    {
+      "ms": 2485.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.03,
+      "audioPaused": false
+    },
+    {
+      "ms": 2492.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.03,
+      "audioPaused": false
+    },
+    {
+      "ms": 2498.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.03,
+      "audioPaused": false
+    },
+    {
+      "ms": 2504.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.03,
+      "audioPaused": false
+    },
+    {
+      "ms": 2510.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 168.03,
+      "audioPaused": false
+    },
+    {
+      "ms": 2516.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.57,
+      "audioPaused": false
+    },
+    {
+      "ms": 2522.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.57,
+      "audioPaused": false
+    },
+    {
+      "ms": 2528.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.57,
+      "audioPaused": false
+    },
+    {
+      "ms": 2534.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.57,
+      "audioPaused": false
+    },
+    {
+      "ms": 2540.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.57,
+      "audioPaused": false
+    },
+    {
+      "ms": 2546.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.57,
+      "audioPaused": false
+    },
+    {
+      "ms": 2552.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.94,
+      "audioPaused": false
+    },
+    {
+      "ms": 2558.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.94,
+      "audioPaused": false
+    },
+    {
+      "ms": 2564.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.94,
+      "audioPaused": false
+    },
+    {
+      "ms": 2570.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.94,
+      "audioPaused": false
+    },
+    {
+      "ms": 2576.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.94,
+      "audioPaused": false
+    },
+    {
+      "ms": 2598.2000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 167.94,
+      "audioPaused": false
+    },
+    {
+      "ms": 2602,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2603.2999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2607.2999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2613.2999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2619.4000000953674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2625.4000000953674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2631.5,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2637.600000143051,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2643.600000143051,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2649.7000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2655.7000000476837,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2661.7999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2667.9000000953674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2679.9000000953674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2686,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2701.600000143051,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2704.5,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2705.5,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2710.2999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2716.4000000953674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2722.2999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2728.5,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2734.5,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2740.600000143051,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2746.600000143051,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2752.7999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2758.7999999523163,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2764.9000000953674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 2791.9000000953674,
+      "status": "switching",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2794.7000000476837,
+      "status": "switching",
+      "angle": 0.82,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2795.9000000953674,
+      "status": "switching",
+      "angle": 0.99,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2801.2000000476837,
+      "status": "switching",
+      "angle": 1.07,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2807.5,
+      "status": "switching",
+      "angle": 1.43,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2813.2999999523163,
+      "status": "switching",
+      "angle": 1.92,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2819.4000000953674,
+      "status": "switching",
+      "angle": 2.44,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2825.5,
+      "status": "switching",
+      "angle": 3.02,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2831.5,
+      "status": "switching",
+      "angle": 3.67,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2837.600000143051,
+      "status": "switching",
+      "angle": 4.35,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2843.600000143051,
+      "status": "switching",
+      "angle": 5.07,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2849.600000143051,
+      "status": "switching",
+      "angle": 5.83,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2855.7999999523163,
+      "status": "switching",
+      "angle": 6.63,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2861.7999999523163,
+      "status": "switching",
+      "angle": 7.48,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2867.7999999523163,
+      "status": "switching",
+      "angle": 8.32,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2874,
+      "status": "switching",
+      "angle": 9.2,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2880,
+      "status": "switching",
+      "angle": 10.11,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2886.100000143051,
+      "status": "switching",
+      "angle": 11.03,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2892.100000143051,
+      "status": "switching",
+      "angle": 11.95,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2898.2000000476837,
+      "status": "switching",
+      "angle": 12.88,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2904.2999999523163,
+      "status": "switching",
+      "angle": 13.83,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2910.4000000953674,
+      "status": "switching",
+      "angle": 14.79,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2916.2999999523163,
+      "status": "switching",
+      "angle": 15.72,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2922.4000000953674,
+      "status": "switching",
+      "angle": 16.65,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2928.5,
+      "status": "switching",
+      "angle": 17.57,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2934.600000143051,
+      "status": "switching",
+      "angle": 18.47,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2940.600000143051,
+      "status": "switching",
+      "angle": 19.37,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2946.7000000476837,
+      "status": "switching",
+      "angle": 20.24,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2952.7000000476837,
+      "status": "switching",
+      "angle": 21.07,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2958.7999999523163,
+      "status": "switching",
+      "angle": 21.89,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2964.9000000953674,
+      "status": "switching",
+      "angle": 22.67,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2970.9000000953674,
+      "status": "switching",
+      "angle": 23.4,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2976.9000000953674,
+      "status": "switching",
+      "angle": 24.1,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2983,
+      "status": "switching",
+      "angle": 24.75,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2989.2000000476837,
+      "status": "switching",
+      "angle": 25.36,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 2995.100000143051,
+      "status": "switching",
+      "angle": 25.92,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3001.2000000476837,
+      "status": "switching",
+      "angle": 26.41,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3007.4000000953674,
+      "status": "switching",
+      "angle": 26.84,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3013.2999999523163,
+      "status": "switching",
+      "angle": 27.22,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3019.4000000953674,
+      "status": "switching",
+      "angle": 27.52,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3025.5,
+      "status": "switching",
+      "angle": 27.75,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3031.5,
+      "status": "switching",
+      "angle": 27.91,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3037.600000143051,
+      "status": "switching",
+      "angle": 27.99,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3043.600000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.001,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3049.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.008,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3055.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.021,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3061.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.04,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3067.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.063,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3073.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.092,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3079.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.124,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3086.100000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.161,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3092.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.201,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3098.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.244,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3104.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.289,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3110.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.336,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3116.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.384,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3122.4000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.434,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3128.4000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.485,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3134.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.535,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3140.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.585,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3146.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.635,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3152.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.683,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3158.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.73,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3164.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.774,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3170.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.816,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3176.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.854,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3183,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.889,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3189,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.92,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3195.100000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.947,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3201.100000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.969,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3207.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.985,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3213.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.996,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3229.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 1,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3233.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.986,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3237.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.978,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3243.600000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.969,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3249.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.951,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3255.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.931,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3261.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.907,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3267.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.88,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3273.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.851,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3280,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.82,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3286,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.785,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3292.100000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.75,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3298.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.713,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3304.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.675,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3310.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.635,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3316.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.595,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3322.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.553,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3328.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.512,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3334.600000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.471,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3340.600000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.429,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3346.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.389,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3352.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.349,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3358.7000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.31,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3364.7999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.272,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3370.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.236,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3376.9000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.201,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3383,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.168,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3389.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.137,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3395.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.109,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3401.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.084,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3407.2000000476837,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.061,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3413.2999999523163,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.041,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3419.4000000953674,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.026,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3425.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.013,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3431.5,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0.005,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3437.600000143051,
+      "status": "switching",
+      "angle": 28,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3452.9000000953674,
+      "status": "switching",
+      "angle": 27.98,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3456.7000000476837,
+      "status": "switching",
+      "angle": 27.32,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3458.2000000476837,
+      "status": "switching",
+      "angle": 27.02,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3461.9000000953674,
+      "status": "switching",
+      "angle": 26.9,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3467.9000000953674,
+      "status": "switching",
+      "angle": 26.55,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3474.100000143051,
+      "status": "switching",
+      "angle": 25.88,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3480,
+      "status": "switching",
+      "angle": 25.11,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3486.2000000476837,
+      "status": "switching",
+      "angle": 24.28,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3492.2000000476837,
+      "status": "switching",
+      "angle": 23.32,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3498.2000000476837,
+      "status": "switching",
+      "angle": 22.3,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3504.2999999523163,
+      "status": "switching",
+      "angle": 21.23,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3510.2999999523163,
+      "status": "switching",
+      "angle": 20.09,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3516.5,
+      "status": "switching",
+      "angle": 18.94,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3522.5,
+      "status": "switching",
+      "angle": 17.7,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3528.5,
+      "status": "switching",
+      "angle": 16.47,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3534.600000143051,
+      "status": "switching",
+      "angle": 15.2,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3540.7000000476837,
+      "status": "switching",
+      "angle": 13.92,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3546.7000000476837,
+      "status": "switching",
+      "angle": 12.64,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3552.7999999523163,
+      "status": "switching",
+      "angle": 11.41,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3558.7999999523163,
+      "status": "switching",
+      "angle": 10.16,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3564.9000000953674,
+      "status": "switching",
+      "angle": 8.94,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3571,
+      "status": "switching",
+      "angle": 7.76,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3577,
+      "status": "switching",
+      "angle": 6.64,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3583.100000143051,
+      "status": "switching",
+      "angle": 5.58,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3589.2999999523163,
+      "status": "switching",
+      "angle": 4.55,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3595.2000000476837,
+      "status": "switching",
+      "angle": 3.61,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3601.2000000476837,
+      "status": "switching",
+      "angle": 2.78,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3607.2999999523163,
+      "status": "switching",
+      "angle": 2.04,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3613.2999999523163,
+      "status": "switching",
+      "angle": 1.38,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3619.4000000953674,
+      "status": "switching",
+      "angle": 0.85,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3625.5,
+      "status": "switching",
+      "angle": 0.44,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3631.600000143051,
+      "status": "switching",
+      "angle": 0.15,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3637.7000000476837,
+      "status": "switching",
+      "angle": 0.02,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": true
+    },
+    {
+      "ms": 3696.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 0,
+      "audioPaused": false
+    },
+    {
+      "ms": 3703.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 94.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3705.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 94.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3710.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 94.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3716.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 94.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3722.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 94.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3728.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 94.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3734.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 94.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3740.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 128.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 3747.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 128.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 3752.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 128.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 3758.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 128.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 3765.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 128.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 3770.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 128.28,
+      "audioPaused": false
+    },
+    {
+      "ms": 3777.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.36,
+      "audioPaused": false
+    },
+    {
+      "ms": 3783.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.36,
+      "audioPaused": false
+    },
+    {
+      "ms": 3789.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.36,
+      "audioPaused": false
+    },
+    {
+      "ms": 3795.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.36,
+      "audioPaused": false
+    },
+    {
+      "ms": 3801.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.36,
+      "audioPaused": false
+    },
+    {
+      "ms": 3807.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 137.36,
+      "audioPaused": false
+    },
+    {
+      "ms": 3813.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 140.18,
+      "audioPaused": false
+    },
+    {
+      "ms": 3819.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 140.18,
+      "audioPaused": false
+    },
+    {
+      "ms": 3825.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 140.18,
+      "audioPaused": false
+    },
+    {
+      "ms": 3831.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 140.18,
+      "audioPaused": false
+    },
+    {
+      "ms": 3837.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 140.18,
+      "audioPaused": false
+    },
+    {
+      "ms": 3843.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 140.18,
+      "audioPaused": false
+    },
+    {
+      "ms": 3849.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3855.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3861.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3867.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3874,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3880.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 138.2,
+      "audioPaused": false
+    },
+    {
+      "ms": 3886.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 134.14,
+      "audioPaused": false
+    },
+    {
+      "ms": 3892.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 134.14,
+      "audioPaused": false
+    },
+    {
+      "ms": 3912.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 134.14,
+      "audioPaused": false
+    },
+    {
+      "ms": 3916.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 134.14,
+      "audioPaused": false
+    },
+    {
+      "ms": 3918.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 129.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 3922.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 129.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 3928.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 129.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 3934.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 129.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 3940.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 129.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 3946.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 129.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 3952.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 129.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 3958.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 122.61,
+      "audioPaused": false
+    },
+    {
+      "ms": 3964.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 122.61,
+      "audioPaused": false
+    },
+    {
+      "ms": 3971,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 122.61,
+      "audioPaused": false
+    },
+    {
+      "ms": 3977.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 122.61,
+      "audioPaused": false
+    },
+    {
+      "ms": 3983,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 122.61,
+      "audioPaused": false
+    },
+    {
+      "ms": 3989.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 122.61,
+      "audioPaused": false
+    },
+    {
+      "ms": 3995.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 115.44,
+      "audioPaused": false
+    },
+    {
+      "ms": 4001.2999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 115.44,
+      "audioPaused": false
+    },
+    {
+      "ms": 4007.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 115.44,
+      "audioPaused": false
+    },
+    {
+      "ms": 4013.4000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 115.44,
+      "audioPaused": false
+    },
+    {
+      "ms": 4019.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 115.44,
+      "audioPaused": false
+    },
+    {
+      "ms": 4025.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 115.44,
+      "audioPaused": false
+    },
+    {
+      "ms": 4031.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 108.52,
+      "audioPaused": false
+    },
+    {
+      "ms": 4037.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 108.52,
+      "audioPaused": false
+    },
+    {
+      "ms": 4043.7000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 108.52,
+      "audioPaused": false
+    },
+    {
+      "ms": 4049.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 108.52,
+      "audioPaused": false
+    },
+    {
+      "ms": 4055.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 108.52,
+      "audioPaused": false
+    },
+    {
+      "ms": 4061.7999999523163,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 108.52,
+      "audioPaused": false
+    },
+    {
+      "ms": 4067.9000000953674,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 100.49,
+      "audioPaused": false
+    },
+    {
+      "ms": 4074,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 100.49,
+      "audioPaused": false
+    },
+    {
+      "ms": 4080.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 100.49,
+      "audioPaused": false
+    },
+    {
+      "ms": 4086.100000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 100.49,
+      "audioPaused": false
+    },
+    {
+      "ms": 4092.2000000476837,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 100.49,
+      "audioPaused": false
+    },
+    {
+      "ms": 4098.299999952316,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 100.49,
+      "audioPaused": false
+    },
+    {
+      "ms": 4104.299999952316,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 4110.299999952316,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 4116.400000095367,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 4122.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 4128.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 4134.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 97.19,
+      "audioPaused": false
+    },
+    {
+      "ms": 4140.600000143051,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 114.62,
+      "audioPaused": false
+    },
+    {
+      "ms": 4146.700000047684,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 114.62,
+      "audioPaused": false
+    },
+    {
+      "ms": 4152.700000047684,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 114.62,
+      "audioPaused": false
+    },
+    {
+      "ms": 4158.799999952316,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 114.62,
+      "audioPaused": false
+    },
+    {
+      "ms": 4175.200000047684,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 114.62,
+      "audioPaused": false
+    },
+    {
+      "ms": 4180.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 125.23,
+      "audioPaused": false
+    },
+    {
+      "ms": 4183,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 125.23,
+      "audioPaused": false
+    },
+    {
+      "ms": 4189.200000047684,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 125.23,
+      "audioPaused": false
+    },
+    {
+      "ms": 4195.200000047684,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 125.23,
+      "audioPaused": false
+    },
+    {
+      "ms": 4201.299999952316,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 125.23,
+      "audioPaused": false
+    },
+    {
+      "ms": 4207.400000095367,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 125.23,
+      "audioPaused": false
+    },
+    {
+      "ms": 4213.299999952316,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 125.23,
+      "audioPaused": false
+    },
+    {
+      "ms": 4219.400000095367,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 130.27,
+      "audioPaused": false
+    },
+    {
+      "ms": 4225.5,
+      "status": "playing",
+      "angle": 0,
+      "travel": 0,
+      "energy": 130.27,
+      "audioPaused": false
+    }
+  ],
+  "errors": [],
+  "rotary": true,
+  "display": true,
+  "realSpectrum": true,
+  "pauseDuringExchange": true,
+  "motionPause": true,
+  "releaseOutside": true,
+  "offscreenAudio": true,
+  "touchRotary": true,
+  "keyboardVolume": true,
+  "reducedMotion": true
+}

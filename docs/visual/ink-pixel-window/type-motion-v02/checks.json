@@ -1,0 +1,10 @@
+{
+  "report": [
+    "1440: Tahoma controls ≥13px, serif record body ≥15px, metadata ≥11px. Reading pauses film.",
+    "Rapid chapter changes leave one scene; desktop window frame stays fixed; finished film stops.",
+    "Manual keyboard tabs work. Hidden tab freezes clock; returning resumes without fast-forward.",
+    "390 / DPR 2: reflowed body and ≥14px controls; no horizontal overflow. Reduced-motion steps work.",
+    "1920 / DPR 2 checked. No media players, InkTrace requests or Runtime exceptions."
+  ],
+  "errors": []
+}

@@ -1,0 +1,50 @@
+INITIAL GENERATION
+
+Use case: ui-mockup
+Asset type: high-fidelity ART-DIRECTED WEBSITE SECTION MOTION STORYBOARD. Three states of the SAME interactive InkTrace portfolio section, all visible on ONE high-resolution board, not an actual product screenshot.
+Primary request: invent a MUCH MORE EDGY, exquisitely composed, kinetic editorial showcase for JACKIE's InkTrace creative writing workspace. The previous design was too literally a beige Wiki page on black with a drawer. Completely recompose it. Keep ink-black, warm ivory and dried crimson, readable content and connected-record storytelling. No need to recreate any application's layout or screenshots.
+Format: portrait 2:3 board with THREE wide desktop viewport keyframes stacked vertically, each a consistent ~16:8 website composition. Thin quiet separators. Small labels outside frames: "01 / READ", "02 / RECORD", "03 / RELATIONS". Same camera, same frame size. Render razor-sharp, tactile high-fidelity editorial web art direction.
+Common composition in all three keyframes:
+- Continuous near-black fine xerox-grain canvas, with black occupying about half of each frame. Not an ivory background.
+- Narrow left identity zone (~25%): small expressive condensed "INKTRACE" wordmark (not oversized), one clear readable short serif positioning line "A writing workspace for connected stories.", small "BY YUCHAO WANG", permanent understated ivory button "EXPLORE INKTRACE ↗". A smaller visible secondary link "WATCH AI ORGANIZE →". Keep this identity zone and both external/demo affordances visually stable in all states.
+- Right ~75% is a restless but rigorously composed typographic stage. Overlapping OFF-CENTER ivory print plates with one oblique cut and one delicate torn edge, an angular deep-black cutout penetrating the composition, a narrow dark-red proof line, sparse registration ticks. Paper shapes should feel like experimental late-1990s/early-2000s art-school typography / underground magazine / electronic music sleeve, NOT a medieval scrapbook, physical office file folders, a generic clean SaaS panel, or rigid accordion.
+- Typography has assertive contrast: tightly condensed or extended grotesk headline fragments, a very large expressive editorial italic on select words, tiny mono functional labels, clean comfortably readable body text. Crop some decorative headline at plate boundaries, but never crop navigation, important body content or links. Black ink blocks intrude on ivory; ivory type crosses a black cutout. A single offset crimson underprint, not lots of random doodles. Enough restraint that the concept still functions as a usable website.
+- A stable bottom control rail sits in a black clear gutter: "01 READ   02 RECORD   03 RELATIONS", active state in ivory with a slim crimson indicator. Plain small label "EDITORIAL DEMO". Three navigable states, not autoplay.
+STATE 1 / READ:
+Compose a dramatically cropped typographic title "THE DUNGEON" with a large italic "inside." word as an editorial accent, no extra slogan. A tall narrow low-contrast black-and-ivory halftone stone arch detail sits partly underneath the typography, no full fantasy screenshot, no colorful magic scene, no faces.
+A clean small ivory text area reads: "Constructed during the Second Era by the Archivists of Old."
+"Archivists of Old" is distinctly crimson-underlined, inside the sentence, a tiny plus marker alongside.
+The closed record's edge is only visible as a narrow offset ivory blade behind the main reading plate. The hierarchy should feel like a striking designed publication, not a web documentation page.
+STATE 2 / RECORD:
+Use the SAME plate family and black structure, but composition is visibly re-registered: the upper reading plate slid UP behind an angular black cutout, revealing a broad lower ivory record surface. The fragment "THE DUNGEON" remains small and readable at top as source context.
+"Archivists of Old" has travelled from the source sentence to become the dominant beautifully typeset two-line record heading, with purposeful very large/small contrast, not centered in a card.
+A thin crimson leader relates the retained source reference to the record. Keep leader in clear margins, not through body copy.
+Record body: "An ancient group." A small explanatory caption "One record. Every reference stays connected." This is portfolio demonstration copy, not invented lore.
+Image fragment becomes a small crop in the margin, not duplicated huge. One subtle second plate offset reveals physical depth; no glowy borders, no round portrait, no metadata dashboard.
+STATE 3 / RELATIONS:
+The SAME name "Archivists of Old" remains the visual anchor, now placed as one typographic node in a disciplined asymmetric relation composition across black negative space and two ivory print fragments. No circular glowing nodes and no large generic graph UI.
+Exactly three sample labels:
+"Archivists of Old"
+"The Dungeon"
+"Second Era"
+A crimson connector between The Dungeon and Archivists of Old labelled "BUILT BY".
+A second connector between The Dungeon and Second Era labelled "BUILT DURING".
+This is a tiny curated editorial relation example, not a claimed screenshot of AI output.
+Place a short legible phrase "A world, held together." quietly near the bottom, not a new giant marketing hero. Same permanent CTA and same control rail.
+Motion design to communicate visually: the transition feels like offset print plates sliding and text finding new roles. The linked name is a SHARED ELEMENT across states; crimson underline extends into record leader then into relation connectors. Frames must have materially different compositions, not only tiny changed labels, and clearly belong to one design system. Do not draw blurred speed streaks or duplicate unreadable motion ghosts. No perspective 3D page curling, no random exploding letters.
+Materials: extremely fine ivory paper pores, black toner erosion only on big display type, dry dark-red ink, short contact shadows at overlapping edges, a slight semi-transparent tracing-paper sliver acceptable. Body text stays crisp. NOT stained vintage parchment or fluffy torn fibers.
+Palette STRICTLY warm ivory #e8e1d1, charcoal #111310, ink #211e18, dried crimson #96343b; no neon, no pastel, no purple, no green, no gradients.
+Constraints: This is a newly invented PORTFOLIO presentation, not a redesign or recreation of the InkTrace app. No app sidebars, dashboard chrome, chat screenshots, computers, audio decks, monitors, faces, screenshots, coffee props, unnecessary badges, giant InkTrace logo, three equal cards, handwritten cliché everywhere, literal filing cabinet or hanging tabs. It must feel sharper, more surprising and more graphic than a polite literary page, while retaining a clear human-readable product entry.
+Small board footer: "PORTFOLIO MOTION CONCEPT / NOT PRODUCT UI".
+
+
+TARGETED CORRECTION
+
+Edit the provided three-row InkTrace editorial website motion storyboard with ONE correction only: fix the semantic connection lines in the BOTTOM "03 / RELATIONS" panel.
+Keep all typography, all panel composition, left identity column, textures, colors, all other text, illustration crops, first and second panels, third panel label placements and nodes otherwise unchanged.
+In the bottom panel there are three ivory typographic labels: "The Dungeon" at upper-left, "Second Era" at upper-right, and "Archivists of Old" across lower-center.
+The correct relations are:
+1. The Dungeon -> Archivists of Old, caption "BUILT BY". Draw a thin dark crimson connector from the bottom of The Dungeon label diagonally down toward the upper-left of Archivists of Old label, arrowhead terminating at Archivists of Old.
+2. The Dungeon -> Second Era, caption "BUILT DURING". Draw a thin dark crimson connector horizontally across the EMPTY BLACK SPACE BETWEEN the two upper labels, arrowhead terminating at the left edge of Second Era. Place "BUILT DURING" neatly above this horizontal line, with good separation from text.
+IMPORTANT: There must be NO line whatsoever between Archivists of Old and Second Era. Delete the existing incorrect diagonal connector from Archivists of Old upward-right to Second Era, and its old label, restoring plain black paper underneath. The two new/retained connectors share The Dungeon as their origin.
+No connector may pass through letters or ivory cards. Do not invent further nodes, text, decorative lines or extra controls. This is a minimal topology correction, NOT a redesign. Preserve every other part of the board and its sharpness.

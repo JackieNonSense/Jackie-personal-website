@@ -1,0 +1,38 @@
+{
+  "url": "http://localhost:3011/",
+  "checkedAt": "2026-09-07T00:41:53.738Z",
+  "checks": [
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 2
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2
+    }
+  ],
+  "background": {
+    "actualDocumentHidden": true,
+    "audioContinued": true
+  },
+  "frameTiming": {
+    "frames": 59,
+    "medianMs": 6.099999999998545,
+    "p95Ms": 6.19999999999709,
+    "environment": "Headless Chrome software WebGL; observed frame intervals, not a hardware FPS promise"
+  },
+  "exceptions": [],
+  "recording": {
+    "file": "10-device-interactions.webm",
+    "frames": 57,
+    "durationMs": 6569.287109375,
+    "source": "Actual browser viewport frames, silent video; audio playback separately checked via native media and analyser"
+  }
+}

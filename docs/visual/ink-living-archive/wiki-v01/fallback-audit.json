@@ -1,0 +1,194 @@
+[
+  {
+    "width": 390,
+    "states": [
+      {
+        "height": 1726.1717529296875,
+        "paper": 810,
+        "clearance": 122.71875
+      },
+      {
+        "height": 1726.171875,
+        "paper": 810,
+        "clearance": 122.71875
+      },
+      {
+        "height": 1726.171875,
+        "paper": 810,
+        "clearance": 122.71875
+      },
+      {
+        "height": 1726.171875,
+        "paper": 810,
+        "clearance": 279.21875
+      },
+      {
+        "height": 1726.171875,
+        "paper": 810,
+        "clearance": 157.21875
+      },
+      {
+        "height": 1726.171875,
+        "paper": 810,
+        "clearance": 155.21875
+      },
+      {
+        "height": 1726.171875,
+        "paper": 810,
+        "clearance": 155.21875
+      },
+      {
+        "height": 1726.171875,
+        "paper": 810,
+        "clearance": 155.21875
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "states": [
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 110
+      },
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 110
+      },
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 120
+      },
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 274
+      },
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 164.8125
+      },
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 171.625
+      },
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 171.625
+      },
+      {
+        "height": 1449.78125,
+        "paper": 720,
+        "clearance": 171.625
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "states": [
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 98
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 98
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 108
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 238
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 128.8125
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 166.8125
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 166.8125
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 166.8125
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "states": [
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 98
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 98
+      },
+      {
+        "height": 1347.78125,
+        "paper": 659.9999389648438,
+        "clearance": 98
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 246
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 172.8125
+      },
+      {
+        "height": 1347.78125,
+        "paper": 659.9999389648438,
+        "clearance": 166.8125
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660.0000610351562,
+        "clearance": 166.8125
+      },
+      {
+        "height": 1347.78125,
+        "paper": 660,
+        "clearance": 166.8125
+      }
+    ]
+  },
+  {
+    "blockedMap": []
+  },
+  {
+    "mapFailed": true,
+    "htmlControlsWork": true
+  },
+  {
+    "canvasUnavailable": true,
+    "readingControlsWork": true,
+    "errors": []
+  }
+]

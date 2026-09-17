@@ -1,4 +1,10 @@
 export type MusicStatus = "idle" | "loading" | "playing" | "paused" | "switching" | "error";
+/** Normalised mechanism position, resolved from the power clock alone. A reversal
+ * mid-travel resumes from the partial value instead of restarting the traverse. */
+export function deckDeployment(from: number, at: number, target: number, ms: number, now: number) {
+  if (ms <= 0) return target;
+  return Math.max(0, Math.min(1, from + Math.sign(target - from) * Math.min(Math.abs(target - from), (now - at) / ms)));
+}
 export type MusicSnapshot = {
   powered: boolean;
   status: MusicStatus; track: number; volume: number; muted: boolean;
@@ -20,6 +26,8 @@ const wait = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms
 
 /** One transport per homepage. Visual state never owns or starts the audio. */
 export class MusicController {
+  private deployFrom = 0; private deployAt = 0; private deployTarget = 0; private deployMs = 0;
+  private deploying = false; private deployTimer?: ReturnType<typeof setTimeout>;
   private snapshot: MusicSnapshot = { powered:false,status: "idle", track: 0, volume: .25, muted: false, wantsPlaying: false, phase: "seated", time: 0, error: "", exchangeStartedAt:null };
   private listeners = new Set<() => void>();
   private media?: MediaPort;
@@ -36,6 +44,14 @@ export class MusicController {
     this.listeners.forEach(listener => listener());
   }
   private level() { return this.snapshot.muted ? 0 : this.snapshot.volume; }
+  // The mechanism's position comes from the power clock itself, never from a
+  // separate animation timer, so an interrupted retraction resumes from where it
+  // actually stopped and the audio waits only for the travel that is left.
+  private deployed(now = performance.now()) { return deckDeployment(this.deployFrom, this.deployAt, this.deployTarget, this.deployMs, now); }
+  private aimDeploy(target: 0 | 1) { const now = performance.now(); this.deployFrom = this.deployed(now); this.deployAt = now; this.deployTarget = target; }
+  /** Milliseconds for a full traverse. Zero — the default — means no mechanism:
+   * the non-WebGL fallback swaps a still poster and reduced motion jumps. */
+  setDeployMotion = (milliseconds: number) => { const now = performance.now(); this.deployFrom = this.deployed(now); this.deployAt = now; this.deployMs = Math.max(0, milliseconds); };
   private ensureMedia() {
     if (!this.media) {
       this.media = this.createMedia();
@@ -45,7 +61,9 @@ export class MusicController {
         if (event === "ended" && this.snapshot.wantsPlaying) void this.next();
         if (event === "error") this.fail();
         if (event === "timeupdate") this.update({ time: this.media?.currentTime || 0 });
-        if (!this.exchanging && this.snapshot.wantsPlaying) {
+        // The warm-up play fires a real "playing" event; without the deploy guard
+        // it would raise the gain and let the track sound behind a folded shell.
+        if (!this.exchanging && !this.deploying && this.snapshot.wantsPlaying) {
           if (event === "waiting") this.update({ status: "loading" });
           if (event === "playing") { this.media?.gain(this.level(), .2); this.update({ status: "playing" }); }
         }
@@ -55,34 +73,54 @@ export class MusicController {
   }
   private fail() {
     if (this.disposed) return;
-    ++this.serial; ++this.exchangeSerial; this.exchanging=false; this.media?.pause();
+    ++this.serial; ++this.exchangeSerial; this.exchanging=false; this.deploying=false; clearTimeout(this.deployTimer); this.media?.pause();
     this.update({ status: "error", wantsPlaying: false, phase: "seated", exchangeStartedAt:null, error: "Audio could not start. Retry, or skip this track." });
   }
-  private async start() {
+  private async start(holdMs = 0) {
     const token = ++this.serial;
     try {
       const media = this.ensureMedia();
       media.gain(0, 0);
+      // The element fires "playing" the moment it starts, which can beat this
+      // function's own await, so the deploy guard goes up before the warm-up play
+      // rather than after it. Otherwise the listener opens the gain and reports
+      // PLAY while the mechanism is still travelling.
+      this.deploying = holdMs > 0;
       // Both are invoked before any await: first playback stays in the click's
       // user-activation task. Resume failures are handled, never swallowed.
       const unlocked = media.unlock();
       const playback = media.play();
       await Promise.all([unlocked, playback]);
       if (this.disposed || token !== this.serial || !this.snapshot.wantsPlaying) {
+        this.deploying = false;
         if (this.disposed || this.exchanging || !this.snapshot.wantsPlaying) media.pause();
         return;
+      }
+      if (holdMs > 0) {
+        // The disc is warm and the element now carries user activation, but the
+        // mechanism is still moving: hold the transport at the start rather than
+        // letting the track run on behind a folded shell.
+        media.pause();
+        await new Promise<void>(resolve => { clearTimeout(this.deployTimer); this.deployTimer = setTimeout(resolve, holdMs); });
+        this.deploying = false;
+        if (this.disposed || token !== this.serial || !this.snapshot.wantsPlaying) { media.pause(); return; }
+        await media.play();
+        if (this.disposed || token !== this.serial || !this.snapshot.wantsPlaying) { media.pause(); return; }
       }
       media.gain(this.level(), .2);
       if (!this.exchanging) this.update({ status: "playing", error: "" });
     } catch {
+      this.deploying = false;
       if (!this.disposed && token === this.serial && this.snapshot.wantsPlaying) this.fail();
     }
   }
   play = async () => {
     if (this.disposed || this.snapshot.wantsPlaying) return;
     if (this.snapshot.status === "error" && this.media) this.media.setSource(this.tracks[this.snapshot.track].src);
+    const hold = this.exchanging ? 0 : Math.round((1 - this.deployed()) * this.deployMs);
+    this.aimDeploy(1);
     this.update({ powered:true,wantsPlaying: true, status: this.exchanging ? "switching" : "loading", error: "" });
-    if (!this.exchanging) await this.start();
+    if (!this.exchanging) await this.start(hold);
   };
   pause = () => {
     if (this.disposed) return;
@@ -93,7 +131,7 @@ export class MusicController {
     this.pauseTimer = setTimeout(() => { if (token === this.serial) this.media?.pause(); }, 200);
   };
   toggle = () => { if (this.snapshot.wantsPlaying) this.pause(); else void this.play(); };
-  powerOff = () => { this.pause();this.update({powered:false}); };
+  powerOff = () => { this.pause();this.aimDeploy(0);this.update({powered:false}); };
   next = async () => {
     if (this.disposed || this.exchanging) return;
     this.exchanging = true; ++this.serial;
@@ -128,7 +166,7 @@ export class MusicController {
   };
   sample = () => this.media?.sample();
   dispose = () => {
-    this.disposed = true; ++this.serial; ++this.exchangeSerial;clearTimeout(this.pauseTimer);
+    this.disposed = true; ++this.serial; ++this.exchangeSerial;clearTimeout(this.pauseTimer);this.deploying=false;clearTimeout(this.deployTimer);
     this.media?.dispose(); this.media = undefined;
     this.update({ powered:false,status: "idle", wantsPlaying: false, phase: "seated", time: 0,exchangeStartedAt:null });
     this.listeners.clear();

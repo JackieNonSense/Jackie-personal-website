@@ -1,0 +1,84 @@
+{
+  "results": [
+    {
+      "step": "standby",
+      "status": "idle",
+      "power": "off",
+      "pose": "0.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\n▶\nPLAY\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n25\nPRESS PLAY\nEDM Detection Mode\nMUSIC CREDITS"
+    },
+    {
+      "step": "play",
+      "status": "playing",
+      "power": "on",
+      "pose": "1.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\nⅡ\nPAUSE\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n25\nNOW PLAYING\nEDM Detection Mode\nMUSIC CREDITS"
+    },
+    {
+      "step": "next",
+      "status": "playing",
+      "power": "on",
+      "pose": "1.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\nⅡ\nPAUSE\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n25\nNOW PLAYING\nVoxel Revolution\nMUSIC CREDITS"
+    },
+    {
+      "step": "mute-and-display",
+      "status": "playing",
+      "power": "on",
+      "pose": "1.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\nⅡ\nPAUSE\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n25\nNOW PLAYING\nVoxel Revolution\nMUSIC CREDITS"
+    },
+    {
+      "step": "pause-during-exchange",
+      "status": "paused",
+      "power": "on",
+      "pose": "1.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\n▶\nPLAY\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n25\nPAUSED\nEDM Detection Mode\nMUSIC CREDITS"
+    },
+    {
+      "step": "paused-next",
+      "status": "paused",
+      "power": "on",
+      "pose": "1.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\n▶\nPLAY\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n25\nPAUSED\nVoxel Revolution\nMUSIC CREDITS"
+    },
+    {
+      "step": "keyboard-volume",
+      "visible": true,
+      "outline": "none",
+      "rail": "1px",
+      "value": "26"
+    },
+    {
+      "step": "off",
+      "status": "paused",
+      "power": "off",
+      "pose": "0.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\n▶\nPLAY\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n26\nPAUSED\nVoxel Revolution\nMUSIC CREDITS"
+    },
+    {
+      "step": "reduced",
+      "status": "playing",
+      "power": "on",
+      "pose": "1.000",
+      "renderer": "three",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\nⅡ\nPAUSE\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n26\nNOW PLAYING\nVoxel Revolution\nMUSIC CREDITS"
+    },
+    {
+      "step": "fallback",
+      "status": "paused",
+      "power": "on",
+      "pose": "1.000",
+      "renderer": "fallback",
+      "title": "PERSONAL SOUNDTRACK\nCD / STEREO\n⏻\nPOWER\n▶\nPLAY\n▸▸\nSEEK\nATT\nMUTE\nDISP\nMODE\nVOLUME\n26\nPAUSED\nEDM Detection Mode\nMUSIC CREDITS"
+    }
+  ],
+  "errors": []
+}

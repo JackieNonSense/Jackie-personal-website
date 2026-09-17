@@ -1,0 +1,19 @@
+{
+  "blender": "4.5.13 LTS",
+  "units": "1 unit = 10mm; web Y-up preserved",
+  "frontAspect": 1.935483870967742,
+  "source": "deck-a-master.blend",
+  "export": "deck-a-v01.glb",
+  "sha256": "46bc48d067b762a01aea98accfeda4be9e87a182678f1f35d68b4138ef4388fc",
+  "pivots": [
+    "Chassis",
+    "FacePivot",
+    "VolumePivot",
+    "KeyPlay",
+    "KeyNext",
+    "KeyDisplay",
+    "KeyMute",
+    "DiscCarrier"
+  ],
+  "stage": "STATIC MATERIAL REVIEW \u2014 no mechanical animation wired yet"
+}

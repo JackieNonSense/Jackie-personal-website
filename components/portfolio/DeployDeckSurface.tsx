@@ -1,6 +1,6 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import {Component,lazy,Suspense,useState,useCallback,type ReactNode} from 'react';
+import {Component,lazy,Suspense,useState,useCallback,useEffect,type ReactNode} from 'react';
 import {motion} from 'framer-motion';
 import type {DeployProps} from './DeployDeckScene';
 import styles from './Deck.module.css';
@@ -16,6 +16,9 @@ export default function DeployDeckSurface(props:Omit<DeployProps,'onReady'|'onFa
   const [ready,setReady]=useState(false);const onReady=useCallback(()=>setReady(true),[]),onFailure=useCallback(()=>setReady(false),[]);
   const [attentionKey,setAttention]=useState(''),[pressedKey,setPressed]=useState('');
   const {state,player}=props;
+  // Only a mounted, moving mechanism may hold the audio back. The still poster
+  // fallback and reduced motion have no travel, so they must never wait.
+  useEffect(()=>player.setDeployMotion(ready&&!props.still?1600:0),[ready,props.still,player]);
   const top=(y:number)=>`${(0.5-(y-panel.stage.cameraY)/panel.stage.height)*100}%`;
   const actions:Record<string,{label:string;face:string;legend:string;action:()=>void;selected?:boolean;disabled?:boolean}>={
     power:{label:state.powered?'关闭音乐台':'开启音乐台',face:'⏻',legend:'POWER',action:()=>state.powered?player.powerOff():void player.play(),selected:state.powered},
@@ -29,10 +32,10 @@ export default function DeployDeckSurface(props:Omit<DeployProps,'onReady'|'onFa
     {!ready&&<DeckFallbackDisplay state={state} alternate={props.displayMode}/>}
     <div className={styles.stage} aria-hidden="true" style={{visibility:ready?'visible':'hidden'}}>{props.near&&<Boundary onFailure={onFailure}><Suspense fallback={null}><Scene {...props} attentionKey={attentionKey} pressedKey={pressedKey} onReady={onReady} onFailure={onFailure}/></Suspense></Boundary>}</div>
     <div className={styles.integratedPanel} data-deck-controls="integrated" role="group" aria-label="音乐台机身控制">
-      {panel.keys.map(key=>{const a=actions[key.id];return <motion.button key={key.id} type="button" className={styles.modelKey} data-model-key={key.node} style={{left:`${(0.5+key.x/panel.stage.width)*100}%`,top:top(key.y),width:`${(key.width+2*Math.abs(key.skew))/panel.stage.width*100}%`,height:`${key.height/panel.stage.height*100}%`}} aria-label={a.label} aria-pressed={a.selected} disabled={a.disabled} onClick={a.action}
+      {panel.keys.map(key=>{const a=actions[key.id];return <motion.button key={key.id} type="button" className={styles.modelKey} data-model-key={key.node} data-pressed={pressedKey===key.node?'true':undefined} style={{left:`${(0.5+key.x/panel.stage.width)*100}%`,top:top(key.y),width:`${(key.width+2*Math.abs(key.skew))/panel.stage.width*100}%`,height:`${key.height/panel.stage.height*100}%`}} aria-label={a.label} aria-pressed={a.selected} disabled={a.disabled} onClick={a.action}
         onPointerEnter={()=>setAttention(key.node)} onPointerLeave={()=>{setAttention('');setPressed('');}} onPointerDown={()=>setPressed(key.node)} onPointerUp={()=>setPressed('')} onPointerCancel={()=>setPressed('')}
         onFocus={()=>setAttention(key.node)} onBlur={()=>{setAttention('');setPressed('');}} onKeyDown={e=>{if(e.key==='Enter'||e.key===' ')setPressed(key.node);}} onKeyUp={()=>setPressed('')}
-        whileTap={props.still?undefined:{y:1}} whileHover={props.still?undefined:{color:'#e2f69c'}} transition={{duration:.09}}>
+        whileHover={props.still?undefined:{color:'#e2f69c'}} transition={{duration:.09}}>
         <span aria-hidden="true" className={styles.keyFace}>{a.face}</span><small aria-hidden="true">{a.legend}</small>
       </motion.button>;})}
       <label className={styles.modelVolume} style={{left:`${(0.5+panel.volume.x/panel.stage.width)*100}%`,top:top(panel.volume.y),width:`${panel.volume.width/panel.stage.width*100}%`}}>

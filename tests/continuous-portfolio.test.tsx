@@ -1,14 +1,24 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import Portfolio from "../components/portfolio/Portfolio";
 
 describe("approved continuous print composition", () => {
   it("keeps the approved display titles as accessible selectable page content", () => {
     render(<Portfolio />);
-    for (const name of ["INKTRACE", "JACKIE", "LET’S CONNECT"]) {
+    for (const name of ["ABOUT ME", "PROJECTS", "STILL EXPLORING", "LET’S CONNECT"]) {
       expect(screen.getByRole("heading", { level: 2, name })).toBeVisible();
     }
-    expect(screen.getByRole("heading", { level: 2, name: "Experiments" })).toBeInTheDocument();
+  });
+
+  it("introduces the monitor in words, not just a bare device", () => {
+    render(<Portfolio />);
+    const experiments = screen.getByRole("region", { name: "STILL EXPLORING" });
+    expect(experiments).toHaveAttribute("id", "experiments");
+    // The section used to carry only a screen-reader-only title, leaving the CRT
+    // standing alone with no explanation of what it is or how to get in.
+    expect(within(experiments).getByText(/A small experiment/)).toBeVisible();
+    expect(within(experiments).getByText(/Find the password/)).toBeVisible();
+    expect(within(experiments).getByRole("link", { name: "ENTER TERMINAL ↗" })).toBeInTheDocument();
   });
 
   it("uses one noninteractive continuous paper fault behind all chapters", () => {
@@ -19,9 +29,9 @@ describe("approved continuous print composition", () => {
     expect(faults[0].closest("section")).toBeNull();
   });
 
-  it("identifies the playable example honestly, with a real external link", () => {
+  it("keeps the exterior concise, with a real external product link", () => {
     render(<Portfolio />);
-    expect(screen.getByText(/Independent example content — not a product recording/)).toBeVisible();
+    expect(screen.queryByText(/A playable interpretation|A small archive, waiting/)).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Visit Inktrace/ })).toHaveAttribute("href", "https://inktrace.app");
   });
 

@@ -1,0 +1,29 @@
+{
+  "source": "Actual localhost browser captures",
+  "frames": 68,
+  "duration": 6360,
+  "silent": true,
+  "scope": "Sprite asset proof; not the four production scene demos",
+  "actions": [
+    [
+      0,
+      "Walk"
+    ],
+    [
+      1700,
+      "Work"
+    ],
+    [
+      3200,
+      "Turn"
+    ],
+    [
+      4100,
+      "Walk"
+    ],
+    [
+      5500,
+      "Pause motion"
+    ]
+  ]
+}

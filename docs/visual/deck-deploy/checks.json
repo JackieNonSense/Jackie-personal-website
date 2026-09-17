@@ -1,0 +1,205 @@
+{
+  "results": [
+    {
+      "step": "standby",
+      "power": "off",
+      "status": "idle",
+      "pose": "0.000",
+      "lit": "0.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "extracting",
+      "power": "on",
+      "status": "playing",
+      "pose": "0.351",
+      "lit": "0.000",
+      "energy": "115.82",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "powered",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "145.15",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "paused-screen-stays-out",
+      "power": "on",
+      "status": "paused",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "next-while-paused",
+      "power": "on",
+      "status": "paused",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "off",
+      "power": "off",
+      "status": "paused",
+      "pose": "0.000",
+      "lit": "0.000",
+      "energy": "0.00",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "viewport-390",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "174.14",
+      "css": [
+        346,
+        216.25
+      ],
+      "buffer": [
+        692,
+        432
+      ],
+      "overflow": false
+    },
+    {
+      "step": "viewport-1920",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "144.72",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "keyboard-play",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "0.999",
+      "energy": "186.53",
+      "css": [
+        480,
+        300
+      ],
+      "buffer": [
+        960,
+        600
+      ],
+      "overflow": false
+    },
+    {
+      "step": "keyboard-volume",
+      "volume": 26
+    },
+    {
+      "step": "physical-fader",
+      "before": 26,
+      "after": 54
+    },
+    {
+      "step": "touch-play",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "179.08",
+      "css": [
+        346,
+        216.25
+      ],
+      "buffer": [
+        692,
+        432
+      ],
+      "overflow": false
+    },
+    {
+      "step": "reduced-motion",
+      "power": "on",
+      "status": "playing",
+      "pose": "1.000",
+      "lit": "1.000",
+      "energy": "0.00",
+      "css": [
+        346,
+        216.25
+      ],
+      "buffer": [
+        692,
+        432
+      ],
+      "overflow": false
+    },
+    {
+      "step": "webgl-fallback",
+      "renderer": "fallback"
+    }
+  ],
+  "errors": []
+}

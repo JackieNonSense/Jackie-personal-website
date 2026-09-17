@@ -1,0 +1,43 @@
+@font-face{font-family:InkPosterCondensed;src:url('/proof/hero-00/fonts/SixCaps.ttf') format('truetype');font-display:swap;font-weight:400}
+/* 36% is duplicated by .overlay's left inset below. */
+.poster{--blue:#244aaa;--ivory:#d8d6cd;position:relative;z-index:2;display:grid;grid-template-columns:36% minmax(0,1fr);min-height:clamp(650px,65vw,1040px);padding:36px 0 20px;color:var(--ivory);font:16px/1.65 'Courier New',monospace;scroll-margin-top:24px}
+.poster *{box-sizing:border-box}
+.intro{position:relative;z-index:1;min-width:0;container-type:inline-size;padding:74px 3vw 70px 4vw}
+/* Sized from the column, not the viewport: a vw-sized nowrap title outgrows this
+   36% column at some ratios, and the toner mask — which only paints over the
+   element's own box — then crops the last letter clean off. */
+.title{font:400 clamp(90px,53cqi,300px)/.96 InkPosterCondensed,'Arial Narrow',sans-serif;letter-spacing:-.018em;white-space:nowrap;margin:0;color:#dedbcf;mask-image:url('/portfolio/toner-mask.svg');mask-mode:luminance;mask-size:800px 600px;mask-repeat:repeat;mask-clip:no-clip}
+.copy{margin-top:54px;padding-left:2px}
+.copy p{margin:0;max-width:290px;font:inherit}
+.visit{display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:34px;font-size:12px;letter-spacing:.035em;color:inherit;text-decoration:underline!important;text-underline-offset:6px}
+.visit:hover{color:#fff7e5}
+.poster .visit:focus-visible{outline:1px solid #eee8d8;outline-offset:5px}
+.paper{position:relative;min-width:0;isolation:isolate;padding:105px 10% 130px 11%;color:var(--blue)}
+.paper::before{content:'';position:absolute;z-index:-1;inset:0 -13% 0 -4%;background:url('/portfolio/torn-stock-v01.png') center/100% 100% no-repeat;mask-image:url('/portfolio/torn-stock-v01.png');mask-mode:luminance;mask-size:100% 100%;pointer-events:none;filter:brightness(1.04)}
+.registration{position:absolute;left:11%;top:66px;font:24px/1 'Courier New',monospace;color:#4166b5;opacity:.45}
+.registration::before{content:'';position:absolute;left:0;top:-26px;width:150px;border-top:1px dashed currentColor}
+.brand{display:block;font:700 clamp(62px,7.5vw,128px)/1 Arial,Helvetica,sans-serif;letter-spacing:-.075em;mask-image:url('/portfolio/toner-mask.svg');mask-mode:luminance;mask-size:620px 480px;white-space:nowrap}
+.bookStage{display:flex;align-items:flex-start;justify-content:center;margin-top:76px;min-height:250px}
+.bookButton{display:flex;flex-direction:column;align-items:center;padding:12px 24px 24px;background:transparent;border:0;border-radius:0;cursor:pointer;color:var(--blue);-webkit-tap-highlight-color:transparent}
+.bookRule{width:148px;height:2px;margin-top:7px;background:var(--blue);transition:width .1s ease-out}
+.bookButton:hover .bookRule,.bookButton:focus-visible .bookRule{width:174px}
+.poster .bookButton:focus-visible{outline:1px solid var(--blue);outline-offset:4px}
+/* The left inset mirrors .poster's 36% split, so the window lands in the white
+   sheet column and never covers the PROJECTS title or its copy. Keep the two in
+   sync; the overlay is portaled to body and cannot inherit the poster's vars. */
+.overlay{position:fixed;z-index:100;inset:24px 24px 24px 36%;display:flex;align-items:center;justify-content:center;min-height:0;background:none;pointer-events:none;isolation:isolate}
+/* .study is the full-page study layout; embedded it only supplies the colour
+   variables, so the doubled class keeps the overlay's own layout winning. */
+.overlay.overlay{display:flex;grid-template-columns:none;min-height:0;background:none}
+.overlay .dialog{display:flex;flex-direction:column;pointer-events:auto;width:min(1120px,100%);height:min(100%,950px);max-height:100%;min-height:0;overflow:hidden;color:#23241f;box-shadow:0 12px 26px #080b092e,3px 5px 0 #080b0924}
+.dialog>:not(.sceneViewport){flex-shrink:0}
+.sceneViewport{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-color:#77796a #d0c9b7;scrollbar-width:thin}
+.overlay [class*='playback']{min-height:94px;gap:12px;padding:12px 16px;flex-direction:row;align-items:center}
+.overlay [class*='stepInfo']{min-height:0}
+.overlay [class*='stepInfo']>span{display:none}
+.overlay [class*='progress']{padding-bottom:8px}
+.overlay [class*='tabs']{padding-block:5px}
+.overlay [class*='tabs'] button{min-height:48px}
+@media(max-width:1000px) and (min-width:701px){.intro{padding-top:72px;padding-inline:4vw 2vw}.paper{padding-top:114px}.brand{font-size:8.2vw}.copy{font-size:14px;margin-top:42px}.bookStage{margin-top:54px}.overlay [class*='stepInfo']{max-width:45%}}
+@media(max-width:700px){.poster{grid-template-columns:1fr;padding:20px 0 0;min-height:0}.intro{padding:30px 7% 42px}.title{font-size:clamp(126px,35vw,190px)}.copy{margin-top:28px;font-size:15px}.visit{margin-top:20px}.paper{min-height:550px;padding:110px 11% 90px 15%}.paper::before{inset:0 -10% 0 -3%;background-size:100% 100%;mask-size:100% 100%}.registration{left:15%;top:74px}.brand{font-size:clamp(62px,18vw,104px)}.bookStage{margin-top:54px;min-height:200px}.overlay{inset:8px 8px 72px}.overlay .dialog{height:100%;padding:3px}.overlay [class*='playback']{min-height:80px;padding:8px;flex-direction:column;gap:6px}.overlay [class*='stepInfo']{display:none}.overlay [class*='transport']{flex-wrap:nowrap;gap:4px}.overlay [class*='transport'] button{min-width:0;padding:8px 5px}.overlay [class*='tabs']{gap:4px;padding:5px}.overlay [class*='tabs'] button{padding:6px 4px;min-height:44px}.overlay [class*='demoLabel']{padding:6px 8px;font-size:16px}.overlay [class*='titlebar']{padding:3px 4px 3px 8px}.overlay [class*='progress']{padding-inline:8px}}
+@media(prefers-reduced-motion:reduce){.bookRule{transition:none}}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JACKIE — 实际网页滚动预览</title>
+<style>
+body{margin:0;padding:32px;background:#111410;color:#deded2;font:16px/1.65 Arial,sans-serif}main{max-width:1200px;margin:auto}h1{font-size:28px;font-weight:400}h2{font-size:20px;font-weight:400;margin-top:45px}a{color:#b8c9ff}p{max-width:800px;color:#b0b6a7}video,img{display:block;width:100%;height:auto;border:1px solid #363f30}nav{display:flex;gap:22px;flex-wrap:wrap;margin:25px 0}figure{margin:0 0 30px}figcaption{font:12px/1.5 monospace;padding:10px 0;color:#b0b6a7}.mobile{max-width:390px}.long{max-width:900px}@media(max-width:600px){body{padding:18px}}
+</style></head>
+<body><main>
+<h1>JACKIE / 实际网页滚动预览</h1>
+<p>这些是 localhost:3011 的实际浏览器截图及录像，不是生成的完整网页概念图。2026-09-06 本地开发版；未部署到正式域名。</p>
+<nav><a href="http://localhost:3011/">打开可交互网页 ↗</a><a href="#film">滚动录像</a><a href="#sections">分段效果图</a><a href="05-full-scroll-desktop.png">完整桌面长图</a><a href="08-full-scroll-mobile.png">完整手机长图</a></nav>
+<h2 id="film">首屏 → 作品 → 关于 → 实验 → 联系</h2>
+<video controls preload="metadata" poster="00-signal-desktop.png"><source src="09-scroll-preview.webm" type="video/webm"></video>
+<p>点击播放，约 11 秒。由实际浏览器视口帧录制；视频本身不提供交互，请打开上面的网页体验字符锁定。</p>
+<h2 id="sections">分段效果图</h2>
+<figure><img src="00-signal-desktop.png" alt="首屏：Yuchao Wang 巨大字形与裂隙字符"><figcaption>00 / SIGNAL — 字符流与纸张遮挡</figcaption></figure>
+<figure><img src="00-signal-locked.png" alt="锁定 Inktrace 字符后的作品链接"><figcaption>00 / SIGNAL HELD — 点击锁定，Escape 解除</figcaption></figure>
+<figure><img loading="lazy" src="01-work.png" alt="Inktrace 作品区"><figcaption>01 / WORK — 当前为文字作品版式，不是 Inktrace 产品截图</figcaption></figure>
+<figure><img loading="lazy" src="02-about.png" alt="Jackie 个人介绍与本站使用的工具"><figcaption>02 / ABOUT — 创作兴趣与技术实践</figcaption></figure>
+<figure><img loading="lazy" src="03-experiments.png" alt="信号实验和 Monitor 入口"><figcaption>03 / EXPERIMENTS — Monitor 示意入口，原终端内部未改动</figcaption></figure>
+<figure><img loading="lazy" src="04-contact.png" alt="邮箱和社交联系方式"><figcaption>04 / CONTACT — 现有邮箱按用户选择保留</figcaption></figure>
+<h2>手机首屏</h2><img class="mobile" loading="lazy" src="06-mobile-signal.png" alt="390 像素宽手机首屏">
+<h2>整个滚动顺序</h2><img class="long" loading="lazy" src="05-full-scroll-desktop.png" alt="整个个人网站的桌面长图">
+</main></body></html>

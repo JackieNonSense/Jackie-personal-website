@@ -1,0 +1,24 @@
+{
+  "source": "Chrome screencast; actual browser frames, original timing",
+  "silent": true,
+  "complete": true,
+  "frames": 216,
+  "duration": 27121,
+  "demoEndedAt": 22029,
+  "actions": [
+    {
+      "time": 23087,
+      "action": "Wrap left"
+    },
+    {
+      "time": 24302,
+      "action": "Move quotation earlier"
+    },
+    {
+      "time": 25299,
+      "action": "Open linked region"
+    }
+  ],
+  "width": 768,
+  "height": 924
+}

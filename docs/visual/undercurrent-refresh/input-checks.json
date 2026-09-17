@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "step": "touch-toggle",
+      "passed": true
+    },
+    {
+      "step": "keyboard-static",
+      "testid": "rift-canvas",
+      "paperLayers": "upper lower",
+      "opening": "1.000",
+      "center": "0.500",
+      "drawing": "static"
+    },
+    {
+      "step": "offscreen-suspended",
+      "passed": true
+    },
+    {
+      "step": "image-failure",
+      "passed": true
+    }
+  ],
+  "errors": []
+}
