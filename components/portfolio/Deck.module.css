@@ -1,7 +1,7 @@
 .surface { position:relative; width:100%; aspect-ratio:180/93; }
 .deploySurface { aspect-ratio:80/63;container-type:inline-size; }
 .integratedPanel{position:absolute;inset:0;pointer-events:none;z-index:2;}
-.modelKey{position:absolute;translate:-50% -50%;min-width:44px;min-height:44px;pointer-events:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;background:transparent;border:0;border-radius:5px;color:#a9b498;cursor:pointer;touch-action:manipulation;font:12px/1 Arial,sans-serif!important;transition:translate .13s cubic-bezier(.2,.7,.3,1),color .13s ease-out;}
+.modelKey{position:absolute;translate:-50% -50%;min-width:44px;min-height:44px;pointer-events:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;background:transparent;border:0;border-radius:5px;color:#a9b498;cursor:pointer;touch-action:manipulation;font:12px/1 Arial,sans-serif!important;transition:translate .2s cubic-bezier(.2,.7,.3,1),color .2s cubic-bezier(.2,.7,.3,1);}
 .modelKey .keyFace{font:500 clamp(12px,3.3cqw,17px)/1 Arial,sans-serif;letter-spacing:.035em;}
 .modelKey[data-model-key=MuteKey] .keyFace,.modelKey[data-model-key=DisplayKey] .keyFace{font-size:clamp(11px,2.5cqw,13px);}
 .modelKey[data-model-key=PlayKey]{color:#e1e5cf;}

@@ -100,3 +100,49 @@ describe("power transition gate", () => {
     expect(still.player.getSnapshot().status).toBe("playing"); expect(still.media.paused).toBe(false);
   });
 });
+
+describe("waking the mechanism without asking for audio", () => {
+  // Counting factory: proves powerOn never reaches for the media boundary.
+  async function cold() {
+    const { MusicController } = await import(resolve("components/portfolio/music-controller.ts"));
+    const media = new MediaBoundary();
+    let creations = 0;
+    const player = new MusicController([{ id: "a", src: "/a.mp3" }], () => { creations++; return media; });
+    return { player, media, creations: () => creations };
+  }
+
+  it("deploys and lights the deck while leaving the transport silent", async () => {
+    const { player, media, creations } = await cold();
+    player.powerOn();
+    expect(player.getSnapshot()).toMatchObject({ powered: true, wantsPlaying: false, status: "idle" });
+    // No <audio>, no AudioContext: a machine waking up is a visual event only.
+    expect(creations()).toBe(0);
+    expect(media.plays).toBe(0);
+    expect(loud(media)).toBe(false);
+  });
+
+  it("counts as travel already made, so a later play waits only for what is left", async () => {
+    const { player, media } = await cold();
+    player.setDeployMotion(1600);
+    player.powerOn();
+    await vi.advanceTimersByTimeAsync(1600);
+    const playing = player.play(); await settle();
+    // Already deployed: audio starts without a second mechanism wait.
+    expect(player.getSnapshot().status).toBe("playing");
+    expect(media.paused).toBe(false);
+    await playing;
+  });
+
+  it("is idempotent, and never overrides a deliberate power off", async () => {
+    const { player } = await cold();
+    player.powerOn();
+    const first = player.getSnapshot();
+    player.powerOn();
+    expect(player.getSnapshot()).toBe(first);
+    player.powerOff(); await vi.advanceTimersByTimeAsync(250);
+    expect(player.getSnapshot().powered).toBe(false);
+    // The controller still permits it; "wake only once" is the component's rule.
+    player.powerOn();
+    expect(player.getSnapshot().powered).toBe(true);
+  });
+});

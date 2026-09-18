@@ -131,6 +131,13 @@ export class MusicController {
     this.pauseTimer = setTimeout(() => { if (token === this.serial) this.media?.pause(); }, 200);
   };
   toggle = () => { if (this.snapshot.wantsPlaying) this.pause(); else void this.play(); };
+  /** Deploy the mechanism without requesting audio. A machine waking as it comes
+   * into view is a visual event; sound stays something the user asks for. */
+  powerOn = () => {
+    if (this.disposed || this.snapshot.powered) return;
+    this.aimDeploy(1);
+    this.update({ powered: true });
+  };
   powerOff = () => { this.pause();this.aimDeploy(0);this.update({powered:false}); };
   next = async () => {
     if (this.disposed || this.exchanging) return;

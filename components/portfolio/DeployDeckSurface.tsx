@@ -5,6 +5,7 @@ import {motion} from 'framer-motion';
 import type {DeployProps} from './DeployDeckScene';
 import styles from './Deck.module.css';
 import panel from './deck-panel.json';
+import {DUR} from './motion';
 import DeckFallbackDisplay from './DeckFallbackDisplay';
 const Scene=lazy(()=>import('./DeployDeckScene'));
 class Boundary extends Component<{children:ReactNode;onFailure:()=>void},{failed:boolean}>{
@@ -35,7 +36,7 @@ export default function DeployDeckSurface(props:Omit<DeployProps,'onReady'|'onFa
       {panel.keys.map(key=>{const a=actions[key.id];return <motion.button key={key.id} type="button" className={styles.modelKey} data-model-key={key.node} data-pressed={pressedKey===key.node?'true':undefined} style={{left:`${(0.5+key.x/panel.stage.width)*100}%`,top:top(key.y),width:`${(key.width+2*Math.abs(key.skew))/panel.stage.width*100}%`,height:`${key.height/panel.stage.height*100}%`}} aria-label={a.label} aria-pressed={a.selected} disabled={a.disabled} onClick={a.action}
         onPointerEnter={()=>setAttention(key.node)} onPointerLeave={()=>{setAttention('');setPressed('');}} onPointerDown={()=>setPressed(key.node)} onPointerUp={()=>setPressed('')} onPointerCancel={()=>setPressed('')}
         onFocus={()=>setAttention(key.node)} onBlur={()=>{setAttention('');setPressed('');}} onKeyDown={e=>{if(e.key==='Enter'||e.key===' ')setPressed(key.node);}} onKeyUp={()=>setPressed('')}
-        whileHover={props.still?undefined:{color:'#e2f69c'}} transition={{duration:.09}}>
+        whileHover={props.still?undefined:{color:'#e2f69c'}} transition={{duration:DUR.tap}}>
         <span aria-hidden="true" className={styles.keyFace}>{a.face}</span><small aria-hidden="true">{a.legend}</small>
       </motion.button>;})}
       <label className={styles.modelVolume} style={{left:`${(0.5+panel.volume.x/panel.stage.width)*100}%`,top:top(panel.volume.y),width:`${panel.volume.width/panel.stage.width*100}%`}}>

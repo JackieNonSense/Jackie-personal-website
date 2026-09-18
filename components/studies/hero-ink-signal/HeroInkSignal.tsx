@@ -6,6 +6,7 @@ import {useEffect,useId,useRef,useState} from 'react';
 import {useLiveReducedMotion} from '../inktrace-living-review/use-live-reduced-motion';
 import {advanceClock,glyphAt,streamHead,streams} from './signal-runtime';
 import s from './HeroInkSignal.module.css';
+import {DUR} from '../../portfolio/motion';
 
 const WIDTH=1586,HEIGHT=992;
 const artwork='/studies/hero-ink-signal/approved-hero.png';
@@ -116,7 +117,7 @@ export default function HeroInkSignal({still=false,clean=false,embedded=false}:{
   };
  },[ready]);
 
- const feedback=quiet?{}:{whileHover:{y:-1},whileTap:{y:1},transition:{duration:.1}};
+ const feedback=quiet?{}:{whileHover:{y:-1},whileTap:{y:1},transition:{duration:DUR.tap}};
  const Wrapper=embedded?'section':'main';
  return <Wrapper id={embedded?'signal':undefined} className={embedded?s.embedded:s.study} aria-labelledby={headingId}>
   <div ref={stage} className={s.stage} data-hero-proof data-paused={paused||quiet} data-artwork-failed={artworkFailed}>

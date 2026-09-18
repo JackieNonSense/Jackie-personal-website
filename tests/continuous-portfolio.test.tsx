@@ -21,6 +21,22 @@ describe("approved continuous print composition", () => {
     expect(within(experiments).getByRole("link", { name: "ENTER TERMINAL ↗" })).toBeInTheDocument();
   });
 
+  it("lights the fault rather than moving it, and holds that light still for reduced motion", () => {
+    const { container } = render(<Portfolio />);
+    const fault = container.querySelector('[data-testid="paper-fault"]')!;
+    // Still one decorative element: the light is a second stroke on the same crack,
+    // not a new overlay. A crack in paper does not move; the light across it does.
+    expect(container.querySelectorAll('[data-testid="paper-fault"]')).toHaveLength(1);
+    const paths = fault.querySelectorAll("path");
+    expect(paths).toHaveLength(2);
+    expect(paths[0].getAttribute("d")).toBe(paths[1].getAttribute("d"));
+    // The light is the stroke paint, so the crack itself never has to move.
+    expect(paths[1].getAttribute("stroke")).toBe("url(#fault-light)");
+    // The test environment reports prefers-reduced-motion, so the travelling
+    // highlight must be parked rather than tracking scroll.
+    expect(fault.querySelector("linearGradient")!.getAttribute("gradientTransform")).toBe("translate(0 -0.0800)");
+  });
+
   it("uses one noninteractive continuous paper fault behind all chapters", () => {
     const { container } = render(<Portfolio />);
     const faults = container.querySelectorAll('[data-testid="paper-fault"]');

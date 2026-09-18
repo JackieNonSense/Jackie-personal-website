@@ -10,7 +10,9 @@ The homepage is an eroded black-and-white print, not a neutral product catalogue
 
 ## Interaction
 
-- POWER or PLAY requests real audio directly from the user gesture. The stowed screen extracts, then rises; its VFD content is revealed over 500 ms near the end of deployment. No autoplay.
+- The deck wakes itself when it first scrolls into view: the stowed screen extracts, then rises, and its VFD content is revealed over 500 ms near the end of deployment. Waking is visual only — it creates no media element and requests no audio.
+- Playback then arms rather than fires. Scrolling is not user activation in any browser, so the deck waits for the first real gesture the page receives (measured: a gesture-less `play()` is rejected with `NotAllowedError`, and activation is sticky once any gesture has occurred). Until then the display reads as loading, which is honest — the machine is trying and waiting on permission. A deliberate POWER off or PAUSE in the meantime outranks the armed intent.
+- POWER or PLAY still request audio directly from that gesture. This supersedes the earlier "no autoplay" rule, which was written before the deck woke on scroll.
 - Five HTML buttons sit directly over corresponding Blender key meshes. Focus and pointer attention illuminate the relevant physical key; pressing depresses it. Their labels are native text, not a low-resolution texture.
 - PLAY pauses without folding the screen; POWER stops playback and retracts. SEEK changes the track without cycling the mechanism. ATT mutes. DISP changes the information view without changing audio.
 - A linear native range input drives the real model fader. The same controller serves both this object and the existing offscreen mini transport; there is no duplicate player or permanent toolbar beneath the model.

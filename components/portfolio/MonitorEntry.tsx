@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { useObjectVisibility } from "./use-object-visibility";
 import styles from "./MonitorEntry.module.css";
+import { DUR, EASE } from "./motion";
 const MotionLink = motion.create(Link);
 const MonitorCrtDisplay = lazy(() => import('./MonitorCrtDisplay'));
 export default function MonitorEntry({ still }: { still: boolean }) {
@@ -28,7 +29,7 @@ export default function MonitorEntry({ still }: { still: boolean }) {
       onClick={event => { if (touch.current && !touched) { event.preventDefault(); setTouched(true); } }}>
       <motion.span className={styles.suspensionShadow} aria-hidden="true" initial={false} animate={{ opacity: awake ? .55 : .8, scaleX: awake && !immediate ? .93 : 1 }} transition={{ duration: immediate ? 0 : .22 }} />
       <motion.div className={styles.surface} data-monitor-renderer="artwork" data-artwork={failed ? "unavailable" : "ready"}
-        initial={false} animate={{ y: awake && !immediate ? -12 : -8 }} transition={{ duration: immediate ? 0 : .22, ease: [.2,.7,.3,1] }}>
+        initial={false} animate={{ y: awake && !immediate ? -12 : -8 }} transition={{ duration: immediate ? 0 : DUR.base, ease: EASE }}>
         <img className={styles.artwork} src="/portfolio/monitor-cyan-cutout-v02.png" width={1536} height={1024} alt="" draggable={false} loading="lazy" decoding="async" data-device-fallback="monitor" onError={() => setFailed(true)} />
         <div className={styles.crtDisplay} data-crt-display="phosphor">
           {near&&<Suspense fallback={null}><MonitorCrtDisplay awake={awake} still={immediate} active={drawing} pointer={pointer}/></Suspense>}

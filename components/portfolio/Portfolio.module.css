@@ -8,7 +8,11 @@
 .srOnly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .skip{position:fixed;top:8px;left:8px;z-index:100;padding:10px 20px;background:#e2e0d6;color:#080909!important;transform:translateY(-150%)}
 .skip:focus{transform:none}
-.paperFault{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.38}
+.paperFault{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.faultBase{opacity:.38}
+/* The lit copy of the same crack. The stroke keeps its width: thickening would
+   read as a glow, and this is a lit crack, not a neon tube. */
+.faultLight{opacity:.5;mix-blend-mode:screen}
 .hero{position:relative;min-height:720px;height:100svh;max-height:1300px;isolation:isolate;overflow:hidden}
 .material,.lettering,.characters{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none}
 .material{z-index:1;mask-image:linear-gradient(transparent 35%,black 45%,black 66%,transparent 73%)}
@@ -117,7 +121,7 @@
  .heroNav a:last-child{grid-column:3}
  .signalCaption{top:69%;font-size:12px}
  .heroFoot{left:20px;right:20px;bottom:84px;font-size:9px}.heroFoot a{max-width:130px;text-align:right}
- .paperFault{opacity:.25;left:12%;width:88%}
+ .paperFault{left:12%;width:88%}.faultBase{opacity:.25}.faultLight{opacity:.34}
  .section{padding:30px 22px 65px;scroll-margin-top:20px}
  .sectionTop{font-size:9px;gap:15px}.sectionTop>span:last-child:not(:first-child){display:none}
  .workSection{height:auto;min-height:900px;padding-bottom:115px}

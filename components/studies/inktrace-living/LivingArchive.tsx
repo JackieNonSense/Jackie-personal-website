@@ -12,6 +12,7 @@ import {SceneSelection,prepareScene} from './scene-assets';
 import s from './LivingArchive.module.css';
 import w from './WikiStudy.module.css';
 import p from './InkTracePoster.module.css';
+import {DUR, EASE} from '../../portfolio/motion';
 
 export default function LivingArchive({still=false,embedded=false}:{still?:boolean;embedded?:boolean}){
  const [runtime]=useState(()=>{const r=new ArchiveRuntime();r.close();return r;}),[wiki]=useState(()=>new WikiRuntime());
@@ -24,7 +25,7 @@ export default function LivingArchive({still=false,embedded=false}:{still?:boole
  const [selection]=useState(()=>new SceneSelection());
  const [pending,setPending]=useState(false);
  useEffect(()=>{SCENES.forEach(scene=>prepareScene(scene.id));return()=>selection.cancel();},[selection]);
- const feedback=quiet||held?{}:{whileHover:{y:-1},whileTap:{y:1},transition:{duration:.1}};
+ const feedback=quiet||held?{}:{whileHover:{y:-1},whileTap:{y:1},transition:{duration:DUR.tap}};
  useEffect(()=>{
   if(previousOpen.current===state.open)return;
   previousOpen.current=state.open;
@@ -46,10 +47,10 @@ export default function LivingArchive({still=false,embedded=false}:{still?:boole
  const step=(delta:number)=>{if(state.scene==='wiki')wiki.step(current.step+delta);else runtime.step(current.step+delta);};
  const tabKey=(event:KeyboardEvent<HTMLButtonElement>,index:number)=>{const keys:Record<string,number>={ArrowRight:(index+1)%4,ArrowLeft:(index+3)%4,Home:0,End:3};if(event.key in keys){event.preventDefault();const next=keys[event.key];setTabFocus(SCENES[next].id);tabs.current[next]?.focus();}};
  const sceneName=def.name;
- const archiveWindow=state.open?<motion.div role={embedded?'dialog':undefined} aria-modal={embedded?false:undefined} aria-label={embedded?`InkTrace — ${sceneName}`:undefined} aria-description={embedded?'An interactive feature demonstration using independent sample content.':undefined} className={`${w.window} ${s.window} ${embedded?p.dialog:''}`} data-living-window data-scene={state.scene} data-mode={current.mode} data-paused={held} initial={quiet?false:{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{duration:quiet?0:.24,ease:[.22,.72,.2,1]}} onKeyDown={event=>{if(event.key==='Escape'){event.stopPropagation();close();}}}>
+ const archiveWindow=state.open?<motion.div role={embedded?'dialog':undefined} aria-modal={embedded?false:undefined} aria-label={embedded?`InkTrace — ${sceneName}`:undefined} aria-description={embedded?'An interactive feature demonstration using independent sample content.':undefined} className={`${w.window} ${s.window} ${embedded?p.dialog:''}`} data-living-window data-scene={state.scene} data-mode={current.mode} data-paused={held} initial={quiet?false:{opacity:0,y:6}} animate={{opacity:1,y:0}} transition={{duration:quiet?0:DUR.base,ease:EASE}} onKeyDown={event=>{if(event.key==='Escape'){event.stopPropagation();close();}}}>
   <header className={w.titlebar}><span className={w.windowIcon} aria-hidden="true">▣</span><h2>InkTrace — {sceneName}</h2><motion.button {...feedback} ref={closeButton} className={w.close} aria-label="Close Living Archive" onClick={close}>×</motion.button></header>
   {!embedded&&<div className={w.demoLabel}><span>FEATURE DEMO / SAMPLE CONTENT</span><span>{pending?'Loading scene…':`${String(SCENES.findIndex(d=>d.id===state.scene)+1).padStart(2,'0')} / ${sceneName.toUpperCase()}`}</span></div>}
-  <motion.div key={state.scene} role="tabpanel" id={`panel-${state.scene}`} aria-labelledby={`tab-${state.scene}`} className={`${s.scenePanel} ${embedded?p.sceneViewport:''}`} initial={quiet||held?false:{opacity:.4,x:6}} animate={{opacity:1,x:0}} transition={{duration:quiet||held?0:.28,ease:[.22,.72,.2,1]}}>
+  <motion.div key={state.scene} role="tabpanel" id={`panel-${state.scene}`} aria-labelledby={`tab-${state.scene}`} className={`${s.scenePanel} ${embedded?p.sceneViewport:''}`} initial={quiet||held?false:{opacity:.4,x:6}} animate={{opacity:1,x:0}} transition={{duration:quiet||held?0:DUR.slow,ease:EASE}}>
    {state.scene==='wiki'?<WikiStudy embedded controller={wiki} still={quiet}/>:<ArchiveScene runtime={runtime} quiet={quiet}/>}
   </motion.div>
   <div role="tablist" aria-label="Archive scenes" className={s.tabs}>{SCENES.map((d,i)=><motion.button {...feedback} key={d.id} ref={element=>{tabs.current[i]=element;}} id={`tab-${d.id}`} role="tab" aria-selected={state.scene===d.id} aria-controls={`panel-${d.id}`} tabIndex={tabFocus===d.id?0:-1} onKeyDown={event=>tabKey(event,i)} onClick={()=>select(d.id)}><span key="number">{String(i+1).padStart(2,'0')}</span><span key="name" className={s.tabName}>{d.name}</span></motion.button>)}</div>

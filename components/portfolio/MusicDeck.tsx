@@ -1,9 +1,10 @@
 "use client";
-import { useEffect,useState,useCallback } from "react";
+import { useEffect,useRef,useState,useCallback } from "react";
 import { motion } from "framer-motion";
 import type { MusicController, MusicSnapshot } from "./music-controller";
 import { musicTracks } from "./music-tracks";
 import { useObjectVisibility } from "./use-object-visibility";
+import { whenUserHasEngaged } from "./user-engagement";
 import DeckSurface from "./DeployDeckSurface";
 import styles from "./Devices.module.css";
 
@@ -12,6 +13,23 @@ export default function MusicDeck({ player, state, still, onVisibility }: { play
   const [displayMode,setDisplayMode]=useState(false);
   const switchDisplay=useCallback(()=>setDisplayMode(mode=>!mode),[]);
   useEffect(() => onVisibility(visible), [visible, onVisibility]);
+  // The deck wakes itself the first time it is actually on screen, so the page
+  // demonstrates that its objects work instead of waiting for a click. Once only:
+  // powering off is a decision, and scrolling away must not undo it.
+  const woke = useRef(false);
+  useEffect(() => {
+    if (!visible || woke.current) return;
+    woke.current = true;
+    player.powerOn();
+    // Scrolling cannot unlock audio, so the deck arms itself and sounds on the
+    // first gesture the page receives. Until then the display reads READING DISC,
+    // which is honest: the machine is trying, and waiting on permission.
+    return whenUserHasEngaged(() => {
+      const now = player.getSnapshot();
+      // A deliberate power off or pause in the meantime outranks the armed intent.
+      if (now.powered && !now.wantsPlaying && now.status !== "error") void player.play();
+    });
+  }, [visible, player]);
   const track = musicTracks[state.track];
   return <motion.div ref={ref} className={styles.deck} data-testid="music-deck" data-power={state.powered?'on':'off'} data-status={state.status} initial={false} whileInView={{opacity:1}}>
     <div className={styles.objectKicker}><span>PERSONAL SOUNDTRACK</span><span>CD / STEREO</span></div>
