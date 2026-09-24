@@ -4,12 +4,9 @@ import {motion} from 'framer-motion';
 import {useLiveReducedMotion} from '../../studies/inktrace-living-review/use-live-reduced-motion';
 import {DUR} from '../motion';
 import {INK_RGBA} from './palette';
-import {PH,PW,QUESTION_CHARS,RUN_FRAMES,renderPress,waysInOpen} from './press';
+import {PH,PLAY_MS,PW,QUESTION_CHARS,RUN_FRAMES,playhead,renderPress,waysInOpen} from './press';
 import WaysIn from './WaysIn';
 import s from './InkTracePress.module.css';
-
-/** Each letter of the question lands this long after the last, the first time it is seen. */
-const SET_MS=55;
 
 /** The whole-number enlargement that fits, or a fraction of one where even 1× will not. */
 export function fitScale(width:number,height:number){
@@ -17,40 +14,31 @@ export function fitScale(width:number,height:number){
  return Math.max(1,Math.min(Math.floor(width/PW),Math.floor(height/PH)));
 }
 
-/** Scroll progress through a pinned run: 0 as it pins, 1 as it releases. */
-export function runProgress(top:number,height:number,viewport:number){
- const travel=height-viewport;
- return travel>0?Math.max(0,Math.min(1,-top/travel)):1;
-}
-
-/** The homepage PROJECTS section: InkTrace as a print run the visitor scrolls through. */
+/** The homepage PROJECTS section: InkTrace as a print run that plays itself once the
+ *  sheet is in view. The page is never held; the run pauses while it is scrolled away. */
 export default function InkTracePress({still=false}:{still?:boolean}){
  const reduced=useLiveReducedMotion(),quiet=still||reduced;
- const section=useRef<HTMLElement>(null),stage=useRef<HTMLDivElement>(null),canvas=useRef<HTMLCanvasElement>(null);
- const [scale,setScale]=useState(2),[open,setOpen]=useState(false),[hover,setHover]=useState<'try'|'built'|null>(null);
+ const stage=useRef<HTMLDivElement>(null),canvas=useRef<HTMLCanvasElement>(null);
+ const [scale,setScale]=useState(2),[open,setOpen]=useState(false),[done,setDone]=useState(false),[hover,setHover]=useState<'try'|'built'|null>(null);
  const hoverRef=useRef(hover);
+ const repaint=useRef<()=>void>(()=>{}),replay=useRef<()=>void>(()=>{});
  const feedback=quiet?{}:{whileHover:{y:-1},whileTap:{y:1},transition:{duration:DUR.tap}};
 
  useEffect(()=>{
   const node=stage.current,paper=node?.parentElement,print=canvas.current;if(!node||!paper||!print||typeof ResizeObserver==='undefined')return;
-  // Everything on the pinned screen that is not the print: the sheet's margins and
-  // wordmark, plus (on phones) the intro above it.
-  const measure=()=>{
-   const chrome=(window.innerWidth<=700?(section.current?.querySelector('h2')?.parentElement?.offsetHeight??0):0)+paper.offsetHeight-print.offsetHeight;
-   setScale(fitScale(node.clientWidth,window.innerHeight-chrome-8));
-  };
+  // The print is enlarged as far as the screen allows around the sheet's margins and wordmark.
+  const measure=()=>setScale(fitScale(node.clientWidth,window.innerHeight-(paper.offsetHeight-print.offsetHeight)-8));
   const observer=new ResizeObserver(measure);observer.observe(node);measure();
   return()=>observer.disconnect();
  },[]);
 
  // Hovering a way in reprints the sheet with that button inked.
- const repaint=useRef<()=>void>(()=>{});
  useEffect(()=>{hoverRef.current=hover;repaint.current();},[hover]);
 
  useEffect(()=>{
-  const context=canvas.current?.getContext('2d'),root=section.current,sheet=stage.current;
-  if(!context||!root||!sheet)return;
-  let shown='',frame=0,set=0,raf=0,timer=0;
+  const context=canvas.current?.getContext('2d'),sheet=stage.current;
+  if(!context||!sheet)return;
+  let shown='',frame=0,set=0;
   const paint=()=>{
    const live=waysInOpen(frame),hovered=live?hoverRef.current:null;
    setOpen(live);
@@ -59,25 +47,34 @@ export default function InkTracePress({still=false}:{still?:boolean}){
    for(let i=0;i<px.length;i++)image.data.set(INK_RGBA[px[i]],i*4);
    context.putImageData(image,0,0);
   };
-  if(quiet){frame=RUN_FRAMES;set=QUESTION_CHARS;paint();repaint.current=paint;return;}
-  const read=()=>{raf=0;const r=root.getBoundingClientRect();frame=Math.round(runProgress(r.top,r.height,window.innerHeight)*RUN_FRAMES);paint();};
-  const onScroll=()=>{if(!raf)raf=requestAnimationFrame(read);};
-  // The first time the sheet itself comes into view, the question is set letter by
-  // letter. (Watch the sheet, not the run: the run is taller than any screen.)
-  const setLetters=(start:number)=>(now:number)=>{set=Math.min(QUESTION_CHARS,Math.floor((now-start)/SET_MS)+1);paint();if(set<QUESTION_CHARS)timer=requestAnimationFrame(setLetters(start));};
-  const seen=new IntersectionObserver(entries=>{
-   if(!entries.some(e=>e.isIntersecting))return;
-   seen.disconnect();timer=requestAnimationFrame(now=>setLetters(now)(now));
-  },{threshold:.35});
-  seen.observe(sheet);
-  read();
-  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);
   repaint.current=paint;
-  return()=>{seen.disconnect();cancelAnimationFrame(raf);cancelAnimationFrame(timer);window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);};
+  if(quiet){frame=RUN_FRAMES;set=QUESTION_CHARS;setDone(true);paint();return;}
+
+  // The performance: time only runs while the sheet is on screen.
+  setDone(false);
+  let elapsed=0,last=0,raf=0,visible=false,started=false;
+  const tick=(now:number)=>{
+   elapsed+=now-last;last=now;
+   ({set,frame}=playhead(elapsed));paint();
+   if(elapsed>=PLAY_MS){raf=0;setDone(true);return;}
+   raf=requestAnimationFrame(tick);
+  };
+  const run=()=>{if(raf||elapsed>=PLAY_MS)return;last=performance.now();raf=requestAnimationFrame(tick);};
+  const halt=()=>{cancelAnimationFrame(raf);raf=0;};
+  replay.current=()=>{halt();elapsed=0;setDone(false);({set,frame}=playhead(0));paint();if(visible)run();};
+  paint();
+  const seen=new IntersectionObserver(entries=>{
+   const entry=entries[entries.length-1];
+   visible=entry.isIntersecting;
+   if(entry.intersectionRatio>=.35)started=true;
+   if(visible&&started)run();else halt();
+  },{threshold:[0,.35]});
+  seen.observe(sheet);
+  return()=>{seen.disconnect();halt();};
  },[quiet]);
 
- return <section ref={section} id="work" aria-labelledby="work-title" data-inktrace-poster data-quiet={quiet} className={s.run}>
-  <div className={s.pin}>
+ return <section id="work" aria-labelledby="work-title" data-inktrace-poster data-quiet={quiet} className={s.run}>
+  <div className={s.layout}>
    <div className={s.intro}>
     <h2 id="work-title" className={s.title}>PROJECTS</h2>
     <div className={s.copy}><p>An independent<br/> space for creation.</p><motion.a {...feedback} className={s.visit} href="https://inktrace.app" target="_blank" rel="noopener noreferrer" aria-label="Visit Inktrace — opens in a new tab">VISIT INKTRACE.APP <span aria-hidden="true">↗</span></motion.a></div>
@@ -92,6 +89,7 @@ export default function InkTracePress({still=false}:{still?:boolean}){
       <WaysIn open={quiet||open} onHover={setHover}/>
      </div>
     </div>
+    {done&&!quiet&&<button type="button" className={s.reprint} onClick={()=>replay.current()}>↻ REPRINT</button>}
    </div>
   </div>
  </section>;

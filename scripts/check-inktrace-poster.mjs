@@ -14,11 +14,6 @@ const open=async(width,height,reducedMotion)=>{
  await page.goto(base+'/',{waitUntil:'networkidle'});
  return page;
 };
-/** Scrolls so the run is `p` of the way through, and waits for the sheet to reprint. */
-const scrollRun=async(page,p)=>{
- await page.evaluate(p=>{const r=document.getElementById('work'),top=r.getBoundingClientRect().top+scrollY;scrollTo({top:top+(r.offsetHeight-innerHeight)*p,behavior:'instant'});},p);
- await page.waitForTimeout(250);
-};
 try{
  // Still visitors: the finished sheet, unpinned, at every breakpoint.
  for(const [width,height,minScale] of [[1440,900,2],[900,900,1],[390,844,0]]){
@@ -40,40 +35,59 @@ try{
   console.log(JSON.stringify({width,still:print}));
   await page.close();
  }
- // Scrolling visitors: the run pins, prints forward, runs backward, and fits the screen.
+ // Moving visitors: the page scrolls on normally; the run plays itself once seen.
+ const sheetInView=page=>page.evaluate(()=>{const c=document.querySelector('#work canvas').getBoundingClientRect();scrollTo({top:scrollY+c.top-(innerHeight-c.height)/2,behavior:'instant'});});
  for(const [width,height] of [[1440,900],[1366,768],[390,844]]){
   const page=await open(width,height,'no-preference');
-  assert.equal(await page.locator('#work').getAttribute('data-quiet'),'false','motion pins the run');
-  await scrollRun(page,0);await page.waitForTimeout(1800);// the question sets itself
-  const pinned=[];const shots=[];
-  for(const p of [0,.1,.2,.35,.5,.65,.76,.82,.9,1]){
-   await scrollRun(page,p);
-   const box=await page.locator('#work canvas').boundingBox();
-   pinned.push(Math.round(box.y));shots.push(await ink(page));
-   if(width!==1366)await page.screenshot({path:`${out}/${width}-run-${String(Math.round(p*100)).padStart(3,'0')}.png`});
-   assert.ok(box.y>=0&&box.y+box.height<=height,`the sheet fits the screen while pinned at ${width}×${height} (p=${p}: ${Math.round(box.y)}–${Math.round(box.y+box.height)})`);
-  }
-  assert.equal(new Set(pinned.slice(0,-1)).size,1,`the sheet holds still while the run scrolls (${pinned})`);
-  assert.equal(new Set(shots).size,shots.length,'every step of the run prints a different sheet');
-  // At the end the two ways in are printed and live; hovering one reprints the sheet.
+  const run=page.locator('#work');
+  assert.equal(await run.getAttribute('data-quiet'),'false','motion plays the run');
+  assert.ok((await run.boundingBox()).height<height*1.6,'the run no longer holds the page: it is about a screen tall');
+  // Scrolling towards it: nothing starts until the sheet is actually seen.
+  await page.evaluate(()=>scrollTo({top:document.getElementById('work').offsetTop-innerHeight*1.5,behavior:'instant'}));
+  await page.waitForTimeout(600);
+  const unseen=await ink(page);
+  await page.waitForTimeout(600);
+  assert.equal(await ink(page),unseen,'the run waits off screen');
+  // A real wheel scroll through the section stays smooth: no long frames.
+  const frames=await page.evaluate(async()=>{
+   const gaps=[];let last=performance.now(),on=true;
+   const tick=now=>{gaps.push(now-last);last=now;if(on)requestAnimationFrame(tick);};requestAnimationFrame(tick);
+   await new Promise(r=>setTimeout(r,50));
+   for(let i=0;i<24;i++){scrollBy({top:90,behavior:'instant'});await new Promise(r=>setTimeout(r,40));}
+   on=false;return gaps;
+  });
+  const worst=Math.max(...frames.slice(2));
+  await sheetInView(page);
+  const box=await page.locator('#work canvas').boundingBox();
+  assert.ok(box.y>=0&&box.y+box.height<=height,`the sheet fits the screen at ${width}×${height}`);
+  const shots=[];
+  for(const wait of [300,2200,2500,2500,2500,3000]){await page.waitForTimeout(wait);shots.push(await ink(page));if(width!==1366)await page.screenshot({path:`${out}/${width}-play-${shots.length}.png`});}
+  assert.equal(new Set(shots).size,shots.length,'the run moves on by itself while seen');
+  // Scrolled away mid-run, it pauses; the ending waits for the visitor.
+  await page.waitForTimeout(3000);
   const tryLink=page.getByRole('link',{name:/Try InkTrace/});
   assert.equal(await tryLink.getAttribute('href'),'https://inktrace.app');
   assert.equal(await page.getByRole('link',{name:/How InkTrace is built/}).getAttribute('href'),'https://github.com/JackieNonSense/inktrace-showcase');
-  const before=await ink(page);
+  const hit=await tryLink.evaluate(a=>{const r=a.getBoundingClientRect();return document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===a;});
+  assert.ok(hit,'the finished run’s TRY INKTRACE button is really clickable');
+  const end=await ink(page);
   await tryLink.hover();await page.waitForTimeout(150);
-  assert.notEqual(await ink(page),before,'hovering a way in reprints its button');
-  if(width===1440)await page.screenshot({path:`${out}/${width}-run-hover.png`});
+  assert.notEqual(await ink(page),end,'hovering a way in reprints its button');
+  if(width===1440)await page.screenshot({path:`${out}/${width}-play-hover.png`});
   await page.mouse.move(2,2);
-  await scrollRun(page,.35);
-  assert.equal(await ink(page),shots[3],'scrolling back reprints the same sheet: the run reverses');
-  // Mid-run the ways in are hidden from assistive tech too, so find them by address, not role.
+  // REPRINT runs it again from the question, with the ways in out of reach meanwhile.
+  await page.getByRole('button',{name:/REPRINT/}).click();await page.waitForTimeout(400);
+  assert.notEqual(await ink(page),end,'REPRINT starts the run again');
   const hidden=page.locator('#work nav a[href="https://inktrace.app"]');
   assert.equal(await hidden.evaluate(a=>getComputedStyle(a).pointerEvents),'none','mid-run, the ways in are out of reach');
   assert.equal(await hidden.getAttribute('tabindex'),'-1','mid-run, the ways in are out of the tab order');
+  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(300);
+  const away=await ink(page);await page.waitForTimeout(800);
+  assert.equal(await ink(page),away,'scrolled away, the run pauses');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'no horizontal page overflow');
   await page.getByRole('button',{name:'暂停动态效果'}).click();await page.waitForTimeout(300);
-  assert.equal(await page.locator('#work').getAttribute('data-quiet'),'true','the homepage pause unpins it');
-  console.log(JSON.stringify({width,height,pinnedAt:pinned[0],scale:await page.locator('#work canvas').getAttribute('data-scale')}));
+  assert.equal(await run.getAttribute('data-quiet'),'true','the homepage pause shows the finished sheet');
+  console.log(JSON.stringify({width,height,scale:await page.locator('#work canvas').getAttribute('data-scale'),worstFrameWhileScrolling:Math.round(worst)}));
   await page.close();
  }
  console.log('press run checks passed');

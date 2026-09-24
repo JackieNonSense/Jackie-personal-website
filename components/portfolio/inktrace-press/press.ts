@@ -23,7 +23,6 @@ export type PressState=Ending&{
  ai:number;
  /** How many of the step stamps (WHO, WHERE, WHEN, HOW IT CONNECTS, AND THE WORDS) are down. */
  steps:number;
- hint:boolean;
 };
 
 // ——— Layout ———
@@ -212,15 +211,14 @@ function drawCollage(st:PressState):Uint8Array{
  who(s,st);where(s,st);when(s,st);links(s,st);words(s,st);world(s,st);
  const STEPS:[string,number,number][]=[['WHO',CARD.x1-24,CARD.y1+4],['WHERE',ARK.x+4,ARK.y-15],['WHEN',TICKET.x0+2,TICKET.y0-15],['HOW IT CONNECTS',HUB[0]+8,HUB[1]+PIECE.h+6],['AND THE WORDS',AI_AT[0]+30,AI_AT[1]-15]];
  STEPS.slice(0,st.steps).forEach(([t,x,y])=>stepStamp(s,t,x,y));
- if(st.hint){print(s,'SCROLL TO PRINT',384-measure('SCROLL TO PRINT'),222,INK);for(let i=0;i<5;i++)s.fill(380-(4-i),230+i,380+(4-i),230+i,INK);}
  print(s,'INKTRACE / PRESS RUN 03',16,240,PALE);
  print(s,'P.01',384-measure('P.01'),240,PALE);
  return s.px;
 }
 
 // ——— The run ———
-/** Steps in one full scroll through the run. Progress is quantised to these, so the
- *  sheet moves in printed, stepped increments and every scroll position is repeatable. */
+/** Steps in the whole run. Progress is quantised to these, so the sheet moves in
+ *  printed, stepped increments and every point of the run is repeatable. */
 export const RUN_FRAMES=320;
 /** Characters in the question, set one by one when the sheet is first seen. */
 export const QUESTION_CHARS=QUESTION.join('').length;
@@ -246,12 +244,37 @@ export function stateAt(run:number,set=QUESTION_CHARS):PressState{
   date:span(p,.46,.49),
   links:span(p,.5,.64),ai:span(p,.64,.76),
   steps:STEP_AT.filter(at=>p>=at).length,
-  hint:p<.02,
   fold:span(run,.73,.79),fold2:span(run,.79,.84),slide:span(run,.84,.87),bloom:span(run,.87,.94),mark:span(run,.93,.98),
   hover:null,
  };
 }
 export const renderPress=(frame:number,set=QUESTION_CHARS,hover:PressState['hover']=null)=>drawPress({...stateAt(Math.max(0,Math.min(RUN_FRAMES,frame))/RUN_FRAMES,set),hover});
+// ——— The performance ———
+/** Each letter of the question lands this long after the last. */
+export const SET_MS=55;
+const QUESTION_MS=QUESTION_CHARS*SET_MS;
+/** The run after the question is set, as [ms, run progress] keyframes: a breath, the
+ *  collage, a held look at the answer, then the fold and the mark. */
+const TIMELINE:[number,number][]=[[0,0],[700,0],[7700,COLLAGE_END],[8700,COLLAGE_END],[11700,1]];
+/** The whole performance, question included. */
+export const PLAY_MS=QUESTION_MS+TIMELINE[TIMELINE.length-1][0];
+/** The sheet advances in stop-motion steps, like a hand-cranked press. */
+export const STEP_MS=1000/24;
+
+/** What is on the sheet `ms` into the performance: letters of the question set, and the frame. */
+export function playhead(ms:number):{set:number;frame:number}{
+ if(ms>=PLAY_MS)return {set:QUESTION_CHARS,frame:RUN_FRAMES};
+ ms=Math.floor(Math.max(0,ms)/STEP_MS)*STEP_MS;
+ if(ms<QUESTION_MS)return {set:Math.min(QUESTION_CHARS,Math.floor(ms/SET_MS)+1),frame:0};
+ const t=ms-QUESTION_MS;
+ let p=1;
+ for(let i=1;i<TIMELINE.length;i++){
+  const [t0,p0]=TIMELINE[i-1],[t1,p1]=TIMELINE[i];
+  if(t<=t1){p=p0+(p1-p0)*(t-t0)/(t1-t0);break;}
+ }
+ return {set:QUESTION_CHARS,frame:Math.round(p*RUN_FRAMES)};
+}
+
 /** Whether the two ways in are printed, and so clickable, at this frame. */
 export const waysInOpen=(frame:number)=>stateAt(Math.max(0,Math.min(RUN_FRAMES,frame))/RUN_FRAMES).mark>=.75;
 

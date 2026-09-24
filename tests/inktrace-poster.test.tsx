@@ -18,7 +18,7 @@ describe('homepage InkTrace poster',()=>{
   expect(within(poster).queryAllByRole('button')).toHaveLength(0);
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
  });
- it('prints the finished sheet, unpinned, when motion is paused',()=>{
+ it('prints the finished sheet straight away when motion is paused',()=>{
   render(<InkTracePress still/>);
   expect(screen.getByRole('region',{name:'PROJECTS'})).toHaveAttribute('data-quiet','true');
   expect(document.querySelector('[data-print-stage]')).toHaveAttribute('data-playing','false');
@@ -26,13 +26,15 @@ describe('homepage InkTrace poster',()=>{
   expect(screen.getByRole('link',{name:/Try InkTrace/})).toHaveAttribute('href','https://inktrace.app');
   expect(screen.getByRole('link',{name:/How InkTrace is built/})).toHaveAttribute('href','https://github.com/JackieNonSense/inktrace-showcase');
   expect(screen.getByRole('link',{name:/Try InkTrace/})).toHaveAttribute('tabindex','0');
+  // Nothing to replay when nothing moves.
+  expect(screen.queryByRole('button',{name:/REPRINT/})).not.toBeInTheDocument();
  });
  it('does the same for reduced-motion visitors even when the homepage is running',()=>{
   // tests/setup.ts reports prefers-reduced-motion as matching.
   render(<InkTracePress/>);
   expect(screen.getByRole('region',{name:'PROJECTS'})).toHaveAttribute('data-quiet','true');
  });
- it('pins the run and lets scrolling drive it otherwise',()=>{
+ it('plays the run by itself otherwise, with the ways in out of reach until it ends',()=>{
   const original=window.matchMedia;
   const media=vi.spyOn(window,'matchMedia').mockImplementation(query=>({...original(query),matches:false}));
   try{

@@ -1,7 +1,7 @@
 import {describe,it,expect} from 'vitest';
-import {PW,PH,PRESS_FRAMES,QUESTION_CHARS,RUN_FRAMES,drawPress,renderPress,stateAt,waysInOpen} from '../components/portfolio/inktrace-press/press';
+import {PW,PH,PLAY_MS,PRESS_FRAMES,QUESTION_CHARS,RUN_FRAMES,STEP_MS,drawPress,playhead,renderPress,stateAt,waysInOpen} from '../components/portfolio/inktrace-press/press';
 import {BUTTONS} from '../components/portfolio/inktrace-press/ending';
-import {fitScale,runProgress} from '../components/portfolio/inktrace-press/InkTracePress';
+import {fitScale} from '../components/portfolio/inktrace-press/InkTracePress';
 import {measure,print,SMALL} from '../components/portfolio/inktrace-press/font';
 import {Sheet} from '../components/portfolio/inktrace-press/pixels';
 
@@ -10,19 +10,19 @@ const inked=(px:Uint8Array,x0:number,y0:number,x1:number,y1:number)=>{let n=0;fo
 describe('the run',()=>{
  it('opens on the question, with nothing yet pasted up',()=>{
   const st=stateAt(0);
-  expect(st).toMatchObject({headline:'question',set:QUESTION_CHARS,cut:0,who:0,where:0,when:0,date:0,links:0,ai:0,steps:0,hint:true});
+  expect(st).toMatchObject({headline:'question',set:QUESTION_CHARS,cut:0,who:0,where:0,when:0,date:0,links:0,ai:0,steps:0});
  });
  it('ends on the answer, with every piece down',()=>{
   const st=stateAt(1);
-  expect(st).toMatchObject({headline:'answer',cut:1,who:1,where:1,when:1,date:1,links:1,ai:1,steps:5,hint:false});
+  expect(st).toMatchObject({headline:'answer',cut:1,who:1,where:1,when:1,date:1,links:1,ai:1,steps:5});
   expect(st.set).toBe('ALL OF IT.ONE SHEET.'.length);
  });
- it('only ever moves forward as the visitor scrolls down',()=>{
+ it('only ever moves forward through the run',()=>{
   const keys=['cut','who','where','when','date','links','ai','steps','fold','fold2','slide','bloom','mark'] as const;
   let prev=stateAt(0);
   for(let f=1;f<=RUN_FRAMES;f++){const st=stateAt(f/RUN_FRAMES);for(const k of keys)expect(st[k]).toBeGreaterThanOrEqual(prev[k]);prev=st;}
  });
- it('holds a question that has not been set yet, however far the page is scrolled',()=>{
+ it('holds a question that has not been set yet, wherever the run is',()=>{
   expect(stateAt(.5,0).set).toBe(0);
   expect(stateAt(.5,7).set).toBe(7);
  });
@@ -80,7 +80,34 @@ describe('the ending',()=>{
  });
 });
 
-describe('fitting and scrolling',()=>{
+describe('the performance',()=>{
+ it('sets the question letter by letter before the run begins',()=>{
+  expect(playhead(0)).toEqual({set:1,frame:0});
+  const set=playhead(QUESTION_CHARS*55-1);
+  expect(set.frame).toBe(0);
+  expect(set.set).toBeGreaterThan(QUESTION_CHARS-3);
+ });
+ it('plays the whole run once and ends on the mark, with the ways in open',()=>{
+  expect(playhead(PLAY_MS)).toEqual({set:QUESTION_CHARS,frame:RUN_FRAMES});
+  expect(playhead(PLAY_MS*3)).toEqual({set:QUESTION_CHARS,frame:RUN_FRAMES});
+  expect(waysInOpen(playhead(PLAY_MS).frame)).toBe(true);
+ });
+ it('never runs backwards, and holds on the answer before folding it',()=>{
+  let prev=playhead(0).frame;const held=new Map<number,number>();
+  for(let ms=0;ms<=PLAY_MS;ms+=STEP_MS){const {frame}=playhead(ms);expect(frame).toBeGreaterThanOrEqual(prev);prev=frame;held.set(frame,(held.get(frame)??0)+1);}
+  const answer=Math.round(.72*RUN_FRAMES);
+  expect((held.get(answer)??0)*STEP_MS).toBeGreaterThanOrEqual(900);
+ });
+ it('moves in stop-motion steps, not continuously',()=>{
+  expect(playhead(5000)).toEqual(playhead(5000+STEP_MS*.9));
+ });
+ it('lasts long enough to read, short enough to watch',()=>{
+  expect(PLAY_MS).toBeGreaterThan(9000);
+  expect(PLAY_MS).toBeLessThan(15000);
+ });
+});
+
+describe('fitting',()=>{
  it('enlarges by whole numbers where it can, and shrinks only below one to one',()=>{
   expect(fitScale(820,600)).toBe(2);
   expect(fitScale(1300,600)).toBe(2);
@@ -88,10 +115,5 @@ describe('fitting and scrolling',()=>{
   expect(fitScale(820,300)).toBe(1);
   expect(fitScale(340,900)).toBeCloseTo(.85);
  });
- it('reads progress from the pinned run',()=>{
-  expect(runProgress(200,3000,1000)).toBe(0);
-  expect(runProgress(-1000,3000,1000)).toBe(.5);
-  expect(runProgress(-2500,3000,1000)).toBe(1);
-  expect(runProgress(0,800,1000)).toBe(1);
- });
+
 });

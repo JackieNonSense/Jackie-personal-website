@@ -29,12 +29,12 @@ export default function PressFrames(){
   <header className={s.header}>
    <p>STUDY / INKTRACE / PRESS RUN</p>
    <h1>Writing, as a print run.</h1>
-   <p className={s.note}>400 × 250 grid at 2×. Scrub the run exactly as scrolling drives it on the homepage. At the end the two buttons are live: hover, focus or click them.</p>
+   <p className={s.note}>400 × 250 grid at 2×. On the homepage the run plays itself once the sheet is in view; scrub it here frame by frame. At the end the two buttons are live: hover, focus or click them.</p>
   </header>
   <section className={s.sheet} aria-label="The run">
    <p className={s.frameTitle}>THE RUN — {Math.round(frame/RUN_FRAMES*100)}%</p>
    <div className={s.canvasBox}><div className={press.frame}><Sheet px={renderPress(frame,undefined,open?hover:null)} scale={2}/><WaysIn open={open} onHover={setHover}/></div></div>
-   <input className={s.scrub} type="range" min={0} max={RUN_FRAMES} value={frame} aria-label="Scroll progress" onChange={e=>setFrame(+e.target.value)}/>
+   <input className={s.scrub} type="range" min={0} max={RUN_FRAMES} value={frame} aria-label="Run progress" onChange={e=>setFrame(+e.target.value)}/>
   </section>
   {FRAMES.map(f=><section key={f.key} className={s.sheet} aria-label={f.title}>
    <p className={s.frameTitle}>{f.title}</p>

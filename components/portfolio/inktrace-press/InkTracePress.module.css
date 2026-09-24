@@ -1,11 +1,8 @@
 @font-face{font-family:InkPosterCondensed;src:url('/proof/hero-00/fonts/SixCaps.ttf') format('truetype');font-display:swap;font-weight:400}
-/* The run is tall so that scrolling through it is the print run; the pin holds the
-   poster in place meanwhile. Still visitors get the finished sheet, unpinned. */
-.run{--blue:#244aaa;--ivory:#d8d6cd;position:relative;z-index:2;height:420vh;color:var(--ivory);font:16px/1.65 'Courier New',monospace;scroll-margin-top:24px}
+/* The run plays itself once seen; the page scrolls on normally around it. */
+.run{--blue:#244aaa;--ivory:#d8d6cd;position:relative;z-index:2;color:var(--ivory);font:16px/1.65 'Courier New',monospace;scroll-margin-top:24px}
 .run *{box-sizing:border-box}
-.pin{position:sticky;top:0;display:grid;grid-template-columns:36% minmax(0,1fr);align-items:center;height:100vh;min-height:560px}
-.run[data-quiet='true']{height:auto}
-.run[data-quiet='true'] .pin{position:relative;height:auto;min-height:clamp(650px,65vw,1040px);padding:36px 0 20px}
+.layout{position:relative;display:grid;grid-template-columns:36% minmax(0,1fr);align-items:center;min-height:clamp(650px,65vw,1040px);padding:36px 0 20px}
 .intro{position:relative;z-index:1;min-width:0;container-type:inline-size;padding:40px 3vw 40px 4vw}
 /* Sized from the column, not the viewport: a vw-sized nowrap title outgrows this
    36% column at some ratios, and the toner mask — which only paints over the
@@ -27,7 +24,7 @@
 .canvas{display:block;flex:none;max-width:100%;image-rendering:pixelated;mask-image:url('/portfolio/toner-mask.svg');mask-mode:luminance;mask-size:620px 480px;mask-repeat:repeat}
 @media(max-width:1000px) and (min-width:701px){.intro{padding-inline:4vw 2vw}.copy{font-size:14px;margin-top:42px}.brand{font-size:7vw}}
 @media(max-width:700px){
- .pin{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;gap:8px}
+ .layout{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;gap:8px;min-height:0;padding:20px 0 0}
  .intro{padding:16px 7% 0}
  .title{font-size:clamp(84px,24vw,120px)}
  .copy{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin-top:10px;font-size:14px}
@@ -37,7 +34,6 @@
  .registration{left:7%;top:24px}
  .brand{font-size:clamp(40px,12vw,64px)}
  .stage{margin:14px -4% 0}
- .run[data-quiet='true'] .pin{min-height:0;padding:20px 0 0}
 }
 /* The two ways in: invisible links over the printed buttons, live only once printed. */
 .frame{position:relative;flex:none;max-width:100%}
@@ -45,3 +41,8 @@
 .waysIn[data-open='true'] .wayIn{pointer-events:auto}
 .wayIn{position:absolute;display:block;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .wayIn:focus-visible{outline:2px solid #47bc80;outline-offset:3px}
+/* Once the run has played, a stamp in the sheet's corner prints it again. */
+.reprint{position:absolute;right:8%;bottom:34px;min-height:32px;padding:6px 10px;border:1px solid currentColor;background:transparent;color:var(--blue);font:11px/1 'Courier New',monospace;letter-spacing:.08em;cursor:pointer;transition:background-color 120ms ease,color 120ms ease}
+.reprint:hover{background:var(--blue);color:#eee8d8}
+.reprint:focus-visible{outline:2px solid #47bc80;outline-offset:3px}
+@media(max-width:700px){.reprint{bottom:18px;right:7%}}
