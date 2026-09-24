@@ -1,0 +1,14 @@
+.page{--ivory:#d8d6cd;--blue:#244aaa;min-height:100vh;padding:56px 5vw 80px;background:#111210 url('/portfolio/black-stock-v01.png') center/cover;color:var(--ivory);font:15px/1.6 'Courier New',monospace}
+.page *{box-sizing:border-box}
+.header p{margin:0;font-size:12px;letter-spacing:.06em;color:#a2a69c}
+.header h1{margin:10px 0 8px;font:400 clamp(28px,4vw,48px)/1.1 'Courier New',monospace;color:var(--ivory)}
+.header .note{max-width:640px;font-size:13px}
+/* The same torn stock the homepage poster prints on. */
+.sheet{position:relative;isolation:isolate;margin:40px auto 0;max-width:960px;padding:56px 4% 48px;color:var(--blue)}
+.sheet::before{content:'';position:absolute;z-index:-1;inset:0;background:url('/portfolio/torn-stock-v01.png') center/100% 100% no-repeat;mask-image:url('/portfolio/torn-stock-v01.png');mask-mode:luminance;mask-size:100% 100%;filter:brightness(1.04)}
+.frameTitle{margin:0 0 18px;font-size:12px;letter-spacing:.06em;color:#23241f}
+.canvasBox{display:flex;justify-content:center;overflow-x:auto}
+.canvas{display:block;flex:none;image-rendering:pixelated;mask-image:url('/portfolio/toner-mask.svg');mask-mode:luminance;mask-size:620px 480px;mask-repeat:repeat}
+.scrub{display:block;width:100%;margin:22px 0 0;accent-color:var(--blue)}
+.scrub:focus-visible{outline:1px solid #47bc80;outline-offset:3px}
+@media(max-width:700px){.page{padding:36px 16px 60px}.sheet{padding:40px 0 32px}}

@@ -1,23 +1,5 @@
 .archive{
   --scene-ink:#34432e}
-.archive[data-embedded]{
-  position:relative;
-  z-index:1;
-  scroll-margin-top:24px}
-.archive[data-embedded] a:focus-visible,
-.archive[data-embedded] button:focus-visible{
-  outline:2px solid var(--blue);
-  outline-offset:3px}
-.archive[data-embedded] aside a:focus-visible{
-  outline-color:var(--ivory)}
-.archive[data-embedded] footer a{
-  color:var(--blue);
-  text-decoration:underline;
-  text-underline-offset:4px}
-.archive[data-embedded] footer a:hover{
-  color:#17377e}
-.archive[data-embedded] aside a:hover{
-  color:#fff9eb}
 .archive button{
   font-synthesis:none}
 .window{
@@ -327,9 +309,6 @@
 }
 
 @media(max-width:700px){
-  .archive[data-embedded] [data-archive-title]{
-  font-size:100px;
-  margin-top:20px}
   .bookStage{
   min-height:530px;
   text-align:center}

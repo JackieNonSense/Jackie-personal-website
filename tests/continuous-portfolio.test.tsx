@@ -53,7 +53,7 @@ describe("approved continuous print composition", () => {
 
   it("keeps material artwork decorative rather than flattening the approved mockup", () => {
     const { container } = render(<Portfolio />);
-    expect(screen.getByRole('button', {name:'Open the Living Archive'})).toBeVisible();
+    expect(screen.getByRole('img', {name:/printed zine/})).toBeVisible();
     expect(container.querySelector('img[src*="concept"]')).toBeNull();
     expect(screen.getByRole("link", { name: "Explore experiments ↓" })).toHaveAttribute("href", "#experiments");
   });

@@ -10,7 +10,6 @@ await mkdir(out, {recursive:true});
 const browser = await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe', headless:true, args:['--mute-audio','--disable-background-networking']});
 const reports = [];
 const content = ['The first internet felt', 'like another world.', 'I make things that bring', 'a little of that feeling back.', 'A mouse, a keyboard, a small discovery.', 'millennium-era visuals, underground music', 'INTERFACES', 'React / Next.js', 'TypeScript / HTML / CSS', 'INTERACTION', 'Motion / Canvas', 'Scroll / Pointer / Keyboard', 'EXPERIMENTS', 'Three.js', 'An interactive monitor'];
-const contains = (a,b) => a.x >= b.x - 1 && a.y >= b.y - 1 && a.x+a.width <= b.x+b.width+1 && a.y+a.height <= b.y+b.height+1;
 const intersects = (a,b) => a.x < b.x+b.width && a.x+a.width > b.x && a.y < b.y+b.height && a.y+a.height > b.y;
 
 try {
@@ -55,29 +54,14 @@ try {
     await page.getByRole('button',{name:'暂停动态效果',exact:true}).click();
     for (const fragment of content) assert((await about.innerText()).includes(fragment),'Pause does not remove About content');
 
-    const book = page.getByRole('button',{name:'Open the Living Archive',exact:true});
-    await book.scrollIntoViewIfNeeded();
-    const before = await about.evaluate(el=>el.getBoundingClientRect().top+scrollY);
-    await book.click();
-    const dialog = page.getByRole('dialog',{name:/InkTrace/});
-    await dialog.waitFor({state:'visible'});
-    assert.equal(await about.evaluate(el=>el.getBoundingClientRect().top+scrollY),before,'Opening the archive does not displace About');
-    assert.notEqual(await page.evaluate(()=>getComputedStyle(document.body).overflow),'hidden','No full-page scroll lock');
-    assert(contains(await dialog.boundingBox(),{x:0,y:0,width,height}),'Window remains inside viewport');
-    const close = page.getByRole('button',{name:'Close Living Archive',exact:true});
-    const closeBox = await close.boundingBox();
-    assert(closeBox.width>=44&&closeBox.height>=44,'Close hit target >=44px');
-    assert(contains(closeBox,{x:0,y:0,width,height}),'Close remains in viewport');
-    for (const name of ['Timeline','Characters','AI Assistant','Wiki']) {
-      await page.getByRole('tab',{name:new RegExp(name)}).click();
-      await page.waitForTimeout(160);
-      assert(await page.locator('[data-living-window]').getAttribute('data-scene'));
-      await dialog.screenshot({path:`${out}/${width}-${name.toLowerCase().replaceAll(' ','-')}.jpg`,type:'jpeg',quality:86});
-    }
-    await page.keyboard.press('Escape');
-    await dialog.waitFor({state:'hidden'});
-    assert.equal(await book.evaluate(el=>document.activeElement===el),true,'Close returns focus to book');
-    assert.equal(await about.evaluate(el=>el.getBoundingClientRect().top+scrollY),before,'Closing archive does not move About');
+    const print = page.locator('[data-print-stage]');
+    await print.scrollIntoViewIfNeeded();
+    assert.equal(await print.getAttribute('data-playing'),'false','Paused homepage stills the InkTrace print');
+    const scale = await page.locator('#work canvas').evaluate(c=>+c.dataset.scale);
+    assert(scale<1||Number.isInteger(scale),'InkTrace print keeps a whole-number enlargement wherever the screen allows one');
+    assert.equal(await page.locator('#work').getAttribute('data-quiet'),'true','Paused homepage unpins the InkTrace run');
+    const printBox = await page.locator('#work canvas').boundingBox();
+    assert(printBox.x>=0&&printBox.x+printBox.width<=width,'InkTrace print stays within the page width');
     assert.equal(await page.evaluate(()=>window.__mediaPlays),0,'The homepage never auto-starts music');
     assert.deepEqual(errors,[],'No browser runtime exceptions');
     if(width===1440)await page.screenshot({path:`${out}/1440-full.jpg`,fullPage:true,type:'jpeg',quality:88});

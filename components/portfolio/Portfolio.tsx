@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion, MotionConfig } from "framer-motion";
 import HeroInkSignal from "../studies/hero-ink-signal/HeroInkSignal";
-import LivingArchive from "../studies/inktrace-living/LivingArchive";
+import InkTracePress from "./inktrace-press/InkTracePress";
 import MusicDeck from "./MusicDeck";
 import MonitorEntry from "./MonitorEntry";
 import { useHomeMusic } from "./use-home-music";
@@ -98,7 +98,7 @@ export default function Portfolio() {
         <div className={styles.aboutDevice}><MusicDeck player={player} state={music} still={still} onVisibility={setDeckVisible} /></div>
         </div>
       </section>
-      <LivingArchive embedded still={still}/>
+      <InkTracePress still={still}/>
       <section id="experiments" className={`${styles.section} ${styles.experiments}`} aria-labelledby="experiments-title">
         <motion.h2 id="experiments-title" className={`${styles.display} ${styles.experimentsHeading}`} {...reveal}>STILL EXPLORING</motion.h2>
         <div className={styles.experimentGrid}>
