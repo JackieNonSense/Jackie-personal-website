@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { RASTER_W } from '../components/terminal/crt/raster';
 import { INK } from '../components/terminal/crt/palette';
 import { BAR_H } from '../components/terminal/system/gui/desktop';
+import { Gfx, PATTERNS } from '../components/terminal/system/gui/gfx';
 import { harness } from './terminal-harness';
 
 /** The pixel desk, driven by a pointer the way a visitor drives it. */
@@ -50,6 +51,31 @@ describe('pixel desk', () => {
     h.pointer('up', r.x - 32, r.y + 48);
     expect(h.gui().rectOf('system')).toMatchObject({ x: r.x - 72, y: r.y + 40 });
     expect(h.gui().openWindows).toEqual(['board', 'files', 'system']);
+  });
+
+  it('keeps a window on whole pixels when the pointer is between them, and its picture with it', () => {
+    const h = desk();
+    h.click(...h.at('tv'));
+    h.run(0.6);
+    const r = h.gui().rectOf('tv')!;
+    h.pointer('down', r.x + 60.37, r.y + 8.61);
+    for (let i = 1; i <= 6; i++) { h.pointer('move', r.x + 60.37 + i * 7.29, r.y + 8.61 + i * 3.13); h.run(1 / 60); }
+    h.pointer('up', r.x + 60.37 + 43.74, r.y + 8.61 + 18.78);
+    h.run(0.3);
+    const after = h.gui().rectOf('tv')!;
+    expect(Number.isInteger(after.x) && Number.isInteger(after.y)).toBe(true);
+    // The set still shows its channel: the middle of its screen is not all black.
+    const page = h.m.graphics(), cx = after.x + after.w / 2, cy = after.y + after.h / 2;
+    let lit = 0;
+    for (let y = cy - 30; y < cy + 30; y++) for (let x = cx - 60; x < cx + 60; x++) if (page[y * RASTER_W + x]) lit++;
+    expect(lit).toBeGreaterThan(1000);
+  });
+
+  it('never leaves the desk in a scroll track drawn between pixels', () => {
+    const page = new Uint8Array(RASTER_W * 400), g = new Gfx(page, new Uint8Array(4096 * 16), 1);
+    g.pattern({ x: 0, y: 0, w: 640, h: 400 }, PATTERNS.solid, 'deskAlt', 'desk');
+    g.pattern({ x: 100.4, y: 50.6, w: 12, h: 120 }, PATTERNS.half, 'shadow', 'face');
+    for (let y = 52; y < 169; y++) for (let x = 101; x < 111; x++) expect([INK.shadow, INK.face]).toContain(page[y * RASTER_W + x]);
   });
 
   it('draws the desk in the pattern of the tube just chosen', () => {

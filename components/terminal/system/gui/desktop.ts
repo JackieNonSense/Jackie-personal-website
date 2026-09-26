@@ -455,7 +455,7 @@ export class Desktop implements App, GuiHost {
       this.frontDirty = true;
     } else if (press.what === 'icon' && press.icon !== undefined && !this.small) {
       const o = press.origin;
-      this.positions[this.config.icons[press.icon].id] = { x: Math.max(0, Math.min(d.w - o.w, o.x + dx)), y: Math.max(d.y, Math.min(d.y + d.h - o.h, o.y + dy)) };
+      this.positions[this.config.icons[press.icon].id] = { x: Math.round(Math.max(0, Math.min(d.w - o.w, o.x + dx))), y: Math.round(Math.max(d.y, Math.min(d.y + d.h - o.h, o.y + dy))) };
       this.m.cursor('move');
       this.dirty = true;
     }

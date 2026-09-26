@@ -66,10 +66,10 @@ export class Window {
 
   layout(): void { this.content.place(this.body); }
 
-  moveTo(x: number, y: number): void { this.r = { ...this.r, x, y }; this.layout(); }
+  moveTo(x: number, y: number): void { this.r = { ...this.r, x: Math.round(x), y: Math.round(y) }; this.layout(); }
   resize(w: number, h: number): void {
     const min = this.spec.min ?? { w: 160, h: 90 };
-    this.r = { ...this.r, w: Math.max(min.w, w), h: Math.max(min.h, h) };
+    this.r = { ...this.r, w: Math.round(Math.max(min.w, w)), h: Math.round(Math.max(min.h, h)) };
     this.layout();
   }
 

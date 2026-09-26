@@ -129,8 +129,20 @@ export class Gfx {
   }
 
   /** `a` where the pattern has a bit, `b` elsewhere (or nothing, when `b` is null). The pattern is fixed to the screen. */
+  /**
+   * `r` (in current coordinates) as it lands on the page inside the clip, in whole
+   * logical pixels: a window dragged by the pointer sits at fractions of a pixel, and
+   * the page has none.
+   */
+  private area(r: Rect): Rect | null {
+    const c = this.clipRect;
+    const x0 = Math.max(Math.floor(r.x + this.ox), Math.ceil(c.x)), y0 = Math.max(Math.floor(r.y + this.oy), Math.ceil(c.y));
+    const x1 = Math.min(Math.floor(r.x + this.ox + r.w), Math.floor(c.x + c.w)), y1 = Math.min(Math.floor(r.y + this.oy + r.h), Math.floor(c.y + c.h));
+    return x1 > x0 && y1 > y0 ? { x: x0, y: y0, w: x1 - x0, h: y1 - y0 } : null;
+  }
+
   pattern(r: Rect, p: Pattern, a: Ink, b: Ink | null): void {
-    const c = intersect(this.clipRect, { x: r.x + this.ox, y: r.y + this.oy, w: r.w, h: r.h });
+    const c = this.area(r);
     if (!c) return;
     const va = ink(a), vb = b === null ? -1 : ink(b), s = this.scale, W = this.pageW, page = this.page;
     if (vb >= 0) {
@@ -244,8 +256,8 @@ export class Gfx {
     const k = fit === 'contain' ? Math.min(dst.w / p.width, dst.h / p.height) : Math.max(dst.w / p.width, dst.h / p.height);
     const w = Math.round(p.width * k), h = Math.round(p.height * k);
     const at = { x: dst.x + Math.floor((dst.w - w) / 2), y: dst.y + Math.floor((dst.h - h) / 2), w, h };
-    const c = intersect(intersect(this.clipRect, { x: dst.x + this.ox, y: dst.y + this.oy, w: dst.w, h: dst.h }) ?? { x: 0, y: 0, w: 0, h: 0 },
-      { x: at.x + this.ox, y: at.y + this.oy, w, h });
+    const inside = intersect(dst, at);
+    const c = inside && this.area(inside);
     if (!c) return at;
     const left = (at.x + this.ox) * s, top = (at.y + this.oy) * s, kk = k * s;
     for (let ry = c.y * s; ry < (c.y + c.h) * s; ry++) {
@@ -264,7 +276,7 @@ export class Gfx {
    * so fields of colour keep their colour and snow stays grey snow.
    */
   shrink(src: Uint8Array, level: Uint8Array, dst: Rect, srcW = 640, srcH = 400): void {
-    const c = intersect(this.clipRect, { x: dst.x + this.ox, y: dst.y + this.oy, w: dst.w, h: dst.h });
+    const c = this.area(dst);
     if (!c) return;
     const s = this.scale, W = this.pageW;
     const left = (dst.x + this.ox) * s, top = (dst.y + this.oy) * s, dw = dst.w * s, dh = dst.h * s;
@@ -287,7 +299,7 @@ export class Gfx {
 
   /** A grid of palette indices (a drawing), scaled into `dst` at the raster's own resolution. */
   canvas(data: Uint8Array, w: number, h: number, dst: Rect): void {
-    const c = intersect(this.clipRect, { x: dst.x + this.ox, y: dst.y + this.oy, w: dst.w, h: dst.h });
+    const c = this.area(dst);
     if (!c) return;
     const s = this.scale, W = this.pageW;
     const left = (dst.x + this.ox) * s, top = (dst.y + this.oy) * s, dw = dst.w * s, dh = dst.h * s;
