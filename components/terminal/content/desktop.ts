@@ -5,6 +5,7 @@ import { FALL_SCORES } from './disk';
 import { logOff } from './ending';
 import { DESK_ICONS } from './icons';
 import { MARK_ICON } from './mark';
+import { openBrowser } from './browser';
 import { messages, post, readFlag, type Message } from './messages';
 import { PHOTOS } from './photos';
 import { PROGRAMS, lighthouse, pictureViewer, shell } from './bbs';
@@ -731,8 +732,8 @@ const SYSTEM = listWindow('system', { en: 'System', zh: '系统' }, () => [
 
 function about(host: GuiHost): void {
   messageBox(host, { en: 'About JR-DESK', zh: '关于 JR-DESK' }, {
-    en: 'JR-DESK 3.0\nfor JR\n\n(C) 1987-2030\nNever on the net.',
-    zh: 'JR-DESK 3.0\nJR 专用\n\n(C) 1987-2030\n从没联过网。',
+    en: 'JR-DESK 3.0\nfor JR\n\n(C) 1987-2030\nOne phone line, 2400 baud.',
+    zh: 'JR-DESK 3.0\nJR 专用\n\n(C) 1987-2030\n一根电话线，2400 波特。',
   });
 }
 
@@ -831,6 +832,7 @@ const ICONS: DeskIcon[] = [
   { id: 'photos', label: { en: 'Photos', zh: '相册' }, icon: DESK_ICONS.photos, open: host => host.open(GALLERY) },
   { id: 'library', label: { en: 'Library', zh: '书库' }, icon: DESK_ICONS.library, open: host => host.open(LIBRARY) },
   { id: 'tv', label: { en: 'TV', zh: '电视' }, icon: DESK_ICONS.tv, open: tv },
+  { id: 'net', label: { en: 'Navigator', zh: '网络' }, icon: DESK_ICONS.net, open: openBrowser },
   { id: 'paint', label: { en: 'Paint', zh: '画图' }, icon: DESK_ICONS.paint, open: host => openPaint(host) },
   { id: 'games', label: { en: 'Games', zh: '游戏' }, icon: DESK_ICONS.games, open: host => host.open(GAMES) },
   { id: 'dos', label: 'DOS', icon: DESK_ICONS.dos, open: host => host.run(shell()) },

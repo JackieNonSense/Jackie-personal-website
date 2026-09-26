@@ -527,7 +527,7 @@ export class Desktop implements App, GuiHost {
       const w = [...this.windows].reverse().find(win => contains(win.r, x, y));
       if (w) {
         const part = w.part(x, y);
-        if (part === 'content') { widget = w.content.at(x, y); shape = widget?.cursor ?? 'arrow'; }
+        if (part === 'content') { widget = w.content.at(x, y); shape = widget?.pointAt?.(x, y) ?? widget?.cursor ?? 'arrow'; }
         else if (part === 'grip') shape = 'resize';
       } else {
         if (this.config.icons.some((_, i) => contains(this.iconRect(i), x, y))) shape = 'hand';

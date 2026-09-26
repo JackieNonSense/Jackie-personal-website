@@ -98,6 +98,8 @@ export abstract class Widget {
   /** Redrawn when the pointer comes and goes (buttons light up; plain text does not). */
   hoverable = false;
   cursor: CursorShape = 'arrow';
+  /** The pointer is over (x, y): the shape it takes there, where that depends on what is under it (a link). */
+  pointAt?(x: number, y: number): CursorShape;
   /** Tests and scripts find a widget by this. */
   id?: string;
 

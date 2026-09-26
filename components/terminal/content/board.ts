@@ -563,7 +563,7 @@ export const REPLY: Text = {
 export const ABOUT: Text = {
   zh: `JR，Jackie Random。写代码的，也画画。
 
-这台机器从没联过网。我在这里放我做的东西：游戏、画、一个还没画完的故事，还有一些不给别人看的东西。
+这台机器只走一根电话线。我在这里放我做的东西：游戏、画、一个还没画完的故事，还有一些不给别人看的东西。
 
 如果你是拨号进来的，你应该认识我。
 
@@ -572,7 +572,7 @@ export const ABOUT: Text = {
 -- JR`,
   en: `JR, Jackie Random. I write code, and I draw.
 
-This machine has never been on the net. I keep the things I make here: games, drawings, a story I haven't finished, and some things I don't show anyone.
+This machine only goes out on one phone line. I keep the things I make here: games, drawings, a story I haven't finished, and some things I don't show anyone.
 
 If you dialled in, you should know me.
 
