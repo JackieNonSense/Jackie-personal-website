@@ -69,3 +69,15 @@ export function createBrowserAudio(): MediaPort {
     },
   };
 }
+
+/** Whether sound may start without a gesture: after any earlier interaction, or when
+ * the browser has decided this site may autoplay (Chrome does for sites where the
+ * visitor often plays media). A throwaway AudioContext says so by starting running. */
+export function audioAllowed(): boolean {
+  if (typeof window === "undefined") return false;
+  if (navigator.userActivation?.hasBeenActive) return true;
+  const policy = (navigator as Navigator & { getAutoplayPolicy?: (type: string) => string }).getAutoplayPolicy?.("audiocontext");
+  if (policy) return policy === "allowed";
+  if (typeof AudioContext === "undefined") return false;
+  try { const probe = new AudioContext(); const running = probe.state === "running"; void probe.close(); return running; } catch { return false; }
+}

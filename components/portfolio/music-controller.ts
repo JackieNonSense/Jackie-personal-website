@@ -81,6 +81,11 @@ export class MusicController {
   }
   private fail() {
     if (this.disposed) return;
+    if (this.quiet) {
+      ++this.serial; this.deploying = false; clearTimeout(this.deployTimer); this.media?.pause();
+      this.update({ status: "idle", wantsPlaying: false, error: "" });
+      return;
+    }
     ++this.serial; ++this.exchangeSerial; this.exchanging=false; this.deploying=false; clearTimeout(this.deployTimer); this.media?.pause();
     this.update({ status: "error", wantsPlaying: false, phase: "seated", exchangeStartedAt:null, error: "Audio could not start. Retry, or skip this track." });
   }
@@ -122,6 +127,14 @@ export class MusicController {
       if (!this.disposed && token === this.serial && this.snapshot.wantsPlaying) this.fail();
     }
   }
+  private quiet = false;
+  /** Start without a gesture if the browser allows it; if it refuses, go back to
+   * waiting with no error shown. */
+  autoplay = async () => {
+    if (this.disposed || this.snapshot.wantsPlaying || this.snapshot.status === "error") return;
+    this.quiet = true;
+    try { await this.play(); } finally { this.quiet = false; }
+  };
   play = async () => {
     if (this.disposed || this.snapshot.wantsPlaying) return;
     if (this.snapshot.status === "error" && this.media) this.media.setSource(this.tracks[this.snapshot.track].src);

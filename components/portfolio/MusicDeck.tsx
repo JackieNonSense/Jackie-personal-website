@@ -5,6 +5,7 @@ import type { MusicController, MusicSnapshot } from "./music-controller";
 import { musicTracks } from "./music-tracks";
 import { useObjectVisibility } from "./use-object-visibility";
 import { whenUserHasEngaged } from "./user-engagement";
+import { audioAllowed } from "./browser-audio";
 import Y2kDeck from "./y2k-deck/Y2kDeck";
 import styles from "./Devices.module.css";
 
@@ -14,20 +15,27 @@ export default function MusicDeck({ player, state, still, onVisibility }: { play
   // The deck wakes itself the first time it is actually on screen, so the page
   // demonstrates that its objects work instead of waiting for a click. Once only:
   // powering off is a decision, and scrolling away must not undo it.
-  const woke = useRef(false);
+  const woke = useRef(false), disarm = useRef<() => void>(() => {});
   useEffect(() => {
     if (!visible || woke.current) return;
     woke.current = true;
     player.powerOn();
-    // Scrolling cannot unlock audio, so the deck arms itself and sounds on the
-    // first gesture the page receives. Until then the display reads READING DISC,
-    // which is honest: the machine is trying, and waiting on permission.
-    return whenUserHasEngaged(() => {
-      const now = player.getSnapshot();
-      // A deliberate power off or pause in the meantime outranks the armed intent.
-      if (now.powered && !now.wantsPlaying && now.status !== "error") void player.play();
-    });
+    const ready = () => { const now = player.getSnapshot(); return now.powered && !now.wantsPlaying && now.status !== "error"; };
+    // If the browser already lets this page make sound, the music comes up with the
+    // machine. Otherwise the deck stays armed - through scrolling away and back - and
+    // sounds on the first real gesture anywhere on the page.
+    const arm = () => {
+      disarm.current = whenUserHasEngaged(event => {
+        // A first press on the deck's own keys means the visitor is working it themselves.
+        if (event?.target instanceof Element && event.target.closest("[data-deck-controls]")) return;
+        if (ready()) void player.play();
+      });
+    };
+    if (!audioAllowed()) { arm(); return; }
+    // Allowed on paper; if the browser still refuses, the start fails quietly and waits.
+    void player.autoplay().then(() => { if (player.getSnapshot().status === "idle") arm(); });
   }, [visible, player]);
+  useEffect(() => () => disarm.current(), []);
   const track = musicTracks[state.track];
   return <motion.div ref={ref} className={styles.deck} data-testid="music-deck" data-power={state.powered?'on':'off'} data-status={state.status} initial={false} whileInView={{opacity:1}}>
     <div className={styles.objectKicker}><span>PERSONAL SOUNDTRACK</span><span>CD / STEREO</span></div>

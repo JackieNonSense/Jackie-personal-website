@@ -189,6 +189,18 @@ describe("homepage music transport", () => {
     void player.next(); await vi.advanceTimersByTimeAsync(700);
     expect(player.getSnapshot().duration).toBe(0);
   });
+  it("an autoplay the browser refuses goes back to waiting, with no error shown", async () => {
+    const { player, media } = await setup(); media.rejection = new Error("NotAllowedError");
+    await player.autoplay();
+    expect(player.getSnapshot()).toMatchObject({ status: "idle", wantsPlaying: false, error: "" });
+    media.rejection = null; await player.play();
+    expect(player.getSnapshot().status).toBe("playing");
+  });
+  it("an autoplay the browser allows simply plays", async () => {
+    const { player, media } = await setup(); await player.autoplay();
+    expect(player.getSnapshot()).toMatchObject({ status: "playing", wantsPlaying: true });
+    expect(media.paused).toBe(false);
+  });
   it("route disposal stops media and prevents pending exchange resurrection", async () => {
     vi.useFakeTimers(); const { player, media } = await setup(); await player.play();
     void player.next(); player.dispose(); await vi.advanceTimersByTimeAsync(2000);
