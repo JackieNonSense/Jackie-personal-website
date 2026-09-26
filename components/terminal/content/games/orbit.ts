@@ -1,4 +1,3 @@
-import { GAME } from '../../audio/tracks';
 import { H, W, drawText, fillRect, frameRect } from '../../graphics/bitmap';
 import { CAMERA, line, project, renderScene, transform, type Instance, type Vec3 } from '../../graphics/raster3d';
 import { HW, grey } from '../../crt/palette';
@@ -178,7 +177,6 @@ export function step(s: OrbitState, dt: number, input: OrbitInput): OrbitEvent[]
 /** ORBIT as the game program runs it. */
 export class OrbitGame implements Game {
   readonly title = 'ORBIT';
-  readonly music = GAME;
   readonly help = { en: 'Five stages of the belt. Fly through the rings; shoot what shoots.', zh: '穿过小行星带的五关。钻过光环，打掉会开火的东西。' };
   state = newOrbit();
   crash: string | null = null;

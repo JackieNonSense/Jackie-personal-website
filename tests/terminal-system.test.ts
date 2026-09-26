@@ -223,7 +223,8 @@ describe('games', () => {
     h.click(...h.at('games'));
     h.clickText('ORBIT');
     h.clickText('Play');
-    expect(h.audio.current?.id).toBe('game');
+    // No music: only the ship, its shots and what it hits.
+    expect(h.audio.current).toBeNull();
     expect(h.screen()).toContain('ORBIT');
     h.press('Escape');
     expect(h.screen()).toContain('Messages');
