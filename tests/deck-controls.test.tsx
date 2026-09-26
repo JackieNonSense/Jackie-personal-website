@@ -166,6 +166,22 @@ describe('integrated deck HTML control wiring', () => {
     }
   });
 
+  it('on a phone, swaps the machine keys for a touch strip with the same controls, once each', async () => {
+    const original = window.matchMedia;
+    window.matchMedia = ((query: string) => ({ matches: query.includes('max-width'), media: query, addEventListener() {}, removeEventListener() {} })) as unknown as typeof window.matchMedia;
+    try {
+      const { player } = setup();
+      const deck = screen.getByTestId('music-deck');
+      const strip = deck.querySelector('[data-deck-controls="touch"]')!;
+      expect(strip).not.toBeNull();
+      expect(deck.querySelector('[data-deck-controls="integrated"]')).toBeNull();
+      expect(strip.querySelectorAll('button')).toHaveLength(9);
+      for (const name of ['开启音乐台', '上一首', '播放音乐', '停止', '下一首', '静音音乐', '弹出碟片']) expect(within(deck).getAllByRole('button', { name })).toHaveLength(1);
+      await click('音量加，当前 25%');
+      expect(player.getSnapshot().volume).toBeCloseTo(.3);
+    } finally { window.matchMedia = original; }
+  });
+
   it('uses focusable native buttons without suppressing keyboard activation', () => {
     const { creations } = setup();
     const group = screen.getByRole('group', { name: '音乐台机身控制' });

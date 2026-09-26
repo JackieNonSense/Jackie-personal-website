@@ -10,3 +10,18 @@
 .key::after{content:'';position:absolute;left:50%;top:50%;width:max(100%,30px);height:max(100%,30px);translate:-50% -50%}
 .key:focus-visible{outline:2px solid #8ff5c4;outline-offset:2px}
 .key:disabled{cursor:wait}
+/* The touch strip: the machine's slats at a size a thumb can use. Dark titanium, a lit
+   top edge, a chrome line along the foot, mint glyphs that glow when a key is on. */
+.strip{display:grid;gap:8px;margin:14px 2px 0}
+.stripRow{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px}
+.stripKey{position:relative;display:grid;place-items:center;min-height:48px;padding:0;border:0;border-radius:3px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  background:linear-gradient(180deg,#3a3f47 0%,#2a2e34 46%,#1d2024 100%);
+  box-shadow:inset 0 1px 0 #6c737e,inset 0 -2px 0 #0c0d0f,0 1px 0 #9aa0a8,0 3px 6px #00000080;
+  clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px);
+  transition:transform .09s cubic-bezier(.2,.7,.3,1),filter .2s}
+.stripKey svg{width:20px;height:20px;fill:#6fc9a0;transition:fill .2s,filter .2s}
+.stripKey[data-accent=true]{background:linear-gradient(180deg,#2c5244 0%,#1f3b31 50%,#152a23 100%)}
+.stripKey[aria-pressed=true] svg{fill:#b8ffe0;filter:drop-shadow(0 0 4px #8ff5c4)}
+.stripKey[data-pressed=true]{transform:translateY(2px);filter:brightness(.82)}
+.stripKey:focus-visible{outline:2px solid #8ff5c4;outline-offset:2px}
+.stripKey:disabled{cursor:wait;opacity:.55}

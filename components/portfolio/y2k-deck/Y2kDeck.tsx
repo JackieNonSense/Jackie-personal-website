@@ -1,6 +1,6 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState, useSyncExternalStore, type KeyboardEvent, type ReactNode } from 'react';
 import type { MusicController, MusicSnapshot } from '../music-controller';
 import type { KeyRect } from './Y2kScene';
 import { DECK_KEYS, FRAME, projectPoint, scrollProgress, type DeckKey } from './stage';
@@ -36,10 +36,34 @@ const POSTER = posterRects();
 
 type Props = { near: boolean; active: boolean; still: boolean; player: MusicController; state: MusicSnapshot };
 
+/* On a phone the machine's slats are a few pixels tall, far too small to press, so a
+ * touch strip in the machine's own finish takes over under it. Pressing a key on the
+ * strip still presses the key on the machine. */
+const TOUCH = '(max-width: 760px)';
+const subscribeTouch = (change: () => void) => {
+  if (typeof matchMedia === 'undefined') return () => {};
+  const query = matchMedia(TOUCH); query.addEventListener('change', change);
+  return () => query.removeEventListener('change', change);
+};
+const isTouch = () => typeof matchMedia !== 'undefined' && matchMedia(TOUCH).matches;
+const ICON: Record<DeckKey, ReactNode> = {
+  prev: <path d="M11 6v12L3 12zM20 6v12l-8-6z" />,
+  play: <path d="M3 6v12l9-6zM14 6h2.4v12H14zM18.6 6H21v12h-2.4z" />,
+  stop: <path d="M6 6h12v12H6z" />,
+  next: <path d="M4 6v12l8-6zM13 6v12l8-6z" />,
+  voldown: <path d="M5 11h14v2H5z" />,
+  volup: <path d="M5 11h14v2H5zM11 5h2v14h-2z" />,
+  mute: <path d="M4 9h4l5-4v14l-5-4H4zM15.6 9.1l1.4-1.4 2 2 2-2 1.4 1.4-2 2 2 2-1.4 1.4-2-2-2 2-1.4-1.4 2-2z" />,
+  eject: <path d="M12 5l8 9H4zM4 16h16v2.5H4z" />,
+  power: <path d="M11 3h2v9h-2zM7.1 6.3l1.4 1.4a6 6 0 1 0 7 0l1.4-1.4A8 8 0 1 1 7.1 6.3z" />,
+};
+const STRIP: DeckKey[][] = [['prev', 'play', 'stop', 'next'], ['power', 'eject', 'mute', 'voldown', 'volup']];
+
 export default function Y2kDeck({ near, active, still, player, state }: Props) {
   const [ready, setReady] = useState(false);
   const [pressed, setPressed] = useState<DeckKey | ''>('');
   const [discOut, setDiscOut] = useState(false);
+  const touch = useSyncExternalStore(subscribeTouch, isTouch, () => false);
   const onReady = useCallback(() => setReady(true), []), onFailure = useCallback(() => setReady(false), []);
   const root = useRef<HTMLDivElement>(null);
   const scroll = useRef(0);
@@ -103,24 +127,38 @@ export default function Y2kDeck({ near, active, still, player, state }: Props) {
     actions[name].run();
   };
   useEffect(() => { const h = hold.current; return () => { clearTimeout(h.timer); clearInterval(h.repeat); }; }, []);
+  const keyEvents = (name: DeckKey) => ({
+    onPointerDown: () => down(name), onPointerUp: release, onPointerLeave: release, onPointerCancel: release,
+    onKeyDown: (e: KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') setPressed(name); },
+    onKeyUp: () => setPressed(''), onBlur: release, onClick: () => click(name),
+  });
 
-  return <div ref={root} className={styles.surface} style={{ aspectRatio: FRAME.aspect }} data-deck-renderer={ready ? 'three' : 'fallback'}>
+  return <><div ref={root} className={styles.surface} style={{ aspectRatio: FRAME.aspect }} data-deck-renderer={ready ? 'three' : 'fallback'}>
     <img className={styles.poster} src={state.powered ? '/portfolio/y2k-deck/open.webp' : '/portfolio/y2k-deck/closed.webp'} alt="" draggable={false} data-device-fallback="deck" hidden={ready} />
     <div className={styles.stage} aria-hidden="true" style={{ visibility: ready ? 'visible' : 'hidden' }}>
       {near && <Boundary onFailure={onFailure}><Suspense fallback={null}>
         <Scene active={active} still={still} player={player} state={state} pressed={pressed} discOut={discOut} scroll={scroll} placeKeys={placeKeys} onReady={onReady} onFailure={onFailure} />
       </Suspense></Boundary>}
     </div>
-    <div className={styles.keys} data-deck-controls="integrated" role="group" aria-label="音乐台机身控制">
+    {!touch && <div className={styles.keys} data-deck-controls="integrated" role="group" aria-label="音乐台机身控制">
       {DECK_KEYS.map(name => {
         const a = actions[name], r = POSTER[name];
         return <button key={name} ref={el => { buttons.current[name] = el; }} type="button" className={styles.key} data-model-key={name}
           data-pressed={pressed === name ? 'true' : undefined} aria-label={a.label} aria-pressed={a.selected} disabled={a.disabled}
-          style={{ left: `${r.left}%`, top: `${r.top}%`, width: `${r.width}%`, height: `${r.height}%` }}
-          onPointerDown={() => down(name)} onPointerUp={release} onPointerLeave={release} onPointerCancel={release}
-          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setPressed(name); }} onKeyUp={() => setPressed('')} onBlur={release}
-          onClick={() => click(name)} />;
+          style={{ left: `${r.left}%`, top: `${r.top}%`, width: `${r.width}%`, height: `${r.height}%` }} {...keyEvents(name)} />;
       })}
-    </div>
-  </div>;
+    </div>}
+  </div>
+  {touch && <div className={styles.strip} data-deck-controls="touch" role="group" aria-label="音乐台机身控制">
+    {STRIP.map((row, i) => <div key={i} className={styles.stripRow} data-row={i}>
+      {row.map(name => {
+        const a = actions[name];
+        return <button key={name} type="button" className={styles.stripKey} data-model-key={name} data-accent={name === 'play' || name === 'power' ? 'true' : undefined}
+          data-pressed={pressed === name ? 'true' : undefined} aria-label={a.label} aria-pressed={a.selected} disabled={a.disabled} {...keyEvents(name)}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">{ICON[name]}</svg>
+        </button>;
+      })}
+    </div>)}
+  </div>}
+  </>;
 }
