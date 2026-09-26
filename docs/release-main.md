@@ -13,7 +13,7 @@ The owner authorized pushing `main` and replacing the production homepage with t
 
 Browser profiles (`.edge-*`), tool caches, private unredacted references, Blender source/backup files, generated concept images, browser screenshots and recordings are retained locally, not included in this release. Paths in historical design notes may refer to those local working files.
 
-The deployment service—not a Git push alone—determines when the domain starts serving the new build. Verify the root page contains the five portfolio chapters and `data-testid="music-deck"`, and that `/portfolio/deploy-deck-v03.glb` and the licensed audio files are served successfully.
+The deployment service—not a Git push alone—determines when the domain starts serving the new build. Verify the root page contains the five portfolio chapters and `data-testid="music-deck"`, and that `/portfolio/y2k-deck/deck.glb` (with `/draco/draco_decoder.wasm`) and the licensed audio files are served successfully.
 
 ## Security preflight
 

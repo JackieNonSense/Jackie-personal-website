@@ -24,8 +24,8 @@ try{
  await b.run(`Array.from(document.querySelectorAll('#work button')).find(b=>b.textContent.includes('Connect the story')).focus()`);await b.delay(250);await b.shot(out+'/work-annotation.png');
  assert.equal(await b.run(`document.querySelector('[data-testid="inktrace-exhibit"]').dataset.highlight`),'connections');
  await scroll('[data-testid="music-deck"]');await b.until(`document.querySelector('[data-deck-renderer]')?.dataset.deckRenderer==='three'`);await b.delay(500);await b.shot(out+'/deck-rest.png');
- const vol=await b.run(`(()=>{const e=document.querySelector('[aria-label="音乐音量"]'),r=e.getBoundingClientRect();return{x:r.x+r.width*.6,y:r.y+r.height/2}})()`);await mouse(vol.x,vol.y);await click(vol.x,vol.y);await b.delay(200);
- results.push({step:'pointer-volume',style:await b.run(`(()=>{const e=document.querySelector('[aria-label="音乐音量"]');return{outline:getComputedStyle(e.parentElement).outlineStyle,focus:e.matches(':focus-visible'),value:e.value}})()`)});
+ const vol=await b.run(`(()=>{const e=document.querySelector('[data-model-key="volup"]'),r=e.getBoundingClientRect();return{x:r.x+r.width*.6,y:r.y+r.height/2}})()`);await mouse(vol.x,vol.y);await click(vol.x,vol.y);await b.delay(200);
+ results.push({step:'pointer-volume',style:await b.run(`(()=>{const e=document.querySelector('[data-model-key="volup"]');return{outline:getComputedStyle(e).outlineStyle,focus:e.matches(':focus-visible')}})()`)});
  assert.equal(results.at(-1).style.outline,'none');await b.shot(out+'/deck-volume.png');
  for(const [w,h] of [[390,844],[1920,1080]]){
   await b.send('Emulation.setDeviceMetricsOverride',{width:w,height:h,deviceScaleFactor:2,mobile:w===390});await scroll('#work');await b.delay(500);await b.shot(out+'/work-'+w+'.png');

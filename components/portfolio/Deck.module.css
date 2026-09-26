@@ -1,39 +1,6 @@
 .surface { position:relative; width:100%; aspect-ratio:180/93; }
-.deploySurface { aspect-ratio:80/63;container-type:inline-size; }
-.integratedPanel{position:absolute;inset:0;pointer-events:none;z-index:2;}
-.modelKey{position:absolute;translate:-50% -50%;min-width:44px;min-height:44px;pointer-events:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;background:transparent;border:0;border-radius:5px;color:#a9b498;cursor:pointer;touch-action:manipulation;font:12px/1 Arial,sans-serif!important;transition:translate .2s cubic-bezier(.2,.7,.3,1),color .2s cubic-bezier(.2,.7,.3,1);}
-.modelKey .keyFace{font:500 clamp(12px,3.3cqw,17px)/1 Arial,sans-serif;letter-spacing:.035em;}
-.modelKey[data-model-key=MuteKey] .keyFace,.modelKey[data-model-key=DisplayKey] .keyFace{font-size:clamp(11px,2.5cqw,13px);}
-.modelKey[data-model-key=PlayKey]{color:#e1e5cf;}
-.modelKey[data-model-key=PlayKey] small{color:#c5cebb;}
-.modelKey small{font:8px/1.1 Arial,sans-serif;letter-spacing:.1em;color:#a0aa92;}
-.modelKey[aria-pressed=true]{color:#e0f8a2;text-shadow:0 0 5px #bcff7130;}
-.modelKey[data-pressed=true]{translate:-50% calc(-50% + 2px);color:#8e9a80;}
-.modelKey[data-pressed=true] small{color:#78826d;}
-[data-motion=static] .modelKey{transition:none;}
-.modelKey:disabled{color:#626b5c;cursor:wait;}
-.modelKey:focus-visible{outline:2px solid #c3e486;outline-offset:-3px;background:#bee1790d;}
-.modelVolume{position:absolute;left:50%;translate:-50% -50%;height:16.2%;min-height:44px;pointer-events:auto;display:block;}
-.modelVolume input{appearance:none;-webkit-appearance:none;display:block;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;touch-action:pan-y;}
-.modelVolume:has(input:focus-visible)::after{content:'';position:absolute;left:0;right:0;top:67%;height:5px;border:solid #c1d9ca;border-width:0 1px 1px;pointer-events:none;}
-.modelVolume input:focus{outline:none;}
-.modelVolume:has(input:active)>span{color:#d0ded4;}
-.modelVolume>span{position:absolute;top:76%;left:0;right:0;text-align:center;color:#98a39b;pointer-events:none;font:8px/1.2 Arial,sans-serif;letter-spacing:.18em;}
-.modelVolume b{font-weight:400;position:absolute;right:0;letter-spacing:0;}
-.surface[data-deck-renderer=fallback] .modelVolume::before{content:'';position:absolute;left:0;right:0;top:50%;height:6.4cqw;translate:0 -50%;background:linear-gradient(90deg,#1a262d,#202d34,#1a262d);border-radius:2px;}
-.surface[data-deck-renderer=fallback] .modelVolume input{position:relative;opacity:1;background:transparent;border-radius:2px;padding:0;}
-.modelVolume input::-webkit-slider-runnable-track{height:5px;background:#0c171b;border-radius:2px;}
-.modelVolume input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:5cqw;height:4cqw;min-height:13px;margin-top:calc(2.5px - 2cqw);border:1px solid #45545b;border-radius:2px;background:repeating-linear-gradient(90deg,#536166 0 1px,#a8b4b7 1px 3px);}
-.modelVolume input::-moz-range-track{height:5px;background:#0c171b;border-radius:2px;}
-.modelVolume input::-moz-range-thumb{width:5cqw;height:4cqw;min-height:13px;border:1px solid #45545b;border-radius:2px;background:repeating-linear-gradient(90deg,#536166 0 1px,#a8b4b7 1px 3px);}
 .surface img,.stage { position:absolute;inset:0;width:100%;height:100%;object-fit:contain; }
 .surface img[hidden] { display:none; }
-.controls { display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:12px 0 0;border-top:1px solid #b3beb426;padding-top:8px; }
-.controls button { min-width:44px;min-height:44px;padding:0 10px;border:1px solid #a7b8be40;background:#0c1316;color:#c3d9df;font:12px monospace;cursor:pointer; }
-.controls button:disabled {opacity:.35;cursor:wait;}
-.controls button:focus-visible,.controls input:focus-visible {outline:2px solid #a5dceb;outline-offset:3px;}
-.volume {display:flex;align-items:center;gap:7px;flex:1;min-width:140px;color:#95a7a8;font:10px monospace;}
-.volume input {width:100%;min-width:30px;accent-color:#b4c7cb;height:44px;}
 .review {min-height:100vh;background:#101213 url('/portfolio/black-stock-v01.png');color:#d8ddd8;padding:40px clamp(18px,5vw,80px);font:13px monospace;}
 .review h1 {font-size:25px;font-weight:400;letter-spacing:-1px;}
 .review p {line-height:1.8;color:#9ca9a9;max-width:780px;}
