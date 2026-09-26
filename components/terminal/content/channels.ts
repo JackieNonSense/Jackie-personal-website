@@ -11,6 +11,7 @@ import { kids } from './tv/kids';
 import { news } from './tv/news';
 import { cctv } from './tv/cctv';
 import { feed } from './tv/feed';
+import { videoChannel } from './tv/video';
 import type { Text } from '../system/i18n';
 import type { Channel } from '../system/apps/tv';
 
@@ -66,4 +67,6 @@ export const CHANNELS: Channel[] = [
   { number: 11, name: { en: 'NEWS', zh: '新闻' }, draw: news },
   { number: 12, name: { en: 'ROOMS LIVE', zh: '房间直播' }, draw: cctv },
   { number: 13, name: { en: 'FEED', zh: '推荐' }, draw: feed },
+  // A real tape: Caramelldansen, the Japanese version of 2008, played round and round.
+  { number: 14, name: { en: 'MUSIC', zh: '音乐' }, draw: videoChannel('/terminal/tv/caramelldansen.mp4') },
 ];

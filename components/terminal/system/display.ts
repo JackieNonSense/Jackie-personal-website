@@ -17,6 +17,8 @@ export interface Display {
   mode: DisplayMode;
   t(text: Text): string;
   has(flag: string): boolean;
+  /** Whether the machine's sound is on (Settings), for a channel with a soundtrack of its own. */
+  soundOn(): boolean;
   graphics(): Uint8Array;
   present(): void;
   setMode(mode: DisplayMode): void;
@@ -36,6 +38,7 @@ export class OffscreenDisplay implements Display {
   get glyphs(): Uint8Array | null { return this.m.glyphs; }
   t(text: Text): string { return this.m.t(text); }
   has(flag: string): boolean { return this.m.has(flag); }
+  soundOn(): boolean { return this.m.audio.enabled; }
   loadPicture(url: string): Promise<Picture> { return this.m.loadPicture(url); }
 
   graphics(): Uint8Array {

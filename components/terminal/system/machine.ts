@@ -173,6 +173,7 @@ export class Machine {
   }
 
   has(flag: string): boolean { return this.flags.has(flag); }
+  soundOn(): boolean { return this.audio.enabled; }
   mark(flag: string): void {
     if (this.flags.has(flag)) return;
     this.flags.add(flag);

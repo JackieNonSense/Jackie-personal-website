@@ -23,7 +23,7 @@ export type Channel = {
   hiss?(time: number): boolean;
 };
 
-const FIRST = 2, LAST = 13;
+const FIRST = 2, LAST = 14;
 /** Static shown between channels, as the tuner hunts. */
 const TUNING = 0.35;
 export const OSD_TIME = 2.2;
