@@ -54,13 +54,13 @@ afterEach(() => {
 });
 
 describe('integrated deck HTML control wiring', () => {
-  it('starts with Fly high and cycles through the three supplied tracks before returning to it', async () => {
+  it('starts with Fly high and cycles through the four supplied tracks before returning to it', async () => {
     const { player, audio, creations } = setup();
     expect(creations()).toBe(0);
     expect(player.getSnapshot()).toMatchObject({ track: 0, wantsPlaying: false });
     await click('播放音乐');
     expect(audio.src).toBe('/audio/fly-high-cut.mp3');
-    for (const [track, src] of [[1, '/audio/ilyhiryu-army-mov.mp3'], [2, '/audio/2z2-diva.mp3'], [0, '/audio/fly-high-cut.mp3']] as const) {
+    for (const [track, src] of [[1, '/audio/ilyhiryu-army-mov.mp3'], [2, '/audio/2z2-diva.mp3'], [3, '/audio/arianne-schreiber-everything-youve-ever-dreamed.mp3'], [0, '/audio/fly-high-cut.mp3']] as const) {
       await click('下一首'); await advance(1100);
       expect(player.getSnapshot()).toMatchObject({ track, status: 'playing' });
       expect(audio.src).toBe(src);
@@ -146,7 +146,7 @@ describe('integrated deck HTML control wiring', () => {
   it('◀◀ goes back a track, ■ stops and rewinds, and neither needs audio to exist first', async () => {
     const { player, creations } = setup();
     await click('上一首'); await advance(1200);
-    expect(player.getSnapshot()).toMatchObject({ track: 2, wantsPlaying: false });
+    expect(player.getSnapshot()).toMatchObject({ track: 3, wantsPlaying: false });
     expect(creations()).toBe(0);
     await click('播放音乐'); await click('停止'); await advance(250);
     expect(player.getSnapshot()).toMatchObject({ status: 'stopped', wantsPlaying: false, time: 0 });

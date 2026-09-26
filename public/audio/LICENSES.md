@@ -2,13 +2,14 @@
 
 ## Current playlist — user-supplied files
 
-Added 2026-09-17. These three files were supplied by the site owner and copied unchanged; no Creative Commons license is asserted for them. Public distribution rights have not been verified. The original full/remix Fly high download was not used: the replacement is the subsequently supplied `Fly_High_cut.mp3`.
+Initial tracks added 2026-09-17; Everything You've Ever Dreamed added 2026-09-27. These files were supplied by the site owner and copied unchanged; no Creative Commons license is asserted for them. Public distribution rights have not been verified. The original full/remix Fly high download was not used: the replacement is the subsequently supplied `Fly_High_cut.mp3`.
 
 | Order | Track | Artist | Local file | SHA256 |
 | --- | --- | --- | --- | --- |
 | 1 | Fly high | 浜崎あゆみ | fly-high-cut.mp3 | d9e5b1d3615c501577468e32763a1dfc18b6e8409a0d1537c5f35d9111272e88 |
 | 2 | army_mov | ilyhiryu | ilyhiryu-army-mov.mp3 | 9408d144065d17362ee7b3128bd02f06db98e64e06882f474e24735fbe11cdaa |
 | 3 | DIVA | 2z2 | 2z2-diva.mp3 | 8a7d7864827baf5ceec2b7ba0b41491dd7edef9ed347eab295974c9d9ea94b7d |
+| 4 | Everything You've Ever Dreamed | Arianne Schreiber | arianne-schreiber-everything-youve-ever-dreamed.mp3 | 01b7846cd938ecd0840a4ccc86169e90156e55b65aa1ecf477fd7d637fb11d4b |
 
 ## Previous listening demos (not in the active playlist)
 
