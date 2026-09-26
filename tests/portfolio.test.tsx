@@ -97,6 +97,6 @@ describe("complete local portfolio", () => {
     const source = readFileSync(resolve("app/page.tsx"), "utf8");
     expect(source).not.toContain("process.env.NODE_ENV");
     expect(source).not.toContain("return <HeroProof");
-    expect(readFileSync(resolve("app/terminal/page.tsx"), "utf8")).toContain("<TerminalScene />");
+    expect(readFileSync(resolve("app/terminal/page.tsx"), "utf8")).toContain("<Terminal />");
   });
 });

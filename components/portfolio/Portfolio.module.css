@@ -45,6 +45,9 @@
 .sectionTop b{font-weight:400;color:var(--green)}
 .sectionTop>span:last-child:not(:first-child){color:#a2a69c}
 .display{position:relative;z-index:2;font:400 clamp(120px,24vw,460px)/.97 PortfolioCondensed,'Arial Narrow',sans-serif;letter-spacing:-.015em;margin:20px 0;color:#d4d2c7;mask-image:url('/portfolio/toner-mask.svg');mask-mode:luminance;mask-size:800px 600px;mask-repeat:repeat}
+/* The cyan plate of a misregistered impression. Screened so it reads as ink on
+   the same sheet rather than a second grey word sitting behind the first. */
+.plate{position:absolute;left:0;top:0;color:#2f56c6;mix-blend-mode:screen;pointer-events:none;white-space:inherit}
 .workSection{min-height:920px;height:68vw;max-height:1200px;z-index:2}
 .workTitle{font-size:27vw;transform-origin:left top;scale:.68 1;width:max-content;max-width:none}
 .specimen{position:absolute;z-index:2;left:36%;top:125px;width:70%;height:calc(100% - 20px);margin:0}

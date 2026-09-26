@@ -72,6 +72,16 @@ export default function Portfolio() {
   // share a rhythm instead of each fading in on its own timing.
   const reveal = { initial: still ? false as const : { opacity: .8, y: 12 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: .12 }, transition: { duration: still ? 0 : DUR.slow, ease: EASE } };
   const hover = still ? undefined : { x: 3 };
+  // Offset printing misregisters: the colour plates land a fraction apart, then the
+  // press pulls them into register. Measured first — scaling the toner mask only
+  // resizes its speckle (ink coverage moved 0.6pt), so the ink never reads as short.
+  // A plate sliding into register is the artefact that actually shows.
+  const plate = still ? {} : {
+    initial: { x: 4, y: -3, opacity: .55 },
+    whileInView: { x: 0, y: 0, opacity: 0 },
+    viewport: { once: true, amount: .25 },
+    transition: { duration: .66, ease: EASE },
+  };
 
   return <MotionConfig reducedMotion={still ? "always" : "user"}>
     <main ref={mainRef} className={styles.portfolio} data-testid="portfolio" data-motion={still ? "static" : "running"}>
@@ -83,7 +93,7 @@ export default function Portfolio() {
       <a href="#about" className={styles.skip}>Skip to content</a>
       <HeroInkSignal embedded still={still}/>
       <section id="about" className={`${styles.section} ${styles.aboutSection}`} aria-labelledby="about-title">
-        <motion.h2 id="about-title" className={`${styles.display} ${styles.aboutTitle}`} {...reveal}>ABOUT ME</motion.h2>
+        <motion.h2 id="about-title" className={`${styles.display} ${styles.aboutTitle}`} {...reveal}>ABOUT ME<motion.span aria-hidden="true" className={styles.plate} {...plate}>ABOUT ME</motion.span></motion.h2>
         <p className={styles.signature}>Yuchao Wang</p>
         <div className={styles.aboutLayout}>
         <motion.div className={styles.aboutCopy} {...reveal}>

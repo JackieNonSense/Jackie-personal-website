@@ -1,13 +1,136 @@
-.root{cursor:auto;position:fixed;inset:0;background:#020505;color:#94c7bf;font:12px 'Courier New',monospace;overflow:hidden;color-scheme:dark}
-.stage{position:absolute;inset:60px 0 76px;background:radial-gradient(ellipse at 50% 65%,#061012 0%,#020505 62%)}
-.top{position:absolute;z-index:5;top:0;left:0;right:0;min-height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 34px;gap:20px}
-.top a{color:#94aaa5;text-decoration:none;letter-spacing:.13em;font-size:11px;padding:14px 0}.top a:hover{color:#d6ece3}
-.identity{color:#435e59;letter-spacing:.2em;font-size:10px}
-.toolbar{display:flex;gap:9px;align-items:center}.button{font:inherit;letter-spacing:.07em;color:#9dc8be;background:#071010;border:1px solid #243934;padding:12px 15px;min-height:44px;cursor:pointer}.button:hover{border-color:#7dafa1;color:#e1f4e9}.button:focus-visible,.root a:focus-visible{outline:2px solid #c4eddf;outline-offset:4px}.button[aria-pressed=true]{background:#142924;border-color:#739f91}
-.bottom{position:absolute;bottom:22px;left:34px;right:34px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:5}.caption{font-size:10px;letter-spacing:.13em;color:#4f746c;line-height:1.9}.dot{display:inline-block;background:#80b5a4;width:4px;height:4px;border-radius:50%;margin-right:9px;box-shadow:0 0 8px #467e68}
-.mobileControls{display:none}.loading{position:absolute;inset:0;display:grid;place-content:center;text-align:center;letter-spacing:.2em;color:#5d8d7f;font-size:11px;line-height:2.4}
-.reader{position:absolute;inset:80px max(20px,calc((100vw - 980px)/2)) 90px;z-index:6;background:#071210;border:1px solid #36544b;overflow:auto;padding:28px;box-shadow:0 20px 80px #000}.reader h2{font-size:20px;font-weight:normal;margin:12px 0 24px}.reader h3{font-size:17px;font-weight:normal;line-height:1.6}.reader p,.reader pre{font:16px/1.8 'Courier New',monospace;color:#b9d8cb;white-space:pre-wrap}.reader nav{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid #254439;padding-bottom:18px;margin-bottom:22px}.records{display:flex;flex-direction:column;gap:8px}.record{text-align:left;background:#0b1916;color:#c4dfd3;border:1px solid #28483b;padding:14px;font:15px/1.6 'Courier New',monospace;cursor:pointer}.record:hover{background:#183126}.record small{display:block;color:#8bada0}.gamePad{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}.gamePad .button{touch-action:none;min-width:44px}
-@media(max-width:700px){.top{padding:0 16px;min-height:60px}.identity{display:none}.toolbar{gap:5px}.toolbar .button{font-size:10px;padding:10px}.stage{inset:62px 0 150px}.bottom{bottom:18px;left:16px;right:16px;flex-direction:column;gap:12px}.caption{font-size:9px;text-align:center}.mobileControls{display:flex;gap:7px}.reader{inset:72px 12px 150px;padding:18px}.reader nav .button{padding:10px;font-size:11px}.reader p,.reader pre{font-size:16px}.reader h2{font-size:18px}}
-@media(prefers-reduced-motion:reduce){.root *{scroll-behavior:auto!important}}
+@font-face {
+  font-family: 'IBM VGA 8x16';
+  src: url('/fonts/oldschool-pc/Web437_IBM_VGA_8x16.woff') format('woff');
+  font-display: block;
+}
 
-@media(max-width:700px){.toolbar .button:nth-child(-n+2){display:none}.root[data-awake=false] .mobileControls{display:none}.root[data-awake=true] .stage{bottom:190px}.reader{bottom:185px}}
+.room {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #030505;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Fingers drive the desk: no pinching, no double-tap zoom, no pull to refresh, no callout. */
+  touch-action: none;
+  overscroll-behavior: none;
+  -webkit-touch-callout: none;
+}
+
+/* Over the glass the tube draws its own pointer. */
+.room[data-cursor='none'] { cursor: none; }
+
+/* The controls on the front of the set, laid over the photograph in its own pixels. */
+.controls {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1536px;
+  height: 1024px;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.control {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.control:focus-visible {
+  outline: 2px solid rgba(160, 220, 200, .6);
+  outline-offset: 2px;
+}
+
+.knob { border-radius: 50%; }
+
+/* Fingers are wider than a mouse: the targets reach further, up and down. */
+@media (pointer: coarse) {
+  .control::after {
+    content: '';
+    position: absolute;
+    inset: -20px 0;
+  }
+  .knob::after { inset: -16px; border-radius: 50%; }
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.fallbackShell {
+  position: absolute;
+  height: auto;
+  filter: brightness(.5) saturate(.6);
+  pointer-events: none;
+}
+
+.fallbackScreen {
+  position: absolute;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+/* Invisible but focusable, so touch devices can raise their keyboard. Kept at the
+   top so focusing it never makes iOS scroll the room. */
+.input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  caret-color: transparent;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  resize: none;
+  font-size: 16px;
+}
+
+.hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5.5vh;
+  margin: 0;
+  text-align: center;
+  font: 16px/1 'IBM VGA 8x16', monospace;
+  letter-spacing: .3em;
+  color: #4d6b5f;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+.hint[data-visible='true'] {
+  opacity: .55;
+  animation: breathe 3.2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% { opacity: .25; }
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hint { transition: none; }
+  .hint[data-visible='true'] { animation: none; }
+}
