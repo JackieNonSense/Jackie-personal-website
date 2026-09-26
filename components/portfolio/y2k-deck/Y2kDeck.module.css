@@ -1,0 +1,12 @@
+/* The deck: a live WebGL stage over a still poster, with real buttons laid over the keys. */
+.surface{position:relative;width:100%;container-type:inline-size}
+.poster,.stage{position:absolute;inset:0;width:100%;height:100%}
+.poster{object-fit:contain;user-select:none}
+.poster[hidden]{display:none}
+.keys{position:absolute;inset:0;z-index:2;pointer-events:none}
+/* Each button sits exactly over its key; small keys get a hit area of at least 30px
+   (44px would overlap the next key down on a phone). */
+.key{position:absolute;padding:0;border:0;border-radius:10px;background:transparent;pointer-events:auto;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.key::after{content:'';position:absolute;left:50%;top:50%;width:max(100%,30px);height:max(100%,30px);translate:-50% -50%}
+.key:focus-visible{outline:2px solid #8ff5c4;outline-offset:2px}
+.key:disabled{cursor:wait}

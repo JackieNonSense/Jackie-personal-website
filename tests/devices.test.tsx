@@ -32,7 +32,7 @@ describe("front-facing objects", () => {
     const { default: Portfolio } = await component("Portfolio.tsx");
     const { container } = render(createElement(Portfolio));
     expect(screen.getByRole("button", { name: "播放音乐" })).toBeEnabled();
-    expect(screen.getByRole("slider", { name: "音乐音量" })).toHaveValue("25");
+    expect(screen.getByRole("button", { name: "音量加，当前 25%" })).toBeEnabled();
     expect(container.querySelector("#about [data-testid='music-deck']")).not.toBeNull();
     expect(container.querySelector("audio")).toBeNull();
     expect(screen.getByText("MUSIC CREDITS")).toBeInTheDocument();

@@ -5,8 +5,9 @@ import { resolve } from "node:path";
 // The only double is the browser's media boundary; the real controller owns
 // intent, sequencing, cancellation, timing and all observable state.
 class MediaBoundary {
-  src = ""; currentTime = 0; paused = true; volume = .25;
+  src = ""; currentTime = 0; paused = true; volume = .25; duration = 200;
   listener = (_event: string) => {};
+  seek(seconds: number) { this.currentTime = seconds; }
   pending: (() => void) | null = null;
   rejection: Error | null = null;
   deferred = false; disposed = false;
@@ -153,6 +154,40 @@ describe("homepage music transport", () => {
     player.toggleMute(); expect(media.volume).toBe(0);
     expect(player.getSnapshot().status).toBe("playing");
     player.toggleMute(); expect(media.volume).toBe(1);
+  });
+  it("steps back a track from the top, and back to the top from inside one", async () => {
+    vi.useFakeTimers(); const { player, media } = await setup(); await player.play();
+    void player.previous(); await vi.advanceTimersByTimeAsync(1200);
+    expect(player.getSnapshot()).toMatchObject({ track: 1, status: "playing" });
+    expect(media.src).toBe("/b.mp3");
+    media.currentTime = 42; media.listener("timeupdate");
+    await player.previous();
+    expect(player.getSnapshot()).toMatchObject({ track: 1, time: 0 });
+    expect(media.currentTime).toBe(0);
+  });
+  it("stops: fades, halts, rewinds, and stays stopped across a track change", async () => {
+    vi.useFakeTimers(); const { player, media } = await setup(); await player.play();
+    media.currentTime = 30; media.listener("timeupdate");
+    player.stop(); expect(player.getSnapshot()).toMatchObject({ status: "stopped", wantsPlaying: false, time: 0 });
+    await vi.advanceTimersByTimeAsync(210);
+    expect(media.paused).toBe(true); expect(media.currentTime).toBe(0);
+    void player.next(); await vi.advanceTimersByTimeAsync(1200);
+    expect(player.getSnapshot()).toMatchObject({ track: 1, status: "stopped" });
+    await player.play(); expect(player.getSnapshot().status).toBe("playing");
+  });
+  it("scans within the track and never past its ends", async () => {
+    const { player, media } = await setup(); await player.play();
+    media.listener("durationchange"); expect(player.getSnapshot().duration).toBe(200);
+    player.scan(10); player.scan(10); expect(media.currentTime).toBe(20);
+    player.scan(-60); expect(media.currentTime).toBe(0);
+    player.scan(500); expect(media.currentTime).toBeCloseTo(199.75);
+    expect(player.getSnapshot().time).toBeCloseTo(199.75);
+  });
+  it("forgets the old track's length while the next one loads", async () => {
+    vi.useFakeTimers(); const { player, media } = await setup(); await player.play();
+    media.listener("loadedmetadata"); expect(player.getSnapshot().duration).toBe(200);
+    void player.next(); await vi.advanceTimersByTimeAsync(700);
+    expect(player.getSnapshot().duration).toBe(0);
   });
   it("route disposal stops media and prevents pending exchange resurrection", async () => {
     vi.useFakeTimers(); const { player, media } = await setup(); await player.play();

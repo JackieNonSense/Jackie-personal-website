@@ -7,7 +7,7 @@ import { musicTracks } from '../components/portfolio/music-tracks';
 
 // Browser media and Canvas drawing are boundaries unavailable in JSDOM.
 // The rendered controls, subscriptions and controller cancellation remain real.
-vi.mock('../components/portfolio/deck-vfd',()=>({drawVfd:vi.fn()}));
+vi.mock('../components/portfolio/y2k-deck/Y2kScene',()=>({default:()=>null}));
 class AudioBoundary implements MediaPort {
   src = '';
   currentTime = 0;
@@ -127,31 +127,29 @@ describe('integrated deck HTML control wiring', () => {
     expect(screen.queryByRole('alert')).toBeNull();
   });
 
-  it('ATT and the native fader change actual audio gain without changing playback intent', async () => {
+  it('the VOL rocker and MUTE change actual audio gain without changing playback intent', async () => {
     const { player, audio } = setup();
     await click('播放音乐');
-    const volume = screen.getByRole('slider', { name: '音乐音量' });
-    fireEvent.change(volume, { target: { value: '75' } });
-    expect(player.getSnapshot().volume).toBe(.75);
-    expect(audio.output).toBe(.75);
+    await click('音量加，当前 25%'); await click('音量加，当前 30%');
+    expect(player.getSnapshot().volume).toBeCloseTo(.35);
+    expect(audio.output).toBeCloseTo(.35);
+    await click('音量减，当前 35%');
+    expect(player.getSnapshot().volume).toBeCloseTo(.3);
     await click('静音音乐');
     expect(screen.getByRole('button', { name: '取消静音' })).toHaveAttribute('aria-pressed', 'true');
-    expect(volume).toHaveAttribute('aria-valuetext', '75%，已静音');
     expect(audio.output).toBe(0);
     expect(player.getSnapshot()).toMatchObject({ powered: true, status: 'playing', wantsPlaying: true });
     await click('取消静音');
-    expect(audio.output).toBe(.75);
-    expect(volume).toHaveAttribute('aria-valuetext', '75%');
+    expect(audio.output).toBeCloseTo(.3);
   });
 
-  it('DISP toggles in place without creating audio or powering on the machine', async () => {
+  it('◀◀ goes back a track, ■ stops and rewinds, and neither needs audio to exist first', async () => {
     const { player, creations } = setup();
-    await click('切换显示模式');
-    expect(screen.getByRole('button', { name: '切换显示模式' })).toHaveAttribute('aria-pressed', 'true');
-    await click('切换显示模式');
-    expect(screen.getByRole('button', { name: '切换显示模式' })).toHaveAttribute('aria-pressed', 'false');
+    await click('上一首'); await advance(1200);
+    expect(player.getSnapshot()).toMatchObject({ track: 2, wantsPlaying: false });
     expect(creations()).toBe(0);
-    expect(player.getSnapshot()).toMatchObject({ powered: false, wantsPlaying: false });
+    await click('播放音乐'); await click('停止'); await advance(250);
+    expect(player.getSnapshot()).toMatchObject({ status: 'stopped', wantsPlaying: false, time: 0 });
   });
 
   it('keeps every transport control within the model surface through play and pause', async () => {
@@ -159,16 +157,16 @@ describe('integrated deck HTML control wiring', () => {
     const deck = screen.getByTestId('music-deck');
     const group = within(deck).getByRole('group', { name: '音乐台机身控制' });
     expect(group.closest('[data-deck-renderer]')).not.toBeNull();
-    for (const control of deck.querySelectorAll('button,input[type="range"]')) {
+    for (const control of deck.querySelectorAll('button')) {
+      if (control.closest('details')) continue;
       expect(group.contains(control)).toBe(true);
     }
-    for (const name of ['关闭音乐台', '播放音乐', '下一首', '静音音乐', '切换显示模式']) {
+    for (const name of ['关闭音乐台', '上一首', '播放音乐', '停止', '下一首', '静音音乐', '音量加，当前 25%', '音量减，当前 25%']) {
       expect(within(deck).getAllByRole('button', { name })).toHaveLength(1);
     }
-    expect(within(deck).getAllByRole('slider', { name: '音乐音量' })).toHaveLength(1);
   });
 
-  it('uses focusable native buttons and a native range without suppressing keyboard activation', () => {
+  it('uses focusable native buttons without suppressing keyboard activation', () => {
     const { creations } = setup();
     const group = screen.getByRole('group', { name: '音乐台机身控制' });
     for (const button of within(group).getAllByRole('button')) {
@@ -182,11 +180,6 @@ describe('integrated deck HTML control wiring', () => {
       expect(fireEvent.keyDown(button, { key: ' ', code: 'Space' })).toBe(true);
       fireEvent.keyUp(button, { key: ' ', code: 'Space' });
     }
-    const range = within(group).getByRole('slider', { name: '音乐音量' });
-    expect(range).toHaveAttribute('type', 'range');
-    expect(range).toHaveAttribute('min', '0');
-    expect(range).toHaveAttribute('max', '100');
-    act(() => range.focus()); expect(range).toHaveFocus();
     expect(creations()).toBe(0);
     // JSDOM does not generate the browser's click from key events; actual
     // Enter/Space activation remains part of the parent's real-browser audit.

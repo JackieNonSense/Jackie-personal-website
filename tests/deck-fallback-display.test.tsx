@@ -10,7 +10,7 @@ import panel from '../components/portfolio/deck-panel.json';
 // The canvas painter is the rendering boundary, not the component under test.
 vi.mock('../components/portfolio/deck-vfd',()=>({drawVfd:vi.fn()}));
 const painter=vi.mocked(drawVfd);
-const initial:MusicSnapshot={powered:true,status:'playing',track:0,volume:.25,muted:false,wantsPlaying:true,phase:'seated',time:0,error:'',exchangeStartedAt:null};
+const initial:MusicSnapshot={powered:true,status:'playing',track:0,volume:.25,muted:false,wantsPlaying:true,phase:'seated',time:0,duration:0,error:'',exchangeStartedAt:null};
 async function component(){
   expect(existsSync('components/portfolio/DeckFallbackDisplay.tsx'),'state-driven fallback screen exists').toBe(true);
   const path='../components/portfolio/DeckFallbackDisplay';
