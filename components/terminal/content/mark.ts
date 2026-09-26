@@ -60,7 +60,7 @@ function plate(size: number): Plate {
   const step = (bottom - top) / SLATS, cut = Math.max(1, Math.round(S * 0.013));
   const slats = Array.from({ length: SLATS }, (_, s) => [Math.round(top + s * step), Math.round(top + (s + 1) * step) - cut] as [number, number]);
   let word: Uint8Array | null = null;
-  if (S >= 120) {
+  if (S >= 100) {
     word = new Uint8Array(S * S);
     const small = Math.round(S * 0.095), letters3 = (['J', '&', 'R'] as const).map(c => rasterGlyph(GLYPHS[c], small, CAP_HEIGHT, S * 0.0047));
     const spacing = Math.round(S * 0.03), width = letters3.reduce((w, g) => w + g.ink, 0) + 2 * spacing;
@@ -86,6 +86,31 @@ type PlateState = {
 };
 
 const WHOLE: PlateState = { frame: 4, band: 1, roll: 1, slat: () => 0, word: true };
+
+/*
+ * The plate is drawn the way the machine could have drawn it: in 320 x 200, each of
+ * its pixels two by two on the page, and moved at 12.5 frames a second, so it
+ * steps rather than glides and has the same grain as the text that follows it.
+ */
+const LO = 2;
+const LW = W / LO, LH = H / LO;
+const FPS = 12.5;
+const low = new Uint8Array(W * H);
+
+/** The low page's `w` x `h` from (x0, y0), doubled onto the page at (x, y). */
+function blowUp(b: Uint8Array, x0: number, y0: number, w: number, h: number, x: number, y: number): void {
+  for (let yy = 0; yy < h; yy++) {
+    const from = (y0 + yy) * W + x0;
+    for (let d = 0; d < LO; d++) {
+      const ty = y + yy * LO + d;
+      if (ty < 0 || ty >= H) continue;
+      for (let xx = 0; xx < w; xx++) {
+        const tx = x + xx * LO, v = low[from + xx];
+        if (tx >= 0 && tx + 1 < W) { b[ty * W + tx] = v; b[ty * W + tx + 1] = v; }
+      }
+    }
+  }
+}
 
 function fill(b: Uint8Array, x: number, y: number, w: number, h: number, v: number): void {
   const x0 = Math.max(0, Math.round(x)), x1 = Math.min(W, Math.round(x + w));
@@ -141,7 +166,8 @@ const outBack = (t: number, s = 1.3) => { const x = clamp(t) - 1; return 1 + x *
 
 /** Seconds of the going: the slats out, the blind up, the set switched off. */
 const OUT = 1.0;
-const SIZE = 232;
+/** In low pixels: 232 on the page. */
+const SIZE = 116;
 
 /**
  * The ident at `t` of `length` seconds. Coming on (about 1.6 seconds, quicker for a
@@ -150,8 +176,10 @@ const SIZE = 232;
  * up, and the picture squeezed to a line and a point.
  */
 function drawIdent(b: Uint8Array, t: number, length: number, still: boolean, quick: boolean): void {
-  const p = plate(SIZE), px = Math.round((W - SIZE) / 2), py = Math.round((H - SIZE) / 2);
-  if (still) { drawPlate(b, px, py, p, WHOLE); return; }
+  const p = plate(SIZE), px = Math.round((LW - SIZE) / 2), py = Math.round((LH - SIZE) / 2);
+  low.fill(0);
+  if (still) { drawPlate(low, px, py, p, WHOLE); blowUp(b, 0, 0, LW, LH, 0, 0); return; }
+  t = Math.min(length, Math.ceil(t * FPS) / FPS);
   const a = t * (quick ? 1.45 : 1), out = t - (length - OUT);
   const frame = outExpo((a - 0.05) / 0.6) * 4;
   const st: PlateState = {
@@ -165,30 +193,40 @@ function drawIdent(b: Uint8Array, t: number, length: number, still: boolean, qui
     },
     word: outExpo((frame - 3.2) / 0.8) > 0.9,
   };
-  drawPlate(b, px, py, p, st);
+  drawPlate(low, px, py, p, st);
   // Switched off: squeezed to a line through the middle, then the line to a point.
   const off = clamp((t - (length - 0.42)) / 0.42);
-  if (off <= 0) return;
-  const cy = py + SIZE / 2;
-  if (off < 0.58) {
-    const sq = Math.max(0.003, 1 - smooth(off * 1.7)), copy = b.slice();
-    for (let y = 0; y < H; y++) {
-      const from = Math.round(cy + (y - cy) / sq);
-      if (Math.abs(y - cy) > Math.max(1, (SIZE * sq) / 2) || from < 0 || from >= H) b.fill(0, y * W, (y + 1) * W);
-      else b.set(copy.subarray(from * W, (from + 1) * W), y * W);
+  if (off > 0) {
+    const cy = py + SIZE / 2;
+    if (off < 0.58) {
+      const sq = Math.max(0.003, 1 - smooth(off * 1.7)), copy = low.slice(0, LH * W);
+      for (let y = 0; y < LH; y++) {
+        const from = Math.round(cy + (y - cy) / sq);
+        if (Math.abs(y - cy) > Math.max(1, (SIZE * sq) / 2) || from < 0 || from >= LH) low.fill(0, y * W, (y + 1) * W);
+        else low.set(copy.subarray(from * W, (from + 1) * W), y * W);
+      }
+    } else {
+      low.fill(0);
+      const k = smooth((off - 0.58) / 0.42), half = (SIZE / 2) * (1 - k) + 1;
+      fill(low, LW / 2 - half, cy - 1, 2 * half, 1 + k, INK.plate);
     }
-  } else {
-    b.fill(0);
-    const k = smooth((off - 0.58) / 0.42), half = (SIZE / 2) * (1 - k) + 1.5;
-    fill(b, W / 2 - half, cy - 1, 2 * half, 2 + 2 * k, INK.plate);
   }
+  blowUp(b, 0, 0, LW, LH, 0, 0);
+}
+
+/** The plate alone, `size` page pixels square, in the same doubled pixels. */
+function drawBadge(b: Uint8Array, x: number, y: number, size: number): void {
+  const s = Math.round(size / LO);
+  low.fill(0, 0, s * W);
+  drawPlate(low, 0, 0, plate(s), WHOLE);
+  blowUp(b, 0, 0, s, s, x, y);
 }
 
 export const IDENT: Ident = {
   name: 'J&R.',
   length: (returning, still) => (still ? 1.2 : returning ? 3.0 : 4.6),
   draw: (b, t, length, still, returning) => drawIdent(b, t, length, still, returning),
-  badge: (b, x, y, size) => drawPlate(b, x, y, plate(size), WHOLE),
+  badge: drawBadge,
 };
 
 /**

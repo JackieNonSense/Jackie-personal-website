@@ -29,7 +29,7 @@ export class AudioSystem implements Speaker {
   private brown: AudioBuffer | null = null;
   private hissNode: { nodes: AudioScheduledSourceNode[]; gain: GainNode } | null = null;
   /** The disk motor and the fan, running while the machine is on. */
-  private motor: { osc: OscillatorNode; gain: GainNode; fan: AudioBufferSourceNode; fanGain: GainNode } | null = null;
+  private motor: { osc: OscillatorNode; shape: BiquadFilterNode; gain: GainNode; fan: AudioBufferSourceNode; fanGain: GainNode } | null = null;
   /** Until when the disk heads are already busy, so overlapping reads queue up. */
   private seekingUntil = 0;
   private song: { track: Track; parsed: ReturnType<typeof parseTrack>; start: number; scheduled: number; gain: GainNode } | null = null;
@@ -225,41 +225,57 @@ export class AudioSystem implements Speaker {
     o.connect(g).connect(dest); o.start(at); o.stop(at + decay * 5 + 0.02);
   }
 
-  /** The rocker switch on the front: a hard plastic clack and its bounce. */
+  /** The rocker switch on the front: a hard plastic clack and its bounce, no boom under it. */
   private clack(at: number, level: number): void {
     const room = this.room!;
-    this.tick(at, room, level, 0.006, 'bandpass', 3200, 1.1);
-    this.thump(at, room, level * 0.9, 140, 70, 0.025);
-    this.tick(at + 0.028, room, level * 0.35, 0.004, 'bandpass', 2400, 1.6);
+    this.tick(at, room, level, 0.005, 'bandpass', 2900, 1.3);
+    this.thump(at, room, level * 0.35, 420, 260, 0.012);
+    this.tick(at + 0.026, room, level * 0.3, 0.003, 'bandpass', 3600, 1.8);
   }
 
   private powerOn(t: number): void {
-    this.clack(t, 0.55);
-    this.degauss(t + 0.12, 1);
-    this.spinUp(t + 0.35);
+    this.clack(t, 0.4);
+    this.degauss(t + 0.1, 1);
+    this.spinUp(t + 0.3);
     // The BIOS reads the disk once it is up to speed.
     this.seek(t + 2.4, 0.5);
   }
 
-  /** The degaussing coil: a heavy mains buzz through the whole cabinet, swelling and dying. */
+  /**
+   * The degaussing coil, as heard from a chair away: the relay clunks, the cabinet
+   * hums for a moment, not a boom, just the mask buzzing in the mid range, and the
+   * glass crackles as it takes its charge.
+   */
   private degauss(at: number, level: number): void {
     const ctx = this.ctx!, room = this.room!;
-    const buzz = ctx.createGain(), lp = ctx.createBiquadFilter();
-    lp.type = 'lowpass'; lp.frequency.setValueAtTime(1400, at); lp.frequency.exponentialRampToValueAtTime(260, at + 1.3);
-    buzz.gain.setValueAtTime(0.0001, at);
-    buzz.gain.exponentialRampToValueAtTime(0.32 * level, at + 0.05);
-    buzz.gain.setValueAtTime(0.32 * level, at + 0.22);
-    buzz.gain.exponentialRampToValueAtTime(0.0001, at + 1.5);
-    lp.connect(buzz).connect(room);
-    for (const [type, freq, gain] of [['sawtooth', 50, 0.9], ['sine', 100, 0.6], ['square', 150, 0.12]] as const) {
+    // The relay.
+    this.tick(at, room, 0.07 * level, 0.003, 'bandpass', 1900, 1.5);
+    this.thump(at, room, 0.03 * level, 320, 200, 0.01);
+    // The hum: mains harmonics only, the fundamental left out, and quick to go.
+    const hum = ctx.createGain(), hp = ctx.createBiquadFilter(), bp = ctx.createBiquadFilter();
+    hp.type = 'highpass'; hp.frequency.value = 170; hp.Q.value = 0.7;
+    bp.type = 'bandpass'; bp.Q.value = 1.2;
+    bp.frequency.setValueAtTime(600, at + 0.02); bp.frequency.exponentialRampToValueAtTime(260, at + 0.7);
+    hum.gain.setValueAtTime(0.0001, at + 0.02);
+    hum.gain.exponentialRampToValueAtTime(0.075 * level, at + 0.06);
+    hum.gain.exponentialRampToValueAtTime(0.0001, at + 0.75);
+    hp.connect(bp).connect(hum).connect(room);
+    for (const [type, freq, gain] of [['sawtooth', 100, 0.5], ['triangle', 200, 0.6], ['sine', 300, 0.25]] as const) {
       const o = ctx.createOscillator(), g = ctx.createGain();
       o.type = type; o.frequency.value = freq; g.gain.value = gain;
-      o.connect(g).connect(lp); o.start(at); o.stop(at + 1.6);
+      o.connect(g).connect(hp); o.start(at + 0.02); o.stop(at + 0.8);
     }
-    // The shadow mask ringing as the field lets go.
-    this.tick(at, room, 0.08 * level, 0.3, 'bandpass', 180, 8);
-    // The glass charging up: a few dry crackles.
-    for (let i = 0; i < 7; i++) this.tick(at + 0.25 + Math.random() * 0.9, room, (0.05 + Math.random() * 0.05) * level, 0.002, 'highpass', 5000);
+    // The shadow mask ringing, faintly, as the field lets go.
+    this.tick(at + 0.05, room, 0.02 * level, 0.12, 'bandpass', 900, 10);
+    // The glass taking its charge: a soft fizz, and a few dry crackles in it.
+    const fizz = ctx.createBufferSource(), fhp = ctx.createBiquadFilter(), fg = ctx.createGain();
+    fizz.buffer = this.noise;
+    fhp.type = 'highpass'; fhp.frequency.value = 4500;
+    fg.gain.setValueAtTime(0.0001, at + 0.05);
+    fg.gain.exponentialRampToValueAtTime(0.012 * level, at + 0.25);
+    fg.gain.exponentialRampToValueAtTime(0.0001, at + 0.9);
+    fizz.connect(fhp).connect(fg).connect(room); fizz.start(at + 0.05, Math.random()); fizz.stop(at + 0.95);
+    for (let i = 0; i < 6; i++) this.tick(at + 0.15 + Math.random() * 0.8, room, (0.025 + Math.random() * 0.03) * level, 0.0015, 'highpass', 5000);
   }
 
   /** A push button under the screen: a plastic click, the spring, and the latch. */
@@ -275,22 +291,26 @@ export class AudioSystem implements Speaker {
     const ctx = this.ctx!, room = this.room!;
     this.stopMotor(at, 0.01);
     const osc = ctx.createOscillator(), shape = ctx.createBiquadFilter(), gain = ctx.createGain();
-    osc.type = 'triangle';
+    // The motor's whine: its harmonics, rising with it, heard through the case.
+    osc.type = 'sawtooth';
     osc.frequency.setValueAtTime(12, at); osc.frequency.exponentialRampToValueAtTime(SPINDLE, at + 3.2);
-    shape.type = 'bandpass'; shape.frequency.value = SPINDLE * 2; shape.Q.value = 0.7;
+    shape.type = 'bandpass'; shape.Q.value = 3;
+    shape.frequency.setValueAtTime(12 * 6, at); shape.frequency.exponentialRampToValueAtTime(SPINDLE * 6, at + 3.2);
     gain.gain.setValueAtTime(0.0001, at);
-    gain.gain.exponentialRampToValueAtTime(0.03, at + 2.2);
+    gain.gain.exponentialRampToValueAtTime(0.02, at + 2.4);
     // Then it settles to what you only hear when the room is quiet.
     gain.gain.exponentialRampToValueAtTime(0.004, at + 5);
     osc.connect(shape).connect(gain).connect(room); osc.start(at);
     const fan = ctx.createBufferSource(), fanFilter = ctx.createBiquadFilter(), fanGain = ctx.createGain();
     fan.buffer = this.brown; fan.loop = true;
     fanFilter.type = 'lowpass'; fanFilter.frequency.value = 700;
+    // No rumble below it: small speakers only turn that into a boom.
+    const fanFloor = ctx.createBiquadFilter(); fanFloor.type = 'highpass'; fanFloor.frequency.value = 140;
     fanGain.gain.setValueAtTime(0.0001, at);
     fanGain.gain.exponentialRampToValueAtTime(0.03, at + 1.2);
     fanGain.gain.exponentialRampToValueAtTime(0.012, at + 4);
-    fan.connect(fanFilter).connect(fanGain).connect(room); fan.start(at);
-    this.motor = { osc, gain, fan, fanGain };
+    fan.connect(fanFloor).connect(fanFilter).connect(fanGain).connect(room); fan.start(at);
+    this.motor = { osc, shape, gain, fan, fanGain };
   }
 
   private stopMotor(at: number, over: number): void {
@@ -299,6 +319,9 @@ export class AudioSystem implements Speaker {
     m.osc.frequency.cancelScheduledValues(at);
     m.osc.frequency.setValueAtTime(SPINDLE, at);
     m.osc.frequency.exponentialRampToValueAtTime(8, at + over);
+    m.shape.frequency.cancelScheduledValues(at);
+    m.shape.frequency.setValueAtTime(SPINDLE * 6, at);
+    m.shape.frequency.exponentialRampToValueAtTime(48, at + over);
     m.gain.gain.cancelScheduledValues(at);
     m.gain.gain.setTargetAtTime(0.0001, at, over / 3);
     m.fanGain.gain.cancelScheduledValues(at);
@@ -309,7 +332,7 @@ export class AudioSystem implements Speaker {
 
   private powerOff(t: number): void {
     const room = this.room!;
-    this.clack(t, 0.5);
+    this.clack(t, 0.4);
     // The picture collapsing: a thin falling whistle and a snap of static off the glass.
     this.thump(t + 0.02, room, 0.035, 2200, 180, 0.12);
     for (let i = 0; i < 5; i++) this.tick(t + 0.05 + Math.random() * 0.4, room, 0.04, 0.002, 'highpass', 5500);
