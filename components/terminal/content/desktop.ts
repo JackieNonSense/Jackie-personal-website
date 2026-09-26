@@ -791,6 +791,8 @@ class TvScreen extends Widget {
 const TV: WindowSpec = {
   id: 'tv', title: { en: 'Television', zh: '电视' }, size: { w: 300, h: 250 }, place: { x: 250, y: 40 },
   onOpen: host => { if (tvSet) tvSet.tuner.tune(tvSet.display, host.m.audio, tvSet.tuner.number); },
+  // The box in the corner (and a double click on the title) fills the screen with the set.
+  onMaximise: host => { if (tvSet) host.run(new TvApp(tvSet.tuner)); },
   onClose: host => { tvSet?.tuner.sound(host.m.audio, false); },
   content: host => {
     const set: TvSet = { tuner: new Tuner(CHANNELS), display: new OffscreenDisplay(host.m) };
@@ -800,6 +802,7 @@ const TV: WindowSpec = {
     bar.add(new Button('◄', turn(-1), { compact: true }));
     bar.add(new Label(m => `${set.tuner.label}  ${m.t(set.tuner.channel?.name ?? { en: 'no signal', zh: '无信号' })}`));
     bar.add(new Spacer());
+    bar.add(new Button({ en: 'Full', zh: '全屏' }, h => h.run(new TvApp(set.tuner)), { compact: true }));
     bar.add(new Button('►', turn(1), { compact: true }));
     bar.add(new Knob((d, h) => turn(d)(h)));
     const box = new Box('column', ['fill', 30]);

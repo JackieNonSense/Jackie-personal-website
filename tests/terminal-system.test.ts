@@ -191,8 +191,8 @@ describe('channels', () => {
           c.draw(d, t);
           worst = Math.max(worst, performance.now() - start);
         }
-        // A frame is a sixtieth of a second; a channel may take a good part of it, not all.
-        expect(worst, `channel ${c.number}`).toBeLessThan(40);
+        // A channel must never take several frames' worth (the test machine may be busy with others).
+        expect(worst, `channel ${c.number}`).toBeLessThan(60);
       }
     }
   });

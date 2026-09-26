@@ -479,8 +479,8 @@ export class Desktop implements App, GuiHost {
     }
     const w = press.window;
     if (w && press.what === 'close' && w.part(x, y) === 'close') { this.close(w.id); this.track(x, y); return; }
-    if (w && press.what === 'max' && w.part(x, y) === 'max') { w.maximise(this.deskRect); this.track(x, y); return; }
-    if (w && press.what === 'title' && !press.dragging && this.isDouble(p, x, y, w) && w.spec.resizable) { w.maximise(this.deskRect); return; }
+    if (w && press.what === 'max' && w.part(x, y) === 'max') { this.maximise(w); this.track(x, y); return; }
+    if (w && press.what === 'title' && !press.dragging && this.isDouble(p, x, y, w) && (w.spec.resizable || w.spec.onMaximise)) { this.maximise(w); return; }
     if (press.what === 'icon' && press.icon !== undefined) {
       if (press.dragging) {
         // Dropped: snap to the grid and remember it.
@@ -490,6 +490,13 @@ export class Desktop implements App, GuiHost {
       } else this.openIcon(press.icon);
     }
     this.track(x, y);
+  }
+
+  /** The box beside the close box: the window fills the desk, unless it has something better to do. */
+  private maximise(w: Window): void {
+    if (w.spec.onMaximise) w.spec.onMaximise(this);
+    else w.maximise(this.deskRect);
+    this.dirty = true;
   }
 
   private isDouble(p: Pointer, x: number, y: number, key: unknown): boolean {

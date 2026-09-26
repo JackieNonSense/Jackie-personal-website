@@ -60,7 +60,7 @@ export class Window {
 
   get titleBar(): Rect { return { x: this.r.x + 1, y: this.r.y + 1, w: this.r.w - 2, h: TITLE_H }; }
   get closeBox(): Rect { const t = this.titleBar; return { x: t.x + t.w - BOX.w - 2, y: t.y + 2, w: BOX.w, h: BOX.h }; }
-  get maxBox(): Rect | null { if (!this.spec.resizable) return null; const c = this.closeBox; return { x: c.x - BOX.w - 2, y: c.y, w: BOX.w, h: BOX.h }; }
+  get maxBox(): Rect | null { if (!this.spec.resizable && !this.spec.onMaximise) return null; const c = this.closeBox; return { x: c.x - BOX.w - 2, y: c.y, w: BOX.w, h: BOX.h }; }
   get grip(): Rect | null { return this.spec.resizable && !this.maximised ? { x: this.r.x + this.r.w - GRIP - 1, y: this.r.y + this.r.h - GRIP - 1, w: GRIP, h: GRIP } : null; }
   get body(): Rect { return { x: this.r.x + 1, y: this.r.y + TITLE_H + 2, w: this.r.w - 2, h: this.r.h - TITLE_H - 3 }; }
 

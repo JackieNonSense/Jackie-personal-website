@@ -3,6 +3,7 @@ import { RASTER_W } from '../components/terminal/crt/raster';
 import { INK } from '../components/terminal/crt/palette';
 import { BAR_H } from '../components/terminal/system/gui/desktop';
 import { Gfx, PATTERNS } from '../components/terminal/system/gui/gfx';
+import { TvApp } from '../components/terminal/system/apps/tv';
 import { harness } from './terminal-harness';
 
 /** The pixel desk, driven by a pointer the way a visitor drives it. */
@@ -69,6 +70,19 @@ describe('pixel desk', () => {
     let lit = 0;
     for (let y = cy - 30; y < cy + 30; y++) for (let x = cx - 60; x < cx + 60; x++) if (page[y * RASTER_W + x]) lit++;
     expect(lit).toBeGreaterThan(1000);
+  });
+
+  it('fills the screen with the television from its corner box, its title, or its button', () => {
+    for (const how of ['box', 'title', 'button'] as const) {
+      const h = desk();
+      h.click(...h.at('tv'));
+      h.run(0.5);
+      const r = h.gui().rectOf('tv')!;
+      if (how === 'box') h.click(r.x + r.w - 12 - 20, r.y + 8);
+      else if (how === 'title') h.dblclick(r.x + 60, r.y + 8);
+      else h.clickText('Full');
+      expect(h.m.top, how).toBeInstanceOf(TvApp);
+    }
   });
 
   it('never leaves the desk in a scroll track drawn between pixels', () => {

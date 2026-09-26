@@ -61,6 +61,11 @@ export type WindowSpec = {
   onClose?(host: GuiHost): boolean | void;
   /** Called each time it comes up, the first time and after it was closed. */
   onOpen?(host: GuiHost): void;
+  /**
+   * What the box beside the close box (and a double click on the title) does instead
+   * of filling the desk: the television, for one, fills the whole screen.
+   */
+  onMaximise?(host: GuiHost): void;
 };
 
 /** What widgets can ask of the desk they live on. */
