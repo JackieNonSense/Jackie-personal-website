@@ -96,6 +96,8 @@ const LO = 2;
 const LW = W / LO, LH = H / LO;
 const FPS = 12.5;
 const low = new Uint8Array(W * H);
+/** The low page as it was, for the squeeze at switch-off. */
+const before = new Uint8Array(LH * W);
 
 /** The low page's `w` x `h` from (x0, y0), doubled onto the page at (x, y). */
 function blowUp(b: Uint8Array, x0: number, y0: number, w: number, h: number, x: number, y: number): void {
@@ -199,11 +201,12 @@ function drawIdent(b: Uint8Array, t: number, length: number, still: boolean, qui
   if (off > 0) {
     const cy = py + SIZE / 2;
     if (off < 0.58) {
-      const sq = Math.max(0.003, 1 - smooth(off * 1.7)), copy = low.slice(0, LH * W);
+      const sq = Math.max(0.003, 1 - smooth(off * 1.7));
+      before.set(low.subarray(0, LH * W));
       for (let y = 0; y < LH; y++) {
         const from = Math.round(cy + (y - cy) / sq);
         if (Math.abs(y - cy) > Math.max(1, (SIZE * sq) / 2) || from < 0 || from >= LH) low.fill(0, y * W, (y + 1) * W);
-        else low.set(copy.subarray(from * W, (from + 1) * W), y * W);
+        else low.set(before.subarray(from * W, (from + 1) * W), y * W);
       }
     } else {
       low.fill(0);
@@ -224,6 +227,7 @@ function drawBadge(b: Uint8Array, x: number, y: number, size: number): void {
 
 export const IDENT: Ident = {
   name: 'J&R.',
+  fps: FPS,
   length: (returning, still) => (still ? 1.2 : returning ? 3.0 : 4.6),
   draw: (b, t, length, still, returning) => drawIdent(b, t, length, still, returning),
   badge: drawBadge,

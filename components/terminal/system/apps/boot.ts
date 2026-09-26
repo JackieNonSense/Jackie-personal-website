@@ -16,6 +16,8 @@ export type PreloadItem = { name: string; size?: number; load?: () => Promise<un
 export type Ident = {
   /** What a screen reader hears while it plays. */
   name: string;
+  /** Frames a second it moves at, when fewer than the screen's: it is drawn only when a new one is due. */
+  fps?: number;
   /** Seconds it runs: for a first visit, a returning one, or a visitor who wants less motion. */
   length(returning: boolean, still: boolean): number;
   /** Its frame at `t` of `length` seconds, onto the graphics page (palette indices, 640 x 400). */
@@ -55,6 +57,7 @@ const center = (s: string, cols: number) => ' '.repeat(Math.max(0, Math.floor((c
 class Splash implements Stage {
   private t = 0;
   private length = 0;
+  private shown = -1;
 
   constructor(private readonly ident: Ident, private readonly returning: boolean) {}
 
@@ -67,9 +70,13 @@ class Splash implements Stage {
   }
 
   private draw(m: Machine): void {
+    const at = Math.min(this.t, this.length), fps = this.ident.fps;
+    const frame = m.still ? 0 : fps ? Math.ceil(at * fps) : at;
+    if (frame === this.shown) return;
+    this.shown = frame;
     const b = m.graphics();
     b.fill(0);
-    this.ident.draw(b, Math.min(this.t, this.length), this.length, m.still, this.returning);
+    this.ident.draw(b, at, this.length, m.still, this.returning);
     m.present();
   }
 
