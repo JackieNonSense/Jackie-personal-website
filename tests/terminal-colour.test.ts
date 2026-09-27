@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { GREY, INK, RAMP_BASE, ROLES, type Role } from '../components/terminal/crt/palette';
-import { BUTTONS, THEMES, luminance, mixPalette, type Rgb, type ThemeId } from '../components/terminal/crt/themes';
+import { GREY, INK, RAMP_BASE, ROLES, WEB, WEB_BASE, type Role } from '../components/terminal/crt/palette';
+import { BUTTONS, EXTRA, THEMES, luminance, mixPalette, type Rgb, type ThemeId } from '../components/terminal/crt/themes';
 import { DEGAUSS, degaussAt } from '../components/terminal/crt/degauss';
 import { CONTROLS, GLASS, controlAt, cssAt, layoutShell, rasterAt, rasterPoint } from '../components/terminal/crt/geometry';
 import { BOOT } from '../components/terminal/content/boot';
@@ -12,16 +12,17 @@ const contrast = (a: Rgb, b: Rgb) => { const la = luminance(a), lb = luminance(b
 
 describe('tubes', () => {
   it('gives every tube a full palette: black at 0, and a picture ramp that only gets brighter', () => {
-    expect(ids).toHaveLength(6);
-    expect([...BUTTONS].sort()).toEqual([...ids].sort());
+    expect(ids).toHaveLength(7);
+    expect([...BUTTONS, ...EXTRA].sort()).toEqual([...ids].sort());
     for (const id of ids) {
       const t = THEMES[id];
       expect(t.palette).toHaveLength(256 * 4);
       expect(luminance(colour(id, 0))).toBeLessThan(0.01);
-      for (let i = RAMP_BASE + 1; i < 256; i++) expect(luminance(colour(id, i))).toBeGreaterThanOrEqual(luminance(colour(id, i - 1)) - 1e-6);
+      for (let i = RAMP_BASE + 1; i < WEB_BASE; i++) expect(luminance(colour(id, i))).toBeGreaterThanOrEqual(luminance(colour(id, i - 1)) - 1e-6);
       expect(t.bios.length).toBeLessThanOrEqual(13);
     }
     expect(ROLES.length).toBeLessThanOrEqual(RAMP_BASE - 16);
+    expect(Object.keys(WEB).length).toBeLessThanOrEqual(256 - WEB_BASE);
   });
 
   it('keeps text readable on every tube', () => {

@@ -1,7 +1,7 @@
 import { HW } from '../crt/palette';
-import { HOME, fetchPage, normalise } from './web';
+import { BOOKMARKS, HOME, fetchPage, normalise } from './web';
 import { PageView, type Page } from '../system/gui/page';
-import { Box, Widget, type DrawState, type GuiHost, type WindowSpec } from '../system/gui/widget';
+import { Box, Widget, type DrawState, type GuiHost, type MenuItem, type WindowSpec } from '../system/gui/widget';
 import { Button, InputField, LINE, Label, Spacer, Toolbar } from '../system/gui/widgets';
 import type { Gfx } from '../system/gui/gfx';
 import type { Machine } from '../system/machine';
@@ -103,6 +103,8 @@ class Navigator {
 }
 
 let nav: Navigator | null = null;
+/** Where the next window to open should go first, if not the home page. */
+let first: string | null = null;
 
 /** The page and its bits, ticking the line along. */
 class BrowserBody extends Box {
@@ -115,8 +117,7 @@ class BrowserBody extends Box {
 
 export const BROWSER: WindowSpec = {
   id: 'browser', title: m => `NAVIGATOR - ${m.t(nav?.page?.title ?? '')}`,
-  size: { w: 560, h: 360 }, place: 'centre', resizable: true, min: { w: 360, h: 220 },
-  onOpen: host => { if (nav && !nav.page) nav.go(host.m, HOME); },
+  size: { w: 484, h: 356 }, place: { x: 152, y: 22 }, resizable: true, min: { w: 360, h: 220 },
   content: host => {
     const n = new Navigator();
     nav = n;
@@ -126,6 +127,10 @@ export const BROWSER: WindowSpec = {
     bar.add(new Button({ en: 'Forward ►', zh: '前进 ►' }, h => n.step(h.m, 1), { compact: true, enabled: () => n.index < n.history.length - 1 }));
     bar.add(new Button({ en: 'Home', zh: '主页' }, h => n.go(h.m, HOME), { compact: true }));
     bar.add(new Button({ en: 'Reload', zh: '刷新' }, h => { if (n.page) n.go(h.m, n.page.url, false); }, { compact: true }));
+    const marks: Button = bar.add(new Button({ en: 'Bookmarks', zh: '书签' }, h => {
+      const items: MenuItem[] = BOOKMARKS.map(b => ({ label: b.label, run: (hh: GuiHost) => n.go(hh.m, b.url) }));
+      h.popup(items, { x: marks.r.x, y: marks.r.y + marks.r.h });
+    }, { compact: true }));
     bar.add(new Spacer());
     bar.add(new Throbber(() => n.loading));
     const where = new Box('row', [76, 'fill'], 4, 3);
@@ -137,11 +142,20 @@ export const BROWSER: WindowSpec = {
       hover: href => { n.hover = href; },
     });
     n.view.id = 'page';
+    // The page takes the keys (the arrows scroll it), not the address.
+    n.view.primary = true;
     body.add(bar); body.add(where); body.add(n.view);
     body.add(new Status(m => n.status(m), () => (n.loading ? n.progress : 1)));
-    n.go(host.m, HOME);
+    n.go(host.m, first ?? HOME);
     return body;
   },
 };
 
-export const openBrowser = (host: GuiHost) => host.open(BROWSER);
+/** Opens NAVIGATOR at `url`; without one, on the home page, or where it is if it is open already. */
+export function openBrowser(host: GuiHost, url?: string): void {
+  const want = url ?? (host.isOpen(BROWSER.id) ? null : HOME);
+  first = want;
+  host.open(BROWSER);
+  first = null;
+  if (want && nav?.page && normalise(nav.page.url) !== normalise(want)) nav.go(host.m, want);
+}

@@ -199,9 +199,9 @@ export class Desktop implements App, GuiHost {
     if (i < 0) return;
     this.windows.splice(i, 1);
     this.windows.push(w);
-    // The keys go where they went before; else to the first list or text, and only then to a button.
+    // The keys go where they went before; else to what the window is for, the first list or text, and only then to a button.
     const all = [...w.content.walk()].filter(x => x.focusable && x.visible);
-    this.setFocus(w.focus && all.includes(w.focus) ? w.focus : all.find(x => !(x instanceof Button)) ?? all[0] ?? null);
+    this.setFocus(w.focus && all.includes(w.focus) ? w.focus : all.find(x => x.primary) ?? all.find(x => !(x instanceof Button)) ?? all[0] ?? null);
     this.dirty = true;
   }
 
@@ -618,9 +618,9 @@ export class Desktop implements App, GuiHost {
       const run = [...this.layers[i].runs].reverse().find(r => r.text.includes(text) && !above.some(a => contains(a, r.x + r.w / 2, r.y + r.h / 2))
         && (!box || contains(box, r.x + 1, r.y + r.h / 2)));
       if (run) {
-        // Narrow to the words themselves, 8 pixels a character (16 for Chinese).
-        const before = strWidth(run.text.slice(0, run.text.indexOf(text))) * 8;
-        return { x: run.x + before, y: run.y, w: strWidth(text) * 8, h: run.h };
+        // Narrow to the words themselves, 8 pixels a character (16 for Chinese), or as wide as the page's type sets them.
+        const k = run.k ?? 1, before = strWidth(run.text.slice(0, run.text.indexOf(text))) * 8 * k;
+        return { x: run.x + before, y: run.y, w: strWidth(text) * 8 * k, h: run.h };
       }
     }
     return null;

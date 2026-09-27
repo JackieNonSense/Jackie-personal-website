@@ -6,7 +6,8 @@ import { logOff } from './ending';
 import { DESK_ICONS } from './icons';
 import { MARK_ICON } from './mark';
 import { openBrowser } from './browser';
-import { messages, post, readFlag, type Message } from './messages';
+import { owns, type Goods } from './web/shop';
+import { BOARD_URL } from './web';
 import { PHOTOS } from './photos';
 import { PROGRAMS, lighthouse, pictureViewer, shell } from './bbs';
 import { hhmm, isoDate, machineNow } from './time';
@@ -101,77 +102,6 @@ function listWindow(id: string, title: Text, entries: (m: Machine) => Entry[], s
     },
   };
 }
-
-// ── Messages ───────────────────────────────────────────────────────────────────
-
-type Numbered = Message & { n: number };
-const numbered = (m: Machine): Numbered[] => messages(m).map((msg, i) => ({ ...msg, n: i + 1 }));
-
-function compose(host: GuiHost, list: ListView<Numbered>): void {
-  const subject = new InputField({ max: 40 }), text = new InputField({ max: 400 });
-  const form = new Box('column', [LINE, 24, 8, LINE, 24], 2);
-  form.add(new Label({ en: 'Subject', zh: '标题' })); form.add(subject);
-  form.add(new Spacer());
-  form.add(new Label({ en: 'Message', zh: '内容' })); form.add(text);
-  const send = (h: GuiHost) => {
-    if (!subject.value.trim() || !text.value.trim()) { h.beep(); return false; }
-    post(h.m, subject.value.trim(), text.value.trim());
-    h.m.audio.sfx('disk', '0.4');
-    list.refresh();
-    list.select(list.items.length - 1);
-    return true;
-  };
-  dialog(host, { en: 'New message  ·  from JACKIE', zh: '发新帖  ·  作者 JACKIE' }, form, [
-    { label: { en: 'Send', zh: '发送' }, isDefault: true, run: send },
-    { label: { en: 'Cancel', zh: '取消' } },
-  ], { w: 420, h: 200 });
-  host.focus(subject);
-}
-
-const BOARD: WindowSpec = {
-  id: 'board', title: { en: 'Messages', zh: '留言板' }, size: { w: 460, h: 330 }, place: { x: 160, y: 30 }, resizable: true,
-  content: host => {
-    const body = new TextView(m => {
-      const msg = list.item;
-      if (!msg) return '';
-      return m.t({
-        en: `From: ${msg.from}\nDate: ${msg.date} ${msg.time}\nSubj: ${m.t(msg.subject)}\n${'─'.repeat(24)}\n`,
-        zh: `作者：${msg.from}\n时间：${msg.date} ${msg.time}\n标题：${m.t(msg.subject)}\n${'─'.repeat(24)}\n`,
-      }) + m.t(msg.body);
-    });
-    const small = host.m.scale === 2;
-    const list: ListView<Numbered> = new ListView<Numbered>({
-      items: numbered,
-      header: true,
-      columns: [
-        { title: '#', width: 30, align: 'right', text: msg => String(msg.n) },
-        ...(small ? [] : [
-          { title: { en: 'Date', zh: '日期' }, width: 92, text: (msg: Numbered) => msg.date },
-          { title: { en: 'From', zh: '作者' }, width: 96, text: (msg: Numbered) => msg.from },
-        ]),
-        { title: { en: 'Subject', zh: '标题' }, width: 'fill', text: (msg, m) => m.t(msg.subject) },
-      ],
-      // What has not been read stands out.
-      style: (msg, m) => (m.has(readFlag(msg)) ? 'normal' : 'bold'),
-      onSelect: (msg, _i, h, tapped) => { body.set(body.text); h.m.mark(readFlag(msg)); if (tapped) split.showSecond(); },
-    });
-    list.id = 'board-list';
-    // Opens on the newest message.
-    list.items = numbered(host.m);
-    list.selected = list.items.length - 1;
-    list.top = Math.max(0, list.items.length - 6);
-    host.m.mark(readFlag(list.items[list.selected]));
-    const bar = new Toolbar();
-    bar.add(new Button({ en: 'New', zh: '发帖' }, h => compose(h, list)));
-    bar.add(new Button({ en: '◄ Previous', zh: '◄ 上一篇' }, () => list.select(list.selected - 1)));
-    bar.add(new Button({ en: 'Next ►', zh: '下一篇 ►' }, () => list.select(list.selected + 1)));
-    const box = new Box('column', [28, 'fill']);
-    box.add(bar);
-    const split = new Split(list, body, { direction: 'column', first: 130 });
-    box.add(split);
-    return box;
-  },
-};
 
 // ── Files ──────────────────────────────────────────────────────────────────────
 
@@ -680,13 +610,18 @@ const HELP_WINDOW: WindowSpec = {
 class SettingsBody extends Widget {
   /** Under the tubes, and two lines long in a narrow column. */
   private readonly note: Label;
+  /** Where the second column starts, when there are two. */
+  private readonly language: Label;
+  /** What came from the night market, each shown once it has. */
+  private readonly bought: [Widget, Goods][] = [];
 
   constructor() {
     super();
     this.add(new Label({ en: 'Tube', zh: '显像管' }, { bold: true }));
     BUTTONS.forEach((id, i) => this.add(new Radio(m => `${i + 1} ${m.t(THEMES[id].name)}`, m => m.theme.id === id, m => m.setTheme(id))));
+    this.bought.push([this.add(new Radio(m => `· ${m.t(THEMES.p7.name)}`, m => m.theme.id === 'p7', m => m.setTheme('p7'))), 'p7']);
     this.note = this.add(new Label({ en: 'Or the buttons under the screen.', zh: '也可以按屏幕下面的按键。' }, { colour: 'faceDim' }));
-    this.add(new Label({ en: 'Language', zh: '语言' }, { bold: true }));
+    this.language = this.add(new Label({ en: 'Language', zh: '语言' }, { bold: true }));
     const lang = (label: string, l: Lang) => new Radio(label, m => m.lang === l, (m, host) => { void m.setLanguage(l).then(() => host.invalidate()); });
     this.add(lang('English', 'en'));
     this.add(lang('中文', 'zh'));
@@ -696,16 +631,28 @@ class SettingsBody extends Widget {
     const saver = (label: Text, kind: string) => new Radio(label, m => m.store.get('saver', 'lighthouse') === kind, m => m.store.set('saver', kind));
     this.add(saver({ en: 'Lighthouses', zh: '灯塔' }, 'lighthouse'));
     this.add(saver({ en: 'Seeds', zh: '种子' }, 'seeds'));
+    this.bought.push([this.add(saver({ en: 'Stars', zh: '星空' }, 'stars')), 'stars']);
     this.add(saver({ en: 'Off', zh: '关闭' }, 'off'));
   }
 
+  paint(g: Gfx, s: DrawState): void {
+    // Something bought while the window was shut, or open.
+    if (this.bought.some(([w, id]) => w.visible !== owns(s.m, id))) this.arrange();
+    super.paint(g, s);
+  }
+
   protected arrange(): void {
+    if (this.host) for (const [w, id] of this.bought) w.visible = owns(this.m, id);
+    const kids = this.children.filter(c => c.visible);
     // Too narrow for one column of everything: the tubes on the left (their names are
     // the longer ones, so they get more of the width), the rest on the right.
-    const two = this.r.w < 400, split = two ? 8 : this.children.length, cut = Math.floor(this.r.w * 0.55);
-    const step = this.r.h < 190 ? LINE + 1 : LINE + 3;
+    const two = this.r.w < 400, split = two ? kids.indexOf(this.language) : kids.length, cut = Math.floor(this.r.w * 0.55);
+    const tall = (list: Widget[], step: number) => list.reduce((h, c) => h + step + (c instanceof Label ? 1 : 0) + (c === this.note ? LINE : 0), 0);
+    let step = this.r.h < 190 ? LINE + 1 : LINE + 3;
+    // Tighter, if what was bought would not otherwise fit.
+    if (Math.max(tall(kids.slice(0, split), step), tall(kids.slice(split), step)) > this.r.h - 6) step = LINE + 1;
     let y = this.r.y + 6;
-    this.children.forEach((c, i) => {
+    kids.forEach((c, i) => {
       if (i === split) y = this.r.y + 6;
       const heading = c instanceof Label, right = two && i >= split;
       const x = this.r.x + (right ? cut : 0), w = !two ? this.r.w : right ? this.r.w - cut : cut;
@@ -826,20 +773,20 @@ const MENU: MenuItem[] = [
 ];
 
 const ICONS: DeskIcon[] = [
-  { id: 'board', label: { en: 'Messages', zh: '留言板' }, icon: DESK_ICONS.messages, open: host => host.open(BOARD) },
+  { id: 'board', label: { en: 'Messages', zh: '留言板' }, icon: DESK_ICONS.messages, open: host => openBrowser(host, BOARD_URL) },
   { id: 'files', label: { en: 'Files', zh: '文件' }, icon: DESK_ICONS.files, open: host => host.open(FILES) },
   { id: 'diary', label: { en: 'Diary', zh: '日记' }, icon: DESK_ICONS.diary, open: openDiary },
   { id: 'photos', label: { en: 'Photos', zh: '相册' }, icon: DESK_ICONS.photos, open: host => host.open(GALLERY) },
   { id: 'library', label: { en: 'Library', zh: '书库' }, icon: DESK_ICONS.library, open: host => host.open(LIBRARY) },
   { id: 'tv', label: { en: 'TV', zh: '电视' }, icon: DESK_ICONS.tv, open: tv },
-  { id: 'net', label: { en: 'Navigator', zh: '网络' }, icon: DESK_ICONS.net, open: openBrowser },
+  { id: 'net', label: { en: 'Navigator', zh: '网络' }, icon: DESK_ICONS.net, open: host => openBrowser(host) },
   { id: 'paint', label: { en: 'Paint', zh: '画图' }, icon: DESK_ICONS.paint, open: host => openPaint(host) },
   { id: 'games', label: { en: 'Games', zh: '游戏' }, icon: DESK_ICONS.games, open: host => host.open(GAMES) },
   { id: 'dos', label: 'DOS', icon: DESK_ICONS.dos, open: host => host.run(shell()) },
   { id: 'system', label: { en: 'System', zh: '系统' }, icon: DESK_ICONS.system, open: host => host.open(SYSTEM) },
 ];
 
-/** The desk as it comes up: the board open on the newest message, as Jackie left it. */
+/** The desk as it comes up: NAVIGATOR open on his board, on the newest letter, as Jackie left it. */
 export function desktop(): Desktop {
   disk.path = []; disk.showDeleted = false; filesList = null; reading = null; readerText = null; tvSet = null;
   return new Desktop({
@@ -847,10 +794,11 @@ export function desktop(): Desktop {
     menu: MENU,
     mark: MARK_ICON,
     tip: { en: 'Tip: click an icon to open it', zh: '提示：点一下图标就能打开' },
-    start: host => host.open(BOARD),
+    start: host => openBrowser(host, BOARD_URL),
     saver: m => {
       const kind = m.store.get<string>('saver', 'lighthouse');
-      return kind === 'off' ? null : new SaverApp(kind === 'seeds' ? 'seeds' : 'lighthouse');
+      if (kind === 'off') return null;
+      return new SaverApp(kind === 'seeds' ? 'seeds' : kind === 'stars' && owns(m, 'stars') ? 'stars' : 'lighthouse');
     },
   });
 }

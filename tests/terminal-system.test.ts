@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { TvApp } from '../components/terminal/system/apps/tv';
 import { CHANNELS } from '../components/terminal/content/channels';
 import { INK } from '../components/terminal/crt/palette';
@@ -465,38 +465,6 @@ describe('story', () => {
   });
 });
 
-describe('message board', () => {
-  it('opens on the newest message, reads in order and turns with the arrows', () => {
-    const h = harness();
-    h.onDesk();
-    expect(h.screen()).toContain("I didn't write anything.");
-    h.press('Home');
-    expect(h.screen()).toContain('This is my little board.');
-    h.press('ArrowRight');
-    expect(h.screen()).toContain('time travel back to 1993');
-    h.press('ArrowLeft');
-    expect(h.screen()).toContain('This is my little board.');
-    expect(h.m.has('post:2029-10-01/23:02/SYSOP')).toBe(true);
-  });
-
-  it('posts as JACKIE, and Cheng answers', () => {
-    const h = harness();
-    h.onDesk();
-    h.clickText('New');
-    h.keys('hello');
-    h.press('Tab');
-    h.keys('is anyone here');
-    h.press('Enter');
-    expect(h.screen()).toMatch(/JACKIE\s+hello/);
-    const now = Date.now();
-    const clock = vi.spyOn(Date, 'now').mockReturnValue(now + 120_000);
-    h.clickText('hello', 'board-list');
-    h.press('End');
-    expect(h.screen()).toContain('re: hello');
-    clock.mockRestore();
-  });
-});
-
 describe('PICVIEW', () => {
   it('reads a picture off the disk a line at a time and stamps the camera time', async () => {
     const h = harness();
@@ -554,12 +522,4 @@ describe('scrolling', () => {
     expect(h.screen()).toContain('0001.TXT');
   });
 
-  it('moves the board with the wheel', () => {
-    const h = harness();
-    h.onDesk();
-    const row = h.gui().find('the photos')!;
-    expect(row).not.toBeNull();
-    h.wheel(row.x, row.y, -20);
-    expect(h.gui().find("i'm here!!")).not.toBeNull();
-  });
 });

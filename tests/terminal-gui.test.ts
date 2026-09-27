@@ -16,7 +16,8 @@ function desk() {
 describe('pixel desk', () => {
   it('comes up on the board, newest message first', () => {
     const h = desk();
-    expect(h.gui().openWindows).toEqual(['board']);
+    expect(h.gui().openWindows).toEqual(['browser']);
+    h.run(3);
     expect(h.screen()).toContain("I didn't write anything.");
   });
 
@@ -29,11 +30,11 @@ describe('pixel desk', () => {
 
   it('moves a window by its title bar, and never off the desk', () => {
     const h = desk();
-    const r = h.gui().rectOf('board')!;
+    const r = h.gui().rectOf('browser')!;
     h.drag([r.x + 60, r.y + 8], [r.x + 20, r.y + 58]);
-    expect(h.gui().rectOf('board')).toMatchObject({ x: r.x - 40, y: r.y + 50 });
+    expect(h.gui().rectOf('browser')).toMatchObject({ x: r.x - 40, y: r.y + 50 });
     h.drag([r.x + 20, r.y + 58], [r.x - 900, r.y - 900]);
-    const after = h.gui().rectOf('board')!;
+    const after = h.gui().rectOf('browser')!;
     expect(after.y).toBe(BAR_H);
     expect(after.x + after.w).toBeGreaterThanOrEqual(48);
   });
@@ -51,7 +52,7 @@ describe('pixel desk', () => {
     expect(Buffer.compare(Buffer.from(dragged), Buffer.from(h.m.graphics()))).toBe(0);
     h.pointer('up', r.x - 32, r.y + 48);
     expect(h.gui().rectOf('system')).toMatchObject({ x: r.x - 72, y: r.y + 40 });
-    expect(h.gui().openWindows).toEqual(['board', 'files', 'system']);
+    expect(h.gui().openWindows).toEqual(['browser', 'files', 'system']);
   });
 
   it('keeps a window on whole pixels when the pointer is between them, and its picture with it', () => {
@@ -107,7 +108,7 @@ describe('pixel desk', () => {
 
   it('closes a window with its close box, and with ESC', () => {
     const h = desk();
-    const r = h.gui().rectOf('board')!;
+    const r = h.gui().rectOf('browser')!;
     h.click(r.x + r.w - 12, r.y + 8);
     expect(h.gui().openWindows).toEqual([]);
     h.click(...h.at('files'));
@@ -216,7 +217,7 @@ describe('pixel desk', () => {
     const h = desk();
     h.press('Escape');
     h.press('ArrowDown'); h.press('Enter');
-    expect(h.gui().openWindows).toEqual(['board']);
+    expect(h.gui().openWindows).toEqual(['browser']);
   });
 });
 

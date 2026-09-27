@@ -58,8 +58,11 @@ describe('desk', () => {
   it('gives the phone keyboard a field while a line is typed', () => {
     const h = harness();
     h.onDesk();
+    h.run(3);
     expect(h.m.line).toBeNull();
-    h.clickText('New');
+    h.clickText('Write something', 'page');
+    h.run(3);
+    h.clickText('subject', 'page');
     expect(h.m.line).toBe('');
     h.keys('hi');
     expect(h.m.line).toBe('hi');
@@ -149,7 +152,7 @@ describe('on a phone', () => {
     const h = harness('large');
     h.onDesk();
     expect(h.m.scale).toBe(2);
-    const board = h.gui().rectOf('board')!;
+    const board = h.gui().rectOf('browser')!;
     expect(board).toMatchObject({ x: 0, w: 320 });
     h.press('Escape');
     for (const id of ['board', 'files', 'diary', 'photos', 'library', 'tv', 'games', 'dos', 'system']) {

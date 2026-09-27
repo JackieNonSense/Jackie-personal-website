@@ -26,7 +26,8 @@ export const PATTERNS = {
 export type Icon = { w: number; h: number; rows: readonly string[]; ink: Readonly<Record<string, Ink>> };
 
 /** Text as it was drawn: what tests and screen readers are told is on the screen. */
-export type TextRun = { x: number; y: number; w: number; h: number; text: string };
+/** Where a string landed; `k` is how wide its characters are against the ROM's 8 pixels, for type drawn some other way. */
+export type TextRun = { x: number; y: number; w: number; h: number; text: string; k?: number };
 
 /** An icon's rows as runs of one character, worked out the first time it is drawn. */
 const iconRuns = new WeakMap<Icon, { x: number; y: number; n: number; ch: string }[]>();
@@ -221,6 +222,15 @@ export class Gfx {
     return cx;
   }
 
+  /** Words drawn some other way than `text` (a web page's own type): noted where they landed, `w` wide. */
+  note(x: number, y: number, w: number, h: number, text: string): void {
+    if (!text.trim()) return;
+    const box = intersect(this.clipRect, { x: x + this.ox, y: y + this.oy, w, h });
+    let cells = 0;
+    for (const ch of text) cells += charWidth(ch);
+    if (box) this.runs.push({ ...box, text, k: w / Math.max(1, cells * GLYPH_W) });
+  }
+
   /** One glyph with its top left at (x, y) on the page, already known to fit across the clip. */
   private glyph(code: number, x: number, y: number, v: number, bold = false): void {
     const s = this.scale, W = this.pageW, c = this.clipRect, page = this.page, glyphs = this.glyphs;
@@ -306,6 +316,43 @@ export class Gfx {
     for (let ry = c.y * s; ry < (c.y + c.h) * s; ry++) {
       const sy = Math.min(h - 1, Math.floor(((ry - top) * h) / dh)) * w;
       for (let rx = c.x * s; rx < (c.x + c.w) * s; rx++) this.page[ry * W + rx] = data[sy + Math.min(w - 1, Math.floor(((rx - left) * w) / dw))];
+    }
+  }
+
+  /** A one-byte-a-pixel mask (1 is ink) in one colour, top left at (x, y). */
+  mask(data: Uint8Array, w: number, h: number, x: number, y: number, colour: Ink): void {
+    const v = ink(colour), c = this.clipRect, s = this.scale, W = this.pageW, page = this.page;
+    const X = Math.round(x + this.ox), Y = Math.round(y + this.oy);
+    const x0 = Math.max(X, c.x), x1 = Math.min(X + w, c.x + c.w), y0 = Math.max(Y, c.y), y1 = Math.min(Y + h, c.y + c.h);
+    for (let yy = y0; yy < y1; yy++) {
+      const row = (yy - Y) * w - X;
+      for (let xx = x0; xx < x1; xx++) {
+        if (!data[row + xx]) continue;
+        if (s === 1) page[yy * W + xx] = v;
+        else { const at = yy * 2 * W + xx * 2; page[at] = v; page[at + 1] = v; page[at + W] = v; page[at + W + 1] = v; }
+      }
+    }
+  }
+
+  /**
+   * A rectangle of palette indices from another page (`src`, `sw` wide), from (sx, sy)
+   * there, into `dst` here: how a page drawn once off the screen is shown scrolled.
+   */
+  blit(src: Uint8Array, sw: number, sh: number, sx: number, sy: number, dst: Rect): void {
+    const c = this.area(dst);
+    if (!c) return;
+    const s = this.scale, W = this.pageW, page = this.page;
+    const ox = Math.round(dst.x + this.ox), oy = Math.round(dst.y + this.oy);
+    for (let y = c.y; y < c.y + c.h; y++) {
+      const ry = sy + (y - oy);
+      if (ry < 0 || ry >= sh) continue;
+      const from = ry * sw + sx + (c.x - ox), n = Math.min(c.w, sw - (sx + (c.x - ox)));
+      if (n <= 0) continue;
+      if (s === 1) page.set(src.subarray(from, from + n), y * W + c.x);
+      else for (let k = 0; k < n; k++) {
+        const v = src[from + k], at = y * 2 * W + (c.x + k) * 2;
+        page[at] = v; page[at + 1] = v; page[at + W] = v; page[at + W + 1] = v;
+      }
     }
   }
 

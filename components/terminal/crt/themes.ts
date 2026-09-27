@@ -1,14 +1,15 @@
-import { RAMP_BASE, RAMP_STEPS, ROLES, INK, type Role } from './palette';
+import { RAMP_BASE, RAMP_STEPS, ROLES, INK, WEB, WEB_COLOURS, type Role, type WebColour } from './palette';
 import type { Text } from '../system/i18n';
 
 /*
  * The tubes the six buttons under the screen select. Three are monochrome
  * phosphors (the green the machine came with, amber, paper white); three are
- * colour tubes with palettes of their own. A theme is only colours and a few
+ * colour tubes with palettes of their own. A seventh, P7, comes later, bought at
+ * the night market. A theme is only colours and a few
  * physical constants: every index of the raster means the same in each.
  */
 
-export type ThemeId = 'p1' | 'p3' | 'p4' | 'classic' | 'pc98' | 'jr';
+export type ThemeId = 'p1' | 'p3' | 'p4' | 'classic' | 'pc98' | 'jr' | 'p7';
 /** Linear light; a little over 1 blooms. */
 export type Rgb = readonly [number, number, number];
 
@@ -192,6 +193,12 @@ const SPECS: ThemeSpec[] = [
     ramp: { dark: '#1948D5', light: '#F0EDE4', saturation: 0.42 },
     tube: { ...COLOUR_TUBE, baseGlow: [0.6, 0.6, 0.55], dot: [0.95, 0.93, 0.88], converge: 0.25, gain: 0.95, spill: 6 },
   },
+  {
+    // Out of a radar console, bought at the night market: no button of its own under the screen.
+    id: 'p7', name: { en: 'P7 radar blue', zh: 'P7 雷达蓝' }, bios: 'VGA, P7 radar', pattern: 'quarter',
+    kind: 'mono', phosphor: [0.16, 0.4, 1.25], levels: DARK,
+    tube: { mono: true, core: [0.5, 0.72, 1], baseGlow: [0.16, 0.4, 1.25], dot: [0.16, 0.4, 1.25], fastTau: 0.012, slowTau: 0.9, tail: 0.42, converge: 0, gain: 1, spill: 9 },
+  },
 ];
 
 // ── Building a palette ─────────────────────────────────────────────────────────
@@ -213,6 +220,7 @@ function build(spec: ThemeSpec): Theme {
     VGA.forEach((h, i) => set(i, at(Math.sqrt(luminance(hex(h))))));
     for (const role of ROLES) set(INK[role], at(spec.levels[role]));
     for (let i = 0; i < RAMP_STEPS; i++) set(RAMP_BASE + i, at(i / (RAMP_STEPS - 1)));
+    for (const name of Object.keys(WEB_COLOURS) as WebColour[]) set(WEB[name], at(Math.sqrt(luminance(hex(WEB_COLOURS[name])))));
   } else {
     spec.hardware.forEach((h, i) => set(i, hex(h)));
     for (const role of ROLES) set(INK[role], hex(spec.roles[role]));
@@ -222,6 +230,8 @@ function build(spec: ThemeSpec): Theme {
       const t = i / (RAMP_STEPS - 1), k = smoothstep(0.1, 0.85, t);
       set(RAMP_BASE + i, [0, 1, 2].map(c => t * (dark[c] + (light[c] - dark[c]) * k)) as unknown as Rgb);
     }
+    // The web is the web on any colour tube.
+    for (const name of Object.keys(WEB_COLOURS) as WebColour[]) set(WEB[name], hex(WEB_COLOURS[name]));
   }
   const white = spec.kind === 'mono' ? luminance(spec.phosphor) : 1;
   const srgb = new Uint32Array(256), level = new Uint8Array(256);
@@ -242,6 +252,8 @@ export function packSrgb(c: Rgb): number {
 export const THEMES = Object.fromEntries(SPECS.map(s => [s.id, build(s)])) as Record<ThemeId, Theme>;
 /** Left to right under the screen. */
 export const BUTTONS: readonly ThemeId[] = ['p1', 'p3', 'p4', 'classic', 'pc98', 'jr'];
+/** Tubes that come later, from the night market, and only appear in Settings once they have. */
+export const EXTRA: readonly ThemeId[] = ['p7'];
 export const DEFAULT_THEME: ThemeId = 'classic';
 export const isTheme = (id: unknown): id is ThemeId => typeof id === 'string' && id in THEMES;
 

@@ -6,10 +6,11 @@ import type { App, Machine, Pointer } from '../machine';
 /*
  * The screen saver, after a minute with nobody at the machine. Two scenes, both
  * Jackie's: the coast from LIGHTHOUSE, where one more lighthouse stands every
- * time you look; and seeds rising, one of which, now and then, stops.
+ * time you look; and seeds rising, one of which, now and then, stops. A third,
+ * STARS.SCR, comes on a floppy from the night market: flying through stars.
  * Anything at all brings the desk back, and that touch goes no further.
  */
-export type SaverKind = 'lighthouse' | 'seeds';
+export type SaverKind = 'lighthouse' | 'seeds' | 'stars';
 
 /** How far the mouse must move (raster pixels) to wake the desk. */
 const WAKE = 3;
@@ -17,6 +18,8 @@ const HORIZON = 262;
 
 type Tower = { x: number; h: number; w: number; phase: number; speed: number; born: number };
 type Seed = { x: number; y: number; layer: number; drift: number; stop: number | null };
+/** A star ahead: where it is across the view, and how far off (1 is the farthest). */
+type Star = { x: number; y: number; z: number };
 
 /** A small generator, so the scene is the same every time it starts. */
 function random(seed: number) {
@@ -35,9 +38,12 @@ export class SaverApp implements App {
   private readonly stars: { x: number; y: number; phase: number }[] = [];
   private readonly towers: Tower[] = [];
   private seeds: Seed[] = [];
+  private readonly field: Star[] = [];
+  private flown: number | null = null;
   private readonly rand = random(307);
 
   constructor(readonly kind: SaverKind) {
+    for (let i = 0; i < 220; i++) this.field.push({ x: (this.rand() - 0.5) * 2, y: (this.rand() - 0.5) * 2, z: 0.05 + this.rand() * 0.95 });
     for (let i = 0; i < 140; i++) this.stars.push({ x: this.rand() * W, y: this.rand() * (HORIZON - 20), phase: this.rand() * 7 });
   }
 
@@ -70,7 +76,7 @@ export class SaverApp implements App {
 
   private draw(m: Machine): void {
     const b = m.graphics();
-    if (this.kind === 'lighthouse') this.coast(b); else this.rising(b);
+    if (this.kind === 'lighthouse') this.coast(b); else if (this.kind === 'stars') this.flying(b); else this.rising(b);
     m.present();
   }
 
@@ -153,6 +159,33 @@ export class SaverApp implements App {
     const flash = lit && Math.cos(angle) ** 2 < 0.08;
     for (let y = top - 3; y < top + 3; y++) for (let x = left + 1; x < left + tw.w - 1; x++) {
       if (x >= 0 && x < W && y >= 0) b[y * W + x] = lit ? (flash ? HW.white : HW.yellow) : HW.darkGrey;
+    }
+  }
+
+  // ── Stars ──────────────────────────────────────────────────────────────────
+
+  private flying(b: Uint8Array): void {
+    b.fill(HW.black);
+    const dt = Math.min(0.1, this.t - (this.flown ?? this.t));
+    this.flown = this.t;
+    const k = W * 0.32;
+    for (const s of this.field) {
+      s.z -= dt * 0.3;
+      const px = W / 2 + (s.x / s.z) * k, py = H / 2 + (s.y / s.z) * k;
+      if (s.z < 0.03 || px < 0 || px >= W - 2 || py < 0 || py >= H - 2) { s.x = (this.rand() - 0.5) * 2; s.y = (this.rand() - 0.5) * 2; s.z = 0.75 + this.rand() * 0.25; continue; }
+      // Nearer, brighter and bigger, and streaking as it passes.
+      const near = 1 - s.z, v = near > 0.7 ? HW.white : near > 0.4 ? HW.grey : HW.darkGrey;
+      if (near > 0.55) {
+        const back = s.z + 0.05, bx = W / 2 + (s.x / back) * k, by = H / 2 + (s.y / back) * k;
+        const n = Math.ceil(Math.hypot(px - bx, py - by));
+        for (let j = 0; j <= n; j++) {
+          const x = Math.floor(bx + ((px - bx) * j) / n), y = Math.floor(by + ((py - by) * j) / n);
+          if (x >= 0 && x < W && y >= 0 && y < H) b[y * W + x] = j > n * 0.6 ? v : HW.darkGrey;
+        }
+      }
+      const i = Math.floor(py) * W + Math.floor(px);
+      b[i] = v;
+      if (near > 0.8) { b[i + 1] = v; b[i + W] = v; b[i + W + 1] = v; }
     }
   }
 

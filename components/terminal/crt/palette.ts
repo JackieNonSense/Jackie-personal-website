@@ -6,11 +6,13 @@
  *
  *   0..15    the 16 hardware colours, in VGA order (0 black, 7 light grey, 15 white)
  *   16..63   roles: the desk, window faces, title bars, text mode's attributes
- *   64..255  a ramp for pictures, from black to the brightest the tube shows
+ *   64..191  a ramp for pictures, 128 steps from black to the brightest the tube shows
+ *   192..255 the web's own colours (the pages NAVIGATOR shows were made in them)
  */
 export const ROLE_BASE = 16;
 export const RAMP_BASE = 64;
-export const RAMP_STEPS = 256 - RAMP_BASE;
+export const WEB_BASE = 192;
+export const RAMP_STEPS = WEB_BASE - RAMP_BASE;
 
 /** The 16 hardware colours by name, for pictures and games drawn in them. */
 export const HW = {
@@ -41,6 +43,24 @@ export const INK = Object.fromEntries(ROLES.map((role, i) => [role, ROLE_BASE + 
 /** A colour to draw with: a role, or a palette index. */
 export type Ink = Role | number;
 export const ink = (i: Ink): number => (typeof i === 'number' ? i : INK[i]);
+
+/**
+ * The colours the web's pages were made in, whatever a tube makes of them: paper and
+ * risograph inks, a fan site's pastels, a forum's blues, a shop's neon at night.
+ */
+export const WEB_COLOURS = {
+  paper: '#F4F1E8', paperDark: '#E6E0D0', riso: '#1C3FAE', risoRed: '#E0443C', ink: '#1A1A1A',
+  pink: '#FFD6F0', pinkPale: '#FFE8F6', lilac: '#EEDDFF', lilacDeep: '#8888DD', periwinkle: '#AAAAFF',
+  purple: '#5522AA', violet: '#6633AA', orchid: '#AA55CC', rose: '#FF77BB',
+  forum: '#336699', forumPale: '#CCDDEE', forumRowA: '#F0F4F8', forumRowB: '#E4ECF4', forumLine: '#99AABB', forumBar: '#DDE6EE',
+  cream: '#FFF8E7', kraft: '#C8A878', umber: '#5A3E1B', leaf: '#2E7D32', leafPale: '#DCEFD8', gold: '#E8B830', stampRed: '#B22222',
+  night: '#140C22', nightPanel: '#231638', neonPink: '#FF3C8E', neonCyan: '#33E1FF', neonYellow: '#FFE45C', dusk: '#6E5A8A',
+  jrBlack: '#050505', jrGreen: '#64FF35', jrCobalt: '#1948D5', jrAmber: '#FFB000', jrPaper: '#DEDBD2', jrGrey: '#7A776F',
+  g95: '#F2F2F2', g85: '#D9D9D9', g70: '#B3B3B3', g55: '#8C8C8C', g40: '#666666', g25: '#404040',
+  seekBlue: '#2A5DB0', seekSky: '#E8F0FF', linkBlue: '#0000EE', visited: '#551A8B', alarm: '#CC0000', white: '#FFFFFF', black: '#000000',
+} as const;
+export type WebColour = keyof typeof WEB_COLOURS;
+export const WEB = Object.fromEntries(Object.keys(WEB_COLOURS).map((name, i) => [name, WEB_BASE + i])) as Readonly<Record<WebColour, number>>;
 
 /** Picture intensity (0..255, what pictures are stored as) to its index on the ramp. */
 export const GREY = Uint8Array.from({ length: 256 }, (_, v) => RAMP_BASE + Math.round((v * (RAMP_STEPS - 1)) / 255));

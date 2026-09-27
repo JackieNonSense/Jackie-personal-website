@@ -95,6 +95,8 @@ export abstract class Widget {
   visible = true;
   enabled = true;
   focusable = false;
+  /** Where the keys go first when its window comes up, before any list or field. */
+  primary = false;
   /** Redrawn when the pointer comes and goes (buttons light up; plain text does not). */
   hoverable = false;
   cursor: CursorShape = 'arrow';
