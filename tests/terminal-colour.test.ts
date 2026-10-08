@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { GREY, INK, RAMP_BASE, ROLES, WEB, WEB_BASE, type Role } from '../components/terminal/crt/palette';
+import { GREY, INK, RAMP_BASE, RAMP_STEPS, ROLES, WEB, WEB_BASE, type Role } from '../components/terminal/crt/palette';
 import { BUTTONS, EXTRA, THEMES, luminance, mixPalette, type Rgb, type ThemeId } from '../components/terminal/crt/themes';
 import { DEGAUSS, degaussAt } from '../components/terminal/crt/degauss';
 import { CONTROLS, GLASS, controlAt, cssAt, layoutShell, rasterAt, rasterPoint } from '../components/terminal/crt/geometry';
@@ -18,7 +18,7 @@ describe('tubes', () => {
       const t = THEMES[id];
       expect(t.palette).toHaveLength(256 * 4);
       expect(luminance(colour(id, 0))).toBeLessThan(0.01);
-      for (let i = RAMP_BASE + 1; i < WEB_BASE; i++) expect(luminance(colour(id, i))).toBeGreaterThanOrEqual(luminance(colour(id, i - 1)) - 1e-6);
+      for (let i = RAMP_BASE + 1; i < RAMP_BASE + RAMP_STEPS; i++) expect(luminance(colour(id, i))).toBeGreaterThanOrEqual(luminance(colour(id, i - 1)) - 1e-6);
       expect(t.bios.length).toBeLessThanOrEqual(13);
     }
     expect(ROLES.length).toBeLessThanOrEqual(RAMP_BASE - 16);
@@ -41,7 +41,7 @@ describe('tubes', () => {
     is(INK.tmBright, 1);
     is(INK.tmBg, 0);
     // Pictures: each intensity on the ramp within half a step of what it was.
-    for (const v of [0, 60, 128, 200, 255]) expect(colour('p1', GREY[v])[1]).toBeCloseTo(v / 255, 2);
+    for (const v of [0, 60, 128, 200, 255]) expect(Math.abs(colour('p1', GREY[v])[1] - v / 255)).toBeLessThanOrEqual(0.5 / (RAMP_STEPS - 1) + 1e-6);
   });
 
   it('mixes one palette into another', () => {

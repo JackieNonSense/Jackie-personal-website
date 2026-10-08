@@ -1,4 +1,4 @@
-import { RAMP_BASE, RAMP_STEPS, ROLES, INK, WEB, WEB_COLOURS, type Role, type WebColour } from './palette';
+import { COLOUR_BASE, COLOUR_LEVELS, RAMP_BASE, RAMP_STEPS, ROLES, INK, WEB, WEB_COLOURS, type Role, type WebColour } from './palette';
 import type { Text } from '../system/i18n';
 
 /*
@@ -211,6 +211,12 @@ function normalised(c: Rgb, saturation: number): Rgb {
 
 const smoothstep = (a: number, b: number, x: number) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
 
+/** The colour cube's colours, linear: red slowest, blue fastest, as palette.cube() counts. */
+const CUBE: Rgb[] = Array.from({ length: COLOUR_LEVELS ** 3 }, (_, i) => {
+  const level = (k: number) => toLinear(k / (COLOUR_LEVELS - 1));
+  return [level(Math.floor(i / COLOUR_LEVELS ** 2)), level(Math.floor(i / COLOUR_LEVELS) % COLOUR_LEVELS), level(i % COLOUR_LEVELS)] as unknown as Rgb;
+});
+
 function build(spec: ThemeSpec): Theme {
   const palette = new Float32Array(256 * 4);
   const set = (i: number, c: Rgb) => { palette.set([c[0], c[1], c[2], 1], i * 4); };
@@ -221,6 +227,7 @@ function build(spec: ThemeSpec): Theme {
     for (const role of ROLES) set(INK[role], at(spec.levels[role]));
     for (let i = 0; i < RAMP_STEPS; i++) set(RAMP_BASE + i, at(i / (RAMP_STEPS - 1)));
     for (const name of Object.keys(WEB_COLOURS) as WebColour[]) set(WEB[name], at(Math.sqrt(luminance(hex(WEB_COLOURS[name])))));
+    CUBE.forEach((c, i) => set(COLOUR_BASE + i, at(Math.sqrt(luminance(c)))));
   } else {
     spec.hardware.forEach((h, i) => set(i, hex(h)));
     for (const role of ROLES) set(INK[role], hex(spec.roles[role]));
@@ -232,6 +239,8 @@ function build(spec: ThemeSpec): Theme {
     }
     // The web is the web on any colour tube.
     for (const name of Object.keys(WEB_COLOURS) as WebColour[]) set(WEB[name], hex(WEB_COLOURS[name]));
+    // Colour pictures, too, keep their colours on any colour tube.
+    CUBE.forEach((c, i) => set(COLOUR_BASE + i, c));
   }
   const white = spec.kind === 'mono' ? luminance(spec.phosphor) : 1;
   const srgb = new Uint32Array(256), level = new Uint8Array(256);

@@ -1,5 +1,5 @@
 import { GLYPH_H, GLYPH_W, charWidth, glyphCode } from '../crt/font';
-import { GREY, grey } from '../crt/palette';
+import { GREY, cube, grey } from '../crt/palette';
 import { H, W, type Picture } from './bitmap';
 
 /*
@@ -27,6 +27,8 @@ export function hash(n: number): number {
 }
 
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map(v => (v + 0.5) / 16);
+/** Scratch for Frame.picture: the picture's column under each column of the screen. */
+const columns = new Int32Array(W);
 
 // ── The frame ────────────────────────────────────────────────────────────────
 
@@ -125,15 +127,26 @@ export class Frame {
     for (let x = -(run % period); x < W; x += period) this.text(x, y, s, v, k);
   }
 
-  /** A picture's `src` part (default all of it) into `dst`, through the picture ramp; `lift` brightens, `gain` scales. */
+  /** A picture's `src` part (default all of it) into `dst`, through the picture ramp (or the colour cube, for a colour picture); `lift` brightens, `gain` scales. */
   picture(p: Picture, dst: { x: number; y: number; w: number; h: number }, src = { x: 0, y: 0, w: p.width, h: p.height }, gain = 1, lift = 0): void {
+    const c = p.rgb;
     const x0 = Math.max(0, Math.round(dst.x)), x1 = Math.min(W, Math.round(dst.x + dst.w));
     const y0 = Math.max(0, Math.round(dst.y)), y1 = Math.min(H, Math.round(dst.y + dst.h));
+    if (x1 <= x0) return;
+    // Which column of the picture each column of the screen shows, worked out once.
+    for (let x = x0; x < x1; x++) columns[x - x0] = Math.min(p.width - 1, Math.max(0, Math.floor(src.x + ((x - dst.x) / dst.w) * src.w)));
     for (let y = y0; y < y1; y++) {
       const sy = Math.min(p.height - 1, Math.max(0, Math.floor(src.y + ((y - dst.y) / dst.h) * src.h)));
+      const row = sy * p.width;
       for (let x = x0; x < x1; x++) {
-        const sx = Math.min(p.width - 1, Math.max(0, Math.floor(src.x + ((x - dst.x) / dst.w) * src.w)));
-        const v = p.data[sy * p.width + sx] * gain + lift;
+        const i = row + columns[x - x0];
+        if (c) {
+          // Colour: gain and lift worked on each primary, then the cube's dither.
+          const r = c[i * 3] * gain + lift, g = c[i * 3 + 1] * gain + lift, bl = c[i * 3 + 2] * gain + lift;
+          this.b[y * W + x] = cube(r, g, bl, x, y);
+          continue;
+        }
+        const v = p.data[i] * gain + lift;
         this.b[y * W + x] = GREY[v < 0 ? 0 : v > 255 ? 255 : v | 0];
       }
     }

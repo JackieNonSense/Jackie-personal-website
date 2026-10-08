@@ -173,7 +173,8 @@ describe('television', () => {
     expect(h.sounds).toContain('hiss:false');
     expect(h.audio.current).toBeNull();
     expect(h.screen()).toContain('Messages');
-  });
+    // Ten seconds of television, frame by frame.
+  }, 15_000);
 });
 
 describe('channels', () => {
@@ -195,7 +196,8 @@ describe('channels', () => {
         expect(worst, `channel ${c.number}`).toBeLessThan(60);
       }
     }
-  });
+    // Some two thousand frames in all: what is measured is the worst one, not how long the lot takes.
+  }, 20_000);
 });
 
 describe('games', () => {

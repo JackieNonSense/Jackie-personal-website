@@ -16,27 +16,28 @@ export type Photo = {
   live?: boolean;
 };
 
-const url = (id: string) => `/terminal/photos/${id}.png`;
+/** The photographs made from colour masters are JPEGs; the rest are prepared greyscale PNGs. */
+const url = (id: string, ext: 'png' | 'jpg' = 'png') => `/terminal/photos/${id}.${ext}`;
 
 export const PHOTOS: Record<string, Photo> = {
-  workshop: { url: url('workshop'), taken: '2029-09-10 18:05' },
-  desk: { url: url('desk'), taken: '2029-09-14 16:20' },
-  window: { url: url('window'), taken: '2029-10-03 01:40' },
-  moth: { url: url('moth'), taken: '2029-11-02 22:15' },
-  expo_01: { url: url('expo_01'), taken: '2029-07-14 10:32' },
-  expo_02: { url: url('expo_02'), taken: '2029-07-14 10:32' },
+  workshop: { url: url('workshop', 'jpg'), taken: '2029-09-10 18:05' },
+  desk: { url: url('desk', 'jpg'), taken: '2029-09-14 16:20' },
+  window: { url: url('window', 'jpg'), taken: '2029-10-03 01:40' },
+  moth: { url: url('moth', 'jpg'), taken: '2029-11-02 22:15' },
+  expo_01: { url: url('expo_01', 'jpg'), taken: '2029-07-14 10:32' },
+  expo_02: { url: url('expo_02', 'jpg'), taken: '2029-07-14 10:32' },
   rooms: { url: url('rooms'), taken: '2030-04-02 03:07' },
   print: { url: url('print'), taken: '2030-06-11 19:12' },
-  room_001: { url: url('room_001'), taken: '2030-06-30 03:07' },
-  room_002: { url: url('room_002'), taken: '2030-07-02 03:07' },
-  room_003: { url: url('room_003'), taken: '2030-07-06 03:07' },
-  room_004: { url: url('room_004'), taken: '2030-07-09 03:07' },
-  room_005: { url: url('room_005'), taken: '2030-07-13 03:07', stall: 0.62 },
-  room_006: { url: url('room_006'), taken: '2030-07-16 03:07' },
-  room_007: { url: url('room_007'), taken: '2030-07-19 03:07' },
-  room_008: { url: url('room_008'), taken: '2030-08-02 03:07', stall: 0.4 },
-  room_009: { url: url('room_009'), taken: '2030-08-11 03:07' },
-  room_010: { url: url('room_010'), taken: 'now', live: true },
+  room_001: { url: url('room_001', 'jpg'), taken: '2030-06-30 03:07' },
+  room_002: { url: url('room_002', 'jpg'), taken: '2030-07-02 03:07' },
+  room_003: { url: url('room_003', 'jpg'), taken: '2030-07-06 03:07' },
+  room_004: { url: url('room_004', 'jpg'), taken: '2030-07-09 03:07' },
+  room_005: { url: url('room_005', 'jpg'), taken: '2030-07-13 03:07', stall: 0.62 },
+  room_006: { url: url('room_006', 'jpg'), taken: '2030-07-16 03:07' },
+  room_007: { url: url('room_007', 'jpg'), taken: '2030-07-19 03:07' },
+  room_008: { url: url('room_008', 'jpg'), taken: '2030-08-02 03:07', stall: 0.4 },
+  room_009: { url: url('room_009', 'jpg'), taken: '2030-08-11 03:07' },
+  room_010: { url: url('room_010', 'jpg'), taken: 'now', live: true },
 };
 
 /** Where the monitor's screen lies in the ROOM pictures (from the renderer). */

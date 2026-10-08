@@ -1,6 +1,6 @@
 import { ATTR, clearGrid } from '../../crt/grid';
 import { RASTER_H, RASTER_W } from '../../crt/raster';
-import { H, W, drawText, fillRect, type Picture } from '../../graphics/bitmap';
+import { H, W, drawText, fillRect, pixel, type Picture } from '../../graphics/bitmap';
 import { GREY, grey } from '../../crt/palette';
 import { statusBar, strWidth, text } from '../screen';
 import { ButtonTracker, closeBox, drawButtons } from '../gui/overlay';
@@ -129,7 +129,7 @@ export class PicViewApp implements App {
       if (ty < 0 || ty >= H) continue;
       for (let x = 0; x < p.width; x++) {
         const tx = ox + x;
-        if (tx >= 0 && tx < W) b[ty * W + tx] = GREY[p.data[y * p.width + x]];
+        if (tx >= 0 && tx < W) b[ty * W + tx] = pixel(p, y * p.width + x, tx, ty);
       }
     }
     // The line being read, bright for an instant.
@@ -171,7 +171,12 @@ export class PicViewApp implements App {
         const [u, v] = apply(back, px, py);
         let value: number;
         if (u >= 0 && u < 1 && v >= 0 && v < 1) value = 26 + live.page[Math.floor(v * RASTER_H) * RASTER_W + Math.floor(u * RASTER_W)] * 0.75;
-        else value = photo.data[Math.min(photo.height - 1, Math.max(0, Math.floor(py))) * photo.width + Math.min(photo.width - 1, Math.max(0, Math.floor(px)))];
+        else {
+          const at = Math.min(photo.height - 1, Math.max(0, Math.floor(py))) * photo.width + Math.min(photo.width - 1, Math.max(0, Math.floor(px)));
+          // The room around the screen keeps its colour.
+          if (photo.rgb) { b[y * W + x] = pixel(photo, at, x, y); continue; }
+          value = photo.data[at];
+        }
         // The grain of a picture blown up past what it holds.
         seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5; seed >>>= 0;
         b[y * W + x] = GREY[Math.max(0, Math.min(255, Math.round(value + ((seed & 31) - 16) * e)))];
@@ -240,7 +245,7 @@ function seenScreen(m: Machine): { page: Uint8Array; u: number; v: number } {
 /** The picture with that page painted into the monitor in it, seen from the corner of the room. */
 function withScreen(p: Picture, quad: [number, number][], page: Uint8Array): Picture {
   const toQuad = homography(quad), fromQuad = invert(toQuad);
-  const data = p.data.slice();
+  const data = p.data.slice(), rgb = p.rgb?.slice();
   const xs = quad.map(q => q[0]), ys = quad.map(q => q[1]);
   const x0 = Math.max(0, Math.floor(Math.min(...xs))), x1 = Math.min(p.width - 1, Math.ceil(Math.max(...xs)));
   const y0 = Math.max(0, Math.floor(Math.min(...ys))), y1 = Math.min(p.height - 1, Math.ceil(Math.max(...ys)));
@@ -251,9 +256,12 @@ function withScreen(p: Picture, quad: [number, number][], page: Uint8Array): Pic
     const sx = Math.floor(u * (RASTER_W - 2)), sy = Math.floor(v * (RASTER_H - 2));
     const i = sy * RASTER_W + sx;
     const lit = (page[i] + page[i + 1] + page[i + RASTER_W] + page[i + RASTER_W + 1]) / 4;
-    data[y * p.width + x] = Math.min(255, Math.round(50 + lit * 0.75));
+    const at = y * p.width + x, value = Math.min(255, Math.round(50 + lit * 0.75));
+    data[at] = value;
+    // In a colour photograph the tube glows a little cold, as the one in the picture does.
+    if (rgb) { rgb[at * 3] = value * 0.86; rgb[at * 3 + 1] = value * 0.93; rgb[at * 3 + 2] = value; }
   }
-  return { width: p.width, height: p.height, data };
+  return { width: p.width, height: p.height, data, rgb };
 }
 
 type Mat = number[];

@@ -6,13 +6,18 @@
  *
  *   0..15    the 16 hardware colours, in VGA order (0 black, 7 light grey, 15 white)
  *   16..63   roles: the desk, window faces, title bars, text mode's attributes
- *   64..191  a ramp for pictures, 128 steps from black to the brightest the tube shows
+ *   64..127  a ramp for pictures, 64 steps (a VGA card's own depth) from black to the brightest the tube shows
+ *   128..191 colour pictures: four levels each of red, green and blue, which pictures reach
+ *            through an ordered dither, as a VGA card's 256-colour mode showed photographs
  *   192..255 the web's own colours (the pages NAVIGATOR shows were made in them)
  */
 export const ROLE_BASE = 16;
 export const RAMP_BASE = 64;
+export const COLOUR_BASE = 128;
 export const WEB_BASE = 192;
-export const RAMP_STEPS = WEB_BASE - RAMP_BASE;
+export const RAMP_STEPS = COLOUR_BASE - RAMP_BASE;
+/** Levels of each primary in the colour cube. */
+export const COLOUR_LEVELS = 4;
 
 /** The 16 hardware colours by name, for pictures and games drawn in them. */
 export const HW = {
@@ -65,3 +70,16 @@ export const WEB = Object.fromEntries(Object.keys(WEB_COLOURS).map((name, i) => 
 /** Picture intensity (0..255, what pictures are stored as) to its index on the ramp. */
 export const GREY = Uint8Array.from({ length: 256 }, (_, v) => RAMP_BASE + Math.round((v * (RAMP_STEPS - 1)) / 255));
 export const grey = (v: number): number => GREY[Math.max(0, Math.min(255, Math.round(v)))];
+
+const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map(v => (v + 0.5) / 16);
+
+/**
+ * A colour picture's pixel (sRGB, 0..255 each) at screen position (x, y), as its index
+ * in the colour cube: each primary rounded up or down by a 4 x 4 pattern fixed to the
+ * screen, so flat areas cross-hatch the way they did on a VGA card.
+ */
+export function cube(r: number, g: number, b: number, x: number, y: number): number {
+  const t = BAYER[(y & 3) * 4 + (x & 3)], top = COLOUR_LEVELS - 1;
+  const q = (v: number) => { const k = Math.floor((v * top) / 255 + t); return k < 0 ? 0 : k > top ? top : k; };
+  return COLOUR_BASE + q(r) * COLOUR_LEVELS * COLOUR_LEVELS + q(g) * COLOUR_LEVELS + q(b);
+}

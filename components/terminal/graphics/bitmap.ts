@@ -1,6 +1,6 @@
 import { GLYPH_H, GLYPH_W, glyphCells } from '../crt/font';
 import { RASTER_H, RASTER_W } from '../crt/raster';
-import { GREY, HW, grey, ink, type Ink } from '../crt/palette';
+import { GREY, HW, cube, grey, ink, type Ink } from '../crt/palette';
 
 /**
  * The graphics page: 640 x 400 palette indices (crt/palette.ts), row 0 at the top.
@@ -12,7 +12,18 @@ export const W = RASTER_W;
 export const H = RASTER_H;
 export const LEVELS = [0, 104, 188, 255] as const;
 
-export type Picture = { width: number; height: number; data: Uint8Array };
+/**
+ * A picture: `data` is its brightness, linear, 0..255, which is all a monochrome tube
+ * or the picture ramp needs. A colour picture also keeps `rgb`, three sRGB bytes a
+ * pixel, which colour tubes show through the colour cube.
+ */
+export type Picture = { width: number; height: number; data: Uint8Array; rgb?: Uint8Array };
+
+/** One pixel of `p` as a palette index at screen (x, y): colour through the cube, or grey through the ramp. */
+export function pixel(p: Picture, i: number, x: number, y: number): number {
+  const c = p.rgb;
+  return c ? cube(c[i * 3], c[i * 3 + 1], c[i * 3 + 2], x, y) : GREY[p.data[i]];
+}
 
 export function fillRect(b: Uint8Array, x: number, y: number, w: number, h: number, colour: Ink): void {
   const v = ink(colour);
@@ -61,16 +72,36 @@ export function blit(b: Uint8Array, p: Picture, x: number, y: number): void {
     if (ty < 0 || ty >= H) continue;
     for (let px = 0; px < p.width; px++) {
       const tx = x + px;
-      if (tx >= 0 && tx < W) b[ty * W + tx] = GREY[p.data[py * p.width + px]];
+      if (tx >= 0 && tx < W) b[ty * W + tx] = pixel(p, py * p.width + px, tx, ty);
     }
   }
 }
 
-/** Decodes a prepared picture from RGBA pixels (the red channel carries the level). */
+const LINEAR = Float64Array.from({ length: 256 }, (_, v) => { const c = v / 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; });
+
+/**
+ * Decodes a picture from RGBA pixels. A grey one is a prepared level picture (the red
+ * channel carries the level, as before). One with colour in it is an ordinary sRGB
+ * image: it keeps its colours, and its brightness is worked out in linear light.
+ */
 export function pictureFromRgba(rgba: Uint8ClampedArray, width: number, height: number): Picture {
-  const data = new Uint8Array(width * height);
-  for (let i = 0; i < data.length; i++) data[i] = rgba[i * 4];
-  return { width, height, data };
+  const n = width * height, data = new Uint8Array(n);
+  let coloured = false;
+  for (let i = 0; i < n && !coloured; i++) {
+    const r = rgba[i * 4], g = rgba[i * 4 + 1], b = rgba[i * 4 + 2];
+    if (Math.abs(r - g) > 2 || Math.abs(g - b) > 2) coloured = true;
+  }
+  if (!coloured) {
+    for (let i = 0; i < n; i++) data[i] = rgba[i * 4];
+    return { width, height, data };
+  }
+  const rgb = new Uint8Array(n * 3);
+  for (let i = 0; i < n; i++) {
+    const r = rgba[i * 4], g = rgba[i * 4 + 1], b = rgba[i * 4 + 2];
+    rgb[i * 3] = r; rgb[i * 3 + 1] = g; rgb[i * 3 + 2] = b;
+    data[i] = Math.round(255 * (0.2126 * LINEAR[r] + 0.7152 * LINEAR[g] + 0.0722 * LINEAR[b]));
+  }
+  return { width, height, data, rgb };
 }
 
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];

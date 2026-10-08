@@ -47,7 +47,7 @@ const STORIES: Story[] = [
   {
     id: 'moth', kind: t('MISSING', '寻人'), date: '2030-04-03',
     title: t('Has anyone heard from MOTH lately?', '有人最近收到 MOTH 的消息吗？'),
-    img: blue(`${PHOTOS}moth.png`),
+    img: blue(`${PHOTOS}moth.jpg`),
     body: [
       text(t('MOTH made small games with no capital letters in them. His last post in his own voice was in March: going to the rooms for a bit, see you on teh other side.', 'MOTH 做一些很小的游戏，文字里一个大写字母都没有。他最后一次用自己的口气发帖是三月：去房间待一阵，在见。')),
       text(t('His account still posts every day. If you have spoken to him, to him, since then, a thread is open on Night Ferry.', '他的账号现在每天都还在发帖。三月以后，如果你和他本人说过话，夜航船上有一个帖子。')),

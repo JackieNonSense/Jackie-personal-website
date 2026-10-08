@@ -1,6 +1,6 @@
 import { GLYPH_H, GLYPH_W, charWidth, glyphCode } from '../../crt/font';
-import { GREY, ink, type Ink } from '../../crt/palette';
-import type { Picture } from '../../graphics/bitmap';
+import { ink, type Ink } from '../../crt/palette';
+import { pixel, type Picture } from '../../graphics/bitmap';
 import { intersect, type Rect } from './geometry';
 
 /**
@@ -274,7 +274,7 @@ export class Gfx {
       const py = Math.min(p.height - 1, Math.floor((ry - top) / kk));
       for (let rx = c.x * s; rx < (c.x + c.w) * s; rx++) {
         const px = Math.min(p.width - 1, Math.floor((rx - left) / kk));
-        this.page[ry * W + rx] = GREY[p.data[py * p.width + px]];
+        this.page[ry * W + rx] = pixel(p, py * p.width + px, rx, ry);
       }
     }
     return at;
